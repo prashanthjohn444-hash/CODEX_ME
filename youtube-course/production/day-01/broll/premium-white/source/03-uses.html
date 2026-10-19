@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1920"><title>One language. Many directions.</title><link rel="stylesheet" href="style.css"><script src="assets/gsap.min.js"></script></head><body>
+<main id="root" data-composition-id="root" data-start="0" data-duration="33.57" data-width="1920" data-height="1080" data-fps="30">
+<div class="stage"><div class="hf-dynamic-grid" data-layout-ignore aria-hidden="true"></div><div class="wash" data-layout-ignore></div>
+<div class="content"><div class="kicker"><div class="brand"><span class="brand-mark"></span>PYTHON / DAY 01</div><div class="meta">TECHNICAL FIELD NOTE · 03</div></div>
+<header class="header"><h1>One language. Many directions.</h1><div class="deck">Automation, data and web start with a simple instruction.</div><div class="header-rule"></div></header>
+<section class="canvas"><div class="three"><div class="panel reveal"><div class="num">01 / REPEAT</div><h2>AUTOMATION</h2><div class="big">Do a task<br>reliably.</div><div class="eyeline"></div><div class="subtitle">input → steps → result</div></div><div class="panel reveal"><div class="num">02 / UNDERSTAND</div><h2>DATA</h2><div class="big">Find patterns<br>in values.</div><div class="eyeline"></div><div class="subtitle">numbers → insight</div></div><div class="panel reveal"><div class="num">03 / CONNECT</div><h2>WEB</h2><div class="big">Respond to<br>a request.</div><div class="eyeline"></div><div class="subtitle">request → response</div></div></div><div class="strip reveal">AI is another destination. <b>Today: run one file and explain its output.</b></div></section></div>
+<div class="stage-meta"><span>PYTHON FOUNDATIONS</span><span>01 / READ • TEST • REPEAT</span></div></div></main>
+<script>const tl=gsap.timeline({paused:true});const reveals=Array.from(document.querySelectorAll('.reveal'));
+tl.fromTo('.header',{opacity:0,y:12},{opacity:1,y:0,duration:.58,ease:'power2.out'},0);
+tl.fromTo('.header-rule',{scaleX:0},{scaleX:1,duration:.78,ease:'power3.out'},.18);
+tl.fromTo(reveals[0],{opacity:0,y:17},{opacity:1,y:0,duration:.62,ease:'power2.out'},2.2);
+tl.fromTo(reveals[1],{opacity:0,y:17},{opacity:1,y:0,duration:.62,ease:'power2.out'},8.7);
+tl.fromTo(reveals[2],{opacity:0,y:17},{opacity:1,y:0,duration:.62,ease:'power2.out'},15.1);
+tl.fromTo(reveals[3],{opacity:0,y:17},{opacity:1,y:0,duration:.62,ease:'power2.out'},25.1);
+tl.fromTo('.hf-dynamic-grid',{'--hf-grid-x':'0px','--hf-grid-y':'0px'},{'--hf-grid-x':'28px','--hf-grid-y':'-14px',duration:33.57,ease:'none'},0);
+window.__timelines=window.__timelines||{};window.__timelines.root=tl;</script></body></html>

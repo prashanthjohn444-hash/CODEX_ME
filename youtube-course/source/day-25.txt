@@ -1,0 +1,1214 @@
+
+Pandas
+
+Pandas is an open source, high-performance, easy-to-use data structures and data analysis tools for the Python programming language.
+Pandas adds data structures and tools designed to work with table-like data which is Series and Data Frames.
+Pandas provides tools for data manipulation:
+
+
+reshaping
+
+merging
+
+sorting
+
+slicing
+
+aggregation
+
+imputation
+
+
+If you are using Anaconda, you do not have to install pandas.
+
+Installing Pandas
+
+For Mac:
+terminal
+pip install conda
+conda install pandas
+
+
+For Windows:
+terminal
+pip install conda
+pip install pandas
+
+
+You can also install pandas alone with pip install pandas.
+
+Pandas data structure is based on Series and DataFrames.
+
+A series is a column and a DataFrame is a multidimensional table made up of a collection of series. In order to create a pandas series we should use numpy to create a one dimensional array or a python list.
+
+Importing Pandas
+example.py
+import pandas as pd  # importing pandas as pd
+import numpy as np   # importing numpy as np
+
+
+Series
+
+As you can see from the tables below, a pandas series is just one column of data. If we want to have multiple columns we use data frames.
+
+Names / countries / cities (from the pictures)
+
+These three tables are the series pictures from the original lesson, written as markdown.
+
+Names Pandas Series
+
+
+
+
+  
+  Name
+
+
+
+
+
+  0
+  Asabeneh
+
+
+
+  1
+  David
+
+
+
+  2
+  John
+
+
+
+
+Countries Series
+
+
+
+
+  
+  Country
+
+
+
+
+
+  0
+  Finland
+
+
+
+  1
+  UK
+
+
+
+  2
+  Sweden
+
+
+
+
+Cities Series
+
+
+
+
+  
+  City
+
+
+
+
+
+  0
+  Helsinki
+
+
+
+  1
+  London
+
+
+
+  2
+  Stockholm
+
+
+
+
+Same three series as code. Example names in the walk-through use Priya / Arjun / Maya. The picture tables above keep the original names.
+example.py
+import pandas as pd
+
+names = pd.Series(['Priya', 'Arjun', 'Maya'])
+countries = pd.Series(['India', 'UK', 'Sweden'])
+cities = pd.Series(['Hyderabad', 'London', 'Stockholm'])
+print(names)
+print(countries)
+print(cities)
+
+
+View:
+output.txt
+0    Priya
+1    Arjun
+2     Maya
+dtype: str
+
+0      India
+1         UK
+2     Sweden
+dtype: str
+
+0    Hyderabad
+1       London
+2    Stockholm
+dtype: str
+
+
+The numbered walk-through below uses structured numbers (10, 20, 30, 40, 50) so you can follow the values easily.
+
+1. Creating Pandas Series with Default Index
+example.py
+nums = [10, 20, 30, 40, 50]
+s = pd.Series(nums)
+print(s)
+
+
+View:
+output.txt
+0    10
+1    20
+2    30
+3    40
+4    50
+dtype: int64
+
+
+The left column is the index (0 to 4). The right column is the data. dtype: int64 means the values are integers.
+
+The original lesson used [1, 2, 3, 4, 5]. Same syntax:
+example.py
+nums = [1, 2, 3, 4, 5]
+s = pd.Series(nums)
+print(s)
+
+
+View:
+output.txt
+0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64
+
+
+2. Creating Pandas Series with custom index
+example.py
+nums = [10, 20, 30, 40, 50]
+s = pd.Series(nums, index=[1, 2, 3, 4, 5])
+print(s)
+
+
+View:
+output.txt
+1    10
+2    20
+3    30
+4    40
+5    50
+dtype: int64
+
+
+The index is now 1 to 5, not 0 to 4. The values did not change.
+
+Custom index with text labels:
+example.py
+fruits = ['Orange', 'Banana', 'Mango']
+fruits = pd.Series(fruits, index=[1, 2, 3])
+print(fruits)
+
+
+View:
+output.txt
+1    Orange
+2    Banana
+3     Mango
+dtype: str
+
+
+3. Creating Pandas Series from a Dictionary
+
+Dictionary keys become the index. Dictionary values become the data.
+example.py
+dct = {'name': 'Priya', 'country': 'India', 'city': 'Hyderabad'}
+s = pd.Series(dct)
+print(s)
+
+
+View:
+output.txt
+name           Priya
+country        India
+city       Hyderabad
+dtype: str
+
+
+4. Creating a Constant Pandas Series
+
+One value, repeated for every index.
+example.py
+s = pd.Series(10, index=[1, 2, 3])
+print(s)
+
+
+View:
+output.txt
+1    10
+2    10
+3    10
+dtype: int64
+
+
+5. Creating a Pandas Series Using Linspace
+
+np.linspace(start, end, items) makes evenly spaced numbers. The original lesson used linspace(5, 20, 10).
+example.py
+s = pd.Series(np.linspace(5, 20, 10))  # linspace(starting, end, items)
+print(s)
+
+
+View:
+output.txt
+0     5.000000
+1     6.666667
+2     8.333333
+3    10.000000
+4    11.666667
+5    13.333333
+6    15.000000
+7    16.666667
+8    18.333333
+9    20.000000
+dtype: float64
+
+
+Structured set 10 to 50 in five steps:
+example.py
+s = pd.Series(np.linspace(10, 50, 5))
+print(s)
+
+
+View:
+output.txt
+0    10.0
+1    20.0
+2    30.0
+3    40.0
+4    50.0
+dtype: float64
+
+
+DataFrames
+
+Pandas data frames can be created in different ways. A data frame is a collection of rows and columns.
+
+Tables from the pictures
+
+Small data frame (three series side by side):
+
+
+
+
+  
+  Name
+  Country
+  City
+
+
+
+
+
+  0
+  Asabeneh
+  Finland
+  Helsinki
+
+
+
+  1
+  David
+  UK
+  London
+
+
+
+  2
+  John
+  Sweden
+  Stockholm
+
+
+
+
+Wider data frame (more columns than the example above):
+
+
+
+
+  
+  Name
+  Country
+  City
+  Weight
+  Height
+
+
+
+
+
+  0
+  Asabeneh
+  Finland
+  Helsinki
+  74
+  173
+
+
+
+  1
+  David
+  UK
+  London
+  78
+  175
+
+
+
+  2
+  John
+  Sweden
+  Stockholm
+  69
+  169
+
+
+
+
+Those two tables are the original pictures, transcribed. The code below uses Priya / Arjun / Maya and the same Weight / Height numbers.
+
+6. Creating DataFrames from List of Lists
+example.py
+data = [
+    ['Priya', 'India', 'Hyderabad'],
+    ['Arjun', 'UK', 'London'],
+    ['Maya', 'Sweden', 'Stockholm']
+]
+df = pd.DataFrame(data, columns=['Names', 'Country', 'City'])
+print(df)
+
+
+View:
+output.txt
+   Names Country       City
+0  Priya   India  Hyderabad
+1  Arjun      UK     London
+2   Maya  Sweden  Stockholm
+
+
+7. Creating DataFrame Using Dictionary
+
+Each key is a column name. Each value is the list of cells in that column.
+example.py
+data = {
+    'Name': ['Priya', 'Arjun', 'Maya'],
+    'Country': ['India', 'UK', 'Sweden'],
+    'City': ['Hyderabad', 'London', 'Stockholm']
+}
+df = pd.DataFrame(data)
+print(df)
+
+
+View:
+output.txt
+    Name Country       City
+0  Priya   India  Hyderabad
+1  Arjun      UK     London
+2   Maya  Sweden  Stockholm
+
+
+8. Creating DataFrames from a List of Dictionaries
+
+Each dictionary is one row. Keys become column names.
+example.py
+data = [
+    {'Name': 'Priya', 'Country': 'India', 'City': 'Hyderabad'},
+    {'Name': 'Arjun', 'Country': 'UK', 'City': 'London'},
+    {'Name': 'Maya', 'Country': 'Sweden', 'City': 'Stockholm'}
+]
+df = pd.DataFrame(data)
+print(df)
+
+
+View:
+output.txt
+    Name Country       City
+0  Priya   India  Hyderabad
+1  Arjun      UK     London
+2   Maya  Sweden  Stockholm
+
+
+Reading CSV File Using Pandas
+
+To download the CSV file, the console / command line is enough:
+terminal
+curl -O https://raw.githubusercontent.com/Asabeneh/30-Days-Of-Python/master/data/weight-height.csv
+
+
+Put the downloaded file in your working directory, or read it from the course data folder. Do not change this relative path:
+example.py
+import pandas as pd
+
+df = pd.read_csv('../../data/weight-height.csv')
+print(df)
+
+
+The file has 10 000 rows, so print(df) shows the first and last rows with ... in the middle.
+
+Data Exploration
+
+9. read_csv()
+
+read_csv(path) loads a comma-separated file into a DataFrame.
+example.py
+df = pd.read_csv('../../data/weight-height.csv')
+print(type(df))
+
+
+View:
+output.txt
+<class 'pandas.DataFrame'>
+
+
+If you downloaded the file into the current folder instead, use pd.read_csv('weight-height.csv'). Same columns either way.
+
+10. head()
+
+Let us read only the first 5 rows using head(). We can increase the number of rows by passing an argument to head().
+example.py
+print(df.head())
+
+
+View:
+output.txt
+  Gender     Height      Weight
+0   Male  73.847017  241.893563
+1   Male  68.781904  162.310473
+2   Male  74.110105  212.740856
+3   Male  71.730978  220.042470
+4   Male  69.881796  206.349801
+
+
+df.head(10) would show ten rows.
+
+11. tail()
+
+Let us also explore the last recordings of the dataframe using the tail() method. tail() gives the last five rows. We can increase the rows by passing an argument.
+example.py
+print(df.tail())
+
+
+View:
+output.txt
+      Gender     Height      Weight
+9995  Female  66.172652  136.777454
+9996  Female  67.067155  170.867906
+9997  Female  63.867992  128.475319
+9998  Female  69.034243  163.852461
+9999  Female  61.944246  113.649103
+
+
+As you can see the csv file has three columns: Gender, Height and Weight.
+
+12. shape
+
+If the DataFrame has many rows, it is hard to know the size by eye. Use shape.
+example.py
+print(df.shape)  # as you can see 10000 rows and three columns
+
+
+View:
+output.txt
+(10000, 3)
+
+
+shape is a tuple: (rows, columns). It is not a method — no parentheses.
+
+13. columns
+
+Let us get all the columns using columns.
+example.py
+print(df.columns)
+
+
+View:
+output.txt
+Index(['Gender', 'Height', 'Weight'], dtype='object')
+
+
+14. Column as a Series
+
+Now, let us get a specific column using the column key. This is now a series.
+example.py
+heights = df['Height']
+print(heights)
+
+
+View:
+output.txt
+0       73.847017
+1       68.781904
+2       74.110105
+3       71.730978
+4       69.881796
+            ...
+9995    66.172652
+9996    67.067155
+9997    63.867992
+9998    69.034243
+9999    61.944246
+Name: Height, Length: 10000, dtype: float64
+
+example.py
+weights = df['Weight']  # this is now a series
+print(weights)
+
+
+View:
+output.txt
+0       241.893563
+1       162.310473
+2       212.740856
+3       220.042470
+4       206.349801
+               ...
+9995    136.777454
+9996    170.867906
+9997    128.475319
+9998    163.852461
+9999    113.649103
+Name: Weight, Length: 10000, dtype: float64
+
+example.py
+print(len(heights) == len(weights))
+
+
+View:
+output.txt
+True
+
+
+Both series have 10 000 values, one per row.
+
+15. describe()
+
+The describe() method provides descriptive statistical values of a dataset.
+example.py
+print(heights.describe())  # give statistical information about height data
+
+
+View:
+output.txt
+count    10000.000000
+mean        66.367560
+std          3.847528
+min         54.263133
+25%         63.505620
+50%         66.318070
+75%         69.174262
+max         78.998742
+Name: Height, dtype: float64
+
+example.py
+print(weights.describe())
+
+
+View:
+output.txt
+count    10000.000000
+mean       161.440357
+std         32.108439
+min         64.700127
+25%        135.818051
+50%        161.212928
+75%        187.169525
+max        269.989699
+Name: Weight, dtype: float64
+
+
+describe() can also give statistical information from a DataFrame:
+example.py
+print(df.describe())
+
+
+View:
+
+
+
+
+  
+  Height
+  Weight
+
+
+
+
+
+  count
+  10000.000000
+  10000.000000
+
+
+
+  mean
+  66.367560
+  161.440357
+
+
+
+  std
+  3.847528
+  32.108439
+
+
+
+  min
+  54.263133
+  64.700127
+
+
+
+  25%
+  63.505620
+  135.818051
+
+
+
+  50%
+  66.318070
+  161.212928
+
+
+
+  75%
+  69.174262
+  187.169525
+
+
+
+  max
+  78.998742
+  269.989699
+
+
+
+
+count is how many values. mean is the average. std is standard deviation. min / max are the extremes. 25%, 50%, 75% are quartiles (50% is the median).
+
+16. info()
+
+Similar to describe(), the info() method also gives information about the dataset: column names, non-null counts, and dtypes.
+example.py
+df.info()
+
+
+View:
+output.txt
+<class 'pandas.DataFrame'>
+RangeIndex: 10000 entries, 0 to 9999
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   Gender  10000 non-null  str
+ 1   Height  10000 non-null  float64
+ 2   Weight  10000 non-null  float64
+dtypes: float64(2), str(1)
+memory usage: 283.3 KB
+
+
+Modifying a DataFrame
+
+Modifying a DataFrame:
+
+
+We can create a new DataFrame
+
+We can create a new column and add it to the DataFrame
+
+We can remove an existing column from a DataFrame
+
+We can modify an existing column in a DataFrame
+
+We can change the data type of column values in the DataFrame
+
+
+Creating a DataFrame
+
+As always, first we import the necessary packages. Now, let us import pandas and numpy.
+example.py
+import pandas as pd
+import numpy as np
+
+data = [
+    {'Name': 'Priya', 'Country': 'India', 'City': 'Hyderabad'},
+    {'Name': 'Arjun', 'Country': 'UK', 'City': 'London'},
+    {'Name': 'Maya', 'Country': 'Sweden', 'City': 'Stockholm'}
+]
+df = pd.DataFrame(data)
+print(df)
+
+
+View:
+output.txt
+    Name Country       City
+0  Priya   India  Hyderabad
+1  Arjun      UK     London
+2   Maya  Sweden  Stockholm
+
+
+Adding a column to a DataFrame is like adding a key to a dictionary.
+
+17. Adding a New Column
+
+Let us add a weight column in the DataFrame.
+example.py
+weights = [74, 78, 69]
+df['Weight'] = weights
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight
+0  Priya   India  Hyderabad      74
+1  Arjun      UK     London      78
+2   Maya  Sweden  Stockholm      69
+
+
+Let us add a height column into the DataFrame as well.
+example.py
+heights = [173, 175, 169]
+df['Height'] = heights
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height
+0  Priya   India  Hyderabad      74     173
+1  Arjun      UK     London      78     175
+2   Maya  Sweden  Stockholm      69     169
+
+
+This matches the wider picture table (same numbers, lesson names updated).
+
+As you can see in the DataFrame above, we did add new columns, Weight and Height. Let us add one additional column called BMI (Body Mass Index) by calculating BMI from mass and height. BMI is mass divided by height squared (in meters): Weight / (Height * Height).
+
+The height is in centimeters, so we should change it to meters. Let us modify the height column.
+
+18. Modifying column values
+example.py
+df['Height'] = df['Height'] * 0.01
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height
+0  Priya   India  Hyderabad      74    1.73
+1  Arjun      UK     London      78    1.75
+2   Maya  Sweden  Stockholm      69    1.69
+
+
+173 * 0.01 = 1.73. Every row is updated at once. No for loop.
+
+Using a function makes the BMI code clean, but you can calculate BMI without one.
+example.py
+def calculate_bmi():
+    weights = df['Weight']
+    heights = df['Height']
+    bmi = []
+    for w, h in zip(weights, heights):
+        b = w / (h * h)
+        bmi.append(b)
+    return bmi
+
+bmi = calculate_bmi()
+df['BMI'] = bmi
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height        BMI
+0  Priya   India  Hyderabad      74    1.73  24.725183
+1  Arjun      UK     London      78    1.75  25.469388
+2   Maya  Sweden  Stockholm      69    1.69  24.158818
+
+
+Vector form of the same formula (no loop):
+example.py
+df['BMI'] = df['Weight'] / (df['Height'] * df['Height'])
+
+
+19. Formatting DataFrame columns
+
+The BMI column values are floats with many digits after the decimal. Let us change it to one digit after the point.
+example.py
+df['BMI'] = round(df['BMI'], 1)
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height   BMI
+0  Priya   India  Hyderabad      74    1.73  24.7
+1  Arjun      UK     London      78    1.75  25.5
+2   Maya  Sweden  Stockholm      69    1.69  24.2
+
+
+The information in the DataFrame seems not yet complete. Let us add birth year and current year columns.
+example.py
+birth_year = ['1769', '1985', '1990']
+current_year = pd.Series(2020, index=[0, 1, 2])
+df['Birth Year'] = birth_year
+df['Current Year'] = current_year
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height   BMI Birth Year  Current Year
+0  Priya   India  Hyderabad      74    1.73  24.7       1769          2020
+1  Arjun      UK     London      78    1.75  25.5       1985          2020
+2   Maya  Sweden  Stockholm      69    1.69  24.2       1990          2020
+
+
+Birth Year was stored as text ('1769'). We cannot subtract text from a year until we cast it.
+
+Checking data types of Column values
+
+20. dtype and astype()
+example.py
+print(df.Weight.dtype)
+
+
+View:
+output.txt
+int64
+
+
+df.Weight is the same column as df['Weight'].
+example.py
+print(df['Birth Year'].dtype)  # it gives string object, we should change this to number
+
+
+View:
+output.txt
+str
+
+example.py
+df['Birth Year'] = df['Birth Year'].astype('int')
+print(df['Birth Year'].dtype)  # let's check the data type now
+
+
+View:
+output.txt
+int64
+
+
+Now the same for the current year:
+example.py
+df['Current Year'] = df['Current Year'].astype('int')
+print(df['Current Year'].dtype)
+
+
+View:
+output.txt
+int64
+
+
+Now the column values of birth year and current year are integers. We can calculate the age.
+example.py
+ages = df['Current Year'] - df['Birth Year']
+print(ages)
+
+
+View:
+output.txt
+0    251
+1     35
+2     30
+dtype: int64
+
+example.py
+df['Ages'] = ages
+print(df)
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height   BMI  Birth Year  Current Year  Ages
+0  Priya   India  Hyderabad      74    1.73  24.7        1769          2020   251
+1  Arjun      UK     London      78    1.75  25.5        1985          2020    35
+2   Maya  Sweden  Stockholm      69    1.69  24.2        1990          2020    30
+
+
+The person in the first row lived so far for 251 years. It is unlikely for someone to live so long. Either it is a typo or the data is cooked. So let us fill that data with the average of the columns without including the outlier.
+
+mean = (35 + 30) / 2
+example.py
+mean = (35 + 30) / 2
+print('Mean: ', mean)  # it is good to add some description to the output, so we know what is what
+
+
+View:
+output.txt
+Mean:  32.5
+
+
+21. Boolean Indexing
+
+A comparison on a column returns True / False per row. Put that series inside df[...] to keep only the matching rows.
+example.py
+print(df[df['Ages'] > 120])
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height   BMI  Birth Year  Current Year  Ages
+0  Priya   India  Hyderabad      74    1.73  24.7        1769          2020   251
+
+example.py
+print(df[df['Ages'] < 120])
+
+
+View:
+output.txt
+    Name Country       City  Weight  Height   BMI  Birth Year  Current Year  Ages
+1  Arjun      UK     London      78    1.75  25.5        1985          2020    35
+2   Maya  Sweden  Stockholm      69    1.69  24.2        1990          2020    30
+
+
+Day 25 methods in one table:
+
+
+
+
+  #
+  Method / property
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  pd.Series(data)
+  One column
+  pd.Series([10, 20, 30])
+  index + values
+
+
+
+  2
+  pd.DataFrame(data)
+  Rows and columns
+  pd.DataFrame(data)
+  table
+
+
+
+  3
+  pd.read_csv(path)
+  Load a CSV
+  pd.read_csv('../../data/weight-height.csv')
+  10000 × 3 frame
+
+
+
+  4
+  df.head(n)
+  First rows
+  df.head()
+  5 rows
+
+
+
+  5
+  df.tail(n)
+  Last rows
+  df.tail()
+  5 rows
+
+
+
+  6
+  df.shape
+  (rows, columns)
+  df.shape
+  (10000, 3)
+
+
+
+  7
+  df.columns
+  Column names
+  df.columns
+  Index(['Gender', ...])
+
+
+
+  8
+  df['Height']
+  One column as a Series
+  df['Height']
+  10000 heights
+
+
+
+  9
+  df.describe()
+  Count, mean, std, min, quartiles, max
+  df.describe()
+  stats table
+
+
+
+  10
+  df.info()
+  Dtypes and non-null counts
+  df.info()
+  3 columns, 10000 rows
+
+
+
+  11
+  df['W'] = values
+  Add or replace a column
+  df['Weight'] = [74, 78, 69]
+  new column
+
+
+
+  12
+  df['H'] = df['H'] * 0.01
+  Change every value in a column
+  df['Height'] * 0.01
+  metres
+
+
+
+  13
+  round(df['BMI'], 1)
+  Format decimals
+  round(df['BMI'], 1)
+  24.7
+
+
+
+  14
+  df['C'].dtype
+  Type of one column
+  df.Weight.dtype
+  int64
+
+
+
+  15
+  df['C'].astype('int')
+  Cast a column
+  df['Birth Year'].astype('int')
+  int64
+
+
+
+  16
+  df[df['Ages'] > 120]
+  Boolean indexing
+  df[df['Ages'] < 120]
+  2 rows
+
+
+
+
+Day 25 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Import pandas as pd and numpy as np
+
+Make a Series from [10, 20, 30, 40, 50] with the default index. Print it
+
+Make the same Series with custom index [1, 2, 3, 4, 5]
+
+Make a Series from {'name': 'Priya', 'country': 'India', 'city': 'Hyderabad'}
+
+Make a constant Series pd.Series(10, index=[1, 2, 3])
+
+Make a DataFrame from a list of dictionaries with columns Name, Country, City (three rows)
+
+Print df.shape and df.columns
+
+
+Exercises: Level 2
+
+
+Read the hacker_news.csv file from the data directory (../../data/hacker_news.csv)
+
+Get the first five rows
+
+Get the last five rows
+
+Get the title column as a pandas series
+
+Count the number of rows and columns
+
+Filter the titles which contain python
+
+Filter the titles which contain JavaScript
+
+Explore the data and make sense of it
+
+
+
+
+Exercises: Level 3
+
+
+Using the people DataFrame from this lesson, add Weight [74, 78, 69] and Height [173, 175, 169]
+
+Convert height to metres, compute BMI, and round it to 1 decimal. Print the frame
+
+Add Birth Year and Current Year (2020). Cast both to int. Add Ages
+
+Print rows where Ages > 120 and rows where Ages < 120
+
+Print df.describe() for Weight, Height, and BMI
+
+Read ../../data/weight-height.csv. Print head(), tail(), shape, columns, and info()
+
+Create a Series of scores [10, 20, 30, 40, 50]. Print s.min(), s.max(), s.sum(), s.mean(). Views: 10, 50, 150, 30.0
+
+
+You finished Day 25. Next: Python web (Flask).
+

@@ -1,0 +1,111 @@
+{
+  "format": "day-01-premium-pictures/v1",
+  "fps": 30,
+  "chapters": [
+    {
+      "section": 1,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-01-obs-fit.mp4",
+      "frames": 398,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-01-obs-fit.mp4"
+      ],
+      "note": "OBS proof only"
+    },
+    {
+      "section": 2,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-02-obs-fit.mp4",
+      "frames": 441,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-02-obs-fit.mp4"
+      ],
+      "note": "OBS proof only"
+    },
+    {
+      "section": 3,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-03-picture.mp4",
+      "frames": 1007,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\03-uses.mp4"
+      ],
+      "note": "White-grid technical examples, no fabricated usage footage"
+    },
+    {
+      "section": 4,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-04-picture.mp4",
+      "frames": 1271,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-04-obs-fit.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\04-install-reference.mp4"
+      ],
+      "note": "Actual OBS version check, then labeled official installation reference"
+    },
+    {
+      "section": 5,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-05-picture.mp4",
+      "frames": 1032,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-05-obs-fit.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\05-prompt-map.mp4"
+      ],
+      "note": "Actual OBS prompts with a short terminal/shell diagram"
+    },
+    {
+      "section": 6,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-06-obs-fit.mp4",
+      "frames": 974,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-06-obs-fit.mp4"
+      ],
+      "note": "OBS live Python demonstration"
+    },
+    {
+      "section": 7,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-07-obs-fit.mp4",
+      "frames": 1099,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-07-obs-fit.mp4"
+      ],
+      "note": "OBS live Python demonstration"
+    },
+    {
+      "section": 8,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-08-picture.mp4",
+      "frames": 2472,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\08-editor-setup.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-02-obs-fit.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\08-file-checks.mp4"
+      ],
+      "note": "Editor reference \u2192 genuine OBS hello.py execution \u2192 file checks; no fake installer"
+    },
+    {
+      "section": 9,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-09-picture.mp4",
+      "frames": 1112,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-09-obs-fit.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\09-shell-vs-file.mp4"
+      ],
+      "note": "Actual OBS comparison plus correctly named expression_only.py diagram"
+    },
+    {
+      "section": 10,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-10-picture.mp4",
+      "frames": 1187,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-10-obs-fit.mp4",
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\10-types.mp4"
+      ],
+      "note": "Actual OBS type() calls plus four-value type diagram"
+    },
+    {
+      "section": 11,
+      "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\premium-media\\section-11-picture.mp4",
+      "frames": 584,
+      "sources": [
+        "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\premium-white\\renders\\11-challenge.mp4"
+      ],
+      "note": "Unanswered challenge on white grid; no fake course lab capture"
+    }
+  ]
+}

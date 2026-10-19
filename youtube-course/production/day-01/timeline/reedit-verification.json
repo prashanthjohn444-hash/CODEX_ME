@@ -1,0 +1,48 @@
+{
+  "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\python-day-01-reedit-review.mp4",
+  "type": "FFmpeg review copy, not Resolve export",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 1,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "385.921029",
+      "size": "18662266"
+    }
+  },
+  "expected_duration_seconds": 385.9,
+  "full_stream_decode_passed": true,
+  "still_frames": [
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-01.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-03.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-05.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-07.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-08.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-09.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-10.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\reedit-review-11.png"
+  ],
+  "automatic_checks_passed": true,
+  "errors": [],
+  "manual_review_pending": [
+    "Listen to all Venkat narration and verify spoken word/graphic sync",
+    "Inspect screens for privacy, old terminal history and notifications",
+    "Record missing installer/extension/interpreter/greeting-change pickups before publishing",
+    "Import FCPXML into Resolve, check relinking, and export a Resolve master"
+  ]
+}

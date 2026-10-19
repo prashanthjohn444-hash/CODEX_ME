@@ -1,0 +1,31 @@
+# Reproducible dependencies and caches
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode-extensions/
+.vscode-user-data/
+.vscode-data/
+.vscode-profile/
+
+# Local credentials and machine settings
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.pfx
+credentials.json
+secrets.json
+.aws/
+.DS_Store
+Thumbs.db
+
+# Interrupted writes
+*.tmp
+*.part

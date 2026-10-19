@@ -1,0 +1,1504 @@
+
+Built in functions
+
+In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: print(), len(), type(), int(), float(), str(), input(), list(), dict(), min(), max(), sum(), sorted(), open(), file(), help(), and dir(). In the following table you will see an exhaustive list of Python built-in functions taken from python documentation.
+
+Full list of built-in functions
+
+
+
+
+  
+  
+  Built-in Functions
+  
+  
+
+
+
+
+
+  abs()
+  delattr()
+  hash()
+  memoryview()
+  set()
+
+
+
+  all()
+  dict()
+  help()
+  min()
+  setattr()
+
+
+
+  any()
+  dir()
+  hex()
+  next()
+  slice()
+
+
+
+  ascii()
+  divmod()
+  id()
+  object()
+  sorted()
+
+
+
+  bin()
+  enumerate()
+  input()
+  oct()
+  staticmethod()
+
+
+
+  bool()
+  eval()
+  int()
+  open()
+  str()
+
+
+
+  breakpoint()
+  exec()
+  isinstance()
+  ord()
+  sum()
+
+
+
+  bytearray()
+  filter()
+  issubclass()
+  pow()
+  super()
+
+
+
+  bytes()
+  float()
+  iter()
+  print()
+  tuple()
+
+
+
+  callable()
+  format()
+  len()
+  property()
+  type()
+
+
+
+  chr()
+  frozenset()
+  list()
+  range()
+  vars()
+
+
+
+  classmethod()
+  getattr()
+  locals()
+  repr()
+  zip()
+
+
+
+  compile()
+  globals()
+  map()
+  reversed()
+  __import__()
+
+
+
+  complex()
+  hasattr()
+  max()
+  round()
+  
+
+
+
+
+Python 3.10+ also adds aiter() and anext() for async loops. Use them later, not on Day 2.
+
+Every function from the table is written below: what it does, the syntax, and a small view. You do not have to memorize the whole list today. The common ones (print, len, type, int, float, str, input, min, max, sum, help, dir) are practiced in the next section.
+
+
+
+
+  #
+  Function
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  abs(x)
+  Absolute value (no minus sign)
+  abs(-20)
+  20
+
+
+
+  2
+  all(iterable)
+  True if every item is true
+  all([10, 20, 30])
+  True
+
+
+
+  3
+  any(iterable)
+  True if at least one item is true
+  any([0, 0, 10])
+  True
+
+
+
+  4
+  ascii(x)
+  Text form using ASCII escape codes
+  ascii('café')
+  'caf\\xe9'
+
+
+
+  5
+  bin(x)
+  Integer as a binary string
+  bin(10)
+  '0b1010'
+
+
+
+  6
+  bool(x)
+  Convert to True or False
+  bool(0) / bool(10)
+  False / True
+
+
+
+  7
+  breakpoint()
+  Pause the program in the debugger
+  breakpoint()
+  debugger starts
+
+
+
+  8
+  bytearray(x)
+  Changeable sequence of bytes
+  bytearray(3)
+  bytearray(b'\\x00\\x00\\x00')
+
+
+
+  9
+  bytes(x)
+  Frozen sequence of bytes
+  bytes(3)
+  b'\\x00\\x00\\x00'
+
+
+
+  10
+  callable(x)
+  True if you can call it like a function
+  callable(print)
+  True
+
+
+
+  11
+  chr(n)
+  Number to one character
+  chr(65)
+  'A'
+
+
+
+  12
+  classmethod(fn)
+  Turn a function into a class method
+  @classmethod
+  used inside a class
+
+
+
+  13
+  compile(src, file, mode)
+  Turn source text into code you can run
+  compile('10 + 20', '', 'eval')
+  code object
+
+
+
+  14
+  complex(real, imag)
+  Make a complex number
+  complex(1, 3)
+  (1+3j)
+
+
+
+  15
+  delattr(obj, name)
+  Delete an attribute from an object
+  delattr(p, 'age')
+  attribute gone
+
+
+
+  16
+  dict(...)
+  Make a dictionary
+  dict(name='Priya', score=20)
+  {'name': 'Priya', 'score': 20}
+
+
+
+  17
+  dir(x)
+  List names / methods on an object
+  dir(str)
+  list of string methods
+
+
+
+  18
+  divmod(a, b)
+  Quotient and remainder together
+  divmod(50, 20)
+  (2, 10)
+
+
+
+  19
+  enumerate(seq)
+  Pair each item with its index
+  list(enumerate(['a', 'b']))
+  [(0, 'a'), (1, 'b')]
+
+
+
+  20
+  eval(src)
+  Run a short expression from a string
+  eval('10 + 20')
+  30
+
+
+
+  21
+  exec(src)
+  Run statements from a string
+  exec('x = 10')
+  runs the code
+
+
+
+  22
+  filter(fn, seq)
+  Keep items where fn is true
+  list(filter(lambda n: n > 20, [10, 20, 30, 40]))
+  [30, 40]
+
+
+
+  23
+  float(x)
+  Convert to a decimal number
+  float(10)
+  10.0
+
+
+
+  24
+  format(x, spec)
+  Format a value as text
+  format(20, '04d')
+  '0020'
+
+
+
+  25
+  frozenset(seq)
+  Frozen (unchangeable) set
+  frozenset([10, 20, 20])
+  frozenset({10, 20})
+
+
+
+  26
+  getattr(obj, name)
+  Get an attribute by name
+  getattr('Priya', 'upper')
+  the upper method
+
+
+
+  27
+  globals()
+  Dictionary of global names
+  globals()
+  {...}
+
+
+
+  28
+  hasattr(obj, name)
+  True if the attribute exists
+  hasattr('Priya', 'upper')
+  True
+
+
+
+  29
+  hash(x)
+  Hash number used by sets and dicts
+  hash(10)
+  an integer
+
+
+
+  30
+  help(x)
+  Open built-in documentation
+  help('keywords')
+  list of reserved words
+
+
+
+  31
+  hex(x)
+  Integer as a hexadecimal string
+  hex(10)
+  '0xa'
+
+
+
+  32
+  id(x)
+  Identity number of the object
+  id(10)
+  a memory id
+
+
+
+  33
+  input(prompt)
+  Read a line from the user (always a string)
+  input('Name:')
+  'Priya'
+
+
+
+  34
+  int(x)
+  Convert to a whole number
+  int('10')
+  10
+
+
+
+  35
+  isinstance(x, t)
+  True if x is of type t
+  isinstance(10, int)
+  True
+
+
+
+  36
+  issubclass(a, b)
+  True if class a is a subclass of b
+  issubclass(bool, int)
+  True
+
+
+
+  37
+  iter(x)
+  Make an iterator
+  iter([10, 20])
+  iterator
+
+
+
+  38
+  len(x)
+  Number of items / characters
+  len('Hello, World!')
+  13
+
+
+
+  39
+  list(x)
+  Make a list
+  list('Priya')
+  ['P', 'r', 'i', 'y', 'a']
+
+
+
+  40
+  locals()
+  Dictionary of local names
+  locals()
+  {...}
+
+
+
+  41
+  map(fn, seq)
+  Apply a function to every item
+  list(map(str, [10, 20, 30]))
+  ['10', '20', '30']
+
+
+
+  42
+  max(x)
+  Largest value
+  max(20, 30, 40, 50)
+  50
+
+
+
+  43
+  memoryview(x)
+  View the memory of bytes without copying
+  memoryview(b'abcd')
+  memory view
+
+
+
+  44
+  min(x)
+  Smallest value
+  min(20, 30, 40, 50)
+  20
+
+
+
+  45
+  next(it)
+  Next item from an iterator
+  next(iter([10, 20]))
+  10
+
+
+
+  46
+  object()
+  Make a bare empty object
+  object()
+  empty object
+
+
+
+  47
+  oct(x)
+  Integer as an octal string
+  oct(10)
+  '0o12'
+
+
+
+  48
+  open(file)
+  Open a file for reading or writing
+  open('notes.txt')
+  file object
+
+
+
+  49
+  ord(ch)
+  Character to its number
+  ord('A')
+  65
+
+
+
+  50
+  pow(a, b)
+  a to the power of b
+  pow(10, 2)
+  100
+
+
+
+  51
+  print(...)
+  Show values on the screen
+  print('Hello, World!')
+  Hello, World!
+
+
+
+  52
+  property()
+  Make a managed attribute on a class
+  @property
+  used inside a class
+
+
+
+  53
+  range(start, stop, step)
+  Sequence of integers
+  list(range(10, 50, 10))
+  [10, 20, 30, 40]
+
+
+
+  54
+  repr(x)
+  Official / debug text of a value
+  repr('Priya')
+  "'Priya'"
+
+
+
+  55
+  reversed(seq)
+  Walk a sequence backwards
+  list(reversed([10, 20, 30]))
+  [30, 20, 10]
+
+
+
+  56
+  round(x)
+  Round a decimal number
+  round(10.6)
+  11
+
+
+
+  57
+  set(seq)
+  Make a set (unique items)
+  set([10, 20, 20, 30])
+  {10, 20, 30}
+
+
+
+  58
+  setattr(obj, name, val)
+  Set an attribute by name
+  setattr(p, 'age', 22)
+  p.age is 22
+
+
+
+  59
+  slice(start, stop)
+  Describe a slice
+  [10, 20, 30, 40, 50][slice(1, 4)]
+  [20, 30, 40]
+
+
+
+  60
+  sorted(seq)
+  Return a new sorted list
+  sorted([40, 10, 30, 20])
+  [10, 20, 30, 40]
+
+
+
+  61
+  staticmethod(fn)
+  Turn a function into a static method
+  @staticmethod
+  used inside a class
+
+
+
+  62
+  str(x)
+  Convert to text
+  str(10)
+  '10'
+
+
+
+  63
+  sum(seq)
+  Add the numbers in a list
+  sum([20, 30, 40, 50])
+  140
+
+
+
+  64
+  super()
+  Reach the parent class
+  super().__init__()
+  used inside a class
+
+
+
+  65
+  tuple(x)
+  Make a tuple
+  tuple([10, 20, 30])
+  (10, 20, 30)
+
+
+
+  66
+  type(x)
+  Data type of a value
+  type(10)
+  <class 'int'>
+
+
+
+  67
+  vars(x)
+  __dict__ of an object
+  vars(p)
+  {'age': 22, ...}
+
+
+
+  68
+  zip(*seqs)
+  Pair items from several lists
+  list(zip([10, 20], [30, 40]))
+  [(10, 30), (20, 40)]
+
+
+
+  69
+  __import__(name)
+  Import a module by string name
+  __import__('math')
+  the math module
+
+
+
+
+file() from the original lesson text is not a built-in in Python 3. Use open() to work with files.
+
+Same list as runnable code (structured numbers 10, 20, 30, 40, 50):
+example.py
+print(abs(-20))                              # 20
+print(all([10, 20, 30]))                     # True
+print(any([0, 0, 10]))                       # True
+print(ascii('cafe'))                         # 'cafe'
+print(bin(10))                               # 0b1010
+print(bool(0), bool(10))                     # False True
+print(bytearray(3))                          # bytearray(b'\x00\x00\x00')
+print(bytes(3))                              # b'\x00\x00\x00'
+print(callable(print))                       # True
+print(chr(65))                               # A
+print(complex(1, 3))                         # (1+3j)
+print(dict(name='Priya', score=20))          # {'name': 'Priya', 'score': 20}
+print(divmod(50, 20))                        # (2, 10)
+print(list(enumerate(['a', 'b'])))           # [(0, 'a'), (1, 'b')]
+print(eval('10 + 20'))                       # 30
+print(list(filter(lambda n: n > 20, [10, 20, 30, 40])))  # [30, 40]
+print(float(10))                             # 10.0
+print(format(20, '04d'))                     # 0020
+print(frozenset([10, 20, 20]))               # frozenset({10, 20})
+print(hasattr('Priya', 'upper'))             # True
+print(hex(10))                               # 0xa
+print(int('10'))                             # 10
+print(isinstance(10, int))                   # True
+print(issubclass(bool, int))                 # True
+print(len('Hello, World!'))                  # 13
+print(list('Priya'))                         # ['P', 'r', 'i', 'y', 'a']
+print(list(map(str, [10, 20, 30])))          # ['10', '20', '30']
+print(max(20, 30, 40, 50))                   # 50
+print(min(20, 30, 40, 50))                   # 20
+print(next(iter([10, 20])))                  # 10
+print(oct(10))                               # 0o12
+print(ord('A'))                              # 65
+print(pow(10, 2))                            # 100
+print('Hello, World!')                       # Hello, World!
+print(list(range(10, 50, 10)))               # [10, 20, 30, 40]
+print(repr('Priya'))                         # 'Priya'
+print(list(reversed([10, 20, 30])))          # [30, 20, 10]
+print(round(10.6))                           # 11
+print(set([10, 20, 20, 30]))                 # {10, 20, 30}
+print([10, 20, 30, 40, 50][slice(1, 4)])     # [20, 30, 40]
+print(sorted([40, 10, 30, 20]))              # [10, 20, 30, 40]
+print(str(10))                               # 10
+print(sum([20, 30, 40, 50]))                 # 140
+print(tuple([10, 20, 30]))                   # (10, 20, 30)
+print(type(10))                              # <class 'int'>
+print(list(zip([10, 20], [30, 40])))         # [(10, 30), (20, 40)]
+
+
+eval() and exec() run text as code. Do not use them on text you do not trust.
+
+The table above is the full official list. Day 2 does not skip those methods. First we type every common one as code. Then you can look any method up later with help(name).
+
+Let us open the Python shell and start using some of the most common built-in functions. Here is a practice session written as code, with the view (output) under each line.
+example.py
+print('Hello, World!')          # it prints the text value Hello, World!
+# Hello, World!
+
+len('Hello, World!')            # it counts the number of characters including space
+# 13
+
+type('Hello, World!')           # it checks the data type
+# <class 'str'>
+
+str(10)                         # it converts number to string
+# '10'
+
+int('10')                       # it converts to number
+# 10
+
+float(10)                       # it converts integer to decimal
+# 10.0
+
+input('Enter your name:')       # it takes user input
+# Enter your name:Priya
+# 'Priya'
+
+
+The numbered walk-through below uses structured numbers (10, 20, 30, 40, 50) so you can follow the values easily.
+
+1. print()
+
+print() shows a value on the screen. It can take one argument or many arguments.
+example.py
+print('Hello, World!')
+print('Score:', 10, 20, 30)
+
+
+View:
+output.txt
+Hello, World!
+Score: 10 20 30
+
+
+2. len()
+
+len() counts items. For a string it counts characters, including spaces.
+example.py
+print(len('Hello, World!'))
+print(len([10, 20, 30, 40]))
+
+
+View:
+output.txt
+13
+4
+
+
+Hello, World! has 13 characters. The list has 4 numbers.
+
+3. type()
+
+type() tells you the data type of a value.
+example.py
+print(type('Hello, World!'))
+print(type(10))
+print(type(10.0))
+print(type([10, 20, 30]))
+
+
+View:
+output.txt
+<class 'str'>
+<class 'int'>
+<class 'float'>
+<class 'list'>
+
+
+4. str()
+
+str() converts a number (or other value) to text.
+example.py
+print(str(10))
+print(type(str(10)))
+
+
+View:
+output.txt
+10
+<class 'str'>
+
+
+The value still looks like 10, but it is now a string '10'. You cannot do math with it until you convert it back.
+
+5. int()
+
+int() converts a whole-number string (or a float) to an integer.
+example.py
+print(int('10'))
+print(int(10.9))
+
+
+View:
+output.txt
+10
+10
+
+
+int(10.9) becomes 10. It cuts the decimal. It does not round up.
+
+6. float()
+
+float() converts an integer or a numeric string to a decimal number.
+example.py
+print(float(10))
+print(float('10'))
+print(float('10.6'))
+
+
+View:
+output.txt
+10.0
+10.0
+10.6
+
+
+7. input()
+
+input() pauses the program, shows a question, and stores the user's answer as a string.
+example.py
+student_name = input('Enter your name:')
+print(student_name)
+print(type(student_name))
+
+
+View (if the user types Priya):
+output.txt
+Enter your name:Priya
+Priya
+<class 'str'>
+
+
+Even if the user types 22, input() still returns the string '22'. Use int() or float() if you need a number.
+
+Let us practice more by using different built-in functions. Run help('keywords'), help(str), and dir(str):
+example.py
+help('keywords')   # prints all python reserved words
+help(str)          # give information about string
+dir(str)           # give information about string methods
+
+
+8. help()
+
+help() opens Python's built-in documentation. help('keywords') prints reserved words. Do not use those words as variable names.
+example.py
+help('keywords')
+
+
+View:
+output.txt
+Here is a list of the Python keywords.  Enter any keyword to get more help.
+
+False               class               from                or
+None                continue            global              pass
+True                def                 if                  raise
+and                 del                 import              return
+as                  elif                in                  try
+assert              else                is                  while
+async               except              lambda              with
+await               finally             nonlocal            yield
+break               for                 not
+
+
+help(str) prints a long page about the string type. Press q to leave that page in some terminals.
+
+9. dir()
+
+dir() lists the names attached to an object. dir(str) shows string methods such as upper, lower, replace, and split.
+example.py
+print(dir(str))
+
+
+View (shortened — the full list is longer):
+output.txt
+['__add__', '__class__', ..., 'capitalize', 'casefold', 'center', 'count',
+ 'encode', 'endswith', 'find', 'format', 'index', 'isalnum', 'isalpha',
+ 'isdigit', 'islower', 'isupper', 'join', 'lower', 'lstrip', 'replace',
+ 'split', 'startswith', 'strip', 'swapcase', 'title', 'upper', 'zfill']
+
+
+As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.
+
+I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.
+
+These examples use the numbers 20, 30, 40, 50. The view is written under each line.
+example.py
+min(20, 30, 40, 50)        # gives the minimum value
+# 20
+
+max(20, 30, 40, 50)        # gives the maximum value
+# 50
+
+min([20, 30, 40, 50])      # it takes list as an argument and return min
+# 20
+
+max([20, 30, 40, 50])      # it takes list as an argument and return max
+# 50
+
+sum([20, 30, 40, 50])      # it takes only list as an argument and return the sum
+# 140
+
+
+10. min()
+
+min() returns the smallest value. You may pass separate numbers, or one list.
+example.py
+print(min(20, 30, 40, 50))
+print(min([20, 30, 40, 50]))
+
+
+View:
+output.txt
+20
+20
+
+
+11. max()
+
+max() returns the largest value.
+example.py
+print(max(20, 30, 40, 50))
+print(max([20, 30, 40, 50]))
+
+
+View:
+output.txt
+50
+50
+
+
+12. sum()
+
+sum() adds the numbers in a list. It does not take separate numbers like sum(20, 30, 40, 50).
+example.py
+print(sum([20, 30, 40, 50]))
+
+
+View:
+output.txt
+140
+
+
+20 + 30 + 40 + 50 = 140.
+
+13. Other built-in methods you should not skip
+
+These methods are in the official table. Day 2 keeps every one of them. Try each line in the shell.
+example.py
+# list(), dict(), tuple(), set() — build collections
+print(list('Priya'))                         # ['P', 'r', 'i', 'y', 'a']
+print(dict(name='Priya', score=20))          # {'name': 'Priya', 'score': 20}
+print(tuple([10, 20, 30]))                   # (10, 20, 30)
+print(set([10, 20, 20, 30]))                 # {10, 20, 30}
+
+# sorted(), reversed(), range() — order and sequences
+print(sorted([40, 10, 30, 20]))              # [10, 20, 30, 40]
+print(list(reversed([10, 20, 30])))          # [30, 20, 10]
+print(list(range(10, 50, 10)))               # [10, 20, 30, 40]
+
+# abs(), round(), pow(), divmod() — number helpers
+print(abs(-20))                              # 20
+print(round(10.6))                           # 11
+print(pow(10, 2))                            # 100
+print(divmod(50, 20))                        # (2, 10)  -> 2 groups, remainder 10
+
+# bin(), hex(), oct(), chr(), ord() — codes and characters
+print(bin(10))                               # 0b1010
+print(hex(10))                               # 0xa
+print(oct(10))                               # 0o12
+print(chr(65))                               # 'A'
+print(ord('A'))                              # 65
+
+# bool(), all(), any() — true / false checks
+print(bool(0))                               # False
+print(bool(10))                              # True
+print(all([10, 20, 30]))                     # True  (none of them is 0 / empty)
+print(any([0, 0, 10]))                       # True  (at least one is true)
+
+# enumerate(), zip(), map(), filter() — walk through collections
+print(list(enumerate(['a', 'b', 'c'])))      # [(0, 'a'), (1, 'b'), (2, 'c')]
+print(list(zip([10, 20], [30, 40])))         # [(10, 30), (20, 40)]
+print(list(map(str, [10, 20, 30])))          # ['10', '20', '30']
+print(list(filter(lambda n: n > 20, [10, 20, 30, 40])))  # [30, 40]
+
+# isinstance(), id(), repr(), format() — inspect values
+print(isinstance(10, int))                   # True
+print(id(10))                                # a memory id number (changes by machine)
+print(repr('Priya'))                         # "'Priya'"
+print(format(20, '04d'))                     # '0020'
+
+# open() — read or write a file (you will use this more on file-handling day)
+# file = open('notes.txt', 'w')
+# file.write('score 10 20 30 40')
+# file.close()
+
+# slice() — take a piece of a sequence
+print([10, 20, 30, 40, 50][slice(1, 4)])     # [20, 30, 40]
+
+
+file() from older Python is gone in Python 3. Use open() instead. The rest of the names in the table (eval, exec, compile, memoryview, classmethod, staticmethod, property, super, object, vars, locals, globals, getattr, setattr, delattr, hasattr, iter, next, callable, breakpoint, ascii, hash, complex, bytes, bytearray, frozenset, __import__) exist so you can look them up with help(name) when you need them. Do not skip them in the table. You do not have to memorize every one today.
+
+Variables
+
+Variables store data in a computer memory. Mnemonic variables are recommended to use in many programming languages. A mnemonic variable is a variable name that can be easily remembered and associated. A variable refers to a memory address in which data is stored.
+Number at the beginning, special character, hyphen are not allowed when naming a variable. A variable can have a short name (like x, y, z), but a more descriptive name (firstname, lastname, age, country) is highly recommended.
+
+Python Variable Name Rules
+
+
+A variable name must start with a letter or the underscore character
+
+A variable name cannot start with a number
+
+A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+
+Variable names are case-sensitive (firstname, Firstname, FirstName and FIRSTNAME) are different variables)
+
+
+Here are some example of valid variable names:
+terminal
+firstname
+lastname
+age
+country
+city
+first_name
+last_name
+capital_city
+_if # if we want to use reserved word as a variable
+year_2021
+year2021
+current_year_2021
+birth_year
+num1
+num2
+
+
+Invalid variables names
+terminal
+first-name
+first@name
+first$name
+num-1
+1num
+
+
+We will use standard Python variable naming style which has been adopted by many Python developers. Python developers use snake case(snake_case) variable naming convention. We use underscore character after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed).  The example below is an example of standard naming of variables, underscore is required when the variable name is more than one word.
+
+When we assign a certain data type to a variable, it is called variable declaration. For instance in the example below my first name is assigned to a variable first_name. The equal sign is an assignment operator. Assigning means storing data in the variable. The equal sign in Python is not equality as in Mathematics.
+
+Example:
+example.py
+# Variables in Python
+first_name = 'Priya'
+last_name = 'Rao'
+country = 'India'
+city = 'Hyderabad'
+age = 22
+year = 2026
+score_1 = 10
+score_2 = 20
+score_3 = 30
+score_4 = 40
+is_married = False
+is_student = True
+skills = ['HTML', 'CSS', 'JS', 'React', 'Python']
+person_info = {
+   'firstname': 'Priya',
+   'lastname': 'Rao',
+   'country': 'India',
+   'city': 'Hyderabad',
+   'age': 22
+   }
+
+
+The name, country, and scores are just example values. You will put your own data in the exercises.
+
+Let us use the print() and len() built-in functions. Print function takes unlimited number of arguments. An argument is a value which we can be passed or put inside the function parenthesis, see the example below.
+
+Example:
+example.py
+print('Hello, World!') # The text Hello, World! is an argument
+print('Hello',',', 'World','!') # it can take multiple arguments, four arguments have been passed
+print(len('Hello, World!')) # it takes only one argument
+
+
+View:
+output.txt
+Hello, World!
+Hello , World !
+13
+
+
+Let us print and also find the length of the variables declared at the top:
+
+Example:
+example.py
+# Printing the values stored in the variables
+
+print('First name:', first_name)
+print('First name length:', len(first_name))
+print('Last name: ', last_name)
+print('Last name length: ', len(last_name))
+print('Country: ', country)
+print('City: ', city)
+print('Age: ', age)
+print('Year: ', year)
+print('Scores:', score_1, score_2, score_3, score_4)
+print('Married: ', is_married)
+print('Student: ', is_student)
+print('Skills: ', skills)
+print('Person information: ', person_info)
+
+
+View:
+output.txt
+First name: Priya
+First name length: 5
+Last name:  Rao
+Last name length:  3
+Country:  India
+City:  Hyderabad
+Age:  22
+Year:  2026
+Scores: 10 20 30 40
+Married:  False
+Student:  True
+Skills:  ['HTML', 'CSS', 'JS', 'React', 'Python']
+Person information:  {'firstname': 'Priya', 'lastname': 'Rao', 'country': 'India', 'city': 'Hyderabad', 'age': 22}
+
+
+Declaring Multiple Variable in a Line
+
+Multiple variables can also be declared in one line:
+
+Example:
+example.py
+first_name, last_name, country, age, is_married = 'Priya', 'Rao', 'India', 22, False
+
+print(first_name, last_name, country, age, is_married)
+print('First name:', first_name)
+print('Last name: ', last_name)
+print('Country: ', country)
+print('Age: ', age)
+print('Married: ', is_married)
+
+
+View:
+output.txt
+Priya Rao India 22 False
+First name: Priya
+Last name:  Rao
+Country:  India
+Age:  22
+Married:  False
+
+
+The number of names on the left must match the number of values on the right.
+
+Getting user input using the input() built-in function. Let us assign the data we get from a user into first_name and age variables.
+Example:
+example.py
+first_name = input('What is your name: ')
+age = input('How old are you? ')
+
+print(first_name)
+print(age)
+
+
+View (sample answers):
+output.txt
+What is your name: Priya
+How old are you? 22
+Priya
+22
+
+
+Remember: age is the string '22' here, not the integer 22.
+
+Data Types
+
+There are several data types in Python. To identify the data type we use the type built-in function. I would like to ask you to focus on understanding different data types very well. When it comes to programming, it is all about data types. I introduced data types at the very beginning and it comes again, because every topic is related to data types. We will cover data types in more detail in their respective sections.
+
+Checking Data types and Casting
+
+Use type() in the Python shell. Same syntax, written as code, with the view:
+example.py
+type(10)
+# <class 'int'>
+
+type(3.14)
+# <class 'float'>
+
+type(1 + 3j)
+# <class 'complex'>
+
+type('Priya')
+# <class 'str'>
+
+type([1, 2, 3])
+# <class 'list'>
+
+type({'name': 'Priya'})
+# <class 'dict'>
+
+type((2, 3, 4, 5))
+# <class 'tuple'>
+
+type({9.8, 3.14, 2.7})
+# <class 'set'>
+
+
+
+Check Data types: To check the data type of certain data/variable we use the type
+Examples:
+
+example.py
+# Different python data types
+# Let's declare variables with various data types
+
+first_name = 'Priya'        # str
+last_name = 'Rao'           # str
+country = 'India'           # str
+city = 'Hyderabad'          # str
+age = 22                    # int
+score = 10                  # int
+height = 1.65               # float
+
+# Printing out types
+print(type('Priya'))               # str
+print(type(first_name))            # str
+print(type(10))                    # int
+print(type(3.14))                  # float
+print(type(1 + 1j))                # complex
+print(type(True))                  # bool
+print(type([1, 2, 3, 4]))          # list
+print(type({'name': 'Priya'}))     # dict
+print(type((1, 2)))                # tuple
+print(type(zip([1, 2], [3, 4])))   # zip
+
+
+View:
+output.txt
+<class 'str'>
+<class 'str'>
+<class 'int'>
+<class 'float'>
+<class 'complex'>
+<class 'bool'>
+<class 'list'>
+<class 'dict'>
+<class 'tuple'>
+<class 'zip'>
+
+
+
+
+Casting: Converting one data type to another data type. We use int(), float(), str(), list, set
+When we do arithmetic operations string numbers should be first converted to int or float otherwise it will return an error. If we concatenate a number with a string, the number should be first converted to a string. We will talk about concatenation in String section.
+
+Examples:
+
+
+example.py
+# int to float
+num_int = 10
+print('num_int', num_int)        # 10
+num_float = float(num_int)
+print('num_float:', num_float)   # 10.0
+
+# float to int
+gravity = 9.81
+print(int(gravity))              # 9
+
+# int to str
+num_int = 10
+print(num_int)                   # 10
+num_str = str(num_int)
+print(num_str)                   # '10'
+
+# str to int or float
+num_str = '10.6'
+num_float = float(num_str)       # Convert the string to a float first
+num_int = int(num_float)         # Then convert the float to an integer
+print('num_int', num_int)        # 10
+print('num_float', num_float)    # 10.6
+
+# str to list
+first_name = 'Priya'
+print(first_name)                # 'Priya'
+first_name_to_list = list(first_name)
+print(first_name_to_list)        # ['P', 'r', 'i', 'y', 'a']
+
+
+View:
+output.txt
+num_int 10
+num_float: 10.0
+9
+10
+10
+num_int 10
+num_float 10.6
+Priya
+['P', 'r', 'i', 'y', 'a']
+
+
+Do not write int('10.6'). '10.6' is not a whole-number string. Convert to float first, then to int.
+
+Numbers
+
+Number data types in Python:
+
+
+
+Integers: Integer(negative, zero and positive) numbers
+Example:
+... -3, -2, -1, 0, 1, 2, 3 ...
+Structured set we used today: 10, 20, 30, 40, 50
+
+
+
+Floating Point Numbers(Decimal numbers)
+Example:
+... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...
+Structured set we used today: 10.0, 10.6, 3.14, 9.81
+
+
+
+Complex Numbers
+Example:
+1 + j, 2 + 4j, 1 - 1j
+Structured example: 1 + 3j (type is complex)
+
+
+
+Day 2 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Inside 30DaysOfPython create a folder called day_2. Inside this folder create a file named variables.py
+
+Write a python comment saying 'Day 2: 30 Days of python programming'
+
+Declare a first name variable and assign a value to it
+
+Declare a last name variable and assign a value to it
+
+Declare a full name variable and assign a value to it
+
+Declare a country variable and assign a value to it
+
+Declare a city variable and assign a value to it
+
+Declare an age variable and assign a value to it
+
+Declare a year variable and assign a value to it
+
+Declare a variable is_married and assign a value to it
+
+Declare a variable is_true and assign a value to it
+
+Declare a variable is_light_on and assign a value to it
+
+Declare multiple variable on one line
+
+Print every variable you declared, with a clear label
+
+
+Exercises: Level 2
+
+
+Check the data type of all your variables using type() built-in function
+
+Using the len() built-in function, find the length of your first name
+
+Compare the length of your first name and your last name
+
+Declare 5 as num_one and 4 as num_two
+
+Add num_one and num_two and assign the value to a variable total
+
+Subtract num_two from num_one and assign the value to a variable diff
+
+Multiply num_two and num_one and assign the value to a variable product
+
+Divide num_one by num_two and assign the value to a variable division
+
+Use modulus division to find num_two divided by num_one and assign the value to a variable remainder
+
+Calculate num_one to the power of num_two and assign the value to a variable exp
+
+Find floor division of num_one by num_two and assign the value to a variable floor_division
+
+The radius of a circle is 30 meters.
+
+Calculate the area of a circle and assign the value to a variable name of area_of_circle
+
+Calculate the circumference of a circle and assign the value to a variable name of circum_of_circle
+
+Take radius as user input and calculate the area.
+
+
+
+Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names
+
+Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords
+
+
+Exercises: Level 3
+
+
+Store these structured numbers in a list called scores: 10, 20, 30, 40, 50
+
+Use min(scores), max(scores), and sum(scores). Print each result with a label
+
+Use sorted(scores) and list(reversed(scores)). Print both
+
+Use len(scores) and check that sum(scores) / len(scores) is the average 30.0
+
+Convert the string '10.6' to float, then to int. Print both results and both types
+
+Use abs(-20), round(10.6), pow(10, 2), and divmod(50, 20). Print each view
+
+Use dir(str) and print three method names you recognize (for example upper, lower, replace)
+
+Ask the user for two numbers with input(), cast both with float(), and print their total
+
+Build a small dictionary with first_name, age, and score_1. Print type() of the dictionary and print one value from it
+
+Use list(), tuple(), and set() on [10, 20, 20, 30]. Print all three results and explain the difference in a comment
+
+
+You finished Day 2. Next: operators.
+

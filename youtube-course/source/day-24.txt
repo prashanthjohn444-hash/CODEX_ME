@@ -1,0 +1,1768 @@
+
+Python for Statistical Analysis
+
+Statistics
+
+Statistics is the discipline that studies the collection, organization, displaying, analysing, interpretation and presentation of data.
+Statistics is a branch of Mathematics that is recommended to be a prerequisite for data science and machine learning. Statistics is a very broad field but we will focus in this section only on the most relevant part.
+After completing this challenge, you may go onto the web development, data analysis, machine learning and data science path. Whatever path you may follow, at some point in your career you will get data which you may work on. Having some statistical knowledge will help you to make decisions based on data, data tells as they say.
+
+Data
+
+What is data? Data is any set of characters that is gathered and translated for some purpose, usually analysis. It can be any character, including text and numbers, pictures, sound, or video. If data is not put in a context, it doesn't make any sense to a human or computer. To make sense from data we need to work on the data using different tools.
+
+The work flow of data analysis, data science or machine learning starts from data. Data can be provided from some data source or it can be created. There are structured and unstructured data.
+
+Data can be found in small or big format. Most of the data types we will get have been covered in the file handling section.
+
+Statistics Module
+
+The Python statistics module provides functions for calculating mathematical statistics of numerical data. The module is not intended to be a competitor to third-party libraries such as NumPy, SciPy, or proprietary full-featured statistics packages aimed at professional statisticians such as Minitab, SAS and Matlab. It is aimed at the level of graphing and scientific calculators.
+example.py
+import statistics
+
+
+The numbered functions below use the structured scores 10, 20, 30, 40, 50.
+example.py
+scores = [10, 20, 30, 40, 50]
+
+
+
+
+
+  #
+  Function
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  mean(data)
+  Arithmetic average
+  statistics.mean(scores)
+  30
+
+
+
+  2
+  fmean(data)
+  Fast floating-point mean
+  statistics.fmean(scores)
+  30.0
+
+
+
+  3
+  geometric_mean(data)
+  Nth root of the product
+  statistics.geometric_mean(scores)
+  26.0517...
+
+
+
+  4
+  harmonic_mean(data)
+  Reciprocal of the mean of reciprocals
+  statistics.harmonic_mean(scores)
+  21.8978...
+
+
+
+  5
+  median(data)
+  Middle value
+  statistics.median(scores)
+  30
+
+
+
+  6
+  median_low(data)
+  Lower median when the count is even
+  statistics.median_low([10, 20, 30, 40])
+  20
+
+
+
+  7
+  median_high(data)
+  Higher median when the count is even
+  statistics.median_high([10, 20, 30, 40])
+  30
+
+
+
+  8
+  median_grouped(data)
+  Median for grouped / binned data
+  statistics.median_grouped(scores)
+  30.0
+
+
+
+  9
+  mode(data)
+  Most common value
+  statistics.mode([10, 20, 20, 30])
+  20
+
+
+
+  10
+  multimode(data)
+  Every most-common value
+  statistics.multimode([10, 20, 20, 30, 30])
+  [20, 30]
+
+
+
+  11
+  pstdev(data)
+  Population standard deviation
+  statistics.pstdev(scores)
+  14.1421...
+
+
+
+  12
+  pvariance(data)
+  Population variance
+  statistics.pvariance(scores)
+  200
+
+
+
+  13
+  stdev(data)
+  Sample standard deviation
+  statistics.stdev(scores)
+  15.8113...
+
+
+
+  14
+  variance(data)
+  Sample variance
+  statistics.variance(scores)
+  250
+
+
+
+  15
+  quantiles(data)
+  Cut points (default: quartiles)
+  statistics.quantiles(scores)
+  [15.0, 30.0, 45.0]
+
+
+
+  16
+  correlation(x, y)
+  Pearson correlation
+  statistics.correlation(scores, [20, 40, 60, 80, 100])
+  1.0
+
+
+
+  17
+  covariance(x, y)
+  Sample covariance
+  statistics.covariance(scores, [20, 40, 60, 80, 100])
+  500.0
+
+
+
+  18
+  linear_regression(x, y)
+  Slope and intercept
+  statistics.linear_regression(scores, [20, 40, 60, 80, 100])
+  slope=2.0, intercept=0.0
+
+
+
+
+pstdev / pvariance treat the list as the whole population. stdev / variance treat it as a sample (divide by n - 1). That is why stdev is a bit larger than pstdev on the same numbers.
+
+1. mean()
+
+mean() is the arithmetic average: add the values, divide by how many there are.
+example.py
+import statistics
+
+scores = [10, 20, 30, 40, 50]
+print(statistics.mean(scores))
+
+
+View:
+output.txt
+30
+
+
+(10 + 20 + 30 + 40 + 50) / 5 = 30.
+
+2. fmean()
+
+fmean() is a floating-point mean. It is faster on long lists of floats.
+example.py
+print(statistics.fmean(scores))
+
+
+View:
+output.txt
+30.0
+
+
+3. geometric_mean()
+
+geometric_mean() is the nth root of the product. All values must be greater than zero.
+example.py
+print(statistics.geometric_mean(scores))
+
+
+View:
+output.txt
+26.051710846973528
+
+
+4. harmonic_mean()
+
+harmonic_mean() is the reciprocal of the mean of the reciprocals. Useful for rates.
+example.py
+print(statistics.harmonic_mean(scores))
+
+
+View:
+output.txt
+21.8978102189781
+
+
+For these scores: mean 30 > geometric mean 26.05... > harmonic mean 21.90....
+
+5. median()
+
+median() is the middle value after sorting. For an odd count it is the centre item. For an even count it is the mean of the two centre items.
+example.py
+print(statistics.median(scores))
+print(statistics.median([10, 20, 30, 40]))
+
+
+View:
+output.txt
+30
+25.0
+
+
+Five values → middle is 30. Four values → (20 + 30) / 2 = 25.0.
+
+6. median_low() / median_high()
+
+When the count is even, median_low() picks the lower of the two centre values and median_high() picks the higher. When the count is odd, all three medians are the same.
+example.py
+even = [10, 20, 30, 40]
+print(statistics.median_low(even))
+print(statistics.median_high(even))
+print(statistics.median_low(scores))
+print(statistics.median_high(scores))
+
+
+View:
+output.txt
+20
+30
+30
+30
+
+
+7. median_grouped()
+
+median_grouped() estimates the median when the data is treated as mid-points of groups (bins). The default interval is 1.
+example.py
+print(statistics.median_grouped(scores))
+
+
+View:
+output.txt
+30.0
+
+
+8. mode()
+
+mode() is the most common value.
+example.py
+print(statistics.mode([10, 20, 20, 30, 40, 50]))
+
+
+View:
+output.txt
+20
+
+
+20 appears twice. Everything else appears once.
+
+9. multimode()
+
+multimode() returns every value that is tied for most common.
+example.py
+print(statistics.multimode([10, 20, 20, 30, 30, 40]))
+
+
+View:
+output.txt
+[20, 30]
+
+
+20 and 30 both appear twice.
+
+10. pstdev() / pvariance()
+
+Population standard deviation and variance. Use these when scores is the whole group, not a sample.
+example.py
+print(statistics.pvariance(scores))
+print(statistics.pstdev(scores))
+
+
+View:
+output.txt
+200
+14.142135623730951
+
+
+Variance is the mean squared distance from the mean. Standard deviation is the square root of variance (sqrt(200) ≈ 14.14).
+
+11. stdev() / variance()
+
+Sample standard deviation and variance. Use these when scores is a sample from a larger group.
+example.py
+print(statistics.variance(scores))
+print(statistics.stdev(scores))
+
+
+View:
+output.txt
+250
+15.811388300841896
+
+
+Sample variance divides by n - 1 (5 - 1 = 4), so it is larger than the population variance on the same list.
+
+12. quantiles()
+
+quantiles(data, n=4) cuts the data into n equal-probability parts. Default n=4 gives the three quartile cuts.
+example.py
+print(statistics.quantiles(scores))
+
+
+View:
+output.txt
+[15.0, 30.0, 45.0]
+
+
+13. correlation() / covariance() / linear_regression()
+
+These compare two lists of the same length.
+example.py
+x = [10, 20, 30, 40, 50]
+y = [20, 40, 60, 80, 100]  # exactly 2 * x
+
+print(statistics.correlation(x, y))
+print(statistics.covariance(x, y))
+print(statistics.linear_regression(x, y))
+
+
+View:
+output.txt
+1.0
+500.0
+LinearRegression(slope=2.0, intercept=0.0)
+
+
+y = 2 * x + 0, so the slope is 2.0, the intercept is 0.0, and correlation is a perfect 1.0.
+
+Same list as runnable code:
+example.py
+import statistics
+
+scores = [10, 20, 30, 40, 50]
+print(statistics.mean(scores))              # 30
+print(statistics.fmean(scores))             # 30.0
+print(statistics.geometric_mean(scores))    # 26.051710846973528
+print(statistics.harmonic_mean(scores))     # 21.8978102189781
+print(statistics.median(scores))            # 30
+print(statistics.median_low([10, 20, 30, 40]))   # 20
+print(statistics.median_high([10, 20, 30, 40]))  # 30
+print(statistics.median_grouped(scores))    # 30.0
+print(statistics.mode([10, 20, 20, 30, 40, 50]))           # 20
+print(statistics.multimode([10, 20, 20, 30, 30, 40]))      # [20, 30]
+print(statistics.pstdev(scores))            # 14.142135623730951
+print(statistics.pvariance(scores))         # 200
+print(statistics.stdev(scores))             # 15.811388300841896
+print(statistics.variance(scores))          # 250
+print(statistics.quantiles(scores))         # [15.0, 30.0, 45.0]
+print(statistics.correlation(scores, [20, 40, 60, 80, 100]))  # 1.0
+print(statistics.covariance(scores, [20, 40, 60, 80, 100]))   # 500.0
+print(statistics.linear_regression(scores, [20, 40, 60, 80, 100]))
+# LinearRegression(slope=2.0, intercept=0.0)
+
+
+NumPy
+
+In the first section we defined Python as a great general-purpose programming language on its own, but with the help of other popular libraries (numpy, scipy, matplotlib, pandas etc) it becomes a powerful environment for scientific computing.
+
+NumPy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object, and tools for working with arrays.
+
+So far, we have been using vscode but from now on I would recommend using Jupyter Notebook. To access jupyter notebook let's install anaconda. If you are using anaconda most of the common packages are included and you don't have to install packages if you installed anaconda.
+terminal
+pip install numpy
+
+
+Importing NumPy
+example.py
+# How to import numpy
+import numpy as np
+# How to check the version of the numpy package
+print('numpy:', np.__version__)
+# Checking the available methods
+print(dir(np))
+
+
+View (version number changes):
+output.txt
+numpy: 2.x.x
+['ALLOW_THREADS', 'BUFSIZE', ... 'zeros', 'zeros_like']
+
+
+dir(np) is a long list of names. You do not memorize it. You look methods up with help(np.array) when you need them.
+
+Creating numpy arrays
+
+Creating int numpy arrays
+example.py
+import numpy as np
+
+# Creating python List
+python_list = [10, 20, 30, 40, 50]
+
+# Checking data types
+print('Type:', type(python_list))
+print(python_list)
+
+two_dimensional_list = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+print(two_dimensional_list)
+
+# Creating Numpy(Numerical Python) array from python list
+numpy_array_from_list = np.array(python_list)
+print(type(numpy_array_from_list))
+print(numpy_array_from_list)
+
+
+View:
+output.txt
+Type: <class 'list'>
+[10, 20, 30, 40, 50]
+[[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+<class 'numpy.ndarray'>
+[10 20 30 40 50]
+
+
+A NumPy 1-D array prints without commas: [10 20 30 40 50].
+
+The original lesson also used [1, 2, 3, 4, 5]. Same syntax, same np.array(...) call.
+
+Creating float numpy arrays
+
+Creating a float numpy array from a list with a float data type parameter.
+example.py
+python_list = [10, 20, 30, 40, 50]
+numpy_array_from_list2 = np.array(python_list, dtype=float)
+print(numpy_array_from_list2)
+
+
+View:
+output.txt
+[10. 20. 30. 40. 50.]
+
+
+Creating boolean numpy arrays
+
+Creating a boolean numpy array from a list.
+example.py
+numpy_bool_array = np.array([0, 1, -1, 0, 0], dtype=bool)
+print(numpy_bool_array)
+
+
+View:
+output.txt
+[False  True  True False False]
+
+
+0 is False. Any other number is True.
+
+Creating multidimensional array using numpy
+
+A numpy array may have one or multiple rows and columns.
+example.py
+two_dimensional_list = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+numpy_two_dimensional_list = np.array(two_dimensional_list)
+print(type(numpy_two_dimensional_list))
+print(numpy_two_dimensional_list)
+
+
+View:
+output.txt
+<class 'numpy.ndarray'>
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+
+Converting numpy array to list
+
+We can always convert an array back to a python list using tolist().
+example.py
+np_to_list = numpy_array_from_list.tolist()
+print(type(np_to_list))
+print('one dimensional array:', np_to_list)
+print('two dimensional array: ', numpy_two_dimensional_list.tolist())
+
+
+View:
+output.txt
+<class 'list'>
+one dimensional array: [10, 20, 30, 40, 50]
+two dimensional array:  [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+
+
+Creating numpy array from tuple
+example.py
+python_tuple = (10, 20, 30, 40, 50)
+print(type(python_tuple))
+print('python_tuple: ', python_tuple)
+
+numpy_array_from_tuple = np.array(python_tuple)
+print(type(numpy_array_from_tuple))
+print('numpy_array_from_tuple: ', numpy_array_from_tuple)
+
+
+View:
+output.txt
+<class 'tuple'>
+python_tuple:  (10, 20, 30, 40, 50)
+<class 'numpy.ndarray'>
+numpy_array_from_tuple:  [10 20 30 40 50]
+
+
+Shape, dtype and size
+
+Shape of numpy array
+
+The shape property provides the shape of the array as a tuple. The first is the row and the second is the column. If the array is just one dimensional it returns the size of the array.
+example.py
+nums = np.array([10, 20, 30, 40, 50])
+print(nums)
+print('shape of nums: ', nums.shape)
+
+numpy_two_dimensional_list = np.array([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+print(numpy_two_dimensional_list)
+print('shape of numpy_two_dimensional_list: ', numpy_two_dimensional_list.shape)
+
+three_by_four_array = np.array([
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11]
+])
+print(three_by_four_array)
+print('shape of three_by_four_array: ', three_by_four_array.shape)
+
+
+View:
+output.txt
+[10 20 30 40 50]
+shape of nums:  (5,)
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+shape of numpy_two_dimensional_list:  (3, 3)
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+shape of three_by_four_array:  (3, 4)
+
+
+(5,) means one axis of length 5. (3, 3) means 3 rows and 3 columns. (3, 4) means 3 rows and 4 columns.
+
+Data type of numpy array
+
+Types of data types: str, int, float, complex, bool, list, None
+example.py
+int_lists = [-3, -2, -1, 0, 1, 2, 3]
+int_array = np.array(int_lists)
+float_array = np.array(int_lists, dtype=float)
+
+print(int_array)
+print(int_array.dtype)
+print(float_array)
+print(float_array.dtype)
+
+
+View:
+output.txt
+[-3 -2 -1  0  1  2  3]
+int64
+[-3. -2. -1.  0.  1.  2.  3.]
+float64
+
+
+On Windows the integer dtype may print as int32. The values are the same.
+
+Size of a numpy array
+
+In numpy to know the number of items in a numpy array we use size.
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+two_dimensional_list = np.array([[0, 1, 2],
+                                 [3, 4, 5],
+                                 [6, 7, 8]])
+
+print('The size:', numpy_array_from_list.size)
+print('The size:', two_dimensional_list.size)
+
+
+View:
+output.txt
+The size: 5
+The size: 9
+
+
+size counts every item. A 3×3 array has 9 items, not 3.
+
+Mathematical Operation using numpy
+
+NumPy array is not exactly like a python list. To do a mathematical operation on a Python list we have to loop through the items, but numpy can allow any mathematical operation without looping.
+
+Mathematical Operation:
+
+
+Addition (+)
+
+Subtraction (-)
+
+Multiplication (*)
+
+Division (/)
+
+Modulus (%)
+
+Floor Division (//)
+
+Exponential (**)
+
+
+Small demos use [10, 20, 30, 40, 50].
+
+Addition
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_plus_original = numpy_array_from_list + 10
+print(ten_plus_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[20 30 40 50 60]
+
+
+Each item gets + 10. No loop.
+
+Subtraction
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_minus_original = numpy_array_from_list - 10
+print(ten_minus_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[ 0 10 20 30 40]
+
+
+Multiplication
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list * 10
+print(ten_times_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[100 200 300 400 500]
+
+
+Division
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list / 10
+print(ten_times_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[1. 2. 3. 4. 5.]
+
+
+Division always gives floats.
+
+Modulus
+
+Modulus: finding the remainder.
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list % 3
+print(ten_times_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[1 2 0 1 2]
+
+
+10 % 3 = 1, 30 % 3 = 0.
+
+Floor Division
+
+Floor division: the division result without the remainder.
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list // 10
+print(ten_times_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[1 2 3 4 5]
+
+
+Exponential
+
+Exponential is finding some number to the power of another.
+example.py
+numpy_array_from_list = np.array([10, 20, 30, 40, 50])
+print('original array: ', numpy_array_from_list)
+ten_times_original = numpy_array_from_list ** 2
+print(ten_times_original)
+
+
+View:
+output.txt
+original array:  [10 20 30 40 50]
+[ 100  400  900 1600 2500]
+
+
+Checking data types
+example.py
+numpy_int_arr = np.array([10, 20, 30, 40])
+numpy_float_arr = np.array([1.1, 2.0, 3.2])
+numpy_bool_arr = np.array([-3, -2, 0, 1, 2, 3], dtype='bool')
+
+print(numpy_int_arr.dtype)
+print(numpy_float_arr.dtype)
+print(numpy_bool_arr.dtype)
+
+
+View:
+output.txt
+int64
+float64
+bool
+
+
+Converting types
+
+We can convert the data types of a numpy array.
+
+
+Int to Float
+
+example.py
+numpy_int_arr = np.array([10, 20, 30, 40], dtype='float')
+print(numpy_int_arr)
+
+
+View:
+output.txt
+[10. 20. 30. 40.]
+
+
+
+Float to Int
+
+example.py
+numpy_int_arr = np.array([10., 20., 30., 40.], dtype='int')
+print(numpy_int_arr)
+
+
+View:
+output.txt
+[10 20 30 40]
+
+
+
+Int to boolean
+
+example.py
+print(np.array([-3, -2, 0, 1, 2, 3], dtype='bool'))
+
+
+View:
+output.txt
+[ True  True False  True  True  True]
+
+
+Only 0 becomes False.
+
+
+Int to str
+
+example.py
+numpy_float_list = np.array([10., 20., 30.])
+print(numpy_float_list.astype('int').astype('str'))
+
+
+View:
+output.txt
+['10' '20' '30']
+
+
+astype can be chained: float → int → str.
+
+Multi-dimensional Arrays
+example.py
+two_dimension_array = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)])
+print(type(two_dimension_array))
+print(two_dimension_array)
+print('Shape: ', two_dimension_array.shape)
+print('Size:', two_dimension_array.size)
+print('Data type:', two_dimension_array.dtype)
+
+
+View:
+output.txt
+<class 'numpy.ndarray'>
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Shape:  (3, 3)
+Size: 9
+Data type: int64
+
+
+Getting items from a numpy array
+example.py
+two_dimension_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+first_row = two_dimension_array[0]
+second_row = two_dimension_array[1]
+third_row = two_dimension_array[2]
+print('First row:', first_row)
+print('Second row:', second_row)
+print('Third row: ', third_row)
+
+
+View:
+output.txt
+First row: [1 2 3]
+Second row: [4 5 6]
+Third row:  [7 8 9]
+
+example.py
+first_column = two_dimension_array[:, 0]
+second_column = two_dimension_array[:, 1]
+third_column = two_dimension_array[:, 2]
+print('First column:', first_column)
+print('Second column:', second_column)
+print('Third column: ', third_column)
+print(two_dimension_array)
+
+
+View:
+output.txt
+First column: [1 4 7]
+Second column: [2 5 8]
+Third column:  [3 6 9]
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+
+[row, column]. : means “every row” (or every column).
+
+Slicing Numpy array
+
+Slicing in numpy is similar to slicing in a python list.
+example.py
+two_dimension_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+first_two_rows_and_columns = two_dimension_array[0:2, 0:2]
+print(first_two_rows_and_columns)
+
+
+View:
+output.txt
+[[1 2]
+ [4 5]]
+
+
+Rows 0:2 (0 and 1) and columns 0:2 (0 and 1).
+
+How to reverse the rows and the whole array?
+example.py
+print(two_dimension_array[::])
+
+
+View:
+output.txt
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+
+[::] is the whole array, same as the original.
+
+Reverse the row and column positions
+example.py
+two_dimension_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(two_dimension_array[::-1, ::-1])
+
+
+View:
+output.txt
+[[9 8 7]
+ [6 5 4]
+ [3 2 1]]
+
+
+How to represent missing values ?
+
+The original lesson overwrites two cells (it does not insert np.nan here). That is how you assign a new value at [row, column].
+example.py
+print(two_dimension_array)
+two_dimension_array[1, 1] = 55
+two_dimension_array[1, 2] = 44
+print(two_dimension_array)
+
+
+View:
+output.txt
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+[[ 1  2  3]
+ [ 4 55 44]
+ [ 7  8  9]]
+
+
+The middle row is now 4, 55, 44. Later statistical examples use this mutated array.
+
+Zeros, ones, reshape and stack
+example.py
+# Numpy Zeroes
+# numpy.zeros(shape, dtype=float, order='C')
+numpy_zeroes = np.zeros((3, 3), dtype=int, order='C')
+print(numpy_zeroes)
+
+
+View:
+output.txt
+[[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+
+example.py
+numpy_ones = np.ones((3, 3), dtype=int, order='C')
+print(numpy_ones)
+
+
+View:
+output.txt
+[[1 1 1]
+ [1 1 1]
+ [1 1 1]]
+
+example.py
+twoes = numpy_ones * 2
+print(twoes)
+
+
+View:
+output.txt
+[[2 2 2]
+ [2 2 2]
+ [2 2 2]]
+
+example.py
+# Reshape
+# numpy.reshape(), numpy.flatten()
+first_shape = np.array([(1, 2, 3), (4, 5, 6)])
+print(first_shape)
+reshaped = first_shape.reshape(3, 2)
+print(reshaped)
+
+
+View:
+output.txt
+[[1 2 3]
+ [4 5 6]]
+[[1 2]
+ [3 4]
+ [5 6]]
+
+
+reshape needs the same number of items: 2×3 = 3×2 = 6.
+example.py
+flattened = reshaped.flatten()
+print(flattened)
+
+
+View:
+output.txt
+[1 2 3 4 5 6]
+
+
+flatten() walks the array in memory order and returns one row.
+example.py
+# Horizontal Stack
+np_list_one = np.array([1, 2, 3])
+np_list_two = np.array([4, 5, 6])
+
+print(np_list_one + np_list_two)
+print('Horizontal Append:', np.hstack((np_list_one, np_list_two)))
+
+
+View:
+output.txt
+[5 7 9]
+Horizontal Append: [1 2 3 4 5 6]
+
+
++ adds item by item. hstack joins the arrays side by side.
+example.py
+# Vertical Stack
+print('Vertical Append:', np.vstack((np_list_one, np_list_two)))
+
+
+View:
+output.txt
+Vertical Append: [[1 2 3]
+ [4 5 6]]
+
+
+Structured-number form of the same two stacks:
+example.py
+print(np.hstack((np.array([10, 20, 30]), np.array([40, 50, 60]))))
+print(np.vstack((np.array([10, 20, 30]), np.array([40, 50, 60]))))
+
+
+View:
+output.txt
+[10 20 30 40 50 60]
+[[10 20 30]
+ [40 50 60]]
+
+
+Generating Random Numbers
+
+Random views below are samples. Your numbers will differ. The shapes stay the same.
+example.py
+# Generate a random float number
+random_float = np.random.random()
+print(random_float)
+
+
+View (sample):
+output.txt
+0.018929887384753874
+
+example.py
+# Generate random floats
+random_floats = np.random.random(5)
+print(random_floats)
+
+
+View (sample):
+output.txt
+[0.26392192 0.35842215 0.87908478 0.41902195 0.78926418]
+
+
+Five numbers, each in [0.0, 1.0).
+example.py
+# Generating a random integer between 0 and 10
+random_int = np.random.randint(0, 11)
+print(random_int)
+
+
+View (sample):
+output.txt
+4
+
+example.py
+# Generating random integers between 2 and 10, one row
+random_int = np.random.randint(2, 10, size=4)
+print(random_int)
+
+
+View (sample):
+output.txt
+[8 8 8 2]
+
+example.py
+# Generating a 3 by 3 of random integers
+random_int = np.random.randint(2, 10, size=(3, 3))
+print(random_int)
+
+
+View (sample):
+output.txt
+[[3 5 3]
+ [7 3 6]
+ [2 3 3]]
+
+
+Generating random numbers from a normal distribution
+example.py
+# np.random.normal(mu, sigma, size)
+normal_array = np.random.normal(79, 15, 80)
+print(normal_array)
+
+
+View (sample — 80 numbers, first few):
+output.txt
+[ 89.49990595  82.06056961 107.21445842  38.69307086 ...  59.95462521]
+
+
+Mean (mu) is 79. Standard deviation (sigma) is 15. Count is 80.
+
+Numpy and Statistics
+example.py
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+plt.hist(normal_array, color="grey", bins=50)
+
+
+View (the histogram that this call draws):
+
+A grey bar histogram. The x-axis runs about 38.7 to 122.6 (the min and max of that random sample). Most bars sit near 70–90, around the mean 79. The tallest bars are a little above 100 counts. The far left and far right bins are almost empty (2, then many zeros, then 1 at the right tail). That is a rough bell curve from np.random.normal(79, 15, 80).
+
+plt.hist also returns three things: the bar heights, the bin edges, and the bar artists. You do not need those lists unless you are customising the plot.
+
+Matrix in numpy
+example.py
+four_by_four_matrix = np.matrix(np.ones((4, 4), dtype=float))
+print(four_by_four_matrix)
+
+
+View:
+output.txt
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+
+example.py
+np.asarray(four_by_four_matrix)[2] = 2
+print(four_by_four_matrix)
+
+
+View:
+output.txt
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [2. 2. 2. 2.]
+ [1. 1. 1. 1.]]
+
+
+asarray is a view of the same memory, so changing row 2 changes the matrix.
+
+Numpy numpy.arange()
+
+What is arange?
+
+Sometimes you want to create values that are evenly spaced within a defined interval. For instance, you want to create values from 1 to 10; you can use the numpy.arange() function.
+example.py
+# creating list using range(starting, stop, step)
+lst = range(0, 11, 2)
+print(lst)
+for l in lst:
+    print(l)
+
+
+View:
+output.txt
+range(0, 11, 2)
+0
+2
+4
+6
+8
+10
+
+example.py
+# Similar to range: numpy.arange(start, stop, step)
+whole_numbers = np.arange(0, 20, 1)
+print(whole_numbers)
+
+
+View:
+output.txt
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+
+example.py
+natural_numbers = np.arange(1, 20, 1)
+print(natural_numbers)
+
+odd_numbers = np.arange(1, 20, 2)
+print(odd_numbers)
+
+even_numbers = np.arange(2, 20, 2)
+print(even_numbers)
+
+
+View:
+output.txt
+[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+[ 1  3  5  7  9 11 13 15 17 19]
+[ 2  4  6  8 10 12 14 16 18]
+
+
+Structured tens:
+example.py
+print(np.arange(10, 60, 10))
+
+
+View:
+output.txt
+[10 20 30 40 50]
+
+
+arange stops before the stop value, like range.
+
+Creating sequence of numbers using linspace
+example.py
+# numpy.linspace()
+# For instance, it can be used to create 10 values from 1 to 5 evenly spaced.
+print(np.linspace(1.0, 5.0, num=10))
+
+
+View:
+output.txt
+[1.         1.44444444 1.88888889 2.33333333 2.77777778
+ 3.22222222 3.66666667 4.11111111 4.55555556 5.        ]
+
+example.py
+# not to include the last value in the interval
+print(np.linspace(1.0, 5.0, num=5, endpoint=False))
+
+
+View:
+output.txt
+[1.  1.8 2.6 3.4 4.2]
+
+example.py
+print(np.linspace(10.0, 50.0, num=5))
+
+
+View:
+output.txt
+[10. 20. 30. 40. 50.]
+
+example.py
+# LogSpace
+# LogSpace returns even spaced numbers on a log scale. Logspace has the same parameters as np.linspace.
+# numpy.logspace(start, stop, num, endpoint)
+print(np.logspace(2, 4.0, num=4))
+
+
+View:
+output.txt
+[  100.           464.15888336  2154.43469003 10000.        ]
+
+
+Those values are 10**2, then three more points up to 10**4.
+example.py
+# to check the size of an array
+x = np.array([1, 2, 3], dtype=np.complex128)
+print(x)
+print(x.itemsize)
+
+
+View:
+output.txt
+[1.+0.j 2.+0.j 3.+0.j]
+16
+
+
+itemsize is the number of bytes of one item. A complex128 value uses 16 bytes.
+
+Indexing and slicing again
+example.py
+np_list = np.array([(1, 2, 3), (4, 5, 6)])
+print(np_list)
+print('First row: ', np_list[0])
+print('Second row: ', np_list[1])
+print('First column: ', np_list[:, 0])
+print('Second column: ', np_list[:, 1])
+print('Third column: ', np_list[:, 2])
+
+
+View:
+output.txt
+[[1 2 3]
+ [4 5 6]]
+First row:  [1 2 3]
+Second row:  [4 5 6]
+First column:  [1 4]
+Second column:  [2 5]
+Third column:  [3 6]
+
+
+NumPy Statistical Functions with Example
+
+NumPy has quite useful statistical functions for finding minimum, maximum, mean, median, percentile, standard deviation and variance from the given elements in the array.
+
+
+Numpy Functions
+
+Min np.min()
+
+Max np.max()
+
+Mean np.mean()
+
+Median np.median()
+
+Variance np.var()
+
+Percentile np.percentile()
+
+Standard deviation np.std()
+
+
+
+example.py
+np_normal_dis = np.random.normal(5, 0.5, 100)
+print(np_normal_dis)
+
+# min, max, mean, median, sd — on the mutated 3x3 from earlier
+print('min: ', two_dimension_array.min())
+print('max: ', two_dimension_array.max())
+print('mean: ', two_dimension_array.mean())
+# print('median: ', two_dimension_array.median())  # arrays have no .median() method
+print('sd: ', two_dimension_array.std())
+
+
+View (the 3×3 is [[1, 2, 3], [4, 55, 44], [7, 8, 9]]):
+output.txt
+min:  1
+max:  55
+mean:  14.777777777777779
+sd:  18.913709183069525
+
+
+median is a module function: np.median(array), not array.median().
+
+Structured scores:
+example.py
+nums = np.array([10, 20, 30, 40, 50])
+print('min: ', np.min(nums))
+print('max: ', np.max(nums))
+print('mean: ', np.mean(nums))
+print('median: ', np.median(nums))
+print('var: ', np.var(nums))
+print('percentile 50: ', np.percentile(nums, 50))
+print('sd: ', np.std(nums))
+
+
+View:
+output.txt
+min:  10
+max:  50
+mean:  30.0
+median:  30.0
+var:  200.0
+percentile 50:  30.0
+sd:  14.142135623730951
+
+
+np.std / np.var default to the population formulas (pstdev / pvariance). That is why np.std(scores) matches statistics.pstdev(scores), not statistics.stdev(scores).
+example.py
+print(two_dimension_array)
+print('Column with minimum: ', np.amin(two_dimension_array, axis=0))
+print('Column with maximum: ', np.amax(two_dimension_array, axis=0))
+print('=== Row ==')
+print('Row with minimum: ', np.amin(two_dimension_array, axis=1))
+print('Row with maximum: ', np.amax(two_dimension_array, axis=1))
+
+
+View:
+output.txt
+[[ 1  2  3]
+ [ 4 55 44]
+ [ 7  8  9]]
+Column with minimum:  [1 2 3]
+Column with maximum:  [ 7 55 44]
+=== Row ==
+Row with minimum:  [1 4 7]
+Row with maximum:  [ 3 55  9]
+
+
+axis=0 walks down each column. axis=1 walks across each row.
+
+How to create repeating sequences?
+example.py
+a = [1, 2, 3]
+
+# Repeat whole of 'a' two times
+print('Tile:   ', np.tile(a, 2))
+
+# Repeat each element of 'a' two times
+print('Repeat: ', np.repeat(a, 2))
+
+
+View:
+output.txt
+Tile:    [1 2 3 1 2 3]
+Repeat:  [1 1 2 2 3 3]
+
+example.py
+print(np.tile([10, 20, 30], 2))
+print(np.repeat([10, 20, 30], 2))
+
+
+View:
+output.txt
+[10 20 30 10 20 30]
+[10 10 20 20 30 30]
+
+
+How to generate random numbers?
+example.py
+# One random number between [0, 1)
+one_random_num = np.random.random()
+print(one_random_num)
+
+
+View (sample):
+output.txt
+0.6149403282678213
+
+example.py
+# Random numbers between [0, 1) of shape 2, 3
+r = np.random.random(size=[2, 3])
+print(r)
+
+
+View (sample):
+output.txt
+[[0.13031737 0.4429537  0.1129527 ]
+ [0.76811539 0.88256594 0.6754075 ]]
+
+example.py
+print(np.random.choice(['a', 'e', 'i', 'o', 'u'], size=10))
+
+
+View (sample):
+output.txt
+['u' 'o' 'o' 'i' 'e' 'e' 'u' 'o' 'u' 'a']
+
+example.py
+# Random numbers between [0, 1] of shape 2, 2
+rand = np.random.rand(2, 2)
+print(rand)
+
+
+View (sample):
+output.txt
+[[0.97992598 0.79642484]
+ [0.65263629 0.55763145]]
+
+example.py
+rand2 = np.random.randn(2, 2)
+print(rand2)
+
+
+View (sample):
+output.txt
+[[ 1.65593322 -0.52326621]
+ [ 0.39071179 -2.03649407]]
+
+
+rand is uniform in [0, 1). randn is standard normal (mean 0, variance 1), so values can be negative.
+example.py
+# Random integers between [0, 10) of shape 5, 3
+rand_int = np.random.randint(0, 10, size=[5, 3])
+print(rand_int)
+
+
+View (sample):
+output.txt
+[[0 7 5]
+ [4 1 4]
+ [3 5 3]
+ [4 3 8]
+ [4 6 7]]
+
+example.py
+from scipy import stats
+
+np_normal_dis = np.random.normal(5, 0.5, 1000)  # mean, standard deviation, number of samples
+print('min: ', np.min(np_normal_dis))
+print('max: ', np.max(np_normal_dis))
+print('mean: ', np.mean(np_normal_dis))
+print('median: ', np.median(np_normal_dis))
+print('mode: ', stats.mode(np_normal_dis))
+print('sd: ', np.std(np_normal_dis))
+
+
+View (sample — 1000 draws around mean 5):
+output.txt
+min:  3.557811005458804
+max:  6.876317743643499
+mean:  5.035832048106663
+median:  5.020161980441937
+mode:  ModeResult(mode=array([3.55781101]), count=array([1]))
+sd:  0.489682424165213
+
+
+Mean ≈ 5 and sd ≈ 0.5, as requested. On continuous random data every value is unique, so mode is just one of the numbers (count 1).
+example.py
+plt.hist(np_normal_dis, color="grey", bins=21)
+plt.show()
+
+
+View (the histogram this draws):
+
+A grey bar chart, x from about 3.5 to 7.0, y (counts) from 0 to a little over 120. The bars climb from the left, peak near 5.0 (the mean), then fall symmetrically. That is the 1000-point normal(5, 0.5) sample with 21 bins.
+
+Linear Algebra
+
+1. Dot Product
+example.py
+# numpy.dot(): Dot Product in Python using Numpy
+# numpy.dot(x, y, out=None)
+# Dot product: product of two arrays
+f = np.array([1, 2, 3])
+g = np.array([4, 5, 3])
+# 1*4 + 2*5 + 3*3
+print(np.dot(f, g))  # 23
+
+
+View:
+output.txt
+23
+
+
+1*4 + 2*5 + 3*3 = 4 + 10 + 9 = 23.
+example.py
+print(np.dot(np.array([10, 20, 30]), np.array([40, 50, 30])))
+
+
+View:
+output.txt
+2300
+
+
+10*40 + 20*50 + 30*30 = 400 + 1000 + 900 = 2300.
+
+NumPy Matrix Multiplication with np.matmul()
+example.py
+# Matmul: matrix product of two arrays
+h = [[1, 2], [3, 4]]
+i = [[5, 6], [7, 8]]
+# 1*5 + 2*7 = 19
+print(np.matmul(h, i))
+
+
+View:
+output.txt
+[[19 22]
+ [43 50]]
+
+snippet
+19 = 1*5 + 2*7
+22 = 1*6 + 2*8
+43 = 3*5 + 4*7
+50 = 3*6 + 4*8
+
+example.py
+## Determinant 2*2 matrix
+### 5*8 - 7*6
+print(np.linalg.det(i))
+
+
+View:
+output.txt
+-1.999999999999999
+
+
+5*8 - 7*6 = 40 - 42 = -2. Floating point prints it as -1.999....
+example.py
+Z = np.zeros((8, 8))
+Z[1::2, ::2] = 1
+Z[::2, 1::2] = 1
+print(Z)
+
+
+View:
+output.txt
+[[0. 1. 0. 1. 0. 1. 0. 1.]
+ [1. 0. 1. 0. 1. 0. 1. 0.]
+ [0. 1. 0. 1. 0. 1. 0. 1.]
+ [1. 0. 1. 0. 1. 0. 1. 0.]
+ [0. 1. 0. 1. 0. 1. 0. 1.]
+ [1. 0. 1. 0. 1. 0. 1. 0.]
+ [0. 1. 0. 1. 0. 1. 0. 1.]
+ [1. 0. 1. 0. 1. 0. 1. 0.]]
+
+
+A checkerboard: odd rows get 1 on even columns, even rows get 1 on odd columns.
+example.py
+new_list = [x + 2 for x in range(0, 11)]
+print(new_list)
+
+np_arr = np.array(range(0, 11))
+print(np_arr + 2)
+
+
+View:
+output.txt
+[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[ 2  3  4  5  6  7  8  9 10 11 12]
+
+
+The list needs a comprehension. The array adds 2 to every item in one step.
+
+We use a linear equation for quantities which have a linear relationship.
+example.py
+temp = np.array([1, 2, 3, 4, 5])
+pressure = temp * 2 + 5
+print(pressure)
+
+
+View:
+output.txt
+[ 7  9 11 13 15]
+
+
+1*2 + 5 = 7, 5*2 + 5 = 15.
+
+Plots (transcribed)
+example.py
+plt.plot(temp, pressure)
+plt.xlabel('Temperature in oC')
+plt.ylabel('Pressure in atm')
+plt.title('Temperature vs Pressure')
+plt.xticks(np.arange(0, 6, step=0.5))
+plt.show()
+
+
+View (the line chart this draws):
+
+Title Temperature vs Pressure. X-axis Temperature in oC from 0.0 to 5.5 with ticks every 0.5. Y-axis Pressure in atm from 7 to 15. One straight blue line from (1, 7) to (5, 15). That is pressure = 2 * temp + 5.
+
+To draw the Gaussian normal distribution using numpy. As you can see below, numpy can generate random numbers. To create a random sample, we need the mean (mu), sigma (standard deviation), and the number of data points.
+example.py
+mu = 28
+sigma = 15
+samples = 100000
+
+x = np.random.normal(mu, sigma, samples)
+ax = sns.distplot(x)
+ax.set(xlabel="x", ylabel='y')
+plt.show()
+
+
+View (the density plot this draws):
+
+A smooth bell curve filled with thin vertical bars. X-axis from about -40 to 100. Y-axis (density) from 0.000 to about 0.025. The peak sits near x = 28 (the mean). Almost all of the mass is between 0 and 60. That is normal(28, 15) with 100 000 samples.
+
+sns.distplot is older seaborn. Newer seaborn uses sns.histplot(x, kde=True) for the same idea.
+
+Summary
+
+To summarize, the main differences with python lists are:
+
+
+Arrays support vectorized operations, while lists don’t.
+
+Once an array is created, you cannot change its size. You will have to create a new array or overwrite the existing one.
+
+Every array has one and only one dtype. All items in it should be of that dtype.
+
+An equivalent numpy array occupies much less space than a python list of lists.
+
+numpy arrays support boolean indexing.
+
+
+Day 24 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Repeat all the examples
+
+
+Exercises: Level 2
+
+Use scores = [10, 20, 30, 40, 50].
+
+
+import statistics and print mean, median, mode of [10, 20, 20, 30, 40, 50]
+
+Print stdev(scores) and pstdev(scores). In a comment, write which one is the sample formula
+
+Print variance(scores) and pvariance(scores)
+
+Print median_low and median_high of [10, 20, 30, 40]
+
+Print quantiles(scores)
+
+Print correlation(scores, [20, 40, 60, 80, 100]). The view should be 1.0
+
+
+Exercises: Level 3
+
+
+Make nums = np.array([10, 20, 30, 40, 50]). Print nums + 10, nums * 10, nums ** 2
+
+Print np.min(nums), np.max(nums), np.mean(nums), np.median(nums), np.std(nums), np.var(nums)
+
+Check that np.mean(nums) equals statistics.mean(scores) and that np.std(nums) equals statistics.pstdev(scores)
+
+Build a 3×3 array [[10, 20, 30], [40, 50, 60], [70, 80, 90]]. Print shape, size, first row, first column, and array[0:2, 0:2]
+
+Print np.amin(array, axis=0) and np.amax(array, axis=1)
+
+Use np.tile([10, 20, 30], 2) and np.repeat([10, 20, 30], 2)
+
+Compute np.dot([10, 20, 30], [40, 50, 30]). The view should be 2300
+
+Create temp = np.array([10, 20, 30, 40, 50]) and pressure = temp * 2 + 5. Print pressure. Optional: plot it with matplotlib
+
+
+You finished Day 24. Next: pandas.
+

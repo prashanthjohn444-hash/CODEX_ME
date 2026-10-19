@@ -1,0 +1,14 @@
+{
+ "outliers": [
+  {
+   "channel": "Corey Schafer",
+   "title": "Python Tutorial for Beginners 1: Install and Setup for Mac and Windows",
+   "views": 4357630,
+   "median": 1796597,
+   "multiple": 2.43,
+   "formula": "Unclassified",
+   "url": "https://www.youtube.com/watch?v=YYXdXT2l-Gg"
+  }
+ ],
+ "skipped_thin_channels": []
+}

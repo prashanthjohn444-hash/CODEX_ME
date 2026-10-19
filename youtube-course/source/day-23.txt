@@ -1,0 +1,430 @@
+
+Setting up Virtual Environments
+
+To start with a project, it would be better to have a virtual environment. A virtual environment can help us to create an isolated or separate environment. This will help us to avoid conflicts in dependencies across projects.
+
+If you write pip freeze on your terminal you will see all the installed packages on your computer. If we use virtualenv, we will access only packages which are specific for that project.
+
+Why a virtual environment
+
+
+
+
+  Without a venv
+  With a venv
+
+
+
+
+
+  Every project shares one global package list
+  Each project has its own packages
+
+
+
+  Project A needs Flask 1.x, Project B needs Flask 2.x — they fight
+  Each project pins the version it needs
+
+
+
+  pip freeze dumps everything on the machine
+  pip freeze lists only this project
+
+
+
+
+Open your terminal and follow the numbered commands below.
+
+Commands
+
+1. pip install virtualenv
+
+Install the virtualenv package.
+terminal
+pip install virtualenv
+
+
+View (version numbers change):
+output.txt
+Successfully installed virtualenv-...
+
+
+Python 3 also has a built-in module named venv. On Windows the lesson uses python -m venv. On macOS / Linux the lesson uses the virtualenv command. Both create an isolated environment.
+
+2. Create the project folder
+
+Inside the 30DaysOfPython folder create a flask_project folder.
+terminal
+mkdir flask_project
+cd flask_project
+
+
+View:
+output.txt
+
+
+You are now inside flask_project. The next commands run from this folder.
+
+3. virtualenv venv / python -m venv venv
+
+After installing the virtualenv package go to your project folder and create a virtual env.
+
+For Mac/Linux:
+terminal
+virtualenv venv
+
+
+For Windows:
+terminal
+python -m venv venv
+
+
+View (macOS / Linux example):
+output.txt
+created virtual environment ...
+
+
+I prefer to call the new project folder venv, but feel free to name it differently. The folder name is what you will type when you activate it.
+
+4. ls / dir
+
+Let us check if the venv was created by using ls (or dir for Windows command prompt).
+
+For Mac/Linux:
+terminal
+ls
+
+
+View:
+output.txt
+venv/
+
+
+For Windows:
+terminal
+dir
+
+
+View:
+output.txt
+venv
+
+
+Inside venv/ you will see bin/ (macOS / Linux) or Scripts/ (Windows), plus lib/ and pyvenv.cfg. You do not edit those by hand.
+
+5. Activate (macOS / Linux)
+
+Let us activate the virtual environment by writing the following command at our project folder.
+terminal
+source venv/bin/activate
+
+
+View:
+output.txt
+(venv) asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$
+
+
+After you write the activation command, your project directory prompt will start with (venv).
+
+6. Activate (Windows PowerShell)
+
+Activation of the virtual environment on Windows may vary on Windows PowerShell and Git Bash.
+terminal
+venv\Scripts\activate
+
+
+View:
+output.txt
+(venv) PS C:\Users\User\Documents\30DaysOfPython\flask_project>
+
+
+If PowerShell blocks the script, run this once (as Administrator if needed), then try activate again:
+terminal
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+
+7. Activate (Windows Git Bash)
+terminal
+venv\Scripts\. activate
+
+
+Some Git Bash setups need a forward-slash path instead:
+terminal
+source venv/Scripts/activate
+
+
+View:
+output.txt
+(venv) asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$
+
+
+The prompt prefix (venv) is the check that activation worked.
+
+8. pip freeze (empty project)
+
+Now, let us check the available packages in this project by writing pip freeze. You will not see any packages.
+terminal
+pip freeze
+
+
+View:
+output.txt
+
+
+An empty printout is correct. The environment is isolated. Global packages are not listed here.
+
+9. pip install Flask
+
+We are going to do a small Flask project so let us install the Flask package to this project.
+terminal
+pip install Flask
+
+
+View (shortened):
+output.txt
+Successfully installed Click-7.0 Flask-1.1.1 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 itsdangerous-1.1.0
+
+
+Newer pip will install newer Flask. The names (Flask, Jinja2, Werkzeug, ...) stay the same idea.
+
+10. pip freeze (after Flask)
+
+Now, let us write pip freeze to see a list of installed packages in the project:
+terminal
+pip freeze
+
+
+View:
+output.txt
+Click==7.0
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+Werkzeug==0.16.0
+
+
+This list is what you save as requirements.txt so another machine can recreate the same environment.
+terminal
+pip freeze > requirements.txt
+
+
+Install from that file later with:
+terminal
+pip install -r requirements.txt
+
+
+11. deactivate
+
+When you finish you should deactivate the active project using deactivate.
+terminal
+deactivate
+
+
+View:
+output.txt
+asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$
+
+
+The (venv) prefix is gone. pip freeze now shows the global list again.
+
+You can leave the folder with cd ... Deactivate first if you are done working in the project.
+
+12. Add venv to .gitignore
+
+The necessary modules to work with Flask are installed. Now, your project directory is ready for a Flask project. You should include the venv folder in your .gitignore file so you do not push it to GitHub.
+snippet
+venv/
+
+
+View (the file content):
+output.txt
+venv/
+
+
+Commit requirements.txt, not the venv/ folder. Anyone else runs python -m venv venv, activates it, then pip install -r requirements.txt.
+
+Command table
+
+Every command from this lesson, in order.
+
+
+
+
+  #
+  Command
+  Where
+  What it does
+  View
+
+
+
+
+
+  1
+  pip install virtualenv
+  any folder
+  Install the virtualenv tool
+  Successfully installed virtualenv-...
+
+
+
+  2
+  mkdir flask_project then cd flask_project
+  30DaysOfPython
+  Create and enter the project folder
+  prompt is inside flask_project
+
+
+
+  3
+  virtualenv venv
+  macOS / Linux project folder
+  Create the environment named venv
+  venv/ folder appears
+
+
+
+  4
+  python -m venv venv
+  Windows project folder
+  Create the environment named venv
+  venv folder appears
+
+
+
+  5
+  ls
+  macOS / Linux
+  List the folder
+  venv/
+
+
+
+  6
+  dir
+  Windows
+  List the folder
+  venv
+
+
+
+  7
+  source venv/bin/activate
+  macOS / Linux
+  Turn the environment on
+  prompt starts with (venv)
+
+
+
+  8
+  venv\Scripts\activate
+  Windows PowerShell
+  Turn the environment on
+  prompt starts with (venv)
+
+
+
+  9
+  venv\Scripts\. activate
+  Windows Git Bash
+  Turn the environment on
+  prompt starts with (venv)
+
+
+
+  10
+  pip freeze
+  inside an empty venv
+  List project packages
+  empty
+
+
+
+  11
+  pip install Flask
+  inside the venv
+  Install Flask and its dependencies
+  Successfully installed Flask-...
+
+
+
+  12
+  pip freeze
+  after Flask
+  List pinned versions
+  Flask==1.1.1 and friends
+
+
+
+  13
+  pip freeze > requirements.txt
+  inside the venv
+  Save the list to a file
+  requirements.txt created
+
+
+
+  14
+  pip install -r requirements.txt
+  a fresh venv
+  Reinstall from that file
+  packages install
+
+
+
+  15
+  deactivate
+  inside an active venv
+  Turn the environment off
+  (venv) prefix gone
+
+
+
+
+Day 23 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Create a project directory with a virtual environment based on the example given above.
+
+
+Exercises: Level 2
+
+
+Activate the environment. Check that the prompt starts with (venv)
+
+Run pip freeze. Confirm the list is empty (or only has pip / setuptools)
+
+Install Flask with pip install Flask
+
+Run pip freeze again. Copy the list into a requirements.txt file
+
+Deactivate the environment. Confirm the (venv) prefix is gone
+
+Add venv/ to .gitignore
+
+
+Exercises: Level 3
+
+
+Create a second folder stats_project next to flask_project
+
+Create a new venv inside stats_project and activate it
+
+Install only these packages: numpy and (if you want Day 25 early) pandas
+
+Save pip freeze to stats_project/requirements.txt
+
+Deactivate. Activate flask_project again. Run pip freeze and confirm Flask is there and numpy is not (unless you also installed it there)
+
+In a comment or a short README in flask_project, write the three commands another person needs: create venv, activate, pip install -r requirements.txt
+
+Optional: delete the venv folder, recreate it, and reinstall from requirements.txt. The project should work the same
+
+
+You finished Day 23. Next: statistics.
+

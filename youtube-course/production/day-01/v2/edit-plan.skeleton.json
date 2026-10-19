@@ -1,0 +1,37 @@
+{
+  "project": "Day 1 v2 - Run Your First Python File",
+  "status": "voice DONE (11/11 Adam, 359.7 s) · broll DONE (9 mp4 renders, verified 1920×1080/30) · captures in progress",
+  "spec": { "resolution": "1920x1080", "fps": 30, "color": "Rec.709", "container": "mp4/H.264", "audio": "48 kHz mono" },
+  "assets_expected": {
+    "voice": "youtube-course/production/day-01/voice/v2/section-01..11.wav (Adam, via voice-gen agent)",
+    "captures": "youtube-course/production/day-01/screen/v2/captures/section-01..11-obs.mkv (screen-capture agent)",
+    "broll": "youtube-course/production/day-01/broll/v2/renders/*.mp4 (broll-render agent DONE; 9 clips, 4.0-4.4 s each; scenes/*.js + html/hyperframes/remotion builds alongside)"
+  },
+  "narrative_edit_map": [
+    { "section": "01", "title": "Hook - show the puzzle", "primary_picture": "capture 01 (split shell vs file + print fix)", "supporting_graphic": "broll shell-vs-file", "voice": "section-01.wav" },
+    { "section": "02", "title": "Turn - one concrete destination", "primary_picture": "capture 02 (hello.py result)", "supporting_graphic": "broll setup-path", "voice": "section-02.wav" },
+    { "section": "03", "title": "What Python does", "primary_picture": "capture 03 (return to working file)", "supporting_graphic": "broll python-uses", "voice": "section-03.wav" },
+    { "section": "04", "title": "Verify your interpreter", "primary_picture": "capture 04 (python --version + install reference)", "supporting_graphic": "broll interpreter-flow", "voice": "section-04.wav" },
+    { "section": "05", "title": "Know which prompt", "primary_picture": "capture 05 (>>> enter/exit cycle)", "supporting_graphic": "broll prompt-map", "voice": "section-05.wav" },
+    { "section": "06", "title": "First expressions and quoted text", "primary_picture": "capture 06 (expressions + print)", "supporting_graphic": "none - restrained output highlights only", "voice": "section-06.wav" },
+    { "section": "07", "title": "Break one line and recover", "primary_picture": "capture 07 (broken -> repaired)", "supporting_graphic": "broll syntax-repair close-up", "voice": "section-07.wav" },
+    { "section": "08", "title": "Save and run a file", "primary_picture": "capture 08 (VS Code install ref + hello.py run)", "supporting_graphic": "broll file-run-cycle", "voice": "section-08.wav" },
+    { "section": "09", "title": "Revisit shell/file behavior", "primary_picture": "capture 09 (recap demo)", "supporting_graphic": "REUSE broll shell-vs-file", "voice": "section-09.wav" },
+    { "section": "10", "title": "Preview types", "primary_picture": "capture 10 (type() calls)", "supporting_graphic": "broll type-map", "voice": "section-10.wav" },
+    { "section": "11", "title": "Code challenge and course lab", "primary_picture": "capture 11 (challenge workspace)", "supporting_graphic": "broll challenge-card", "voice": "section-11.wav" }
+  ],
+  "assembly_rules": {
+    "cut_on_narration": "each section's picture holds through its voice segment; b-roll clips cover [ON SCREEN] lines that refer to relationships, not typing",
+    "pauses": "preserve prediction pauses; no silent-gap trimming before yt-edit review",
+    "transitions": "short stepped fades; blur in/out only at transitions; readable states stay sharp",
+    "durations": "resolve from real WAV durations (manifest.json) + capture durations; do not guess"
+  },
+  "next_steps": [
+    "1. When voice-gen reports: validate manifest vs wavs (11 files, monotonic, no truncation)",
+    "2. When screen-capture reports: validate 11 mkv (duration, resolution, content frames)",
+    "3. When broll-render reports: validate 9 scenes (python-verified outputs, <=5 s, builds clean)",
+    "4. Export voice-locked section boundaries -> build edit plan with real durations -> cut b-roll inserts on [ON SCREEN] cues",
+    "5. Compose master via ffmpeg (concat + inserts) AND generate Resolve import (fcpxml) as editable deliverable",
+    "6. QC pass per production-brief completion checks; then yt-edit/yt-chapters/yt-shorts on final transcript"
+  ]
+}

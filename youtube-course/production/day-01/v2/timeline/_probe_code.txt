@@ -1,0 +1,10 @@
+﻿local pm=resolve:GetProjectManager() local pr=pm:GetCurrentProject()
+local out={}
+out[#out+1]='INSPECT_ZZ_4'
+out[#out+1]='timelines='..pr:GetTimelineCount()
+for i=1,pr:GetTimelineCount() do local tl=pr:GetTimelineByIndex(i) out[#out+1]='  TL'..i..' name='..tl:GetName()..' startFrame='..tl:GetStartFrame()..' v='..tl:GetTrackCount('video')..' a='..tl:GetTrackCount('audio')..' videos='..#tl:GetItemListInTrack('video',1) end
+local pool=pr:GetMediaPool() local root=pool:GetRootFolder()
+out[#out+1]='rootFolders='..#root:GetSubFolderList()
+local function walk(f,d) for _,c in ipairs(f:GetClipList()) do out[#out+1]=string.rep('  ',d)..'CLIP name='..c:GetName()..' dur='..tostring(c:GetClipProperty('Duration'))..' frames='..tostring(c:GetClipProperty('Frames'))..' fps='..tostring(c:GetClipProperty('FPS'))..' res='..tostring(c:GetClipProperty('Resolution')) end for _,s in ipairs(f:GetSubFolderList()) do out[#out+1]=string.rep('  ',d)..'FOLDER '..s:GetName() walk(s,d+1) end end
+walk(root,0)
+print(table.concat(out,'\n'))

@@ -1,0 +1,797 @@
+
+Tuples
+
+A tuple is a collection of different data types which is ordered and unchangeable (immutable). Tuples are written with round brackets, (). Once a tuple is created, we cannot change its values. We cannot use add, insert, or remove methods on a tuple because it is not modifiable. Unlike a list, a tuple has few methods.
+
+Methods and operations related to tuples:
+
+
+tuple(): to create an empty tuple
+
+count(): to count the number of a specified item in a tuple
+
+index(): to find the index of a specified item in a tuple
+
++ operator: to join two or more tuples and to create a new tuple
+
+
+You also use len(), indexing [], slicing [start:end], in, list() / tuple() conversion, and del. Those are the same ideas you used with lists on Day 5.
+
+Tuple methods at a glance
+
+
+
+
+  #
+  Method / operation
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  tuple()
+  Create a tuple
+  tuple([10, 20, 30])
+  (10, 20, 30)
+
+
+
+  2
+  len(tpl)
+  Number of items
+  len((10, 20, 30, 40, 50))
+  5
+
+
+
+  3
+  tpl[i]
+  Item at index i
+  (10, 20, 30)[0]
+  10
+
+
+
+  4
+  tpl[i:j]
+  Slice from i up to (not including) j
+  (10, 20, 30, 40)[1:3]
+  (20, 30)
+
+
+
+  5
+  list(tpl)
+  Convert tuple to list
+  list((10, 20, 30))
+  [10, 20, 30]
+
+
+
+  6
+  item in tpl
+  True if the item is in the tuple
+  20 in (10, 20, 30)
+  True
+
+
+
+  7
+  tpl1 + tpl2
+  Join two tuples into a new tuple
+  (10, 20) + (30, 40)
+  (10, 20, 30, 40)
+
+
+
+  8
+  del tpl
+  Delete the whole tuple
+  del scores
+  name is gone
+
+
+
+  9
+  tpl.count(x)
+  How many times x appears
+  (10, 20, 20, 30).count(20)
+  2
+
+
+
+  10
+  tpl.index(x)
+  First index of x
+  (10, 20, 30).index(20)
+  1
+
+
+
+
+The numbered walk-through below uses structured numbers (10, 20, 30, 40, 50) and the names Priya, Rao, India, Hyderabad. Fruit examples from the original index diagrams stay so you can match them.
+
+Creating a Tuple
+
+
+Empty tuple: Creating an empty tuple
+
+example.py
+# syntax
+empty_tuple = ()
+# or using the tuple constructor
+empty_tuple = tuple()
+
+example.py
+empty_tuple = ()
+print(empty_tuple)
+print(type(empty_tuple))
+print(len(empty_tuple))
+
+empty_tuple = tuple()
+print(empty_tuple)
+
+
+View:
+output.txt
+()
+<class 'tuple'>
+0
+()
+
+
+
+Tuple with initial values
+
+example.py
+# syntax
+tpl = ('item1', 'item2', 'item3')
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+scores = (10, 20, 30, 40, 50)
+print(fruits)
+print(person)
+print(scores)
+
+
+View:
+output.txt
+('banana', 'orange', 'mango', 'lemon')
+('Priya', 'Rao', 'India', 'Hyderabad')
+(10, 20, 30, 40, 50)
+
+
+A one-item tuple needs a trailing comma: ('Priya',). Without the comma, ('Priya') is just the string 'Priya'.
+
+Tuple length
+
+We use the len() method to get the length of a tuple.
+example.py
+# syntax
+tpl = ('item1', 'item2', 'item3')
+len(tpl)
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+scores = (10, 20, 30, 40, 50)
+print(len(fruits))
+print(len(person))
+print(len(scores))
+
+
+View:
+output.txt
+4
+4
+5
+
+
+fruits and person each have 4 items. scores has 5 numbers.
+
+Accessing Tuple Items
+
+Similar to the list data type we use positive or negative indexing to access tuple items.
+
+Positive indexing
+
+Index 0 is the first item. The original index diagram uses these four fruits:
+
+
+
+
+  Item
+  banana
+  orange
+  mango
+  lemon
+
+
+
+
+
+  Index
+  0
+  1
+  2
+  3
+
+
+
+
+Same idea with structured numbers:
+
+
+
+
+  Item
+  10
+  20
+  30
+  40
+
+
+
+
+
+  Index
+  0
+  1
+  2
+  3
+
+
+
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3')
+first_item = tpl[0]
+second_item = tpl[1]
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+first_fruit = fruits[0]
+second_fruit = fruits[1]
+last_index = len(fruits) - 1
+last_fruit = fruits[last_index]
+print(first_fruit)
+print(second_fruit)
+print(last_fruit)
+
+
+View:
+output.txt
+banana
+orange
+lemon
+
+example.py
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+print(person[0])
+print(person[1])
+print(person[2])
+print(person[3])
+
+scores = (10, 20, 30, 40, 50)
+print(scores[0])
+print(scores[2])
+print(scores[4])
+
+
+View:
+output.txt
+Priya
+Rao
+India
+Hyderabad
+10
+30
+50
+
+
+len(scores) - 1 is 4, so scores[4] is the last number, 50.
+
+Negative indexing
+
+Negative indexing means beginning from the end. -1 refers to the last item, -2 refers to the second last, and the negative of the tuple length refers to the first item.
+
+
+
+
+  Item
+  banana
+  orange
+  mango
+  lemon
+
+
+
+
+
+  Index
+  -4
+  -3
+  -2
+  -1
+
+
+
+
+
+
+
+  Item
+  10
+  20
+  30
+  40
+
+
+
+
+
+  Index
+  -4
+  -3
+  -2
+  -1
+
+
+
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3', 'item4')
+first_item = tpl[-4]
+second_item = tpl[-3]
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+first_fruit = fruits[-4]
+second_fruit = fruits[-3]
+last_fruit = fruits[-1]
+print(first_fruit)
+print(second_fruit)
+print(last_fruit)
+
+
+View:
+output.txt
+banana
+orange
+lemon
+
+example.py
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+print(person[-4])
+print(person[-1])
+
+scores = (10, 20, 30, 40, 50)
+print(scores[-5])
+print(scores[-1])
+
+
+View:
+output.txt
+Priya
+Hyderabad
+10
+50
+
+
+scores[-1] is 50 (last). scores[-5] is 10 (first of five items).
+
+Slicing tuples
+
+We can slice out a sub-tuple by specifying a range of indexes where to start and where to end in the tuple. The return value is a new tuple with the specified items. The end index is not included.
+
+Range of Positive Indexes
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3', 'item4')
+all_items = tpl[0:4]         # all items
+all_items = tpl[0:]          # all items
+middle_two_items = tpl[1:3]  # does not include item at index 3
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+all_fruits = fruits[0:4]    # all items
+all_fruits = fruits[0:]     # all items
+orange_mango = fruits[1:3]  # doesn't include item at index 3
+orange_to_the_rest = fruits[1:]
+print(all_fruits)
+print(orange_mango)
+print(orange_to_the_rest)
+
+
+View:
+output.txt
+('banana', 'orange', 'mango', 'lemon')
+('orange', 'mango')
+('orange', 'mango', 'lemon')
+
+example.py
+scores = (10, 20, 30, 40, 50)
+print(scores[0:5])
+print(scores[0:])
+print(scores[1:3])
+print(scores[1:])
+
+
+View:
+output.txt
+(10, 20, 30, 40, 50)
+(10, 20, 30, 40, 50)
+(20, 30)
+(20, 30, 40, 50)
+
+
+scores[1:3] starts at index 1 (20) and stops before index 3 (40), so you get (20, 30).
+
+Range of Negative Indexes
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3', 'item4')
+all_items = tpl[-4:]           # all items
+middle_two_items = tpl[-3:-1]  # does not include item at index -1
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+all_fruits = fruits[-4:]       # all items
+orange_mango = fruits[-3:-1]   # doesn't include item at index -1
+orange_to_the_rest = fruits[-3:]
+print(all_fruits)
+print(orange_mango)
+print(orange_to_the_rest)
+
+
+View:
+output.txt
+('banana', 'orange', 'mango', 'lemon')
+('orange', 'mango')
+('orange', 'mango', 'lemon')
+
+example.py
+scores = (10, 20, 30, 40, 50)
+print(scores[-5:])
+print(scores[-4:-1])
+print(scores[-4:])
+
+
+View:
+output.txt
+(10, 20, 30, 40, 50)
+(20, 30, 40)
+(20, 30, 40, 50)
+
+
+Changing Tuples to Lists
+
+We can change tuples to lists and lists to tuples. A tuple is immutable. If we want to modify a tuple we should change it to a list first.
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3', 'item4')
+lst = list(tpl)
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+fruits = list(fruits)
+fruits[0] = 'apple'
+print(fruits)     # ['apple', 'orange', 'mango', 'lemon']
+fruits = tuple(fruits)
+print(fruits)     # ('apple', 'orange', 'mango', 'lemon')
+
+
+View:
+output.txt
+['apple', 'orange', 'mango', 'lemon']
+('apple', 'orange', 'mango', 'lemon')
+
+example.py
+scores = (10, 20, 30, 40, 50)
+scores_list = list(scores)
+scores_list[0] = 15
+print(scores_list)
+scores = tuple(scores_list)
+print(scores)
+
+
+View:
+output.txt
+[15, 20, 30, 40, 50]
+(15, 20, 30, 40, 50)
+
+
+You did not change the original tuple in place. You made a list, edited the list, then built a new tuple.
+
+Checking an Item in a Tuple
+
+We can check if an item exists or not in a tuple using in. It returns a boolean.
+example.py
+# Syntax
+tpl = ('item1', 'item2', 'item3', 'item4')
+'item2' in tpl # True
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+print('orange' in fruits) # True
+print('apple' in fruits)  # False
+# fruits[0] = 'apple'     # TypeError: 'tuple' object does not support item assignment
+
+
+View:
+output.txt
+True
+False
+
+example.py
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+print('Priya' in person)
+print('Mumbai' in person)
+
+scores = (10, 20, 30, 40, 50)
+print(20 in scores)
+print(60 in scores)
+
+
+View:
+output.txt
+True
+False
+True
+False
+
+
+fruits[0] = 'apple' raises TypeError because a tuple does not support item assignment. Convert to a list first if you need to change an item.
+
+Joining Tuples
+
+We can join two or more tuples using the + operator. The result is a new tuple.
+example.py
+# syntax
+tpl1 = ('item1', 'item2', 'item3')
+tpl2 = ('item4', 'item5', 'item6')
+tpl3 = tpl1 + tpl2
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+vegetables = ('Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot')
+fruits_and_vegetables = fruits + vegetables
+print(fruits_and_vegetables)
+
+
+View:
+output.txt
+('banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot')
+
+example.py
+names = ('Priya', 'Rao')
+place = ('India', 'Hyderabad')
+person = names + place
+print(person)
+
+scores_a = (10, 20, 30)
+scores_b = (40, 50)
+print(scores_a + scores_b)
+
+
+View:
+output.txt
+('Priya', 'Rao', 'India', 'Hyderabad')
+(10, 20, 30, 40, 50)
+
+
+Deleting Tuples
+
+It is not possible to remove a single item in a tuple, but it is possible to delete the tuple itself using del.
+example.py
+# syntax
+tpl1 = ('item1', 'item2', 'item3')
+del tpl1
+
+example.py
+fruits = ('banana', 'orange', 'mango', 'lemon')
+del fruits
+# print(fruits)  # NameError: name 'fruits' is not defined
+
+example.py
+scores = (10, 20, 30, 40, 50)
+del scores
+
+
+After del scores, the name scores no longer exists. Use slicing or convert to a list if you only want to drop some items and keep the rest.
+
+Numbered methods
+
+count() and index() are the two methods that belong to the tuple type. tuple() and len() are built-ins you already used on Day 2.
+
+1. tuple()
+
+tuple() builds a tuple. With no argument it is empty. With a list (or other sequence) it copies the items into a tuple.
+example.py
+print(tuple())
+print(tuple([10, 20, 30, 40, 50]))
+print(tuple('Priya'))
+
+
+View:
+output.txt
+()
+(10, 20, 30, 40, 50)
+('P', 'r', 'i', 'y', 'a')
+
+
+2. len()
+
+len() counts the items in the tuple.
+example.py
+print(len(('Priya', 'Rao', 'India', 'Hyderabad')))
+print(len((10, 20, 30, 40, 50)))
+
+
+View:
+output.txt
+4
+5
+
+
+3. count()
+
+count() returns how many times a specified item appears in the tuple.
+example.py
+scores = (10, 20, 30, 20, 40, 20, 50)
+print(scores.count(20))
+print(scores.count(10))
+print(scores.count(60))
+
+letters = ('P', 'r', 'i', 'y', 'a')
+print(letters.count('a'))
+
+
+View:
+output.txt
+3
+1
+0
+1
+
+
+20 appears three times. 60 is not in the tuple, so count returns 0 (it does not raise an error).
+
+4. index()
+
+index() returns the first index of a specified item. If the item is missing, it raises ValueError.
+example.py
+scores = (10, 20, 30, 20, 40, 20, 50)
+print(scores.index(10))
+print(scores.index(30))
+print(scores.index(20))
+
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+print(person.index('Hyderabad'))
+
+
+View:
+output.txt
+0
+2
+1
+3
+
+
+20 appears more than once. index(20) still returns 1, the first match.
+
+Unpacking a tuple
+
+You can assign each item to its own variable in one line. The number of names on the left must match the number of items, unless you collect the rest with *.
+example.py
+person = ('Priya', 'Rao', 'India', 'Hyderabad')
+first_name, last_name, country, city = person
+print(first_name)
+print(last_name)
+print(country)
+print(city)
+
+
+View:
+output.txt
+Priya
+Rao
+India
+Hyderabad
+
+example.py
+scores = (10, 20, 30, 40, 50)
+first, second, *middle, last = scores
+print(first)
+print(second)
+print(middle)
+print(last)
+
+
+View:
+output.txt
+10
+20
+[30, 40]
+50
+
+
+*middle becomes a list of the leftover items. This is the same unpacking you will use in the Level 2 family-members exercise.
+
+Day 6 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Create an empty tuple
+
+Create a tuple containing names of your sisters and your brothers (imaginary siblings are fine)
+
+Join brothers and sisters tuples and assign it to siblings
+
+How many siblings do you have?
+
+Modify the siblings tuple and add the name of your father and mother and assign it to family_members
+
+
+Exercises: Level 2
+
+
+Unpack siblings and parents from family_members
+
+Create fruits, vegetables and animal products tuples. Join the three tuples and assign it to a variable called food_stuff_tp.
+
+Change the about food_stuff_tp tuple to a food_stuff_lt list
+
+Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.
+
+Slice out the first three items and the last three items from food_stuff_lt list
+
+Delete the food_stuff_tp tuple completely
+
+Check if an item exists in tuple:
+
+Check if 'Estonia' is a nordic country
+
+Check if 'Iceland' is a nordic country
+
+
+
+example.py
+nordic_countries = ('Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden')
+
+
+Exercises: Level 3
+
+
+Store these structured numbers in a tuple called scores: 10, 20, 30, 40, 50
+
+Print len(scores), scores[0], scores[-1], and scores[1:4]
+
+Use scores.count(20) and scores.index(40). Print both
+
+Join (10, 20, 30) and (40, 50) with +. Check that the result equals scores
+
+Convert scores to a list, change the first item to 15, convert it back to a tuple, and print both the list and the new tuple
+
+Check 30 in scores and 'Priya' in ('Priya', 'Rao', 'India', 'Hyderabad')
+
+Unpack ('Priya', 'Rao', 'India', 'Hyderabad') into first_name, last_name, country, city and print each name
+
+Build scores_dup = (10, 20, 20, 30, 20, 40, 50). Print how many times 20 appears and the first index of 20
+
+Use tuple('Priya') and list((10, 20, 30)). Print both results and both types
+
+Try scores[0] = 99 inside a comment or a try you write yourself, and write one sentence: why a tuple needs list() before you can edit an item
+
+
+You finished Day 6. Next: sets.
+

@@ -1,0 +1,383 @@
+
+Application Programming Interface(API)
+
+API
+
+API stands for Application Programming Interface. The APIs in this section are web APIs.
+
+A web API is the contract between a service and the programs that use it: which URLs exist, which HTTP methods they accept, and what the response looks like (usually JSON, sometimes XML). That contract is also a service-level agreement (SLA) for the provider.
+
+In web development, an API is a set of HTTP request messages plus a definition of the response body.
+
+Web APIs have moved away from SOAP and service-oriented architecture (SOA) toward REST-style resources.
+
+Social platforms use APIs so one post can appear in many places. Twitter's REST API (now the X API) is one example: core data on one set of endpoints, search and trends on another.
+
+Example public APIs:
+
+
+Countries: the original lesson used https://restcountries.eu/rest/v2/all. That host is gone. Use https://restcountries.com/v3.1/all (or a similar v3 path).
+
+Cat breeds: https://api.thecatapi.com/v1/breeds
+
+
+This section is about a RESTful API: HTTP methods GET, PUT, POST, and DELETE.
+
+Building API
+
+A RESTful API uses HTTP to GET, PUT, POST, and DELETE data. Days 26 and 27 gave you Flask and MongoDB. Day 29 puts them together. Any app with CRUD (Create, Read, Update, Delete) talks to a database through an API.
+
+To build one, you need the HTTP request / response cycle.
+
+HTTP(Hypertext Transfer Protocol)
+
+HTTP is the protocol between a client and a server. Here the client is a browser (or Postman). The server is the machine that holds the files or data.
+
+HTTP delivers resources on the web: HTML, images, query results, scripts, JSON, and other types.
+
+The browser is an HTTP client. It sends a request. The web server sends a response.
+
+HTTP request / response cycle
+output.txt
+HTTP Clients                  HTTP over TCP/IP                 HTTP Server
+(Web Browser)                                                  (Web Server)
+
+  desktop, laptop, phone  ---- HTTP Request Message ------->   rack of servers
+  desktop, laptop, phone  <--- HTTP Response Message ------    rack of servers
+
+
+
+The client (browser, phone, or API tool) opens a connection.
+
+It sends an HTTP Request Message.
+
+The server answers with an HTTP Response Message.
+
+The transfer runs over TCP/IP.
+
+When the cycle finishes, the server closes the connection (HTTP/1.0) or may keep it (Connection: keep-alive on HTTP/1.1).
+
+
+Structure of HTTP
+
+Client-server model: open connection → request → response → done.
+
+Request and response share the same four-part shape:
+
+
+An initial line (request line or status line).
+
+Zero or more header lines.
+
+A blank line (CRLF by itself).
+
+An optional message body (file, form data, or JSON).
+
+
+Initial Request Line(Status Line)
+
+The request line is not the same as the response status line.
+
+A request line has three parts, separated by spaces:
+
+
+Method name (GET, POST, HEAD, …)
+
+Path of the resource
+
+HTTP version
+
+
+Example:
+output.txt
+GET / HTTP/1.1
+
+
+GET reads a resource. POST creates one.
+
+Initial Response Line(Status Line)
+
+The status line also has three parts, separated by spaces:
+
+
+HTTP version
+
+Status code
+
+Reason phrase
+
+
+Examples:
+output.txt
+HTTP/1.0 200 OK
+HTTP/1.0 404 Not Found
+
+
+Common codes:
+
+
+
+
+  Code
+  Phrase
+  Meaning
+
+
+
+
+
+  200
+  OK
+  Request succeeded. The body is the resource.
+
+
+
+  201
+  Created
+  A POST created a resource.
+
+
+
+  302
+  Found
+  Redirect (Flask redirect uses this).
+
+
+
+  400
+  Bad Request
+  The client sent a bad request.
+
+
+
+  404
+  Not Found
+  No resource at that path.
+
+
+
+  500
+  Server Error
+  The server crashed or raised an exception.
+
+
+
+
+Full lists: httpstatuses.com and httpstatusdogs.com.
+
+Header Fields
+
+Headers describe the request, the response, or the body.
+
+The message body
+
+After the blank line, a message may carry a body.
+
+
+Response body — the resource (HTML, JSON, an image) or an error page.
+
+Request body — form fields or an uploaded file.
+
+
+When there is a body, these headers usually appear:
+
+
+
+
+  Header
+  Example
+  Meaning
+
+
+
+
+
+  Content-Type
+  text/html, application/json, text/plain, text/css, image/gif
+  MIME type of the body
+
+
+
+  Content-Length
+  1764
+  Number of bytes in the body
+
+
+
+
+Request Methods
+
+These four methods are the ones we implement for an API / CRUD app.
+
+
+
+
+  #
+  Method
+  CRUD
+  What it does
+
+
+
+
+
+  1
+  GET
+  Read
+  Retrieve data from a URI. Must not change data.
+
+
+
+  2
+  POST
+  Create
+  Send data to the server (new post, file upload, HTML form).
+
+
+
+  3
+  PUT
+  Update
+  Replace the target resource with the uploaded content.
+
+
+
+  4
+  DELETE
+  Delete
+  Remove the resource.
+
+
+
+
+A browser address bar only sends GET. Use an HTML form for POST, or a tool such as Postman / Insomnia for PUT and DELETE. Day 29 uses Postman.
+
+Read a live page in the browser
+
+The original demo site is https://thirtydaysofpython-v1-final.herokuapp.com/. It ran on a Heroku free dyno and may be offline. You can do the same inspection on your Day 26 app at http://localhost:5000/.
+
+1. Open the page
+
+
+Run the Flask app from Day 26 (python app.py) or open the deployed URL if it still works.
+
+You should see the 30DaysOfPython header and the menu: Home, About, Text Analyzer.
+
+
+2. Open DevTools → Network
+
+
+Press F12 (or right-click → Inspect).
+
+Open the Network tab.
+
+Tick Disable cache. Set the filter to All.
+
+Reload the page.
+
+Click the first document row (the page itself, not main.css or a font).
+
+Open the Headers sub-tab.
+
+
+3. Response headers (transcribed from the original screen)
+
+Host on that capture: thirtydaysofpython-v1-final.herokuapp.com. Date: Tue, 17 Dec 2019 19:06:39 GMT. Server: Werkzeug 0.16.0 on Python 3.6.9.
+output.txt
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: text/html; charset=utf-8
+Content-Length: 1764
+Cache-Control: public, max-age=0
+Pragma: no-cache
+Expires: 0
+Server: Werkzeug/0.16.0 Python/3.6.9
+Date: Tue, 17 Dec 2019 19:06:39 GMT
+Via: 1.1 vegur
+
+
+HTTP/1.1 200 OK is the initial response line (status line). Content-Length: 1764 is the HTML body size in bytes. Via: 1.1 vegur is Heroku's router.
+
+4. Request headers (transcribed from the original screen)
+
+The capture is labeled on the screenshot as "initial response line" next to GET / HTTP/1.1. That line is the initial request line.
+output.txt
+GET / HTTP/1.1
+Host: thirtydaysofpython-v1-final.herokuapp.com
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36
+Sec-Fetch-User: ?1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Referer: https://thirtydaysofpython-v1-final.herokuapp.com/post
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-GB,en;q=0.9,fi-FI;q=0.8,fi;q=0.7,en-CA;q=0.6,en-US;q=0.5,fr;q=0.4
+
+
+Referer is /post, so this reload happened after the user left the Text Analyzer page.
+
+The same exchange as one block:
+output.txt
+----- request -----
+GET / HTTP/1.1
+Host: thirtydaysofpython-v1-final.herokuapp.com
+(headers as above)
+(blank line)
+(no body)
+
+----- response -----
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1764
+(headers as above)
+(blank line)
+<!DOCTYPE html> ... 1764 bytes of HTML ...
+
+
+On localhost the host line is Host: localhost:5000 and there is no Via: 1.1 vegur.
+
+Exercises
+
+Exercises: Level 1
+
+
+Read about API and HTTP.
+
+
+Exercises: Level 2
+
+
+In your own words, write the four parts of an HTTP message (initial line, headers, blank line, body).
+
+Copy one request line and one status line from this lesson. Label each of the three parts.
+
+Write one sentence each for GET, POST, PUT, and DELETE.
+
+Open http://localhost:5000/ (Day 26) or any site. In Network → Headers, write down Content-Type and the status code.
+
+
+Exercises: Level 3
+
+
+Write the request you would send to read a student list. Use this shape:
+
+output.txt
+GET /api/v1.0/students HTTP/1.1
+Host: localhost:5000
+Accept: application/json
+
+
+
+Write a 200 OK JSON response body with three people (Priya, David, John) and a Content-Type: application/json header.
+
+Write a POST request that would create a fourth student (Sami, Finland, Helsinki). You do not have to run it yet — Day 29 implements it.
+
+Look up status 201 and 404. Write one line each: when would this students API return them?
+
+
+You finished Day 28. Next: build the API.
+

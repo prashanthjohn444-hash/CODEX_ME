@@ -1,0 +1,503 @@
+
+Python Error Types
+
+When we write code it is common that we make a typo or some other common error. If our code fails to run, the Python interpreter will display a message with:
+
+
+where the problem is
+
+the type of the error
+
+sometimes a suggestion for a fix
+
+
+Understanding error types helps you debug faster. That is the whole skill for today: read the name of the error, then fix the cause.
+
+Open a Python interactive shell. In a terminal type python (or python3) and press Enter. You should see the >>> prompt. The sessions below use that prompt.
+
+These ten types are the ones this day covers. Every one has a trigger, a view, and a fix.
+
+
+
+
+  #
+  Error
+  What it means
+  Typical cause
+
+
+
+
+
+  1
+  SyntaxError
+  Python cannot even parse the line
+  Missing (), :, quotes, or a comma
+
+
+
+  2
+  NameError
+  A name is used before it exists
+  Typo, or you forgot to assign the variable
+
+
+
+  3
+  IndexError
+  Index is outside the sequence
+  list[5] on a list of length 5
+
+
+
+  4
+  ModuleNotFoundError
+  import cannot find that module
+  Wrong module name (maths instead of math)
+
+
+
+  5
+  AttributeError
+  Object has no such attribute
+  math.PI instead of math.pi
+
+
+
+  6
+  KeyError
+  Dictionary has no such key
+  Typo in the key ('county' vs 'country')
+
+
+
+  7
+  TypeError
+  Operation does not match the types
+  4 + '3' (int plus str)
+
+
+
+  8
+  ImportError
+  The module exists, the name inside it does not
+  from math import power (it is pow)
+
+
+
+  9
+  ValueError
+  Type is right, the value is not
+  int('12a')
+
+
+
+  10
+  ZeroDivisionError
+  Division by zero
+  1 / 0
+
+
+
+
+ModuleNotFoundError is a subclass of ImportError. You will see ModuleNotFoundError when the module file is missing, and ImportError when the module loaded but the name inside it is missing.
+
+1. SyntaxError
+
+A SyntaxError means the line is not valid Python. The interpreter stops before running anything else on that line.
+
+Example:
+example.py
+print 'hello world'
+
+
+View:
+output.txt
+>>> print 'hello world'
+  File "<stdin>", line 1
+    print 'hello world'
+                      ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello world')?
+
+
+We forgot the parentheses around the string. Python 3 needs print(...). The message already suggests the fix.
+example.py
+print('hello world')
+
+
+View:
+output.txt
+>>> print('hello world')
+hello world
+
+
+The error was a SyntaxError. After the fix the line runs. Other syntax mistakes look the same: a missing colon after if, an unclosed quote, or a stray comma.
+
+2. NameError
+
+A NameError means you used a name that has not been defined in this scope.
+
+Example:
+example.py
+print(age)
+
+
+View:
+output.txt
+>>> print(age)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'age' is not defined
+
+
+age was never assigned. Define it, then print it.
+example.py
+age = 22
+print(age)
+
+
+View:
+output.txt
+>>> age = 22
+>>> print(age)
+22
+
+
+The type of error was a NameError. We debugged it by defining the variable. The same error appears if you misspell a name (pritn instead of print is actually a NameError too, because pritn is treated as a missing name).
+
+3. IndexError
+
+An IndexError means you asked for a position that does not exist.
+
+Example:
+example.py
+numbers = [10, 20, 30, 40, 50]
+numbers[5]
+
+
+View:
+output.txt
+>>> numbers = [10, 20, 30, 40, 50]
+>>> numbers[5]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+
+
+The list has five items. Valid indexes are 0 to 4. numbers[5] is one step past the end.
+example.py
+print(numbers[0])
+print(numbers[4])
+print(numbers[-1])
+
+
+View:
+output.txt
+>>> print(numbers[0])
+10
+>>> print(numbers[4])
+50
+>>> print(numbers[-1])
+50
+
+
+Use len(numbers) - 1 for the last index, or negative indexes (-1 is the last item).
+
+4. ModuleNotFoundError
+
+A ModuleNotFoundError means import cannot find a module with that name.
+
+Example:
+example.py
+import maths
+
+
+View:
+output.txt
+>>> import maths
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'maths'
+
+
+An extra s was added to math. Remove it.
+example.py
+import math
+
+
+View:
+output.txt
+>>> import math
+>>>
+
+
+The import succeeds. You can now call functions from math. If this happens with a third-party package, the module is often not installed yet (pip install package_name). Day 20 covers that.
+
+5. AttributeError
+
+An AttributeError means the object (or module) has no attribute with that name.
+
+Example:
+example.py
+import math
+math.PI
+
+
+View:
+output.txt
+>>> import math
+>>> math.PI
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'math' has no attribute 'PI'
+
+
+The constant is pi, not PI. Python names are case-sensitive.
+example.py
+import math
+print(math.pi)
+
+
+View:
+output.txt
+>>> import math
+>>> math.pi
+3.141592653589793
+
+
+When you are unsure of a name, run dir(math) and look for the attribute. help(math) also lists them.
+
+6. KeyError
+
+A KeyError means the dictionary has no key with that exact name.
+
+Example:
+example.py
+user = {'name': 'Priya', 'age': 22, 'country': 'India'}
+print(user['name'])
+print(user['county'])
+
+
+View:
+output.txt
+>>> user = {'name': 'Priya', 'age': 22, 'country': 'India'}
+>>> user['name']
+'Priya'
+>>> user['county']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'county'
+
+
+'county' is a typo. The real key is 'country'.
+example.py
+print(user['country'])
+
+
+View:
+output.txt
+>>> user['country']
+'India'
+
+
+Safer lookups: user.get('country') returns None if the key is missing, instead of raising KeyError. user.keys() lists the keys so you can check the spelling.
+
+7. TypeError
+
+A TypeError means the operation is not defined for those types.
+
+Example:
+example.py
+4 + '3'
+
+
+View:
+output.txt
+>>> 4 + '3'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+
+You cannot add an int to a str. Convert the string to a number, or convert the number to a string ('43').
+example.py
+print(4 + int('3'))
+print(4 + float('3'))
+print(str(4) + '3')
+
+
+View:
+output.txt
+>>> 4 + int('3')
+7
+>>> 4 + float('3')
+7.0
+>>> str(4) + '3'
+'43'
+
+
+int('3') gives 7 when added to 4. float('3') gives 7.0. str(4) + '3' concatenates and gives '43'.
+
+Another common TypeError: calling a function with the wrong number of arguments, or looping over an int.
+
+8. ImportError
+
+An ImportError means the module was found, but the name you asked for is not inside it.
+
+Example:
+example.py
+from math import power
+
+
+View:
+output.txt
+>>> from math import power
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: cannot import name 'power' from 'math'
+
+
+There is no power in math. The function is pow.
+example.py
+from math import pow
+print(pow(2, 3))
+
+
+View:
+output.txt
+>>> from math import pow
+>>> pow(2, 3)
+8.0
+
+
+pow(2, 3) is 2 ** 3, which is 8.0 (the math version returns a float). Compare this with ModuleNotFoundError: here math exists; only the inner name was wrong.
+
+9. ValueError
+
+A ValueError means the type is acceptable, but the value cannot be used that way.
+
+Example:
+example.py
+int('12a')
+
+
+View:
+output.txt
+>>> int('12a')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '12a'
+
+
+int() accepts a string, so this is not a TypeError. The string '12a' is not a whole number. The letter a blocks the conversion.
+example.py
+print(int('12'))
+print(int('10'))
+print(float('10.6'))
+
+
+View:
+output.txt
+>>> int('12')
+12
+>>> int('10')
+10
+>>> float('10.6')
+10.6
+
+
+Do not write int('10.6'). Convert to float first, then to int if you need a whole number.
+
+10. ZeroDivisionError
+
+A ZeroDivisionError means you divided by zero.
+
+Example:
+example.py
+1 / 0
+
+
+View:
+output.txt
+>>> 1 / 0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: division by zero
+
+
+Division by zero is undefined. The same error happens with 1 // 0 and 1 % 0.
+example.py
+print(10 / 2)
+print(50 / 10)
+
+
+View:
+output.txt
+>>> 10 / 2
+5.0
+>>> 50 / 10
+5.0
+
+
+Check the denominator before you divide, or catch this error on Day 17 with try / except.
+
+We have covered the common Python error types. The full list lives in the exceptions documentation. If you can read the error name, you can usually fix the bug.
+
+Day 16 moves on to dates and times. Day 17 shows how to handle these errors with try / except so a program does not crash.
+
+Exercises
+
+Exercises: Level 1
+
+
+Open you python interactive shell and try all the examples covered in this section.
+
+
+Exercises: Level 2
+
+
+For each snippet, write the error type before you run it. Then run it and check.
+
+print(city)
+
+scores = [10, 20, 30, 40, 50] then scores[10]
+
+import randoms
+
+'10' + 20
+
+int('20b')
+
+40 / 0
+
+
+
+Fix every snippet from exercise 1 so it runs. Print a labelled view for each fix.
+
+Create this dictionary: person = {'name': 'Priya', 'city': 'Hyderabad', 'score': 20}. Trigger a KeyError with a wrong key, then look up 'city' correctly.
+
+Import math. Trigger an AttributeError with a wrong name, then print math.sqrt(100) and math.pi.
+
+Trigger an ImportError with from math import squareroot. Then import sqrt and print sqrt(100).
+
+
+Exercises: Level 3
+
+Use the structured numbers 10, 20, 30, 40, 50.
+
+
+Build scores = [10, 20, 30, 40, 50]. Print scores[0], scores[-1], and len(scores). Then write one line that would raise IndexError and explain why in a comment (you may comment that line out so the file still runs).
+
+Convert '10', '20', and '30' with int() and add them. Then try int('30px') and write the error type in a comment.
+
+Print type(10), type('10'), and explain in a comment why 10 + '10' is a TypeError while 10 + int('10') is not.
+
+Use dir(math) after import math. Find three real attribute names and print them. Write one fake name that would raise AttributeError.
+
+Reproduce all ten error types from this day, one after another, each inside its own commented block or each in a separate try-it-in-the-shell note. Next to each, write one sentence: what you change to fix it.
+
+Look up Built-in exceptions and name two extra error types that this day did not cover (FileNotFoundError and StopIteration are good starts). Write one line that would raise each.
+
+
+You finished Day 15. Next: date and time.
+

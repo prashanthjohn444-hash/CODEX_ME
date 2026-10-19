@@ -1,0 +1,786 @@
+
+Dictionaries
+
+A dictionary is a collection of unordered, modifiable (mutable) paired (key: value) data. In current Python the insertion order of keys is kept, but you still look items up by key, not by a numeric index.
+
+This is the first lesson of Module 2 · Logic and Reuse.
+
+Dictionary methods at a glance
+
+
+
+
+  #
+  Method / operation
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  dict() / {}
+  Create a dictionary
+  dict(name='Priya', score=20)
+  {'name': 'Priya', 'score': 20}
+
+
+
+  2
+  len(dct)
+  Number of key: value pairs
+  len({'a': 10, 'b': 20})
+  2
+
+
+
+  3
+  dct[key]
+  Value for that key (error if missing)
+  person['first_name']
+  'Priya'
+
+
+
+  4
+  dct.get(key)
+  Value, or None if the key is missing
+  person.get('city')
+  'Hyderabad'
+
+
+
+  5
+  dct[key] = value
+  Add or change a pair
+  person['age'] = 22
+  age is 22
+
+
+
+  6
+  key in dct
+  True if the key exists
+  'country' in person
+  True
+
+
+
+  7
+  dct.pop(key)
+  Remove that key and return its value
+  dct.pop('key1')
+  value removed
+
+
+
+  8
+  dct.popitem()
+  Remove and return the last pair
+  dct.popitem()
+  last pair gone
+
+
+
+  9
+  del dct[key]
+  Remove that key
+  del person['age']
+  age gone
+
+
+
+  10
+  dct.items()
+  Key-value pairs as tuples
+  list({'a': 10}.items())
+  [('a', 10)]
+
+
+
+  11
+  dct.keys()
+  All keys
+  list({'a': 10}.keys())
+  ['a']
+
+
+
+  12
+  dct.values()
+  All values
+  list({'a': 10}.values())
+  [10]
+
+
+
+  13
+  dct.clear()
+  Empty the dictionary
+  {'a': 10}.clear()
+  {}
+
+
+
+  14
+  dct.copy()
+  Shallow copy
+  person.copy()
+  a second dict
+
+
+
+  15
+  del dct
+  Delete the dictionary name
+  del person
+  name is gone
+
+
+
+
+The numbered walk-through uses Priya, Rao, India, Hyderabad and the structured numbers 10, 20, 30, 40, 50.
+
+Creating a Dictionary
+
+To create a dictionary we use curly brackets, {}, or the dict() built-in function.
+example.py
+# syntax
+empty_dict = {}
+# Dictionary with data values
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+
+example.py
+empty_dict = {}
+print(empty_dict)
+print(type(empty_dict))
+print(len(empty_dict))
+
+
+View:
+output.txt
+{}
+<class 'dict'>
+0
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'scores': [10, 20, 30, 40, 50],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+print(person)
+
+
+View:
+output.txt
+{'first_name': 'Priya', 'last_name': 'Rao', 'age': 22, 'country': 'India', 'city': 'Hyderabad', 'is_married': False, 'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'], 'scores': [10, 20, 30, 40, 50], 'address': {'street': 'Banjara Hills', 'zipcode': '500034'}}
+
+
+The dictionary above shows that a value could be any data type: string, boolean, list, tuple, set, or a dictionary.
+example.py
+print(dict(name='Priya', score=20))
+
+
+View:
+output.txt
+{'name': 'Priya', 'score': 20}
+
+
+Dictionary Length
+
+It checks the number of key: value pairs in the dictionary.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+print(len(dct)) # 4
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'scores': [10, 20, 30, 40, 50],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+print(len(person))
+
+
+View:
+output.txt
+9
+
+
+There are 9 keys. The nested address dictionary counts as one value. The list of scores also counts as one value.
+
+Accessing Dictionary Items
+
+We can access dictionary items by referring to the key name.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+print(dct['key1']) # value1
+print(dct['key4']) # value4
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'scores': [10, 20, 30, 40, 50],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+print(person['first_name'])
+print(person['country'])
+print(person['city'])
+print(person['skills'])
+print(person['skills'][0])
+print(person['scores'])
+print(person['scores'][0])
+print(person['address']['street'])
+# print(person['job_title'])  # KeyError: 'job_title'
+
+
+View:
+output.txt
+Priya
+India
+Hyderabad
+['HTML', 'CSS', 'JS', 'React', 'Python']
+HTML
+[10, 20, 30, 40, 50]
+10
+Banjara Hills
+
+
+person['skills'][0] is the first skill. person['address']['street'] walks into the nested dictionary. person['job_title'] raises KeyError because that key does not exist.
+
+Accessing an item by key name raises an error if the key does not exist. To avoid this error first we have to check if a key exists, or we can use the get method. The get method returns None, which is a NoneType object, if the key does not exist.
+
+1. get()
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+print(person.get('first_name'))
+print(person.get('country'))
+print(person.get('skills'))
+print(person.get('job_title'))
+
+
+View:
+output.txt
+Priya
+India
+['HTML', 'CSS', 'JS', 'React', 'Python']
+None
+
+
+get('job_title') is None, not an error. You can also pass a default: person.get('job_title', 'unknown') returns 'unknown'.
+
+Adding Items to a Dictionary
+
+We can add new key and value pairs to a dictionary.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+dct['key5'] = 'value5'
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+person['job_title'] = 'Developer'
+person['skills'].append('SQL')
+print(person['job_title'])
+print(person['skills'])
+
+
+View:
+output.txt
+Developer
+['HTML', 'CSS', 'JS', 'React', 'Python', 'SQL']
+
+
+person['job_title'] = 'Developer' adds a new pair. person['skills'].append('SQL') changes the list that is already stored under skills.
+
+Modifying Items in a Dictionary
+
+We can modify items in a dictionary.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+dct['key1'] = 'value-one'
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+person['first_name'] = 'Ananya'
+person['age'] = 23
+print(person['first_name'])
+print(person['age'])
+
+
+View:
+output.txt
+Ananya
+23
+
+
+The same dct[key] = value syntax adds a key when it is new and overwrites the value when the key already exists.
+
+Checking Keys in a Dictionary
+
+We use the in operator to check if a key exists in a dictionary. It does not search the values.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+print('key2' in dct) # True
+print('key5' in dct) # False
+
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad'
+}
+print('first_name' in person)
+print('Priya' in person)
+print('phone' in person)
+
+
+View:
+output.txt
+True
+False
+True
+False
+
+
+'Priya' is a value, not a key, so 'Priya' in person is False. Check values with 'Priya' in person.values() if you need that.
+
+Removing Key and Value Pairs from a Dictionary
+
+
+pop(key): removes the item with the specified key name
+
+popitem(): removes the last item
+
+del: removes an item with the specified key name
+
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+dct.pop('key1') # removes key1 item
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+dct.popitem() # removes the last item
+del dct['key2'] # removes key2 item
+
+
+2. pop()
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India'
+}
+removed = person.pop('first_name')
+print(removed)
+print(person)
+
+
+View:
+output.txt
+Priya
+{'last_name': 'Rao', 'age': 22, 'country': 'India'}
+
+
+pop returns the value it removed.
+
+3. popitem()
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India'
+}
+print(person.popitem())
+print(person)
+
+
+View:
+output.txt
+('country', 'India')
+{'first_name': 'Priya', 'last_name': 'Rao', 'age': 22}
+
+
+In current Python, popitem() removes the last inserted pair and returns it as a (key, value) tuple.
+
+4. del
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'is_married': False
+}
+del person['is_married']
+print(person)
+
+
+View:
+output.txt
+{'first_name': 'Priya', 'last_name': 'Rao', 'age': 22, 'country': 'India'}
+
+
+del does not return the value. pop does.
+
+Example (all three together):
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+person.pop('first_name')        # Removes the first_name item
+person.popitem()                # Removes the address item (last pair)
+del person['is_married']        # Removes the is_married item
+print(person)
+
+
+View:
+output.txt
+{'last_name': 'Rao', 'age': 22, 'country': 'India', 'skills': ['HTML', 'CSS', 'JS', 'React', 'Python']}
+
+
+Changing Dictionary to a List of Items
+
+The items() method changes a dictionary to a list of tuples (a dict_items view). Each tuple is (key, value).
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+print(dct.items()) # dict_items([('key1', 'value1'), ('key2', 'value2'), ('key3', 'value3'), ('key4', 'value4')])
+
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad'
+}
+print(person.items())
+print(list(person.items()))
+
+
+View:
+output.txt
+dict_items([('first_name', 'Priya'), ('last_name', 'Rao'), ('age', 22), ('country', 'India'), ('city', 'Hyderabad')])
+[('first_name', 'Priya'), ('last_name', 'Rao'), ('age', 22), ('country', 'India'), ('city', 'Hyderabad')]
+
+
+list(...) turns the view into a real list of tuples. You will loop over items() on Day 10.
+
+Clearing a Dictionary
+
+If we do not want the items in a dictionary we can clear them using the clear() method. The dictionary still exists; it is just empty.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+print(dct.clear()) # None
+
+
+clear() returns None. The dictionary is now {}.
+example.py
+scores = {'math': 10, 'science': 20, 'english': 30}
+scores.clear()
+print(scores)
+print(len(scores))
+
+
+View:
+output.txt
+{}
+0
+
+
+Deleting a Dictionary
+
+If we do not use the dictionary we can delete it completely.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+del dct
+
+example.py
+person = {'first_name': 'Priya', 'city': 'Hyderabad'}
+del person
+# print(person)  # NameError: name 'person' is not defined
+
+
+clear() keeps the name and leaves {}. del removes the name.
+
+Copy a Dictionary
+
+We can copy a dictionary using a copy() method. Using copy we can avoid mutation of the original dictionary.
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+dct_copy = dct.copy() # {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad'
+}
+person_copy = person.copy()
+person_copy['city'] = 'Mumbai'
+print(person['city'])
+print(person_copy['city'])
+
+
+View:
+output.txt
+Hyderabad
+Mumbai
+
+
+Changing the copy did not change the original city. copy() is a shallow copy: nested lists or dicts inside are still shared. If you change person_copy['skills'].append(...) when skills is a list, the original list changes too.
+
+Do not write person_copy = person. That makes two names for the same dictionary.
+
+Getting Dictionary Keys as a List
+
+The keys() method gives us all the keys of a dictionary as a list (a dict_keys view).
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+keys = dct.keys()
+print(keys)     # dict_keys(['key1', 'key2', 'key3', 'key4'])
+
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad'
+}
+keys = person.keys()
+print(keys)
+print(list(keys))
+
+
+View:
+output.txt
+dict_keys(['first_name', 'last_name', 'age', 'country', 'city'])
+['first_name', 'last_name', 'age', 'country', 'city']
+
+
+Getting Dictionary Values as a List
+
+The values() method gives us all the values of a dictionary as a list (a dict_values view).
+example.py
+# syntax
+dct = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3', 'key4': 'value4'}
+values = dct.values()
+print(values)     # dict_values(['value1', 'value2', 'value3', 'value4'])
+
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad'
+}
+values = person.values()
+print(values)
+print(list(values))
+
+
+View:
+output.txt
+dict_values(['Priya', 'Rao', 22, 'India', 'Hyderabad'])
+['Priya', 'Rao', 22, 'India', 'Hyderabad']
+
+
+Other dictionary methods you should not skip
+
+These methods are on every dictionary. Day 8 keeps them here so you can look them up later.
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22
+}
+
+# update() — merge another dict in place
+person.update({'city': 'Hyderabad', 'age': 23})
+print(person)
+# {'first_name': 'Priya', 'last_name': 'Rao', 'age': 23, 'city': 'Hyderabad'}
+
+# setdefault() — use the value if the key exists; otherwise set the default
+print(person.setdefault('country', 'India'))  # India  (key was missing, now set)
+print(person.setdefault('city', 'Mumbai'))    # Hyderabad (already there, not overwritten)
+print(person)
+
+# fromkeys() — build a dict from a list of keys
+scores = dict.fromkeys(['math', 'science', 'english'], 10)
+print(scores)   # {'math': 10, 'science': 10, 'english': 10}
+
+# get() with a default
+print(person.get('phone', 'not stored'))
+
+
+View:
+output.txt
+{'first_name': 'Priya', 'last_name': 'Rao', 'age': 23, 'city': 'Hyderabad'}
+India
+Hyderabad
+{'first_name': 'Priya', 'last_name': 'Rao', 'age': 23, 'city': 'Hyderabad', 'country': 'India'}
+{'math': 10, 'science': 10, 'english': 10}
+not stored
+
+
+Day 8 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Create an empty dictionary called dog
+
+Add name, color, breed, legs, age to the dog dictionary
+
+Create a student dictionary and add first_name, last_name, gender, age, marital status, skills, country, city and address as keys for the dictionary
+
+
+Exercises: Level 2
+
+
+Get the length of the student dictionary
+
+Get the value of skills and check the data type, it should be a list
+
+Modify the skills values by adding one or two skills
+
+Get the dictionary keys as a list
+
+Get the dictionary values as a list
+
+Change the dictionary to a list of tuples using the items() method
+
+Delete one of the items in the dictionary
+
+Delete one of the dictionaries
+
+
+Exercises: Level 3
+
+
+Build a person dictionary with first_name='Priya', last_name='Rao', country='India', city='Hyderabad', age=22, and scores=[10, 20, 30, 40, 50]
+
+Print person['first_name'], person.get('city'), and person.get('phone'). Confirm the last view is None
+
+Add job_title='Developer' and change age to 23. Print both
+
+Check 'country' in person and 'Priya' in person. Print both booleans and explain the second result in a comment
+
+Use pop('last_name') and then popitem(). Print the removed values and the dictionary after each call
+
+Use keys(), values(), and items(). Convert each view with list() and print the three lists
+
+copy() the dictionary, change city on the copy to 'Mumbai', and print both cities
+
+update() the copy with {'score_math': 10, 'score_science': 20}. Print the copy
+
+Use setdefault('country', 'Nepal') and setdefault('phone', 'not stored'). Print both returns
+
+clear() one dictionary and del the other. Print the cleared dictionary
+
+
+You finished Day 8. Next: conditionals.
+

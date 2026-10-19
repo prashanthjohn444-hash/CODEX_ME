@@ -1,0 +1,311 @@
+
+List Comprehension
+
+List comprehension in Python is a compact way of creating a list from a sequence. It is a short way to create a new list. List comprehension is considerably faster than processing a list using the for loop.
+
+Syntax
+example.py
+# syntax
+[expression for i in iterable if condition]
+
+
+Read it left to right: build expression for each i in the iterable, and keep the row only when condition is true. The if condition part is optional.
+
+Example 1 — string to a list
+
+For instance if you want to change a string to a list of characters. You can use a couple of methods. Let's see some of them:
+example.py
+# One way
+language = 'Python'
+lst = list(language)  # changing the string to list
+print(type(lst))
+print(lst)
+
+# Second way: list comprehension
+lst = [i for i in language]
+print(type(lst))
+print(lst)
+
+
+View:
+output.txt
+<class 'list'>
+['P', 'y', 't', 'h', 'o', 'n']
+<class 'list'>
+['P', 'y', 't', 'h', 'o', 'n']
+
+
+Same idea with today's name:
+example.py
+name = 'Priya'
+letters = [ch for ch in name]
+print(letters)
+
+
+View:
+output.txt
+['P', 'r', 'i', 'y', 'a']
+
+
+Example 2 — generate numbers
+
+For instance if you want to generate a list of numbers.
+example.py
+# Generating numbers
+numbers = [i for i in range(11)]  # to generate numbers from 0 to 10
+print(numbers)
+
+# It is possible to do mathematical operations during iteration
+squares = [i * i for i in range(11)]
+print(squares)
+
+# It is also possible to make a list of tuples
+pairs = [(i, i * i) for i in range(11)]
+print(pairs)
+
+
+View:
+output.txt
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49), (8, 64), (9, 81), (10, 100)]
+
+
+range(11) is 0 through 10. That range is the usual way to show squares. Structured numbers work the same way:
+example.py
+scores = [10, 20, 30, 40, 50]
+doubled = [n * 2 for n in scores]
+print(doubled)
+
+
+View:
+output.txt
+[20, 40, 60, 80, 100]
+
+
+Example 3 — if condition
+
+List comprehension can be combined with if expression.
+example.py
+# Generating even numbers
+even_numbers = [i for i in range(21) if i % 2 == 0]  # even numbers from 0 to 20
+print(even_numbers)
+
+# Generating odd numbers
+odd_numbers = [i for i in range(21) if i % 2 != 0]  # odd numbers from 0 to 20
+print(odd_numbers)
+
+
+View:
+output.txt
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+
+Filter numbers: let's filter out positive even numbers from the list below.
+example.py
+numbers = [-40, -30, -10, 0, 10, 20, 30, 40, 50]
+positive_even_numbers = [i for i in numbers if i % 2 == 0 and i > 0]
+print(positive_even_numbers)
+
+
+View:
+output.txt
+[10, 20, 30, 40, 50]
+
+
+0 is even but not greater than 0, so it is dropped. The negative evens are dropped too.
+
+Flattening a two dimensional list
+example.py
+list_of_lists = [[10, 20, 30], [40, 50, 10], [20, 30, 40]]
+flattened_list = [number for row in list_of_lists for number in row]
+print(flattened_list)
+
+
+View:
+output.txt
+[10, 20, 30, 40, 50, 10, 20, 30, 40]
+
+
+The first for walks each inner list. The second for walks each number in that inner list. Same pattern as a nested for loop, written in one pair of brackets.
+
+A 3×3 grid with 1 through 9 flattens the same way:
+example.py
+list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print([number for row in list_of_lists for number in row])
+
+
+View:
+output.txt
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+Lambda Function
+
+Lambda function is a small anonymous function without a name. It can take any number of arguments, but can only have one expression. Lambda function is similar to anonymous functions in JavaScript. We need it when we want to write an anonymous function inside another function.
+
+Creating a Lambda Function
+
+To create a lambda function we use lambda keyword followed by a parameter(s), followed by an expression. See the syntax and the example below. Lambda function does not use return but it explicitly returns the expression.
+example.py
+# syntax
+x = lambda param1, param2, param3: param1 + param2 + param3
+print(x(arg1, arg2, arg3))
+
+
+Example:
+example.py
+# Named function
+def add_two_nums(a, b):
+    return a + b
+
+print(add_two_nums(10, 20))
+
+# Lets change the above function to a lambda function
+add_two_nums = lambda a, b: a + b
+print(add_two_nums(10, 20))
+
+# Self invoking lambda function
+print((lambda a, b: a + b)(10, 20))
+
+square = lambda x: x ** 2
+print(square(10))
+cube = lambda x: x ** 3
+print(cube(10))
+
+# Multiple variables
+multiple_variable = lambda a, b, c: a ** 2 - 3 * b + 4 * c
+print(multiple_variable(10, 20, 30))
+
+
+View:
+output.txt
+30
+30
+30
+100
+1000
+160
+
+
+10 + 20 is 30. 10 ** 2 is 100. 10 ** 3 is 1000. The last line is 100 - 60 + 120, which is 160.
+
+The self-invoking call (lambda a, b: a + b)(10, 20) builds the function and calls it in the same line. Wrap it in print() if you want to see the result.
+
+Lambda Function Inside Another Function
+
+Using a lambda function inside another function.
+example.py
+def power(x):
+    return lambda n: x ** n
+
+print(power(10)(2))
+print(power(10)(3))
+print(power(2)(5))
+
+
+View:
+output.txt
+100
+1000
+32
+
+
+power(10) returns a function that raises 10 to n. Then (2) calls that inner function, so 10 ** 2 is 100. power(2)(5) is 2 ** 5, which is 32.
+
+You need two pairs of brackets because there are two calls: one to power, and one to the lambda it returned.
+
+Day 13 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+
+Filter only negative and zero in the list using list comprehension
+example.py
+numbers = [-4, -3, -2, -1, 0, 2, 4, 6]
+
+
+
+
+Flatten the following list of lists of lists to a one dimensional list :
+example.py
+list_of_lists =[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+output
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+
+Using list comprehension create the following list of tuples:
+example.py
+[(0, 1, 0, 0, 0, 0, 0),
+(1, 1, 1, 1, 1, 1, 1),
+(2, 1, 2, 4, 8, 16, 32),
+(3, 1, 3, 9, 27, 81, 243),
+(4, 1, 4, 16, 64, 256, 1024),
+(5, 1, 5, 25, 125, 625, 3125),
+(6, 1, 6, 36, 216, 1296, 7776),
+(7, 1, 7, 49, 343, 2401, 16807),
+(8, 1, 8, 64, 512, 4096, 32768),
+(9, 1, 9, 81, 729, 6561, 59049),
+(10, 1, 10, 100, 1000, 10000, 100000)]
+
+
+
+
+Exercises: Level 2
+
+
+Flatten the following list to a new list:example.py
+countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+output:
+[['FINLAND','FIN', 'HELSINKI'], ['SWEDEN', 'SWE', 'STOCKHOLM'], ['NORWAY', 'NOR', 'OSLO']]
+
+
+
+Change the following list to a list of dictionaries:example.py
+countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+output:
+[{'country': 'FINLAND', 'city': 'HELSINKI'},
+{'country': 'SWEDEN', 'city': 'STOCKHOLM'},
+{'country': 'NORWAY', 'city': 'OSLO'}]
+
+
+
+Change the following list of lists to a list of concatenated strings:example.py
+names = [[('Asabeneh', 'Yetayeh')], [('David', 'Smith')], [('Donald', 'Trump')], [('Bill', 'Gates')]]
+output
+['Asabeneh Yetaeyeh', 'David Smith', 'Donald Trump', 'Bill Gates']
+
+
+
+Write a lambda function which can solve a slope or y-intercept of linear functions.
+
+
+Exercises: Level 3
+
+Use the structured scores 10, 20, 30, 40, 50 and the lambda / comprehension syntax from today.
+
+
+Store 10, 20, 30, 40, 50 in a list called scores. Build [n * n for n in scores] and print it
+
+From scores, keep only values greater than 20. Print the filtered list
+
+Build a list of tuples (n, n * 2, n ** 2) for each item in scores
+
+Flatten [[10, 20], [30, 40], [50]] with a double for comprehension
+
+Write a lambda add_ten that adds 10 to its argument. Print add_ten(20) and add_ten(40)
+
+Combine a transform and a filter: [n * 2 for n in scores if n >= 30]. Print the view
+
+Use a lambda inside sorted to sort ['Priya', 'Rao', 'Hyderabad'] by length. Print the sorted list
+
+
+You finished Day 13. Next: higher order functions.
+

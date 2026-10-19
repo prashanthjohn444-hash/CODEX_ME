@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1920"><title>One missing character. One clear fix.</title><link rel="stylesheet" href="./style.css"><script src="./node_modules/gsap/dist/gsap.min.js"></script></head>
+<body><main id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080" data-fps="30">
+<div class="stage"><div class="grid"></div><div class="orb"></div><div class="content"><header class="header"><div class="eyebrow"><span>PY / 30</span> DAY 01 · THE FIRST PROGRAM</div><h1>One missing character. One clear fix.</h1><div class="rule"></div></header><div class="repair panel reveal"><div class="panel-top"><span class="dot"></span> HELLO.PY <span class="tag">BROKEN EXAMPLE → FIX</span></div><div class="code large"><span class="muted">01</span> <span class="bad step-before">print("Hello, Python!"<span class="cursor">▏</span></span><span class="good step-after">print("Hello, Python!")</span></div><div class="error-line step-before">SyntaxError: '(' was never closed</div><div class="success-line step-after">$ python hello.py<br>Hello, Python!</div></div><div class="ribbon reveal">Compare the punctuation. Add <strong>)</strong>. Run again.</div></div><footer class="footer"><span>PYTHON FOUNDATIONS</span><span>01 / TECHNICAL NOTES</span></footer></div><div id="end-marker" hidden></div>
+</main><script>
+  const tl=gsap.timeline({paused:true});
+  tl.fromTo('.stage',{opacity:0},{opacity:1,duration:.38,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{filter:'blur(10px)',opacity:.3},{filter:'blur(0px)',opacity:1,duration:.55,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{x:14,scale:1.012},{x:-8,scale:1,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.orb',{x:0,y:0},{x:-85,y:35,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.reveal',{opacity:0,y:22},{opacity:1,y:0,duration:.54,stagger:.15,ease:'power2.out'},.35);
+  tl.set('.step-before',{display:'none'},1.78);tl.set('.step-after',{display:(i,el)=>el.classList.contains('success-line')?'block':'inline',opacity:0},1.78);tl.to('.step-after',{opacity:1,duration:.22,ease:'steps(3)'},1.78);
+  tl.to('.content',{filter:'blur(7px)',opacity:0,duration:.3,ease:'power2.inOut'},3.7);
+  tl.to('.stage',{opacity:0,duration:.26,ease:'power2.inOut'},3.74);
+  tl.set('#end-marker',{opacity:1},4);
+  window.__timelines=window.__timelines||{};window.__timelines.root=tl;
+</script></body></html>

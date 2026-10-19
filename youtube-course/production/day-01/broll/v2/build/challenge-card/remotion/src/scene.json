@@ -1,0 +1,120 @@
+{
+ "layout": "flow",
+ "theme": "paper",
+ "title": "DAY 1 CHALLENGE",
+ "subtitle": "Save and run your own greeting file",
+ "input": {
+  "label": "YOUR FILE",
+  "lines": [
+   "print(\"Hello, Python!\")",
+   "print(10 + 20)",
+   "print(type(30))"
+  ]
+ },
+ "nodes": [
+  [
+   "WRITE",
+   "greeting.py"
+  ],
+  [
+   "SAVE",
+   "Ctrl+S"
+  ],
+  [
+   "RUN",
+   "in terminal"
+  ],
+  [
+   "CHANGE",
+   "one line"
+  ]
+ ],
+ "output": {
+  "label": "YOU SHOULD SEE",
+  "lines": [
+   "Hello, Python!",
+   "30",
+   "&lt;class 'int'&gt;"
+  ]
+ },
+ "steps": [
+  [
+   0.12,
+   "show:h"
+  ],
+  [
+   0.3,
+   "show:pin,l0"
+  ],
+  [
+   0.45,
+   "show:l1"
+  ],
+  [
+   0.6,
+   "show:l2"
+  ],
+  [
+   0.8,
+   "show:nodes"
+  ],
+  [
+   1,
+   "lit:n0"
+  ],
+  [
+   1.5,
+   "lit:n1"
+  ],
+  [
+   2,
+   "lit:n2"
+  ],
+  [
+   2.5,
+   "lit:n3"
+  ],
+  [
+   2.9,
+   "lit:"
+  ],
+  [
+   2.95,
+   "show:pout,o0"
+  ],
+  [
+   3.2,
+   "show:o1"
+  ],
+  [
+   3.4,
+   "show:o2"
+  ]
+ ],
+ "duration": 3.6,
+ "badges": [],
+ "hold": 0.4,
+ "palette": {
+  "about": "light, flat, calm; definitions, comparisons, recaps, beginner intros",
+  "dark": false,
+  "bg": "#FAF6EE",
+  "hd": "#1B1F2A",
+  "ink": "#1B1F2A",
+  "res": "#0F3F63",
+  "mut": "#6B7280",
+  "mut2": "#8A8F98",
+  "idx": "#7A5FB0",
+  "g": "#2E9E3A",
+  "v": "#7B3FD1",
+  "c": "#1D7FD6",
+  "grid": "rgba(0,0,0,.045)",
+  "pf": "rgba(255,255,255,.75)",
+  "pfl": "rgba(255,255,255,1)",
+  "ga": 0.3,
+  "sp": 0.35,
+  "gr": "46,158,58",
+  "vr": "123,63,209",
+  "cr": "29,127,214"
+ },
+ "fps": 30
+}

@@ -1,0 +1,566 @@
+
+Exception Handling
+
+Python uses try and except to handle errors gracefully. A graceful exit (or graceful handling) of errors is a simple programming idiom: a program detects a serious error and continues — or stops — in a controlled way. Often it prints a descriptive message to the terminal or a log. That makes the application more robust.
+
+The cause of an exception is often outside the program: bad input, a missing file, a wrong file name, a broken IO device. Handling those errors stops the whole script from crashing.
+
+Day 15 covered the error types. If you wrap risky code in try / except, those types no longer kill the program.
+
+The four blocks work like this (transcribed from the original lesson diagram):
+
+
+
+
+  Block
+  What it does
+
+
+
+
+
+  try:
+  Run this code
+
+
+
+  except:
+  Execute this code when there is an exception. May or may not have a condition.
+
+
+
+  else:
+  No exceptions? Run this code.
+
+
+
+  finally:
+  Always run this code.
+
+
+
+output.txt
+try:                          # Run this code
+    ...
+except:                       # May or may not have a condition
+    ...                       # Execute this code when there is an exception
+else:
+    ...                       # No exceptions? Run this code.
+finally:
+    ...                       # Always run this code.
+
+
+except can name an error type (except TypeError:) or catch everything (except:). Naming the type is the usual, safer choice.
+
+try / except
+example.py
+try:
+    code in this block if things go well
+except:
+    code in this block run if things go wrong
+
+
+Example:
+example.py
+try:
+    print(10 + '5')
+except:
+    print('Something went wrong')
+
+
+View:
+output.txt
+Something went wrong
+
+
+The second operand is a string. We could change it to float or int and add it to 10. Without that change, the except block runs.
+
+Example:
+example.py
+try:
+    name = input('Enter your name:')
+    year_born = input('Year you were born:')
+    age = 2019 - year_born
+    print(f'You are {name}. And your age is {age}.')
+except:
+    print('Something went wrong')
+
+
+View:
+output.txt
+Enter your name:Priya
+Year you were born:2004
+Something went wrong
+
+
+input() always returns a string. 2019 - '2004' is a TypeError. The bare except runs, but we do not know which error it was. Name the error types to see the cause.
+
+Catching specific errors
+example.py
+try:
+    name = input('Enter your name:')
+    year_born = input('Year you were born:')
+    age = 2019 - year_born
+    print(f'You are {name}. And your age is {age}.')
+except TypeError:
+    print('Type error occured')
+except ValueError:
+    print('Value error occured')
+except ZeroDivisionError:
+    print('zero division error occured')
+
+
+View:
+output.txt
+Enter your name:Asabeneh
+Year you born:1920
+Type error occured
+
+
+The output is a TypeError (int minus str). Python checks except clauses from top to bottom and runs the first match.
+
+else and finally
+
+Now add else and finally, and convert the year with int() so the try block can succeed.
+example.py
+try:
+    name = input('Enter your name:')
+    year_born = input('Year you born:')
+    age = 2019 - int(year_born)
+    print(f'You are {name}. And your age is {age}.')
+except TypeError:
+    print('Type error occur')
+except ValueError:
+    print('Value error occur')
+except ZeroDivisionError:
+    print('zero division error occur')
+else:
+    print('I usually run with the try block')
+finally:
+    print('I alway run.')
+
+
+View:
+output.txt
+Enter your name:Asabeneh
+Year you born:1920
+You are Asabeneh. And your age is 99.
+I usually run with the try block
+I alway run.
+
+
+
+
+
+  Block
+  When it runs
+
+
+
+
+
+  try
+  First. The risky code.
+
+
+
+  except TypeError / ValueError / ZeroDivisionError
+  Only if that error is raised in try.
+
+
+
+  else
+  Only if try finished with no exception.
+
+
+
+  finally
+  Always — success or failure. Use it for cleanup (close a file, disconnect).
+
+
+
+
+If the user types nineteen twenty, int(year_born) raises ValueError and you will see Value error occur, then I alway run. The else line will not run.
+
+except Exception as e
+
+You can shorten the handlers to one clause that prints the actual error object.
+example.py
+try:
+    name = input('Enter your name:')
+    year_born = input('Year you born:')
+    age = 2019 - int(year_born)
+    print(f'You are {name}. And your age is {age}.')
+except Exception as e:
+    print(e)
+
+
+View (if the year is not a number):
+output.txt
+Enter your name:Priya
+Year you born:twenty
+invalid literal for int() with base 10: 'twenty'
+
+
+e is the exception instance. print(e) shows its message. type(e) shows the error type from Day 15.
+
+A version with no input(), so you can run it as a script:
+example.py
+try:
+    scores = [10, 20, 30, 40, 50]
+    total = scores[0] + scores[1]
+    print('total', total)
+    print(scores[10])
+except IndexError as e:
+    print('Index error:', e)
+else:
+    print('No error in try')
+finally:
+    print('Done checking scores')
+
+
+View:
+output.txt
+total 30
+Index error: list index out of range
+Done checking scores
+
+
+scores[0] + scores[1] works (30). scores[10] raises IndexError. else is skipped. finally still runs.
+
+Packing and Unpacking Arguments in Python
+
+We use two operators:
+
+
+* for tuples (and lists)
+
+** for dictionaries
+
+
+A function may expect separate arguments, while you have a list. Unpack the list so each item becomes one argument.
+
+Unpacking
+
+Unpacking Lists
+example.py
+def sum_of_five_nums(a, b, c, d, e):
+    return a + b + c + d + e
+
+lst = [1, 2, 3, 4, 5]
+print(sum_of_five_nums(lst))  # TypeError: sum_of_five_nums() missing 4 required positional arguments: 'b', 'c', 'd', and 'e'
+
+
+View:
+output.txt
+TypeError: sum_of_five_nums() missing 4 required positional arguments: 'b', 'c', 'd', and 'e'
+
+
+The function wants five numbers, not one list. Unpack / destructure the list with *.
+example.py
+def sum_of_five_nums(a, b, c, d, e):
+    return a + b + c + d + e
+
+lst = [1, 2, 3, 4, 5]
+print(sum_of_five_nums(*lst))  # 15
+
+
+View:
+output.txt
+15
+
+
+*lst is the same as writing sum_of_five_nums(1, 2, 3, 4, 5).
+
+We can also unpack into range, which expects a start and an end.
+example.py
+numbers = range(2, 7)  # normal call with separate arguments
+print(list(numbers))  # [2, 3, 4, 5, 6]
+args = [2, 7]
+numbers = range(*args)  # call with arguments unpacked from a list
+print(numbers)
+print(list(numbers))
+
+
+View:
+output.txt
+[2, 3, 4, 5, 6]
+range(2, 7)
+[2, 3, 4, 5, 6]
+
+
+range(*args) returns a range object. Wrap it in list(...) to see the numbers.
+
+A list or a tuple can also be unpacked on the left of =:
+example.py
+countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+fin, sw, nor, *rest = countries
+print(fin, sw, nor, rest)
+numbers = [1, 2, 3, 4, 5, 6, 7]
+one, *middle, last = numbers
+print(one, middle, last)
+
+
+View:
+output.txt
+Finland Sweden Norway ['Denmark', 'Iceland']
+1 [2, 3, 4, 5, 6] 7
+
+
+*rest collects whatever is left into a list. *middle can sit between two named positions.
+
+Same idea with structured numbers:
+example.py
+scores = [10, 20, 30, 40, 50]
+first, *middle, last = scores
+print(first)
+print(middle)
+print(last)
+
+
+View:
+output.txt
+10
+[20, 30, 40]
+50
+
+
+Unpacking Dictionaries
+example.py
+def unpacking_person_info(name, country, city, age):
+    return f'{name} lives in {country}, {city}. He is {age} year old.'
+
+dct = {'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+print(unpacking_person_info(**dct))
+
+
+View:
+output.txt
+Asabeneh lives in Finland, Helsinki. He is 250 year old.
+
+
+**dct turns each key into a keyword argument: name='Asabeneh', country='Finland', and so on. The keys must match the parameter names.
+example.py
+def unpacking_person_info(name, country, city, age):
+    return f'{name} lives in {country}, {city}. She is {age} year old.'
+
+person = {'name': 'Priya', 'country': 'India', 'city': 'Hyderabad', 'age': 22}
+print(unpacking_person_info(**person))
+
+
+View:
+output.txt
+Priya lives in India, Hyderabad. She is 22 year old.
+
+
+Packing
+
+Sometimes we never know how many arguments will be passed. Packing lets a function take an arbitrary number of arguments.
+
+Packing Lists
+example.py
+def sum_all(*args):
+    s = 0
+    for i in args:
+        s += i
+    return s
+
+print(sum_all(1, 2, 3))             # 6
+print(sum_all(1, 2, 3, 4, 5, 6, 7)) # 28
+
+
+View:
+output.txt
+6
+28
+
+
+*args is a tuple of every positional argument.
+example.py
+def sum_all(*args):
+    s = 0
+    for i in args:
+        s += i
+    return s
+
+print(sum_all(10, 20, 30))
+print(sum_all(10, 20, 30, 40, 50))
+
+
+View:
+output.txt
+60
+150
+
+
+Packing Dictionaries
+example.py
+def packing_person_info(**kwargs):
+    # check the type of kwargs and it is a dict type
+    # print(type(kwargs))
+    # Printing dictionary items
+    for key in kwargs:
+        print(f"{key} = {kwargs[key]}")
+    return kwargs
+
+print(packing_person_info(name="Asabeneh",
+      country="Finland", city="Helsinki", age=250))
+
+
+View:
+output.txt
+name = Asabeneh
+country = Finland
+city = Helsinki
+age = 250
+{'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+
+
+**kwargs is a dictionary of every keyword argument. The function both prints the pairs and returns the dict.
+
+Spreading in Python
+
+Like in JavaScript, spreading is possible in Python. A * inside a new list copies the items of another list.
+example.py
+lst_one = [1, 2, 3]
+lst_two = [4, 5, 6, 7]
+lst = [0, *lst_one, *lst_two]
+print(lst)
+country_lst_one = ['Finland', 'Sweden', 'Norway']
+country_lst_two = ['Denmark', 'Iceland']
+nordic_countries = [*country_lst_one, *country_lst_two]
+print(nordic_countries)
+
+
+View:
+output.txt
+[0, 1, 2, 3, 4, 5, 6, 7]
+['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+
+example.py
+low = [10, 20, 30]
+high = [40, 50]
+print([0, *low, *high])
+
+
+View:
+output.txt
+[0, 10, 20, 30, 40, 50]
+
+
+This is the same * as unpacking, used inside a list literal.
+
+Enumerate
+
+If we need the index of each item, we use the built-in enumerate.
+example.py
+for index, item in enumerate([20, 30, 40]):
+    print(index, item)
+
+
+View:
+output.txt
+0 20
+1 30
+2 40
+
+example.py
+countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+for index, i in enumerate(countries):
+    if i == 'Finland':
+        print(f'The country {i} has been found at index {index}')
+
+
+View:
+output.txt
+The country Finland has been found at index 0
+
+
+enumerate yields (index, item) pairs. The default start index is 0. Pass start=1 if you want to count from 1.
+example.py
+print(list(enumerate(['a', 'b', 'c'])))
+print(list(enumerate([10, 20, 30], start=1)))
+
+
+View:
+output.txt
+[(0, 'a'), (1, 'b'), (2, 'c')]
+[(1, 10), (2, 20), (3, 30)]
+
+
+Zip
+
+Sometimes we want to combine lists while looping. zip pairs items at the same position.
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'lime']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+fruits_and_veges = []
+for f, v in zip(fruits, vegetables):
+    fruits_and_veges.append({'fruit': f, 'veg': v})
+
+print(fruits_and_veges)
+
+
+View:
+output.txt
+[{'fruit': 'banana', 'veg': 'Tomato'}, {'fruit': 'orange', 'veg': 'Potato'}, {'fruit': 'mango', 'veg': 'Cabbage'}, {'fruit': 'lemon', 'veg': 'Onion'}, {'fruit': 'lime', 'veg': 'Carrot'}]
+
+
+zip stops at the shortest list.
+example.py
+print(list(zip([10, 20, 30], [40, 50, 60])))
+print(list(zip([10, 20, 30, 40], ['a', 'b'])))
+
+
+View:
+output.txt
+[(10, 40), (20, 50), (30, 60)]
+[(10, 'a'), (20, 'b')]
+
+
+Day 17 concepts are done. Practice them below.
+
+Exercises
+
+Exercises: Level 1
+
+
+names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']. Unpack the first five countries and store them in a variable nordic_countries, store Estonia and Russia in es, and ru respectively.
+
+
+Exercises: Level 2
+
+
+Wrap print(10 + '5') in try / except and print 'Something went wrong' when it fails.
+
+Ask for a name and a year of birth. Convert the year with int(), compute age from 2026, and use except TypeError, except ValueError, else, and finally. Run it once with a valid year and once with text.
+
+Pack a function sum_all(*args) and call it with (10, 20, 30) and with (10, 20, 30, 40, 50). Print both totals.
+
+Unpack {'name': 'Priya', 'country': 'India', 'city': 'Hyderabad', 'age': 22} into a function that takes those four keyword arguments.
+
+Use enumerate on ['Finland', 'Sweden', 'Norway'] and print each index and country.
+
+Use zip to pair [10, 20, 30, 40, 50] with ['a', 'b', 'c', 'd', 'e']. Print the list of pairs.
+
+
+Exercises: Level 3
+
+Use the structured numbers 10, 20, 30, 40, 50.
+
+
+Loop over ['10', '20', 'abc', '30', '40']. For each item, try to convert with int() and add it to a running total. Catch ValueError, print which item failed, and keep going. In finally, print the total so far. After the loop, print the final total (it should be 100 if 'abc' is skipped).
+
+scores = [10, 20, 30, 40, 50]. Unpack as first, *middle, last. Print first, middle, last, and sum([first, *middle, last]).
+
+Write def report(**kwargs): that prints each key and value. Call it with name='Priya', score=20, city='Hyderabad'.
+
+Spread [10, 20] and [30, 40, 50] into one list that starts with 0. Print the list and its len.
+
+Zip ['login', 'post', 'logout'] with [10, 20, 30]. Build a list of dicts {'action': ..., 'minute': ...} and print it.
+
+Combine today's ideas: a function safe_divide(a, b) that trys a / b, catches ZeroDivisionError and TypeError, returns None on error, and uses finally to print 'done'. Call it with (50, 10), (50, 0), and (50, '10').
+
+
+You finished Day 17. Next: regular expressions.
+

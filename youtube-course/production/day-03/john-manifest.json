@@ -1,0 +1,27 @@
+{
+  "day": 3,
+  "status": "pending",
+  "brief": "youtube-course/episodes/day-03.md",
+  "source": "youtube-course/source/day-03.txt",
+  "stages": {
+    "audio": {
+      "status": "pending",
+      "manifest": null
+    },
+    "screen": {
+      "status": "pending",
+      "manifest": null
+    },
+    "motion": {
+      "status": "pending",
+      "manifest": null
+    },
+    "assembly": {
+      "status": "pending",
+      "manifest": null
+    }
+  },
+  "blockers": [],
+  "existing_media_reviewed": false,
+  "notes": "Complete spoken script must be prepared from the lesson source and outline."
+}

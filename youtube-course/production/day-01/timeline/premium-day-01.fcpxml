@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fcpxml version="1.10">
+  <resources>
+    <format id="f1" name="FFVideoFormat1080p30" frameDuration="1/30s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)" />
+    <asset id="v1" name="section-01-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-01-obs-fit.mp4" start="0s" duration="398/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a1" name="section-01.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-01.wav" start="0s" duration="398/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v2" name="section-02-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-02-obs-fit.mp4" start="0s" duration="441/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a2" name="section-02.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-02.wav" start="0s" duration="441/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v3" name="section-03-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-03-picture.mp4" start="0s" duration="1007/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a3" name="section-03.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-03.wav" start="0s" duration="1007/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v4" name="section-04-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-04-picture.mp4" start="0s" duration="1271/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a4" name="section-04.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-04.wav" start="0s" duration="1271/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v5" name="section-05-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-05-picture.mp4" start="0s" duration="1032/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a5" name="section-05.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-05.wav" start="0s" duration="1032/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v6" name="section-06-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-06-obs-fit.mp4" start="0s" duration="974/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a6" name="section-06.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-06.wav" start="0s" duration="974/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v7" name="section-07-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-07-obs-fit.mp4" start="0s" duration="1099/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a7" name="section-07.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-07.wav" start="0s" duration="1099/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v8" name="section-08-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-08-picture.mp4" start="0s" duration="2472/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a8" name="section-08.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-08.wav" start="0s" duration="2472/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v9" name="section-09-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-09-picture.mp4" start="0s" duration="1112/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a9" name="section-09.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-09.wav" start="0s" duration="1112/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v10" name="section-10-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-10-picture.mp4" start="0s" duration="1187/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a10" name="section-10.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-10.wav" start="0s" duration="1187/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="v11" name="section-11-picture.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/premium-media/section-11-picture.mp4" start="0s" duration="584/30s" format="f1" hasVideo="1" hasAudio="0" />
+    <asset id="a11" name="section-11.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-11.wav" start="0s" duration="584/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+  </resources>
+  <library>
+    <event name="Python 30 Days">
+      <project name="Day 01 - Premium White Grid">
+        <sequence format="f1" duration="11577/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+            <asset-clip ref="v1" name="01 / picture" offset="0s" start="0s" duration="398/30s">
+              <asset-clip ref="a1" name="01 / Venkat narration" lane="-1" offset="0s" start="0s" duration="398/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v2" name="02 / picture" offset="398/30s" start="0s" duration="441/30s">
+              <asset-clip ref="a2" name="02 / Venkat narration" lane="-1" offset="0s" start="0s" duration="441/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v3" name="03 / picture" offset="839/30s" start="0s" duration="1007/30s">
+              <asset-clip ref="a3" name="03 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1007/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v4" name="04 / picture" offset="1846/30s" start="0s" duration="1271/30s">
+              <asset-clip ref="a4" name="04 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1271/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v5" name="05 / picture" offset="3117/30s" start="0s" duration="1032/30s">
+              <asset-clip ref="a5" name="05 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1032/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v6" name="06 / picture" offset="4149/30s" start="0s" duration="974/30s">
+              <asset-clip ref="a6" name="06 / Venkat narration" lane="-1" offset="0s" start="0s" duration="974/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v7" name="07 / picture" offset="5123/30s" start="0s" duration="1099/30s">
+              <asset-clip ref="a7" name="07 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1099/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v8" name="08 / picture" offset="6222/30s" start="0s" duration="2472/30s">
+              <asset-clip ref="a8" name="08 / Venkat narration" lane="-1" offset="0s" start="0s" duration="2472/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v9" name="09 / picture" offset="8694/30s" start="0s" duration="1112/30s">
+              <asset-clip ref="a9" name="09 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1112/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v10" name="10 / picture" offset="9806/30s" start="0s" duration="1187/30s">
+              <asset-clip ref="a10" name="10 / Venkat narration" lane="-1" offset="0s" start="0s" duration="1187/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="v11" name="11 / picture" offset="10993/30s" start="0s" duration="584/30s">
+              <asset-clip ref="a11" name="11 / Venkat narration" lane="-1" offset="0s" start="0s" duration="584/30s" role="dialogue" />
+            </asset-clip>
+          </spine>
+        </sequence>
+      </project>
+    </event>
+  </library>
+</fcpxml>

@@ -1,0 +1,732 @@
+
+Python for Web
+
+Python is a general-purpose language. It can run on the web. There are many Python web frameworks. Django and Flask are the most common. Today we use Flask.
+
+Flask
+
+Flask is a small web framework written in Python. It uses the Jinja2 template engine. You can also pair Flask with a front-end library such as React.
+
+Use a virtual environment so this project's packages stay separate from the rest of your machine (Day 23).
+
+Folder structure
+
+After every step below, the project looks like this (the course copy lives at python_for_web/):
+output.txt
+python_for_web/
+├── Procfile
+├── app.py
+├── env/                  # or venv/ — your virtual environment
+│   └── bin/              # Scripts\ on Windows
+├── requirements.txt
+├── static
+│   └── css
+│       └── main.css
+└── templates
+    ├── about.html
+    ├── home.html
+    ├── layout.html
+    ├── post.html
+    └── result.html
+
+
+Setting up your project directory
+
+
+Install virtualenv (once on the machine):
+
+terminal
+pip install virtualenv
+
+
+
+Create the folder, make a virtual environment, activate it, then install Flask.
+
+
+Mac / Linux:
+terminal
+mkdir python_for_web
+cd python_for_web
+virtualenv venv
+source venv/bin/activate
+pip freeze
+pip install Flask
+pip freeze
+
+
+Windows (PowerShell):
+terminal
+mkdir python_for_web
+cd python_for_web
+python -m venv venv
+venv\Scripts\activate
+pip freeze
+pip install Flask
+pip freeze
+
+
+Windows (Git Bash): source venv/Scripts/activate
+
+View after pip freeze with nothing installed yet: empty.
+
+View after pip install Flask (versions you see may be newer):
+output.txt
+Click==7.0
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+Werkzeug==0.16.0
+
+
+The prompt shows (venv) when the environment is on. app.py is the main file.
+
+Creating routes
+
+A route is a URL path. Flask maps each path to a Python function with the @app.route(...) decorator.
+
+1. Home route
+
+/ is the home page.
+example.py
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '<h1>Welcome</h1>'
+
+if __name__ == '__main__':
+    # PORT comes from the host when you deploy; 5000 is the local default
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+Run it from the project folder:
+terminal
+python app.py
+
+
+View in the terminal (Flask 1.x style; newer Flask prints a similar block):
+output.txt
+ * Serving Flask app "app"
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+
+
+Open the page in a browser:
+
+
+Start python app.py.
+
+Go to http://localhost:5000/.
+
+The page is one heading.
+
+
+Request / response
+output.txt
+GET / HTTP/1.1
+Host: localhost:5000
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+<h1>Welcome</h1>
+
+
+2. About route
+
+Add /about.
+example.py
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '<h1>Welcome</h1>'
+
+@app.route('/about')
+def about():
+    return '<h1>About us</h1>'
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+View at http://localhost:5000/about:
+output.txt
+GET /about HTTP/1.1
+
+HTTP/1.1 200 OK
+
+<h1>About us</h1>
+
+
+Returning a raw HTML string is fine for a first test. Next we render real HTML files with render_template.
+
+Creating templates
+
+Create a templates folder. Flask looks there by default. Add home.html and about.html.
+
+templates/home.html
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Welcome Home</h1>
+  </body>
+</html>
+
+
+templates/about.html
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+  </head>
+  <body>
+    <h1>About Us</h1>
+  </body>
+</html>
+
+
+Python Script
+
+Import render_template and return the file name. Flask finds it in templates/.
+example.py
+from flask import Flask, render_template
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+View
+
+
+
+
+  URL
+  Template
+  Heading on the page
+
+
+
+
+
+  http://localhost:5000/
+  home.html
+  Welcome Home
+
+
+
+  http://localhost:5000/about
+  about.html
+  About Us
+
+
+
+
+Navigation
+
+Add the same two links on every page so you can move around:
+index.html
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+
+We will also add a form page (post.html) for the text analyzer. Jinja2 lets the Python function send data into the HTML with {{ name }} and {% for ... %}.
+example.py
+from flask import Flask, render_template, request, redirect, url_for
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    techs = ['HTML', 'CSS', 'Flask', 'Python']
+    name = '30 Days Of Python Programming'
+    return render_template('home.html', techs=techs, name=name, title='Home')
+
+@app.route('/about')
+def about():
+    name = '30 Days Of Python Programming'
+    return render_template('about.html', name=name, title='About Us')
+
+@app.route('/post')
+def post():
+    name = 'Text Analyzer'
+    return render_template('post.html', name=name, title=name)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+home.html with injected data:
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <h1>Welcome to {{name}}</h1>
+    <ul>
+    {% for tech in techs %}
+      <li>{{tech}}</li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
+
+
+about.html with injected data:
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <h1>About Us</h1>
+    <h2>{{name}}</h2>
+  </body>
+</html>
+
+
+View of / after Jinja fills the placeholders:
+output.txt
+Welcome to 30 Days Of Python Programming
+- HTML
+- CSS
+- Flask
+- Python
+
+
+Creating a layout
+
+The head, menu, and footer repeat on every page. Put that once in layout.html and let the other templates extend it.
+
+Serving Static File
+
+
+Create static/ in the project folder.
+
+Create static/css/.
+
+Put main.css there (copy the file from ../../python_for_web/static/css/main.css).
+
+Link it with url_for('static', filename='css/main.css').
+
+
+templates/layout.html
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400|Nunito:300,400|Raleway:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    {% if title %}
+    <title>30 Days of Python - {{ title}}</title>
+    {% else %}
+    <title>30 Days of Python</title>
+    {% endif %}
+  </head>
+  <body>
+    <header>
+      <div class="menu-container">
+        <div>
+          <a class="brand-name nav-link" href="/">30DaysOfPython</a>
+        </div>
+        <ul class="nav-lists">
+          <li class="nav-list">
+            <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-list">
+            <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+          </li>
+          <li class="nav-list">
+            <a class="nav-link active" href="{{ url_for('post') }}">Text Analyzer</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+</html>
+
+
+url_for('home') builds the URL from the function name, not from a hard-coded path. Child templates only fill {% block content %}.
+
+templates/home.html
+index.html
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+  <h1>Welcome to {{name}}</h1>
+  <p>
+    This application clean texts and analyse the number of word, characters and
+    most frequent words in the text. Check it out by click text analyzer at the
+    menu. You need the following technologies to build this web application:
+  </p>
+  <ul class="tech-lists">
+    {% for tech in techs %}
+    <li class="tech">{{tech}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
+
+templates/about.html
+index.html
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+  <h1>About {{name}}</h1>
+  <p>
+    This is a 30 days of python programming challenge. If you have been coding
+    this far, you are awesome. Congratulations for the job well done!
+  </p>
+</div>
+{% endblock %}
+
+
+templates/post.html
+
+The working copy posts to the local Flask app (http://localhost:5000/post). Use that while you develop.
+index.html
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+  <h1>Text Analyzer</h1>
+  <form action="http://localhost:5000/post" method="POST">
+    <div>
+      <textarea rows="25" name="content" autofocus></textarea>
+    </div>
+    <div>
+      <input type="submit" class="btn" value="Process Text" />
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+
+templates/result.html (placeholder until you finish the analyzer in the exercises):
+index.html
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+  <h1>Text Analysis Result </h1>
+</div>
+{% endblock %}
+
+
+Request methods
+
+The common HTTP methods map to CRUD:
+
+
+
+
+  #
+  Method
+  CRUD
+  What it does
+
+
+
+
+
+  1
+  GET
+  Read
+  Fetch a page or data. Do not change data.
+
+
+
+  2
+  POST
+  Create
+  Send a form or new record to the server.
+
+
+
+  3
+  PUT
+  Update
+  Replace a resource.
+
+
+
+  4
+  DELETE
+  Delete
+  Remove a resource.
+
+
+
+
+The browser address bar only does GET. An HTML form can do GET or POST. request.method tells you which one arrived. request.form['content'] reads the textarea named content.
+
+1. GET and POST on /post
+
+Stop Flask from caching CSS while you edit styles. Add a result route. Accept both methods on /post.
+example.py
+from flask import Flask, render_template, request, redirect, url_for
+import os
+
+app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+
+@app.route('/')
+def home():
+    techs = ['HTML', 'CSS', 'Flask', 'Python']
+    name = '30 Days Of Python Programming'
+    return render_template('home.html', techs=techs, name=name, title='Home')
+
+
+@app.route('/about')
+def about():
+    name = '30 Days Of Python Programming'
+    return render_template('about.html', name=name, title='About Us')
+
+
+@app.route('/result')
+def result():
+    return render_template('result.html')
+
+
+@app.route('/post', methods=['GET', 'POST'])
+def post():
+    name = 'Text Analyzer'
+    if request.method == 'GET':
+        return render_template('post.html', name=name, title=name)
+    if request.method == 'POST':
+        content = request.form['content']
+        print(content)
+        return redirect(url_for('result'))
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+This is the same path as ../../python_for_web/app.py.
+
+View — open the form
+output.txt
+GET /post HTTP/1.1
+Host: localhost:5000
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+(page title) 30 Days of Python - Text Analyzer
+(heading)    Text Analyzer
+(form)       textarea name="content" + button "Process Text"
+
+
+View — submit the form (type hello flask and click Process Text)
+output.txt
+POST /post HTTP/1.1
+Host: localhost:5000
+Content-Type: application/x-www-form-urlencoded
+
+content=hello+flask
+
+HTTP/1.1 302 Found
+Location: /result
+
+GET /result HTTP/1.1
+
+HTTP/1.1 200 OK
+
+(heading) Text Analysis Result
+
+
+The terminal prints the posted text (hello flask) because of print(content). The result page is still empty on purpose — the exercises finish the analyzer.
+
+Deployment
+
+You can keep running locally with python app.py. The original lesson also deploys to Heroku. Heroku's old free dyno is gone; the CLI steps below are the original flow. Use them on a paid Heroku app, or treat them as the checklist and run locally instead.
+
+Creating a Heroku account
+
+
+Create an account at heroku.com.
+
+Install the Heroku CLI.
+
+
+Login to Heroku
+terminal
+heroku login
+
+
+View
+output.txt
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/browser/...
+Logging in... done
+Logged in as you@example.com
+
+
+Create requirements and Procfile
+
+The server must know the packages and the start command.
+
+
+Freeze the environment into requirements.txt.
+
+Create a Procfile with no file extension.
+
+terminal
+pip freeze
+pip freeze > requirements.txt
+
+
+View of requirements.txt (course copy):
+output.txt
+Click==7.0
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+Werkzeug==0.16.0
+
+
+Procfile:
+output.txt
+web: python app.py
+
+
+View of the folder:
+output.txt
+Procfile
+app.py
+requirements.txt
+static/
+templates/
+venv/
+
+
+Pushing the project to Heroku
+
+
+git init
+
+git add .
+
+git commit -m "first flask app"
+
+heroku create nameofappasoneword
+
+git push heroku master
+
+heroku open
+
+
+After a successful push the app opens in the browser. The original demo lived at a Heroku URL such as http://thirdaysofpython-practice.herokuapp.com/. Locally you still use http://localhost:5000/.
+
+Exercises
+
+Exercises: Level 1
+
+
+You will build this application. Only the text analyser part is left.
+
+
+Exercises: Level 2
+
+
+Run ../../python_for_web/app.py. Open /, /about, and /post in the browser. Confirm the menu links use url_for.
+
+On /post, submit a short paragraph. Confirm you land on /result and that the terminal printed the form text.
+
+List the four request methods from the table (GET, POST, PUT, DELETE) and write one sentence each: which CRUD verb, and whether the text-analyzer form uses it today.
+
+
+Exercises: Level 3
+
+Finish the analyzer on /post → /result. Use structured counts so you can check the view.
+
+
+Keep the posted content (session, query string, or pass it into render_template after you change /result to accept POST or to receive data another way).
+
+Count words, characters (with and without spaces), and the most frequent word.
+
+Test this sample and print a labeled view:
+
+output.txt
+hello flask hello python flask flask
+
+
+Expected shape:
+output.txt
+words: 6
+characters_with_spaces: 36
+characters_without_spaces: 31
+most_frequent: flask (3)
+
+
+
+Show those numbers on result.html with Jinja ({{ words }}, {{ most_frequent }}, …).
+
+Optional: also list the top 3 words as a table.
+
+
+You finished Day 26. Next: MongoDB.
+

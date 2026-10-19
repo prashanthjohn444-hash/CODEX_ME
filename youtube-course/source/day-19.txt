@@ -1,0 +1,706 @@
+
+File Handling
+
+So far we have seen different Python data types. We usually store our data in different file formats. In addition to handling files, we will also see different file formats (.txt, .json, .xml, .csv, .tsv, .excel) in this section. First, let us get familiar with handling files with the common file format (.txt).
+
+File handling is an important part of programming which allows us to create, read, update and delete files. In Python to handle data we use the open() built-in function.
+
+Paths in this lesson start from this day folder. Shared course datasets live at ../../files/ and ../../data/. If those folders are not in this copy, the same files are in the original 30-Days-Of-Python folder next to this course.
+example.py
+# Syntax
+open('filename', mode)  # mode (r, a, w, x, t, b) could be to read, write, update
+
+
+1. open() modes
+
+
+
+
+  Mode
+  Meaning
+
+
+
+
+
+  "r"
+  Read — default value. Opens a file for reading. It returns an error if the file does not exist.
+
+
+
+  "a"
+  Append — opens a file for appending. Creates the file if it does not exist.
+
+
+
+  "w"
+  Write — opens a file for writing. Creates the file if it does not exist. Overwrites existing content.
+
+
+
+  "x"
+  Create — creates the specified file. Returns an error if the file exists.
+
+
+
+  "t"
+  Text — default value. Text mode.
+
+
+
+  "b"
+  Binary — binary mode (e.g. images).
+
+
+
+
+You can combine a letter with t or b: 'rt', 'wb', 'ab'.
+
+Opening Files for Reading
+
+The default mode of open is reading, so we do not have to specify 'r' or 'rt'. A file named reading_file_example.txt is saved in the files directory. Let us see how it is done:
+example.py
+f = open('../../files/reading_file_example.txt')
+print(f)  # <_io.TextIOWrapper name='../../files/reading_file_example.txt' mode='r' encoding='UTF-8'>
+
+
+View:
+output.txt
+<_io.TextIOWrapper name='../../files/reading_file_example.txt' mode='r' encoding='utf-8'>
+
+
+An opened file has different reading methods: read(), readline(), readlines(). An opened file has to be closed with the close() method.
+
+2. read()
+
+read(): read the whole text as a string. If we want to limit the number of characters we want to read, we can limit it by passing an int value to the read(number) method.
+example.py
+f = open('../../files/reading_file_example.txt')
+txt = f.read()
+print(type(txt))
+print(txt)
+f.close()
+
+
+View:
+output.txt
+<class 'str'>
+This is an example to show how to open a file and read.
+This is the second line of the text.
+
+
+Instead of printing all the text, let us print the first 10 characters of the text file.
+example.py
+f = open('../../files/reading_file_example.txt')
+txt = f.read(10)
+print(type(txt))
+print(txt)
+f.close()
+
+
+View:
+output.txt
+<class 'str'>
+This is an
+
+
+3. readline()
+
+readline(): read only the first line.
+example.py
+f = open('../../files/reading_file_example.txt')
+line = f.readline()
+print(type(line))
+print(line)
+f.close()
+
+
+View:
+output.txt
+<class 'str'>
+This is an example to show how to open a file and read.
+
+
+4. readlines()
+
+readlines(): read all the text line by line and return a list of lines.
+example.py
+f = open('../../files/reading_file_example.txt')
+lines = f.readlines()
+print(type(lines))
+print(lines)
+f.close()
+
+
+View:
+output.txt
+<class 'list'>
+['This is an example to show how to open a file and read.\n', 'This is the second line of the text.']
+
+
+5. splitlines()
+
+Another way to get all the lines as a list is using splitlines():
+example.py
+f = open('../../files/reading_file_example.txt')
+lines = f.read().splitlines()
+print(type(lines))
+print(lines)
+f.close()
+
+
+View:
+output.txt
+<class 'list'>
+['This is an example to show how to open a file and read.', 'This is the second line of the text.']
+
+
+splitlines() drops the \n. readlines() keeps it.
+
+6. with
+
+After we open a file, we should close it. There is a high tendency of forgetting to close them. There is a new way of opening files using with — it closes the files by itself. Let us rewrite the previous example with the with method:
+example.py
+with open('../../files/reading_file_example.txt') as f:
+    lines = f.read().splitlines()
+    print(type(lines))
+    print(lines)
+
+
+View:
+output.txt
+<class 'list'>
+['This is an example to show how to open a file and read.', 'This is the second line of the text.']
+
+
+Opening Files for Writing and Updating
+
+To write to an existing file, we must add a mode as a parameter to the open() function:
+
+
+"a" — append — will append to the end of the file. If the file does not exist it creates a new file.
+
+"w" — write — will overwrite any existing content. If the file does not exist it creates.
+
+
+7. write() and append
+
+Let us append some text to the file we have been reading:
+example.py
+with open('../../files/reading_file_example.txt', 'a') as f:
+    f.write('This text has to be appended at the end')
+
+
+Append adds text. It does not add a newline by itself. Run this only when you want to change the sample file.
+
+The method below creates a new file if the file does not exist:
+example.py
+with open('../../files/writing_file_example.txt', 'w') as f:
+    f.write('This text will be written in a newly created file')
+
+
+Same methods with structured scores. This writes a new file next to this lesson, so the shared sample files stay unchanged.
+example.py
+with open('scores.txt', 'w') as f:
+    f.write('10,20,30,40,50')
+
+with open('scores.txt') as f:
+    print(f.read())
+
+with open('scores.txt', 'a') as f:
+    f.write('\nPriya,Hyderabad')
+
+with open('scores.txt') as f:
+    print(f.read())
+
+
+View:
+output.txt
+10,20,30,40,50
+10,20,30,40,50
+Priya,Hyderabad
+
+
+Deleting Files
+
+We have seen in a previous section how to make and remove a directory using the os module. Again now, if we want to remove a file we use the os module.
+example.py
+import os
+os.remove('../../files/example.txt')
+
+
+If the file does not exist, the remove method will raise an error, so it is good to use a condition like this:
+example.py
+import os
+if os.path.exists('../../files/example.txt'):
+    os.remove('../../files/example.txt')
+else:
+    print('The file does not exist')
+
+
+View (if the file is already gone):
+output.txt
+The file does not exist
+
+
+os.path.exists(path) is True when the file is there. os.remove(path) deletes it.
+
+File Types
+
+File with txt Extension
+
+File with txt extension is a very common form of data and we have covered it in the previous section. Let us move to the JSON file.
+
+File with json Extension
+
+JSON stands for JavaScript Object Notation. Actually, it is a stringified JavaScript object or Python dictionary.
+
+Example:
+example.py
+# dictionary
+person_dct = {
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": ["JavaScript", "React", "Python"]
+}
+# JSON: A string form a dictionary
+person_json = "{'name': 'Priya', 'country': 'India', 'city': 'Hyderabad', 'skills': ['JavaScript', 'React', 'Python']}"
+
+# we use three quotes and make it multiple line to make it more readable
+person_json = '''{
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": ["JavaScript", "React", "Python"]
+}'''
+
+
+JSON keys and string values use double quotes. The first person_json above is Python-looking text. The triple-quoted one is real JSON.
+
+Changing JSON to Dictionary
+
+To change a JSON to a dictionary, first we import the json module and then we use the loads method.
+example.py
+import json
+# JSON
+person_json = '''{
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": ["JavaScript", "React", "Python"]
+}'''
+# let's change JSON to dictionary
+person_dct = json.loads(person_json)
+print(type(person_dct))
+print(person_dct)
+print(person_dct['name'])
+
+
+View:
+output.txt
+<class 'dict'>
+{'name': 'Priya', 'country': 'India', 'city': 'Hyderabad', 'skills': ['JavaScript', 'React', 'Python']}
+Priya
+
+
+json.loads(text) reads a string. json.load(file) reads an open file.
+
+Changing Dictionary to JSON
+
+To change a dictionary to JSON we use the dumps method from the json module.
+example.py
+import json
+# python dictionary
+person = {
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": ["JavaScript", "React", "Python"]
+}
+# let's convert it to json
+person_json = json.dumps(person, indent=4)  # indent could be 2, 4, 8. It beautifies the json
+print(type(person_json))
+print(person_json)
+
+
+View:
+output.txt
+<class 'str'>
+{
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": [
+        "JavaScript",
+        "React",
+        "Python"
+    ]
+}
+
+
+When you print it, it does not have the quote, but actually it is a string. JSON does not have its own Python type. It is a string type.
+
+json.dumps(obj) returns a string. json.dump(obj, file) writes an open file.
+
+Saving as JSON File
+
+We can also save our data as a json file. Let us save it as a json file using the following steps. For writing a json file, we use the json.dump() method. It can take a dictionary, output file, ensure_ascii and indent.
+example.py
+import json
+# python dictionary
+person = {
+    "name": "Priya",
+    "country": "India",
+    "city": "Hyderabad",
+    "skills": ["JavaScript", "React", "Python"]
+}
+with open('../../files/json_example.json', 'w', encoding='utf-8') as f:
+    json.dump(person, f, ensure_ascii=False, indent=4)
+
+
+In the code above, we use encoding and indentation. Indentation makes the json file easy to read.
+
+Read it back:
+example.py
+import json
+
+with open('../../files/json_example.json', encoding='utf-8') as f:
+    data = json.load(f)
+print(type(data))
+print(data['name'], data['city'])
+
+
+View (after the dump above):
+output.txt
+<class 'dict'>
+Priya Hyderabad
+
+
+The sample file on disk may still hold the original name if you have not run the dump yet.
+
+File with csv Extension
+
+CSV stands for comma separated values. CSV is a simple file format used to store tabular data, such as a spreadsheet or database. CSV is a very common data format in data science.
+
+Example:
+snippet
+"name","country","city","skills"
+"Priya","India","Hyderabad","JavaScript"
+
+
+Example:
+example.py
+import csv
+with open('../../files/csv_example.csv') as f:
+    csv_reader = csv.reader(f, delimiter=',')  # we use reader method to read csv
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'Column names are :{", ".join(row)}')
+            line_count += 1
+        else:
+            print(
+                f'\t{row[0]} is a teachers. He lives in {row[1]}, {row[2]}.')
+            line_count += 1
+    print(f'Number of lines:  {line_count}')
+
+
+View (sample file currently has this row):
+output.txt
+Column names are :name, country, city, skills
+	Asabeneh is a teachers. He lives in Finland, Helsinki.
+Number of lines:  2
+
+
+csv.reader(f, delimiter=',') walks each row as a list of strings. line_count is 2 because the header is one line and the data is one line.
+
+Write a small CSV of scores, then read it:
+example.py
+import csv
+
+with open('scores.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['name', 'city', 'score'])
+    writer.writerow(['Priya', 'Hyderabad', 10])
+    writer.writerow(['Asha', 'Hyderabad', 20])
+
+with open('scores.csv') as f:
+    for row in csv.reader(f, delimiter=','):
+        print(row)
+
+
+View:
+output.txt
+['name', 'city', 'score']
+['Priya', 'Hyderabad', '10']
+['Asha', 'Hyderabad', '20']
+
+
+csv.writer / writerow write. csv.reader reads. Values come back as strings.
+
+File with xlsx Extension
+
+To read excel files we need to install the xlrd package. We will cover this after we cover package installing using pip.
+example.py
+import xlrd
+excel_book = xlrd.open_workbook('sample.xls')
+print(excel_book.nsheets)
+print(excel_book.sheet_names)
+
+
+xlrd.open_workbook(path) opens the workbook. nsheets is how many sheets. sheet_names lists them. A sample workbook also lives at ../../files/excel_example.xlsx. Newer Excel files often need openpyxl instead of xlrd.
+
+File with xml Extension
+
+XML is another structured data format which looks like HTML. In XML the tags are not predefined. The first line is an XML declaration. The person tag is the root of the XML. The person has a gender attribute.
+
+Example: XML
+snippet
+<?xml version="1.0"?>
+<person gender="female">
+  <name>Priya</name>
+  <country>India</country>
+  <city>Hyderabad</city>
+  <skills>
+    <skill>JavaScript</skill>
+    <skill>React</skill>
+    <skill>Python</skill>
+  </skills>
+</person>
+
+
+For more information on how to read an XML file check the documentation.
+example.py
+import xml.etree.ElementTree as ET
+tree = ET.parse('../../files/xml_example.xml')
+root = tree.getroot()
+print('Root tag:', root.tag)
+print('Attribute:', root.attrib)
+for child in root:
+    print('field: ', child.tag)
+
+
+View (sample file currently has this tree):
+output.txt
+Root tag: person
+Attribute: {'gender': 'male'}
+field:  name
+field:  country
+field:  city
+field:  skills
+
+
+
+
+
+  Piece
+  What it is
+
+
+
+
+
+  ET.parse(path)
+  Load the XML file into a tree
+
+
+
+  tree.getroot()
+  The root element (person)
+
+
+
+  root.tag
+  Tag name (person)
+
+
+
+  root.attrib
+  Attributes ({'gender': 'male'})
+
+
+
+  child.tag
+  Each direct child tag
+
+
+
+  child.text
+  Text inside a child (for example root.find('name').text)
+
+
+
+example.py
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('../../files/xml_example.xml')
+root = tree.getroot()
+print(root.find('name').text)
+print(root.find('city').text)
+
+
+View:
+output.txt
+Asabeneh
+Helsinki
+
+
+After you write a Priya XML of your own, those two lines will print Priya and Hyderabad.
+
+Day 19 concepts are done. Practice them in the exercises below. Speech, country, and CSV files are in ../../data/.
+
+Exercises
+
+Exercises: Level 1
+
+
+
+Write a function which count number of lines and number of words in a text. All the files are in the data the folder:
+
+
+Read ../../data/obama_speech.txt file and count number of lines and words
+
+Read ../../data/michelle_obama_speech.txt file and count number of lines and words
+
+Read ../../data/donald_speech.txt file and count number of lines and words
+
+Read ../../data/melina_trump_speech.txt file and count number of lines and words
+
+
+
+
+Read the ../../data/countries_data.json data file in data directory, create a function that finds the ten most spoken languages
+example.py
+# Your output should look like this
+print(most_spoken_languages(filename='../../data/countries_data.json', 10))
+[(91, 'English'),
+(45, 'French'),
+(25, 'Arabic'),
+(24, 'Spanish'),
+(9, 'Russian'),
+(9, 'Portuguese'),
+(8, 'Dutch'),
+(7, 'German'),
+(5, 'Chinese'),
+(4, 'Swahili'),
+(4, 'Serbian')]
+
+# Your output should look like this
+print(most_spoken_languages(filename='../../data/countries_data.json', 3))
+[(91, 'English'),
+(45, 'French'),
+(25, 'Arabic')]
+
+
+
+
+Read the ../../data/countries_data.json data file in data directory, create a function that creates a list of the ten most populated countries
+example.py
+# Your output should look like this
+print(most_populated_countries(filename='../../data/countries_data.json', 10))
+
+[
+{'country': 'China', 'population': 1377422166},
+{'country': 'India', 'population': 1295210000},
+{'country': 'United States of America', 'population': 323947000},
+{'country': 'Indonesia', 'population': 258705000},
+{'country': 'Brazil', 'population': 206135893},
+{'country': 'Pakistan', 'population': 194125062},
+{'country': 'Nigeria', 'population': 186988000},
+{'country': 'Bangladesh', 'population': 161006790},
+{'country': 'Russian Federation', 'population': 146599183},
+{'country': 'Japan', 'population': 126960000}
+]
+
+# Your output should look like this
+
+print(most_populated_countries(filename='../../data/countries_data.json', 3))
+[
+{'country': 'China', 'population': 1377422166},
+{'country': 'India', 'population': 1295210000},
+{'country': 'United States of America', 'population': 323947000}
+]
+
+
+
+
+Exercises: Level 2
+
+
+Extract all incoming email addresses as a list from the email_exchange_big.txt file. The file on disk is ../../data/email_exchanges_big.txt.
+
+Find the most common words in the English language. Call the name of your function find_most_common_words, it will take two parameters - a string or a file and a positive integer, indicating the number of words. Your function will return an array of tuples in descending order. Check the output
+
+example.py
+    # Your output should look like this
+    print(find_most_common_words('sample.txt', 10))
+    [(10, 'the'),
+    (8, 'be'),
+    (6, 'to'),
+    (6, 'of'),
+    (5, 'and'),
+    (4, 'a'),
+    (4, 'in'),
+    (3, 'that'),
+    (2, 'have'),
+    (2, 'I')]
+
+    # Your output should look like this
+    print(find_most_common_words('sample.txt', 5))
+
+    [(10, 'the'),
+    (8, 'be'),
+    (6, 'to'),
+    (6, 'of'),
+    (5, 'and')]
+
+
+
+Use the function, find_most_frequent_words to find:
+
+The ten most frequent words used in Obama's speech
+
+The ten most frequent words used in Michelle's speech
+
+The ten most frequent words used in Trump's speech
+
+The ten most frequent words used in Melina's speech
+
+
+
+Write a python application that checks similarity between two texts. It takes a file or a string as a parameter and it will evaluate the similarity of the two texts. For instance check the similarity between the transcripts of Michelle's and Melina's speech. You may need a couple of functions, function to clean the text (clean_text), function to remove support words (remove_support_words) and finally to check the similarity (check_text_similarity). List of stop words are in the data directory
+
+Find the 10 most repeated words in the ../../data/romeo_and_juliet.txt
+
+Read the hacker news csv file and find out:
+
+Count the number of lines containing python or Python
+
+Count the number lines containing JavaScript, javascript or Javascript
+
+Count the number lines containing Java and not JavaScript
+
+
+
+
+Exercises: Level 3
+
+
+Write scores.txt with the line 10,20,30,40,50. Read it back with read(), then with readline(), then with readlines(). Print each view.
+
+Use json.dumps on {'name': 'Priya', 'city': 'Hyderabad', 'scores': [10, 20, 30, 40, 50]} with indent=4. Print the type and the JSON string. Then json.loads it back and print data['scores'].
+
+Save that dictionary with json.dump to priya.json. Open it again with json.load and print name and the sum of scores (150).
+
+Write a CSV file scores.csv with a header name,score and two rows: Priya,10 and Asha,20. Read it with csv.reader and print every row.
+
+Use os.path.exists on scores.txt. Print the result. Do not delete the shared files under ../../files/ or ../../data/.
+
+Parse ../../files/xml_example.xml with xml.etree.ElementTree. Print root.tag, root.attrib, and every child.tag.
+
+Open ../../files/reading_file_example.txt with with, print len(f.read()) (character count) and len(f.read().split()) — remember the second read() is empty unless you open the file again.
+
+
+You finished Day 19. Next: Python package manager.
+

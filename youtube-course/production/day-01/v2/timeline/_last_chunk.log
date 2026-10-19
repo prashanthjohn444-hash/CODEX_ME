@@ -1,0 +1,45 @@
+﻿SUBMIT: local pm=resolve:GetProjectManager() local pr=pm:GetCurrentProject() local tl=nil for i=1,pr:GetTimelineCount() do local t=pr:GetTimelineByIndex(i) if t:GetName()==[[Day01-v2-master]] then tl=t end end local pool=pr:GetMediaPool() local folder=pool:GetRootFolder() for _,f in ipairs(pool:GetRootFolder():GetSubFolderList()) do if f:GetName()==[[Day01-v2 Media]] then folder=f end end local function find(path) local tgt=string.lower(path) for _,it in ipairs(folder:GetClipList()) do local p=it:GetClipProperty('File Path') if p and string.lower(p)==tgt then return it end end return nil end local function app(list) local r=pool:AppendToTimeline(list) if r==nil or r[1]==nil then print('X append failed') return nil end return r[1] end local w=find([[C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\voice\v2\section-01.wav]]) print('X wav='..tostring(w~=nil)..' propdur='..tostring(w and w:GetClipProperty('Duration'))..' fps='..tostring(w and w:GetClipProperty('Frames Per Second'))) for _,R in ipairs({295,297,298,299,300,301,302,303,305}) do local x=app({mediaPoolItem=w,startFrame=0,endFrame=R,recordFrame=0,trackIndex=2,mediaType=2}) if x then print('X R='..R..' len='..(x:GetEnd()-x:GetStart()+1)..' src='..x:GetSourceStartFrame()..'..'..x:GetSourceEndFrame()) tl:DeleteClips({x}) end end print('X a2='..#tl:GetItemListInTrack('audio',2)..' a1='..#tl:GetItemListInTrack('audio',1)) print('X_END_ZZ')
+FOREGROUND_IS_CONSOLE=True
+powershell : You cannot call a method on a null-valued expression.
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_run_chunk.ps1:8 char:8
++ $out = powershell -ExecutionPolicy Bypass -File "$dir\_console_run2.p ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (You cannot call...ued expression.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_console_run2.ps1:39 char:18
++ ... each ($i in $cw.FindAll([System.Windows.Automation.TreeScope]::Descen ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+You cannot call a method on a null-valued expression.
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_console_run2.ps1:39 char:18
++ ... each ($i in $cw.FindAll([System.Windows.Automation.TreeScope]::Descen ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+You cannot call a method on a null-valued expression.
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_console_run2.ps1:39 char:18
++ ... each ($i in $cw.FindAll([System.Windows.Automation.TreeScope]::Descen ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+You cannot call a method on a null-valued expression.
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_console_run2.ps1:39 char:18
++ ... each ($i in $cw.FindAll([System.Windows.Automation.TreeScope]::Descen ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+You cannot call a method on a null-valued expression.
+At C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_console_run2.ps1:39 char:18
++ ... each ($i in $cw.FindAll([System.Windows.Automation.TreeScope]::Descen ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+MARKER_FOUND=False
+===== CONSOLE OUTPUT TAIL =====

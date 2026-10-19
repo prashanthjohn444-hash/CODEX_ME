@@ -1,0 +1,753 @@
+
+Python datetime
+
+Python has a datetime module to handle date and time.
+example.py
+import datetime
+print(dir(datetime))
+
+
+View (names you will use today; Python also lists dunder names):
+output.txt
+['MAXYEAR', 'MINYEAR', 'UTC', 'date', 'datetime', 'datetime_CAPI', 'sys', 'time', 'timedelta', 'timezone', 'tzinfo']
+
+
+dir or help shows what a module contains. We will focus on date, datetime, time, and timedelta. Newer Python also exposes UTC and timezone.
+
+
+
+
+  #
+  Name
+  What it is
+
+
+
+
+
+  1
+  datetime.datetime
+  Date and time together (year, month, day, hour, minute, second, microsecond)
+
+
+
+  2
+  datetime.date
+  Calendar date only (year, month, day)
+
+
+
+  3
+  datetime.time
+  Clock time only (hour, minute, second, microsecond)
+
+
+
+  4
+  datetime.timedelta
+  A duration — the difference between two dates or times
+
+
+
+  5
+  datetime.timezone / datetime.UTC
+  Time-zone info (optional today)
+
+
+
+
+Getting datetime Information
+example.py
+from datetime import datetime
+
+now = datetime.now()
+print(now)
+day = now.day
+month = now.month
+year = now.year
+hour = now.hour
+minute = now.minute
+second = now.second
+timestamp = now.timestamp()
+print(day, month, year, hour, minute)
+print('timestamp', timestamp)
+print(f'{day}/{month}/{year}, {hour}:{minute}')
+
+
+View (your numbers will differ — now() is the clock at the moment you run it):
+output.txt
+2026-08-15 15:52:13.403561
+15 8 2026 15 52
+timestamp 1786789333.403561
+15/8/2026, 15:52
+
+
+The parts come from attributes on the datetime object:
+
+
+
+
+  #
+  Attribute / method
+  Meaning
+
+
+
+
+
+  1
+  datetime.now()
+  Current local date and time
+
+
+
+  2
+  .day
+  Day of the month (1–31)
+
+
+
+  3
+  .month
+  Month (1–12)
+
+
+
+  4
+  .year
+  Four-digit year
+
+
+
+  5
+  .hour
+  Hour (0–23)
+
+
+
+  6
+  .minute
+  Minute (0–59)
+
+
+
+  7
+  .second
+  Second (0–59)
+
+
+
+  8
+  .microsecond
+  Microsecond (0–999999)
+
+
+
+  9
+  .timestamp()
+  Seconds since 1 January 1970 UTC (Unix timestamp)
+
+
+
+
+A timestamp (Unix timestamp) is the number of seconds elapsed from 1 January 1970 UTC.
+
+To keep views stable, the rest of this day often uses a fixed datetime: 2026-08-15 10:20:30 (structured time 10:20:30).
+example.py
+from datetime import datetime
+
+fixed = datetime(2026, 8, 15, 10, 20, 30)
+print(fixed)
+print(fixed.year, fixed.month, fixed.day)
+print(fixed.hour, fixed.minute, fixed.second)
+print(fixed.timestamp())
+
+
+View:
+output.txt
+2026-08-15 10:20:30
+2026 8 15
+10 20 30
+1786769430.0
+
+
+datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0) builds any moment you name.
+
+Formatting Date Output Using strftime
+example.py
+from datetime import datetime
+
+new_year = datetime(2020, 1, 1)
+print(new_year)
+day = new_year.day
+month = new_year.month
+year = new_year.year
+hour = new_year.hour
+minute = new_year.minute
+second = new_year.second
+print(day, month, year, hour, minute)
+print(f'{day}/{month}/{year}, {hour}:{minute}')
+
+
+View:
+output.txt
+2020-01-01 00:00:00
+1 1 2020 0 0
+1/1/2020, 0:0
+
+
+Midnight on 1 January 2020. Hour, minute, and second default to 0 when you omit them.
+
+Formatting date time using the strftime method. Full codes are listed below and in the strftime reference.
+example.py
+from datetime import datetime
+
+now = datetime.now()
+t = now.strftime("%H:%M:%S")
+print("time:", t)
+time_one = now.strftime("%m/%d/%Y, %H:%M:%S")
+# mm/dd/YYYY H:M:S format
+print("time one:", time_one)
+time_two = now.strftime("%d/%m/%Y, %H:%M:%S")
+# dd/mm/YYYY H:M:S format
+print("time two:", time_two)
+
+
+View (clock values change; format does not):
+output.txt
+time: 15:52:13
+time one: 08/15/2026, 15:52:13
+time two: 15/08/2026, 15:52:13
+
+
+Same pattern with the fixed moment 2026-08-15 10:20:30:
+example.py
+from datetime import datetime
+
+fixed = datetime(2026, 8, 15, 10, 20, 30)
+print("time:", fixed.strftime("%H:%M:%S"))
+print("time one:", fixed.strftime("%m/%d/%Y, %H:%M:%S"))
+print("time two:", fixed.strftime("%d/%m/%Y, %H:%M:%S"))
+
+
+View:
+output.txt
+time: 10:20:30
+time one: 08/15/2026, 10:20:30
+time two: 15/08/2026, 10:20:30
+
+
+%m/%d/%Y is the US month/day/year order. %d/%m/%Y is day/month/year.
+
+Full strftime format codes
+
+Every directive from the original lesson table is here. The Example column is transcribed from that table (a December sample: weekday Wednesday / date 31 December 2018, 17:41:08).
+
+
+
+
+  #
+  Directive
+  Description
+  Example
+
+
+
+
+
+  1
+  %a
+  Weekday, short version
+  Wed
+
+
+
+  2
+  %A
+  Weekday, full version
+  Wednesday
+
+
+
+  3
+  %w
+  Weekday as a number 0–6, 0 is Sunday
+  3
+
+
+
+  4
+  %d
+  Day of month 01–31
+  31
+
+
+
+  5
+  %b
+  Month name, short version
+  Dec
+
+
+
+  6
+  %B
+  Month name, full version
+  December
+
+
+
+  7
+  %m
+  Month as a number 01–12
+  12
+
+
+
+  8
+  %y
+  Year, short version, without century
+  18
+
+
+
+  9
+  %Y
+  Year, full version
+  2018
+
+
+
+  10
+  %H
+  Hour 00–23
+  17
+
+
+
+  11
+  %I
+  Hour 00–12
+  05
+
+
+
+  12
+  %p
+  AM/PM
+  PM
+
+
+
+  13
+  %M
+  Minute 00–59
+  41
+
+
+
+  14
+  %S
+  Second 00–59
+  08
+
+
+
+  15
+  %f
+  Microsecond 000000–999999
+  548513
+
+
+
+  16
+  %z
+  UTC offset
+  +0100
+
+
+
+  17
+  %Z
+  Timezone
+  CST
+
+
+
+  18
+  %j
+  Day number of year 001–366
+  365
+
+
+
+  19
+  %U
+  Week number of year, Sunday as the first day of week, 00–53
+  52
+
+
+
+  20
+  %W
+  Week number of year, Monday as the first day of week, 00–53
+  52
+
+
+
+  21
+  %c
+  Local version of date and time
+  Mon Dec 31 17:41:00 2018
+
+
+
+  22
+  %x
+  Local version of date
+  12/31/18
+
+
+
+  23
+  %X
+  Local version of time
+  17:41:00
+
+
+
+  24
+  %%
+  A % character
+  %
+
+
+
+
+The Example column mixes a Wednesday sample (%a, %A, %w) with Monday 31 December 2018 (%c). When you format one datetime, every code refers to that same moment.
+
+%z and %Z need a timezone-aware datetime. A naive object (the usual datetime(2018, 12, 31, 17, 41, 8)) prints empty strings for those two.
+
+Runnable check — one datetime, every code:
+example.py
+from datetime import datetime
+
+sample = datetime(2018, 12, 31, 17, 41, 8, 548513)
+codes = [
+    '%a', '%A', '%w', '%d', '%b', '%B', '%m', '%y', '%Y',
+    '%H', '%I', '%p', '%M', '%S', '%f', '%z', '%Z',
+    '%j', '%U', '%W', '%c', '%x', '%X', '%%',
+]
+for code in codes:
+    print(code, sample.strftime(code))
+
+
+View (this machine, naive datetime, US-style locale):
+output.txt
+%a Mon
+%A Monday
+%w 1
+%d 31
+%b Dec
+%B December
+%m 12
+%y 18
+%Y 2018
+%H 17
+%I 05
+%p PM
+%M 41
+%S 08
+%f 548513
+%z
+%Z
+%j 365
+%U 52
+%W 53
+%c Mon Dec 31 17:41:08 2018
+%x 12/31/18
+%X 17:41:08
+%% %
+
+
+31 December 2018 is a Monday, so %a is Mon and %w is 1. %W is 53 in CPython for that date (week count with Monday as the first day). %c, %x, and %X follow the machine locale.
+
+String to Time Using strptime
+
+strptime is the inverse of strftime. It reads a string and a format, and returns a datetime.
+example.py
+from datetime import datetime
+
+date_string = "5 December, 2019"
+print("date_string =", date_string)
+date_object = datetime.strptime(date_string, "%d %B, %Y")
+print("date_object =", date_object)
+
+
+View:
+output.txt
+date_string = 5 December, 2019
+date_object = 2019-12-05 00:00:00
+
+
+The format "%d %B, %Y" must match the string: day, full month name, comma, four-digit year. A mismatch raises ValueError.
+example.py
+from datetime import datetime
+
+print(datetime.strptime("15/08/2026, 10:20:30", "%d/%m/%Y, %H:%M:%S"))
+print(datetime.strptime("08/15/2026", "%m/%d/%Y"))
+
+
+View:
+output.txt
+2026-08-15 10:20:30
+2026-08-15 00:00:00
+
+
+Using date from datetime
+
+date stores a calendar day with no clock.
+example.py
+from datetime import date
+
+d = date(2020, 1, 1)
+print(d)
+print('Current date:', d.today())
+# date object of today's date
+today = date.today()
+print("Current year:", today.year)
+print("Current month:", today.month)
+print("Current day:", today.day)
+
+
+View (date.today() follows your machine clock):
+output.txt
+2020-01-01
+Current date: 2026-08-15
+Current year: 2026
+Current month: 8
+Current day: 15
+
+
+
+
+
+  #
+  Call
+  Meaning
+
+
+
+
+
+  1
+  date(year, month, day)
+  Build a date
+
+
+
+  2
+  date.today()
+  Today's local date
+
+
+
+  3
+  .year / .month / .day
+  Parts of that date
+
+
+
+
+d.today() and date.today() both work. Prefer date.today() — it does not need an existing date object.
+
+Time Objects to Represent Time
+
+time stores a clock reading with no date.
+example.py
+from datetime import time
+
+# time(hour = 0, minute = 0, second = 0)
+a = time()
+print("a =", a)
+# time(hour, minute and second)
+b = time(10, 30, 50)
+print("b =", b)
+# time(hour, minute and second)
+c = time(hour=10, minute=30, second=50)
+print("c =", c)
+# time(hour, minute, second, microsecond)
+d = time(10, 30, 50, 200555)
+print("d =", d)
+
+
+View:
+output.txt
+a = 00:00:00
+b = 10:30:50
+c = 10:30:50
+d = 10:30:50.200555
+
+
+b and c are the same moment. Keyword arguments just name the parts. The last number on d is microseconds.
+
+
+
+
+  #
+  Call
+  View
+
+
+
+
+
+  1
+  time()
+  00:00:00
+
+
+
+  2
+  time(10, 30, 50)
+  10:30:50
+
+
+
+  3
+  time(hour=10, minute=30, second=50)
+  10:30:50
+
+
+
+  4
+  time(10, 30, 50, 200555)
+  10:30:50.200555
+
+
+
+
+Difference Between Two Points in Time
+
+Subtract one date from another, or one datetime from another. The result is a timedelta.
+example.py
+from datetime import date, datetime
+
+today = date(year=2019, month=12, day=5)
+new_year = date(year=2020, month=1, day=1)
+time_left_for_newyear = new_year - today
+# Time left for new year:  27 days, 0:00:00
+print('Time left for new year: ', time_left_for_newyear)
+
+t1 = datetime(year=2019, month=12, day=5, hour=0, minute=59, second=0)
+t2 = datetime(year=2020, month=1, day=1, hour=0, minute=0, second=0)
+diff = t2 - t1
+print('Time left for new year:', diff)
+
+
+View:
+output.txt
+Time left for new year:  27 days, 0:00:00
+Time left for new year: 26 days, 23:01:00
+
+
+5 December 2019 to 1 January 2020 is 27 calendar days. With the clock included (00:59:00 to midnight) it is 26 days and 23 hours 1 minute.
+
+You can only subtract matching types: date - date or datetime - datetime. Mixing them raises TypeError.
+
+Difference Between Two Points in Time Using timedelta
+
+Build a duration directly with timedelta, then add or subtract it.
+example.py
+from datetime import timedelta
+
+t1 = timedelta(weeks=12, days=10, hours=4, seconds=20)
+t2 = timedelta(days=7, hours=5, minutes=3, seconds=30)
+t3 = t1 - t2
+print("t3 =", t3)
+
+
+View:
+output.txt
+t3 = 86 days, 22:56:50
+
+
+timedelta arguments you can pass: days, seconds, microseconds, milliseconds, minutes, hours, weeks.
+example.py
+from datetime import datetime, timedelta
+
+start = datetime(2026, 8, 15, 10, 20, 30)
+print(start + timedelta(days=10))
+print(start + timedelta(weeks=2, hours=4))
+print(start - timedelta(days=5))
+
+
+View:
+output.txt
+2026-08-25 10:20:30
+2026-08-29 14:20:30
+2026-08-10 10:20:30
+
+
+Adding 10 days keeps the clock at 10:20:30. Adding 2 weeks and 4 hours lands on 29 August at 14:20:30.
+
+Day 16 methods are done. Practice them in the exercises.
+
+Exercises
+
+Exercises: Level 1
+
+
+Get the current day, month, year, hour, minute and timestamp from datetime module
+
+Format the current date using this format: "%m/%d/%Y, %H:%M:%S")
+
+Today is 5 December, 2019. Change this time string to time.
+
+
+Exercises: Level 2
+
+
+Calculate the time difference between now and new year.
+
+Calculate the time difference between 1 January 1970 and now.
+
+Think, what can you use the datetime module for? Examples:
+
+Time series analysis
+
+To get a timestamp of any activities in an application
+
+Adding posts on a blog
+
+
+
+
+Exercises: Level 3
+
+Use the fixed datetime datetime(2026, 8, 15, 10, 20, 30) unless a prompt says "now".
+
+
+Print that fixed datetime with every one of these codes: %Y, %m, %d, %H, %M, %S, %A, %B, %j. Label each line.
+
+Parse these strings with strptime and print each datetime:
+
+"15 August, 2026"
+
+"08/15/2026, 10:20:30"
+
+"2026-08-15"
+
+
+
+How many days are there from date(2026, 1, 1) to date(2026, 8, 15)? Print the timedelta and its .days.
+
+Start at datetime(2026, 8, 15, 10, 20, 30). Add timedelta(weeks=2, days=10, hours=4). Print the new datetime and format it as "%d/%m/%Y, %H:%M:%S".
+
+Build a small activity log: a list of tuples ('login', datetime(...)), ('post', datetime(...)), ('logout', datetime(...)) ten, twenty, and thirty minutes after 10:00:00 on 15 August 2026. Print each activity and its timestamp (.timestamp()).
+
+Use date.today() and a date for your birthday this year. Print how many days until (or since) that birthday.
+
+
+You finished Day 16. Next: exception handling.
+

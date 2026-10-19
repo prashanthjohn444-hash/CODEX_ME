@@ -1,0 +1,808 @@
+
+Boolean
+
+A boolean data type represents one of the two values: True or False. The use of these data types will be clear once we start using the comparison operator. The first letter T for True and F for False should be capital unlike JavaScript.
+
+Example: Boolean Values
+example.py
+print(True)
+print(False)
+
+
+View:
+output.txt
+True
+False
+
+
+Operators
+
+Python language supports several types of operators. In this section, we will focus on a few of them. The tables below list every operator row from this lesson.
+
+Assignment Operators
+
+Assignment operators are used to assign values to variables. Let us take = as an example. The equal sign in mathematics shows that two values are equal. In Python it means we are storing a value in a certain variable. We call that assignment.
+
+The table is taken from w3schools. Every row is written here.
+
+
+
+
+  Operator
+  Example
+  Same as
+
+
+
+
+
+  =
+  x = 5
+  x = 5
+
+
+
+  +=
+  x += 3
+  x = x + 3
+
+
+
+  -=
+  x -= 3
+  x = x - 3
+
+
+
+  *=
+  x *= 3
+  x = x * 3
+
+
+
+  /=
+  x /= 3
+  x = x / 3
+
+
+
+  %=
+  x %= 3
+  x = x % 3
+
+
+
+  //=
+  x //= 3
+  x = x // 3
+
+
+
+  **=
+  x **= 3
+  x = x ** 3
+
+
+
+  &=
+  x &= 3
+  x = x & 3
+
+
+
+  \|=
+  x \|= 3
+  x = x \| 3
+
+
+
+  ^=
+  x ^= 3
+  x = x ^ 3
+
+
+
+  >>=
+  x >>= 3
+  x = x >> 3
+
+
+
+  <<=
+  x <<= 3
+  x = x << 3
+
+
+
+
+Same operators, run with the structured number 10 (and 20 / 40 where the view is clearer). The last five operators work on the bits of the integer. You do not have to master bitwise math today. You do have to know the row exists.
+example.py
+x = 10
+print('=', x)
+
+x += 10
+print('+=', x)
+
+x -= 10
+print('-=', x)
+
+x *= 3
+print('*=', x)
+
+x /= 2
+print('/=', x)
+
+x = 50
+x %= 20
+print('%=', x)
+
+x = 50
+x //= 20
+print('//=', x)
+
+x = 10
+x **= 2
+print('**=', x)
+
+x = 10
+x &= 3
+print('&=', x)
+
+x = 10
+x |= 3
+print('|=', x)
+
+x = 10
+x ^= 3
+print('^=', x)
+
+x = 40
+x >>= 2
+print('>>=', x)
+
+x = 10
+x <<= 2
+print('<<=', x)
+
+
+View:
+output.txt
+= 10
++= 20
+-= 10
+*= 30
+/= 15.0
+%= 10
+//= 2
+**= 100
+&= 2
+|= 11
+^= 9
+>>= 10
+<<= 40
+
+
+/= turns x into a float (15.0). Reset x before %, //, **, and the bitwise operators, or the next line uses the leftover value.
+
+Arithmetic Operators
+
+
+Addition(+): a + b
+
+Subtraction(-): a - b
+
+Multiplication(*): a * b
+
+Division(/): a / b
+
+Modulus(%): a % b
+
+Floor division(//): a // b
+
+Exponentiation(**): a ** b
+
+
+
+
+
+  Operator
+  Name
+  Example
+
+
+
+
+
+  +
+  Addition
+  x + y
+
+
+
+  -
+  Subtraction
+  x - y
+
+
+
+  *
+  Multiplication
+  x * y
+
+
+
+  /
+  Division
+  x / y
+
+
+
+  %
+  Modulus
+  x % y
+
+
+
+  **
+  Exponentiation
+  x ** y
+
+
+
+  //
+  Floor division
+  x // y
+
+
+
+
+Example: Integers
+example.py
+# Arithmetic Operations in Python
+# Integers
+
+print('Addition: ', 10 + 20)        # 30
+print('Subtraction: ', 20 - 10)     # 10
+print('Multiplication: ', 10 * 3)   # 30
+print('Division: ', 40 / 20)        # 2.0  Division in Python gives a floating number
+print('Division: ', 60 / 20)        # 3.0
+print('Division: ', 50 / 20)        # 2.5
+print('Division without the remainder: ', 50 // 20)   # 2
+print('Division without the remainder: ', 50 // 30)   # 1
+print('Modulus: ', 50 % 20)         # 10, gives the remainder
+print('Exponentiation: ', 10 ** 2)  # 100  it means 10 * 10
+
+
+View:
+output.txt
+Addition:  30
+Subtraction:  10
+Multiplication:  30
+Division:  2.0
+Division:  3.0
+Division:  2.5
+Division without the remainder:  2
+Division without the remainder:  1
+Modulus:  10
+Exponentiation:  100
+
+
+/ always returns a float, even when the answer is a whole number (40 / 20 is 2.0). // drops the decimal. % is the leftover.
+
+Example: Floats
+example.py
+# Floating numbers
+print('Floating Point Number, PI', 3.14)
+print('Floating Point Number, gravity', 9.81)
+
+
+View:
+output.txt
+Floating Point Number, PI 3.14
+Floating Point Number, gravity 9.81
+
+
+Example: Complex numbers
+example.py
+# Complex numbers
+print('Complex number: ', 1 + 1j)
+print('Multiplying complex numbers: ', (1 + 1j) * (1 - 1j))
+
+
+View:
+output.txt
+Complex number:  (1+1j)
+Multiplying complex numbers:  (2+0j)
+
+
+(1 + 1j) * (1 - 1j) is 1 - (1j)**2 which is 1 - (-1) = 2+0j.
+
+Let's declare a variable and assign a number data type. Single-character names are used here only to match the operator tables. Do not develop a habit of declaring such types of variables. Variable names should be mnemonic.
+
+Example:
+example.py
+# Declaring the variable at the top first
+
+a = 50  # a is a variable name and 50 is an integer data type
+b = 20  # b is a variable name and 20 is an integer data type
+
+# Arithmetic operations and assigning the result to a variable
+total = a + b
+diff = a - b
+product = a * b
+division = a / b
+remainder = a % b
+floor_division = a // b
+exponential = a ** 2
+
+# I should have used sum instead of total but sum is a built-in function - try to avoid overriding built-in functions
+print(total)
+print('a + b = ', total)
+print('a - b = ', diff)
+print('a * b = ', product)
+print('a / b = ', division)
+print('a % b = ', remainder)
+print('a // b = ', floor_division)
+print('a ** 2 = ', exponential)
+
+
+View:
+output.txt
+70
+a + b =  70
+a - b =  30
+a * b =  1000
+a / b =  2.5
+a % b =  10
+a // b =  2
+a ** 2 =  2500
+
+
+The first print(total) has no label. The labeled lines are easier to read. a ** 2 is used instead of a ** b so the view stays a small structured number (2500), not 50 ** 20.
+
+Example:
+example.py
+print('== Addition, Subtraction, Multiplication, Division, Modulus ==')
+
+# Declaring values and organizing them together
+num_one = 30
+num_two = 40
+
+# Arithmetic operations
+total = num_one + num_two
+diff = num_two - num_one
+product = num_one * num_two
+div = num_two / num_one
+remainder = num_two % num_one
+
+# Printing values with label
+print('total: ', total)
+print('difference: ', diff)
+print('product: ', product)
+print('division: ', div)
+print('remainder: ', remainder)
+
+
+View:
+output.txt
+== Addition, Subtraction, Multiplication, Division, Modulus ==
+total:  70
+difference:  10
+product:  1200
+division:  1.3333333333333333
+remainder:  10
+
+
+Let us start connecting the dots and start making use of what we already know to calculate (area, volume, density, weight, perimeter, distance, force).
+
+Example:
+example.py
+# Calculating area of a circle
+radius = 10                                 # radius of a circle
+area_of_circle = 3.14 * radius ** 2         # two * sign means exponent or power
+print('Area of a circle:', area_of_circle)
+
+# Calculating area of a rectangle
+length = 10
+width = 20
+area_of_rectangle = length * width
+print('Area of rectangle:', area_of_rectangle)
+
+# Calculating a weight of an object
+mass = 50
+gravity = 9.81
+weight = mass * gravity
+print(weight, 'N')                         # Adding unit to the weight
+
+# Calculate the density of a liquid
+mass = 50      # in Kg
+volume = 0.05  # in cubic meter
+density = mass / volume  # 1000 Kg/m^3
+print(density, 'Kg/m^3')
+
+
+View:
+output.txt
+Area of a circle: 314.0
+Area of rectangle: 200
+490.5 N
+1000.0 Kg/m^3
+
+
+** is done before *, so 3.14 * radius ** 2 is 3.14 * (10 ** 2), not (3.14 * 10) ** 2.
+
+Comparison Operators
+
+In programming we compare values. We use comparison operators to compare two values. We check if a value is greater or less or equal to another value. The following table shows Python comparison operators taken from w3schools. Every row is written here.
+
+
+
+
+  Operator
+  Name
+  Example
+
+
+
+
+
+  ==
+  Equal
+  x == y
+
+
+
+  !=
+  Not equal
+  x != y
+
+
+
+  >
+  Greater than
+  x > y
+
+
+
+  <
+  Less than
+  x < y
+
+
+
+  >=
+  Greater than or equal to
+  x >= y
+
+
+
+  <=
+  Less than or equal to
+  x <= y
+
+
+
+
+Example: Comparison Operators
+example.py
+print(30 > 20)     # True, because 30 is greater than 20
+print(30 >= 20)    # True, because 30 is greater than 20
+print(30 < 20)     # False, because 30 is greater than 20
+print(20 < 30)     # True, because 20 is less than 30
+print(20 <= 30)    # True, because 20 is less than 30
+print(30 == 20)    # False, because 30 is not equal to 20
+print(30 != 20)    # True, because 30 is not equal to 20
+print(len('Priya') == len('Rao'))          # False  5 == 3
+print(len('Priya') != len('Rao'))          # True
+print(len('Priya') < len('Hyderabad'))     # True   5 < 9
+print(len('India') != len('Rao'))          # True   5 != 3
+print(len('city') == len('Rao'))           # False  4 == 3
+print(len('tomato') == len('potato'))      # True   6 == 6
+print(len('python') > len('dragon'))       # False  6 > 6
+
+
+# Comparing something gives either a True or False
+
+print('True == True: ', True == True)
+print('True == False: ', True == False)
+print('False == False:', False == False)
+
+
+View:
+output.txt
+True
+True
+False
+True
+True
+False
+True
+False
+True
+True
+True
+False
+True
+False
+True == True:  True
+True == False:  False
+False == False: True
+
+
+== is equality. = is assignment. Mixing them up is a common first-week bug.
+
+Identity and Membership Operators
+
+In addition to the comparison operators above, Python uses identity operators and membership operators.
+
+Identity operators:
+
+
+
+
+  Operator
+  Description
+  Example
+
+
+
+
+
+  is
+  Returns true if both variables are the same object
+  x is y
+
+
+
+  is not
+  Returns true if both variables are not the same object
+  x is not y
+
+
+
+
+Membership operators from the original lesson prose:
+
+
+
+
+  Operator
+  Description
+  Example
+
+
+
+
+
+  in
+  Returns True if the queried list (or string) contains a certain item (x in y)
+  'P' in 'Priya'
+
+
+
+  not in
+  Returns True if the queried list (or string) does not have a certain item (x not in y)
+  'Z' not in 'Priya'
+
+
+
+example.py
+print('1 is 1', 1 is 1)                   # True - because the data values are the same object
+print('1 is not 2', 1 is not 2)           # True - because 1 is not 2
+print('P in Priya', 'P' in 'Priya')       # True - P found in the string
+print('B in Priya', 'B' in 'Priya')       # False - there is no uppercase B
+print('code' in 'code for all')           # True - because code for all has the word code
+print('a in an:', 'a' in 'an')            # True
+print('4 is 2 ** 2:', 4 is 2 ** 2)        # True
+print('H in Hyderabad', 'H' in 'Hyderabad')
+print('Z not in India', 'Z' not in 'India')
+print(10 in [10, 20, 30, 40, 50])
+print(60 not in [10, 20, 30, 40, 50])
+
+
+View:
+output.txt
+1 is 1 True
+1 is not 2 True
+P in Priya True
+B in Priya False
+True
+a in an: True
+4 is 2 ** 2: True
+H in Hyderabad True
+Z not in India True
+True
+True
+
+
+== compares values. is compares identity (the same object in memory). Prefer == for numbers and strings. Python may warn when you write 1 is 1 because small literals are an implementation detail. Membership (in / not in) works on strings, lists, and other collections.
+
+Logical Operators
+
+Unlike other programming languages Python uses keywords and, or and not for logical operators. Logical operators are used to combine conditional statements. Every row is written here.
+
+
+
+
+  Operator
+  Description
+  Example
+
+
+
+
+
+  and
+  Returns True if both statements are true
+  x < 5 and x < 10
+
+
+
+  or
+  Returns True if one of the statements is true
+  x < 5 or x < 4
+
+
+
+  not
+  Reverse the result, returns False if the result is true
+  not(x < 5 and x < 10)
+
+
+
+example.py
+print(30 > 20 and 40 > 30)  # True - because both statements are true
+print(30 > 20 and 40 < 30)  # False - because the second statement is false
+print(30 < 20 and 40 < 30)  # False - because both statements are false
+print('True and True: ', True and True)
+print(30 > 20 or 40 > 30)   # True - because both statements are true
+print(30 > 20 or 40 < 30)   # True - because one of the statements is true
+print(30 < 20 or 40 < 30)   # False - because both statements are false
+print('True or False:', True or False)
+print(not 30 > 20)     # False - because 30 > 20 is true, then not True gives False
+print(not True)        # False - Negation, the not operator turns true to false
+print(not False)       # True
+print(not not True)    # True
+print(not not False)   # False
+
+
+View:
+output.txt
+True
+False
+False
+True and True:  True
+True
+True
+False
+True or False: True
+False
+False
+True
+True
+False
+
+
+and needs both sides True. or needs one side True. not flips True to False and False to True.
+
+Day 3 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Keep every original Day 3 prompt. Level 1 is declare / print / basic checks. Level 2 is the original stretch work (prompts, geometry, the printed table). Level 3 combines today's operators on the structured numbers 10, 20, 30, 40, 50.
+
+Exercises: Level 1
+
+
+Declare your age as integer variable
+
+Declare your height as a float variable
+
+Declare a variable that store a complex number
+
+Find the length of 'python' and 'dragon' and make a falsy comparison statement.
+
+Use and operator to check if 'on' is found in both 'python' and 'dragon'
+
+I hope this course is not full of jargon. Use in operator to check if jargon is in the sentence.
+
+There is no 'on' in both dragon and python
+
+Find the length of the text python and convert the value to float and convert it to string
+
+Even numbers are divisible by 2 and the remainder is zero. How do you check if a number is even or not using python?
+
+Check if the floor division of 7 by 3 is equal to the int converted value of 2.7.
+
+Check if type of '10' is equal to type of 10
+
+Check if int('9.8') is equal to 10
+
+
+Exercises: Level 2
+
+
+Write a script that prompts the user to enter base and height of the triangle and calculate an area of this triangle (area = 0.5 x b x h).
+
+example.py
+    Enter base: 20
+    Enter height: 10
+    The area of the triangle is 100
+
+
+
+Write a script that prompts the user to enter side a, side b, and side c of the triangle. Calculate the perimeter of the triangle (perimeter = a + b + c).
+
+example.py
+Enter side a: 5
+Enter side b: 4
+Enter side c: 3
+The perimeter of the triangle is 12
+
+
+
+Get length and width of a rectangle using prompt. Calculate its area (area = length x width) and perimeter (perimeter = 2 x (length + width))
+
+Get radius of a circle using prompt. Calculate the area (area = pi x r x r) and circumference (c = 2 x pi x r) where pi = 3.14.
+
+Calculate the slope, x-intercept and y-intercept of y = 2x -2
+
+Slope is (m = y2-y1/x2-x1). Find the slope and Euclidean distance between point (2, 2) and point (6,10)
+
+Compare the slopes in tasks 8 and 9.
+
+Calculate the value of y (y = x^2 + 6x + 9). Try to use different x values and figure out at what x value y is going to be 0.
+
+Write a script that prompts the user to enter hours and rate per hour. Calculate pay of the person?
+
+example.py
+Enter hours: 40
+Enter rate per hour: 28
+Your weekly earning is 1120
+
+
+
+Write a script that prompts the user to enter number of years. Calculate the number of seconds a person can live. Assume a person can live hundred years
+
+example.py
+Enter number of years you have lived: 100
+You have lived for 3153600000 seconds.
+
+
+
+Write a Python script that displays the following table
+
+example.py
+1 1 1 1 1
+2 1 2 4 8
+3 1 3 9 27
+4 1 4 16 64
+5 1 5 25 125
+
+
+Exercises: Level 3
+
+
+Store these structured numbers in a list called scores: 10, 20, 30, 40, 50
+
+Print 50 + 20, 50 - 20, 50 * 20, 50 / 20, 50 % 20, 50 // 20, and 10 ** 2. Label each line
+
+Start with x = 10. Apply += 10, then -= 10, then *= 3, then /= 2. Print x after each assignment
+
+Compare 10, 20, and 30 using ==, !=, >, <, >=, and <=. Print each result
+
+Check 10 is 10, 20 is not 30, 10 in scores, and 60 not in scores
+
+Combine conditions: (30 > 20) and (40 < 50), (10 == 20) or (50 == 50), and not (10 == 20)
+
+Use min(scores), max(scores), and sum(scores). Check that sum(scores) == 150 and sum(scores) / len(scores) == 30.0
+
+Check that 50 // 20 is equal to int(50 / 20)
+
+Check even / odd with %: print whether 10, 20, and 21 are even
+
+Print this small operator table for 10, 20, 30, 40, 50 using n, n * 1, n * 2, and n ** 2
+
+
+You finished Day 3. Next: strings.
+

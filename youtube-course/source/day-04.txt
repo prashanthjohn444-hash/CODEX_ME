@@ -1,0 +1,1604 @@
+
+Strings
+
+Text is a string data type. Any data type written as text is a string. Any data under single, double or triple quote are strings. There are different string methods and built-in functions to deal with string data types. To check the length of a string use the len() function.
+
+Creating a String
+example.py
+letter = 'P'                # A string could be a single character or a bunch of texts
+print(letter)
+print(len(letter))
+greeting = 'Hello, World!'  # String could be made using a single or double quote, "Hello, World!"
+print(greeting)
+print(len(greeting))
+sentence = "I hope you are enjoying 30 days of Python Challenge"
+print(sentence)
+
+
+View:
+output.txt
+P
+1
+Hello, World!
+13
+I hope you are enjoying 30 days of Python Challenge
+
+
+Multiline string is created by using triple single (''') or triple double quotes ("""). See the example below.
+example.py
+multiline_string = '''I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python.'''
+print(multiline_string)
+
+# Another way of doing the same thing
+multiline_string = """I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python."""
+print(multiline_string)
+
+
+View:
+output.txt
+I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python.
+I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python.
+
+
+String Concatenation
+
+We can connect strings together. Merging or connecting strings is called concatenation. See the example below:
+example.py
+first_name = 'Priya'
+last_name = 'Rao'
+space = ' '
+full_name = first_name + space + last_name
+print(full_name)
+print(len(first_name))
+print(len(last_name))
+print(len(first_name) > len(last_name))
+print(len(full_name))
+
+
+View:
+output.txt
+Priya Rao
+5
+3
+True
+9
+
+
+Priya has 5 characters, Rao has 3, and Priya Rao has 9 (the space counts).
+
+Escape Sequences in Strings
+
+In Python and other programming languages \ followed by a character is an escape sequence. Let us see the most common escape characters:
+
+
+\n: new line
+
+\t: Tab means (8 spaces)
+
+\\: Back slash
+
+\': Single quote (')
+
+\": Double quote (")
+
+
+Now, let us see the use of the above escape sequences with examples.
+example.py
+print('I hope everyone is enjoying the Python Challenge.\nAre you ?')
+print('Days\tTopics\tExercises')
+print('Day 1\t5\t5')
+print('Day 2\t6\t20')
+print('Day 3\t5\t23')
+print('Day 4\t1\t35')
+print('This is a backslash  symbol (\\)')
+print('In every programming language it starts with \"Hello, World!\"')
+
+
+View:
+output.txt
+I hope everyone is enjoying the Python Challenge.
+Are you ?
+Days	Topics	Exercises
+Day 1	5	5
+Day 2	6	20
+Day 3	5	23
+Day 4	1	35
+This is a backslash  symbol (\)
+In every programming language it starts with "Hello, World!"
+
+
+The gap between the tab columns depends on your terminal. \t jumps to the next tab stop.
+
+String formatting
+
+Old Style String Formatting (% Operator)
+
+In Python there are many ways of formatting strings. In this section, we will cover some of them.
+The % operator is used to format a set of variables enclosed in a tuple (a fixed size list), together with a format string, which contains normal text together with argument specifiers, special symbols like %s, %d, %f, %.number of digits f.
+
+
+%s - String (or any object with a string representation, like numbers)
+
+%d - Integers
+
+%f - Floating point numbers
+
+%.number of digits f - Floating point numbers with fixed precision
+
+example.py
+# Strings only
+first_name = 'Priya'
+last_name = 'Rao'
+language = 'Python'
+formated_string = 'I am %s %s. I teach %s' % (first_name, last_name, language)
+print(formated_string)
+
+# Strings and numbers
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+formated_string = 'The area of circle with a radius %d is %.2f.' % (radius, area)
+print(formated_string)
+
+python_libraries = ['Django', 'Flask', 'NumPy', 'Matplotlib', 'Pandas']
+formated_string = 'The following are python libraries:%s' % (python_libraries)
+print(formated_string)
+
+
+View:
+output.txt
+I am Priya Rao. I teach Python
+The area of circle with a radius 10 is 314.00.
+The following are python libraries:['Django', 'Flask', 'NumPy', 'Matplotlib', 'Pandas']
+
+
+%d is the whole number 10. %.2f keeps two digits after the point (314.00).
+
+New Style String Formatting (str.format)
+
+This format was introduced in Python version 3.
+example.py
+first_name = 'Priya'
+last_name = 'Rao'
+language = 'Python'
+formated_string = 'I am {} {}. I teach {}'.format(first_name, last_name, language)
+print(formated_string)
+
+a = 50
+b = 20
+
+print('{} + {} = {}'.format(a, b, a + b))
+print('{} - {} = {}'.format(a, b, a - b))
+print('{} * {} = {}'.format(a, b, a * b))
+print('{} / {} = {:.2f}'.format(a, b, a / b))
+print('{} % {} = {}'.format(a, b, a % b))
+print('{} // {} = {}'.format(a, b, a // b))
+print('{} ** 2 = {}'.format(a, a ** 2))
+
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+formated_string = 'The area of a circle with a radius {} is {:.2f}.'.format(radius, area)
+print(formated_string)
+
+
+View:
+output.txt
+I am Priya Rao. I teach Python
+50 + 20 = 70
+50 - 20 = 30
+50 * 20 = 1000
+50 / 20 = 2.50
+50 % 20 = 10
+50 // 20 = 2
+50 ** 2 = 2500
+The area of a circle with a radius 10 is 314.00.
+
+
+{:.2f} is the new-style match for %.2f. a ** 2 is used so the power stays a structured number (2500).
+
+String Interpolation / f-Strings (Python 3.6+)
+
+Another new string formatting is string interpolation, f-strings. Strings start with f and we can inject the data in their corresponding positions.
+example.py
+a = 50
+b = 20
+print(f'{a} + {b} = {a + b}')
+print(f'{a} - {b} = {a - b}')
+print(f'{a} * {b} = {a * b}')
+print(f'{a} / {b} = {a / b:.2f}')
+print(f'{a} % {b} = {a % b}')
+print(f'{a} // {b} = {a // b}')
+print(f'{a} ** 2 = {a ** 2}')
+
+
+View:
+output.txt
+50 + 20 = 70
+50 - 20 = 30
+50 * 20 = 1000
+50 / 20 = 2.50
+50 % 20 = 10
+50 // 20 = 2
+50 ** 2 = 2500
+
+
+Python Strings as Sequences of Characters
+
+Python strings are sequences of characters, and share their basic methods of access with other Python ordered sequences of objects — lists and tuples. The simplest way of extracting single characters from strings (and individual members from any sequence) is to unpack them into corresponding variables.
+
+Unpacking Characters
+example.py
+language = 'Python'
+a, b, c, d, e, f = language
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+
+
+View:
+output.txt
+P
+y
+t
+h
+o
+n
+
+
+The number of names on the left must match the number of characters.
+
+Accessing Characters in Strings by Index
+
+In programming counting starts from zero. Therefore the first letter of a string is at zero index and the last letter of a string is the length of a string minus one.
+
+Index positions for 'Python':
+
+
+
+
+  Character
+  P
+  y
+  t
+  h
+  o
+  n
+
+
+
+
+
+  Index
+  0
+  1
+  2
+  3
+  4
+  5
+
+
+
+example.py
+language = 'Python'
+first_letter = language[0]
+print(first_letter)
+second_letter = language[1]
+print(second_letter)
+last_index = len(language) - 1
+last_letter = language[last_index]
+print(last_letter)
+
+
+View:
+output.txt
+P
+y
+n
+
+
+If we want to start from the right end we can use negative indexing. -1 is the last index.
+
+
+
+
+  Character
+  P
+  y
+  t
+  h
+  o
+  n
+
+
+
+
+
+  Negative index
+  -6
+  -5
+  -4
+  -3
+  -2
+  -1
+
+
+
+example.py
+language = 'Python'
+last_letter = language[-1]
+print(last_letter)
+second_last = language[-2]
+print(second_last)
+
+
+View:
+output.txt
+n
+o
+
+
+Slicing Python Strings
+
+In python we can slice strings into substrings.
+example.py
+language = 'Python'
+first_three = language[0:3]  # starts at zero index and up to 3 but does not include 3
+print(first_three)
+last_three = language[3:6]
+print(last_three)
+last_three = language[-3:]
+print(last_three)
+last_three = language[3:]
+print(last_three)
+
+
+View:
+output.txt
+Pyt
+hon
+hon
+hon
+
+
+The end index is not included. language[0:3] is indexes 0, 1, 2.
+
+Reversing a String
+
+We can easily reverse strings in python.
+example.py
+greeting = 'Hello, World!'
+print(greeting[::-1])
+
+
+View:
+output.txt
+!dlroW ,olleH
+
+
+Skipping Characters While Slicing
+
+It is possible to skip characters while slicing by passing a step argument.
+example.py
+language = 'Python'
+pto = language[0:6:2]
+print(pto)
+
+
+View:
+output.txt
+Pto
+
+
+Start at 0, stop before 6, step 2: P (0), t (2), o (4).
+
+String Methods
+
+There are many string methods which allow us to format strings. Day 4 does not skip those methods. First the full official list. Then every method from the original lesson is typed as code with a view.
+
+Full list of string methods
+
+These are the public methods on str (dir(str), skipping names that start with __).
+
+
+
+
+  #
+  Method
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  capitalize()
+  First character upper, the rest lower
+  'priya rao'.capitalize()
+  'Priya rao'
+
+
+
+  2
+  casefold()
+  Strong lower-case for comparisons
+  'PRIYA'.casefold()
+  'priya'
+
+
+
+  3
+  center(width)
+  Center the text in a field of spaces
+  'Priya'.center(11)
+  '   Priya   '
+
+
+
+  4
+  count(sub)
+  How many times a substring appears
+  'Priya'.count('a')
+  1
+
+
+
+  5
+  encode()
+  String to bytes
+  'Priya'.encode()
+  b'Priya'
+
+
+
+  6
+  endswith(suffix)
+  True if the string ends with the suffix
+  'Priya'.endswith('ya')
+  True
+
+
+
+  7
+  expandtabs(n)
+  Replace each tab with spaces
+  '10\t20'.expandtabs(4)
+  '10  20'
+
+
+
+  8
+  find(sub)
+  First index of substring, or -1
+  'Priya'.find('i')
+  2
+
+
+
+  9
+  format(...)
+  Fill {} placeholders
+  'Score {}'.format(10)
+  'Score 10'
+
+
+
+  10
+  format_map(map)
+  Fill placeholders from a mapping
+  '{city}'.format_map({'city': 'Hyderabad'})
+  'Hyderabad'
+
+
+
+  11
+  index(sub)
+  First index of substring, or error
+  'Priya'.index('i')
+  2
+
+
+
+  12
+  isalnum()
+  True if only letters and numbers
+  'Priya10'.isalnum()
+  True
+
+
+
+  13
+  isalpha()
+  True if only letters
+  'Priya'.isalpha()
+  True
+
+
+
+  14
+  isascii()
+  True if every character is ASCII
+  'Priya'.isascii()
+  True
+
+
+
+  15
+  isdecimal()
+  True if every character is a decimal digit
+  '10'.isdecimal()
+  True
+
+
+
+  16
+  isdigit()
+  True if every character is a digit
+  '30'.isdigit()
+  True
+
+
+
+  17
+  isidentifier()
+  True if the text is a valid variable name
+  'score_10'.isidentifier()
+  True
+
+
+
+  18
+  islower()
+  True if cased characters are lower
+  'priya'.islower()
+  True
+
+
+
+  19
+  isnumeric()
+  True if every character is numeric
+  '10'.isnumeric()
+  True
+
+
+
+  20
+  isprintable()
+  True if every character can print
+  'Priya'.isprintable()
+  True
+
+
+
+  21
+  isspace()
+  True if every character is whitespace
+  '   '.isspace()
+  True
+
+
+
+  22
+  istitle()
+  True if the string is title case
+  'Priya Rao'.istitle()
+  True
+
+
+
+  23
+  isupper()
+  True if cased characters are upper
+  'PRIYA'.isupper()
+  True
+
+
+
+  24
+  join(seq)
+  Join items with this string in between
+  '-'.join(['10', '20', '30'])
+  '10-20-30'
+
+
+
+  25
+  ljust(width)
+  Left-justify in a field of spaces
+  '10'.ljust(4)
+  '10  '
+
+
+
+  26
+  lower()
+  All letters lower case
+  'Priya'.lower()
+  'priya'
+
+
+
+  27
+  lstrip()
+  Remove characters from the left
+  '  Priya'.lstrip()
+  'Priya'
+
+
+
+  28
+  maketrans(a, b)
+  Build a translation table
+  str.maketrans('PR', '12')
+  translation table
+
+
+
+  29
+  partition(sep)
+  Split into before, sep, after
+  '10-20'.partition('-')
+  ('10', '-', '20')
+
+
+
+  30
+  removeprefix(pre)
+  Drop a prefix if it is there
+  'Day4'.removeprefix('Day')
+  '4'
+
+
+
+  31
+  removesuffix(suf)
+  Drop a suffix if it is there
+  'score.py'.removesuffix('.py')
+  'score'
+
+
+
+  32
+  replace(old, new)
+  Replace a substring
+  'Priya Rao'.replace('Rao', 'India')
+  'Priya India'
+
+
+
+  33
+  rfind(sub)
+  Last index of substring, or -1
+  'Priya'.rfind('a')
+  4
+
+
+
+  34
+  rindex(sub)
+  Last index of substring, or error
+  'Priya'.rindex('a')
+  4
+
+
+
+  35
+  rjust(width)
+  Right-justify in a field of spaces
+  '10'.rjust(4)
+  '  10'
+
+
+
+  36
+  rpartition(sep)
+  Partition from the right
+  '10-20-30'.rpartition('-')
+  ('10-20', '-', '30')
+
+
+
+  37
+  rsplit(sep)
+  Split from the right
+  '10 20 30'.rsplit(' ', 1)
+  ['10 20', '30']
+
+
+
+  38
+  rstrip()
+  Remove characters from the right
+  'Priya  '.rstrip()
+  'Priya'
+
+
+
+  39
+  split()
+  Split into a list
+  '10 20 30'.split()
+  ['10', '20', '30']
+
+
+
+  40
+  splitlines()
+  Split on line breaks
+  '10\n20'.splitlines()
+  ['10', '20']
+
+
+
+  41
+  startswith(pre)
+  True if the string starts with the prefix
+  'Priya'.startswith('Pr')
+  True
+
+
+
+  42
+  strip()
+  Remove characters from both ends
+  '  Priya  '.strip()
+  'Priya'
+
+
+
+  43
+  swapcase()
+  Swap upper and lower
+  'Priya'.swapcase()
+  'pRIYA'
+
+
+
+  44
+  title()
+  First letter of each word upper
+  'priya rao'.title()
+  'Priya Rao'
+
+
+
+  45
+  translate(table)
+  Replace characters using a table
+  'PR'.translate(str.maketrans('PR', '12'))
+  '12'
+
+
+
+  46
+  upper()
+  All letters upper case
+  'Priya'.upper()
+  'PRIYA'
+
+
+
+  47
+  zfill(width)
+  Pad with zeros on the left
+  '10'.zfill(4)
+  '0010'
+
+
+
+
+Same list as runnable code (structured numbers 10, 20, 30, 40, 50 and the name Priya):
+example.py
+print('priya rao'.capitalize())
+print('PRIYA'.casefold())
+print('Priya'.center(11))
+print('Priya'.count('a'))
+print('Priya'.encode())
+print('Priya'.endswith('ya'))
+print('10\t20'.expandtabs(4))
+print('Priya'.find('i'))
+print('Score {}'.format(10))
+print('{city}'.format_map({'city': 'Hyderabad'}))
+print('Priya'.index('i'))
+print('Priya10'.isalnum())
+print('Priya'.isalpha())
+print('Priya'.isascii())
+print('10'.isdecimal())
+print('30'.isdigit())
+print('score_10'.isidentifier())
+print('priya'.islower())
+print('10'.isnumeric())
+print('Priya'.isprintable())
+print('   '.isspace())
+print('Priya Rao'.istitle())
+print('PRIYA'.isupper())
+print('-'.join(['10', '20', '30']))
+print('10'.ljust(4))
+print('Priya'.lower())
+print('  Priya'.lstrip())
+print('10-20'.partition('-'))
+print('Day4'.removeprefix('Day'))
+print('score.py'.removesuffix('.py'))
+print('Priya Rao'.replace('Rao', 'India'))
+print('Priya'.rfind('a'))
+print('Priya'.rindex('a'))
+print('10'.rjust(4))
+print('10-20-30'.rpartition('-'))
+print('10 20 30'.rsplit(' ', 1))
+print('Priya  '.rstrip())
+print('10 20 30'.split())
+print('10\n20'.splitlines())
+print('Priya'.startswith('Pr'))
+print('  Priya  '.strip())
+print('Priya'.swapcase())
+print('priya rao'.title())
+print('PR'.translate(str.maketrans('PR', '12')))
+print('Priya'.upper())
+print('10'.zfill(4))
+
+
+View:
+output.txt
+Priya rao
+priya
+   Priya
+1
+b'Priya'
+True
+10  20
+2
+Score 10
+Hyderabad
+2
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+10-20-30
+10
+priya
+Priya
+('10', '-', '20')
+4
+score
+Priya India
+4
+4
+  10
+('10-20', '-', '30')
+['10 20', '30']
+Priya
+['10', '20', '30']
+['10', '20']
+True
+Priya
+pRIYA
+Priya Rao
+12
+PRIYA
+0010
+
+
+center(11) on 'Priya' is three spaces, then Priya, then three spaces. The view above shows it without drawing the trailing spaces.
+
+The numbered walk-through below is every method from the original lesson, plus upper() and lower() (used in the exercises).
+
+1. capitalize()
+
+Converts the first character of the string to capital letter.
+example.py
+challenge = 'thirty days of python'
+print(challenge.capitalize())
+
+
+View:
+output.txt
+Thirty days of python
+
+
+Only the first character changes. The other words stay lower.
+
+2. count()
+
+Returns occurrences of a substring in a string, count(substring, start=.., end=..). The start is a starting index for counting and end is the last index to count.
+example.py
+challenge = 'thirty days of python'
+print(challenge.count('y'))
+print(challenge.count('y', 7, 14))
+print(challenge.count('th'))
+
+
+View:
+output.txt
+3
+1
+2
+
+
+'y' appears at indexes 5, 9, and 16. The slice 7:14 only keeps the one in days.
+
+3. endswith()
+
+Checks if a string ends with a specified ending.
+example.py
+challenge = 'thirty days of python'
+print(challenge.endswith('on'))
+print(challenge.endswith('tion'))
+
+
+View:
+output.txt
+True
+False
+
+
+4. expandtabs()
+
+Replaces tab character with spaces. Default tab size is 8. It takes a tab size argument.
+example.py
+challenge = 'thirty\tdays\tof\tpython'
+print(challenge.expandtabs())
+print(challenge.expandtabs(10))
+
+
+View:
+output.txt
+thirty  days    of      python
+thirty    days      of        python
+
+
+5. find()
+
+Returns the index of the first occurrence of a substring. If not found, returns -1.
+example.py
+challenge = 'thirty days of python'
+print(challenge.find('y'))
+print(challenge.find('th'))
+
+
+View:
+output.txt
+5
+0
+
+
+6. rfind()
+
+Returns the index of the last occurrence of a substring. If not found, returns -1.
+example.py
+challenge = 'thirty days of python'
+print(challenge.rfind('y'))
+print(challenge.rfind('th'))
+
+
+View:
+output.txt
+16
+17
+
+
+find walks from the left. rfind walks from the right.
+
+7. format()
+
+Formats a string into a nicer output. More about string formatting: programiz format.
+example.py
+first_name = 'Priya'
+last_name = 'Rao'
+age = 22
+job = 'teacher'
+country = 'India'
+sentence = 'I am {} {}. I am a {}. I am {} years old. I live in {}.'.format(
+    first_name, last_name, job, age, country)
+print(sentence)
+
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+result = 'The area of a circle with radius {} is {}'.format(str(radius), str(area))
+print(result)
+
+
+View:
+output.txt
+I am Priya Rao. I am a teacher. I am 22 years old. I live in India.
+The area of a circle with radius 10 is 314.0
+
+
+8. index()
+
+Returns the lowest index of a substring. Additional arguments indicate starting and ending index (default 0 and string length - 1). If the substring is not found it raises a ValueError.
+example.py
+challenge = 'thirty days of python'
+sub_string = 'da'
+print(challenge.index(sub_string))
+print(challenge.find(sub_string, 9))
+
+
+View:
+output.txt
+7
+-1
+
+
+index('da', 9) would raise ValueError because 'da' is only at index 7. The line above uses find so the companion script can run. Try challenge.index(sub_string, 9) yourself to see the error.
+
+9. rindex()
+
+Returns the highest index of a substring. Additional arguments indicate starting and ending index (default 0 and string length - 1).
+example.py
+challenge = 'thirty days of python'
+sub_string = 'da'
+print(challenge.rindex(sub_string))
+print(challenge.rindex('on', 8))
+
+
+View:
+output.txt
+7
+19
+
+
+rindex(sub_string, 9) would also raise ValueError. 'on' starting at index 8 is found at 19 (python).
+
+10. isalnum()
+
+Checks alphanumeric character.
+example.py
+challenge = 'ThirtyDaysPython'
+print(challenge.isalnum())
+
+challenge = '30DaysPython'
+print(challenge.isalnum())
+
+challenge = 'thirty days of python'
+print(challenge.isalnum())
+
+challenge = 'thirty days of python 2019'
+print(challenge.isalnum())
+
+
+View:
+output.txt
+True
+True
+False
+False
+
+
+A space is not alphanumeric, so the last two are False.
+
+11. isalpha()
+
+Checks if all string elements are alphabet characters (a-z and A-Z).
+example.py
+challenge = 'thirty days of python'
+print(challenge.isalpha())
+challenge = 'ThirtyDaysPython'
+print(challenge.isalpha())
+num = '123'
+print(num.isalpha())
+
+
+View:
+output.txt
+False
+True
+False
+
+
+Spaces are excluded, so 'thirty days of python' is False.
+
+12. isdecimal()
+
+Checks if all characters in a string are decimal (0-9).
+example.py
+challenge = 'thirty days of python'
+print(challenge.isdecimal())
+challenge = '123'
+print(challenge.isdecimal())
+challenge = '12 3'
+print(challenge.isdecimal())
+num = '10'
+print(num.isdecimal())
+num = '10.5'
+print(num.isdecimal())
+
+
+View:
+output.txt
+False
+True
+False
+True
+False
+
+
+A space is not allowed. A decimal point is not allowed either, so '10.5' is False.
+
+13. isdigit()
+
+Checks if all characters in a string are numbers (0-9 and some other unicode characters for numbers).
+example.py
+challenge = 'Thirty'
+print(challenge.isdigit())
+challenge = '30'
+print(challenge.isdigit())
+challenge = '\u00B2'
+print(challenge.isdigit())
+
+
+View:
+output.txt
+False
+True
+True
+
+
+'\u00B2' is the superscript two (²). isdigit() accepts it. isdecimal() does not.
+
+14. isnumeric()
+
+Checks if all characters in a string are numbers or number related (just like isdigit(), just accepts more symbols, like ½).
+example.py
+num = '10'
+print(num.isnumeric())
+num = '\u00BD'  # ½
+print(num.isnumeric())
+num = '10.5'
+print(num.isnumeric())
+print('ten'.isnumeric())
+
+
+View:
+output.txt
+True
+True
+False
+False
+
+
+15. isidentifier()
+
+Checks for a valid identifier — it checks if a string is a valid variable name.
+example.py
+challenge = '30DaysOfPython'
+print(challenge.isidentifier())
+challenge = 'thirty_days_of_python'
+print(challenge.isidentifier())
+
+
+View:
+output.txt
+False
+True
+
+
+A name cannot start with a number.
+
+16. islower()
+
+Checks if all alphabet characters in the string are lowercase.
+example.py
+challenge = 'thirty days of python'
+print(challenge.islower())
+challenge = 'Thirty days of python'
+print(challenge.islower())
+
+
+View:
+output.txt
+True
+False
+
+
+17. isupper()
+
+Checks if all alphabet characters in the string are uppercase.
+example.py
+challenge = 'thirty days of python'
+print(challenge.isupper())
+challenge = 'THIRTY DAYS OF PYTHON'
+print(challenge.isupper())
+
+
+View:
+output.txt
+False
+True
+
+
+18. join()
+
+Returns a concatenated string.
+example.py
+web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
+result = ' '.join(web_tech)
+print(result)
+
+result = '# '.join(web_tech)
+print(result)
+
+
+View:
+output.txt
+HTML CSS JavaScript React
+HTML# CSS# JavaScript# React
+
+
+The string you call join on is the glue between items.
+
+19. strip()
+
+Removes all given characters starting from the beginning and end of the string. With no argument it removes whitespace.
+example.py
+challenge = 'thirty days of pythoonnn'
+print(challenge.strip('noth'))
+
+challenge = ' thirty days of python '
+print(challenge.strip())
+
+
+View:
+output.txt
+irty days of py
+thirty days of python
+
+
+strip('noth') peels any of n, o, t, h from both ends. It does not remove those letters from the middle.
+
+20. replace()
+
+Replaces a substring with a given string.
+example.py
+challenge = 'thirty days of python'
+print(challenge.replace('python', 'coding'))
+
+
+View:
+output.txt
+thirty days of coding
+
+
+21. split()
+
+Splits the string, using a given string or space as a separator.
+example.py
+challenge = 'thirty days of python'
+print(challenge.split())
+challenge = 'thirty, days, of, python'
+print(challenge.split(', '))
+
+
+View:
+output.txt
+['thirty', 'days', 'of', 'python']
+['thirty', 'days', 'of', 'python']
+
+
+22. title()
+
+Returns a title cased string.
+example.py
+challenge = 'thirty days of python'
+print(challenge.title())
+
+
+View:
+output.txt
+Thirty Days Of Python
+
+
+23. swapcase()
+
+Converts all uppercase characters to lowercase and all lowercase characters to uppercase.
+example.py
+challenge = 'thirty days of python'
+print(challenge.swapcase())
+challenge = 'Thirty Days Of Python'
+print(challenge.swapcase())
+
+
+View:
+output.txt
+THIRTY DAYS OF PYTHON
+tHIRTY dAYS oF pYTHON
+
+
+24. startswith()
+
+Checks if a string starts with the specified string.
+example.py
+challenge = 'thirty days of python'
+print(challenge.startswith('thirty'))
+challenge = '30 days of python'
+print(challenge.startswith('thirty'))
+
+
+View:
+output.txt
+True
+False
+
+
+25. upper()
+
+Changes all the characters to uppercase letters. The exercises use this method.
+example.py
+print('Priya Rao'.upper())
+print('Coding For All'.upper())
+
+
+View:
+output.txt
+PRIYA RAO
+CODING FOR ALL
+
+
+26. lower()
+
+Changes all the characters to lowercase letters. The exercises use this method.
+example.py
+print('Priya Rao'.lower())
+print('Coding For All'.lower())
+
+
+View:
+output.txt
+priya rao
+coding for all
+
+
+27. Other string methods you should not skip
+
+These methods are in the official table. Day 4 keeps every one of them. Try each line in the shell.
+example.py
+print('PRIYA'.casefold())
+print('Priya'.center(11, '-'))
+print('Priya'.encode())
+print('{city}'.format_map({'city': 'Hyderabad'}))
+print('Priya'.isascii())
+print('Priya'.isprintable())
+print('   '.isspace())
+print('Priya Rao'.istitle())
+print('10'.ljust(5, '.'))
+print('   Priya'.lstrip())
+print('Priya   '.rstrip())
+print('10-20-30'.partition('-'))
+print('10-20-30'.rpartition('-'))
+print('10 20 30 40 50'.rsplit(' ', 2))
+print('10\n20\n30'.splitlines())
+print('Day4 lesson'.removeprefix('Day'))
+print('score.py'.removesuffix('.py'))
+print('10'.rjust(5, '0'))
+print('10'.zfill(4))
+table = str.maketrans('ae', '10')
+print('Priya Rao'.translate(table))
+
+
+View:
+output.txt
+priya
+---Priya---
+b'Priya'
+Hyderabad
+True
+True
+True
+True
+10...
+Priya
+Priya
+('10', '-', '20-30')
+('10-20', '-', '30')
+['10 20 30', '40', '50']
+['10', '20', '30']
+4 lesson
+score
+00010
+0010
+Priy1 R1o
+
+
+removeprefix and removesuffix need Python 3.9+. file() is not a string method. Use open() for files. The rest of the names in the table exist so you can look them up with help(str.method) when you need them. Do not skip them in the table. You do not have to memorize every one today.
+
+Day 4 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Keep every original Day 4 prompt. Level 1 is create, print, slice, and the basic methods. Level 2 is the original stretch work (acronyms, find / rfind, join, formatting). Level 3 combines today's methods on Priya / Rao / India / Hyderabad and the structured numbers 10, 20, 30, 40, 50.
+
+Exercises: Level 1
+
+
+Concatenate the string 'Thirty', 'Days', 'Of', 'Python' to a single string, 'Thirty Days Of Python'.
+
+Concatenate the string 'Coding', 'For' , 'All' to a single string, 'Coding For All'.
+
+Declare a variable named company and assign it to an initial value "Coding For All".
+
+Print the variable company using print().
+
+Print the length of the company string using len() method and print().
+
+Change all the characters to uppercase letters using upper() method.
+
+Change all the characters to lowercase letters using lower() method.
+
+Use capitalize(), title(), swapcase() methods to format the value of the string Coding For All.
+
+Cut(slice) out the first word of Coding For All string.
+
+Check if Coding For All string contains a word Coding using the method index, find or other methods.
+
+Replace the word coding in the string 'Coding For All' to Python.
+
+Change "Python for Everyone" to "Python for All" using the replace method or other methods.
+
+Split the string 'Coding For All' using space as the separator (split()) .
+
+"Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon" split the string at the comma.
+
+What is the character at index 0 in the string Coding For All.
+
+What is the last index of the string Coding For All.
+
+What character is at index 10 in "Coding For All" string.
+
+
+Exercises: Level 2
+
+
+
+Create an acronym or an abbreviation for the name 'Python For Everyone'.
+
+
+
+Create an acronym or an abbreviation for the name 'Coding For All'.
+
+
+
+Use index to determine the position of the first occurrence of C in Coding For All.
+
+
+
+Use index to determine the position of the first occurrence of F in Coding For All.
+
+
+
+Use rfind to determine the position of the last occurrence of l in Coding For All People.
+
+
+
+Use index or find to find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+
+
+
+Use rindex to find the position of the last occurrence of the word because in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+
+
+
+Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+
+
+
+Find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+
+
+
+Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+
+
+
+Does 'Coding For All' start with a substring Coding?
+
+
+
+Does 'Coding For All' end with a substring coding?
+
+
+
+'   Coding For All      ', remove the left and right trailing spaces in the given string.
+
+
+
+Which one of the following variables return True when we use the method isidentifier():
+
+
+30DaysOfPython
+
+thirty_days_of_python
+
+
+
+
+The following list contains the names of some of python libraries: ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']. Join the list with a hash with space string.
+
+
+
+Use the new line escape sequence to separate the following sentences.
+example.py
+I am enjoying this challenge.
+I just wonder what is next.
+
+
+
+
+Use a tab escape sequence to write the following lines.
+example.py
+Name      Age     Country   City
+Asabeneh  250     Finland   Helsinki
+
+
+
+
+Use the string formatting method to display the following:
+
+
+terminal
+radius = 10
+area = 3.14 * radius ** 2
+The area of a circle with radius 10 is 314 meters square.
+
+
+
+Make the following using string formatting methods:
+
+terminal
+8 + 6 = 14
+8 - 6 = 2
+8 * 6 = 48
+8 / 6 = 1.33
+8 % 6 = 2
+8 // 6 = 1
+8 ** 6 = 262144
+
+
+Exercises: Level 3
+
+
+Store first_name = 'Priya', last_name = 'Rao', country = 'India', city = 'Hyderabad'
+
+Concatenate a full name. Print len(), upper(), lower(), and title() of the full name
+
+Store scores_text = '10 20 30 40 50'. Use split(), then join() the pieces with '-'
+
+Use find() and index() to locate '20' inside scores_text. Use rfind() to locate '0'
+
+Use replace() to change '50' to '60'. Print the new string
+
+Check startswith('10') and endswith('50') on scores_text. Check '10'.isdigit() and 'Priya'.isalpha()
+
+Use old-style %, .format(), and an f-string to print Priya scored 50 in Hyderabad
+
+Strip spaces from '  Priya Rao  '. Then capitalize(), swapcase(), and center(20, '.')
+
+Use count('a') on 'Hyderabad' and check 'P' in 'Priya'
+
+Use zfill(4) on '10' and '20'. Use partition(' ') on '10 20 30 40 50'
+
+
+You finished Day 4. Next: lists.
+

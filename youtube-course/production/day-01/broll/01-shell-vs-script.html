@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1920"><title>Same expression. Different display.</title><link rel="stylesheet" href="./style.css"><script src="./node_modules/gsap/dist/gsap.min.js"></script></head>
+<body><main id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080" data-fps="30">
+<div class="stage"><div class="grid"></div><div class="orb"></div><div class="content"><header class="header"><div class="eyebrow"><span>PY / 30</span> DAY 01 · THE FIRST PROGRAM</div><h1>Same expression. Different display.</h1><div class="rule"></div></header><div class="columns">
+      <div class="panel reveal"><div class="panel-top"><span class="dot"></span> PYTHON SHELL <span class="tag">INTERACTIVE</span></div><div class="code">&gt;&gt;&gt; <b>10 + 20</b><br><span class="answer">30</span></div><div class="note">The shell displays an expression's value.</div></div>
+      <div class="panel reveal"><div class="panel-top"><span class="dot"></span> HELLO.PY <span class="tag">SAVED FILE</span></div><div class="code"><span class="muted">01</span> <b>10 + 20</b><br><span class="muted">$ python hello.py</span><br><span class="quiet">(no printed output)</span></div><div class="note">A script needs <em>print(…)</em> to show it.</div></div>
+    </div><div class="ribbon reveal">The calculation runs in both places. Only one displays it automatically.</div></div><footer class="footer"><span>PYTHON FOUNDATIONS</span><span>01 / TECHNICAL NOTES</span></footer></div><div id="end-marker" hidden></div>
+</main><script>
+  const tl=gsap.timeline({paused:true});
+  tl.fromTo('.stage',{opacity:0},{opacity:1,duration:.38,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{filter:'blur(10px)',opacity:.3},{filter:'blur(0px)',opacity:1,duration:.55,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{x:14,scale:1.012},{x:-8,scale:1,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.orb',{x:0,y:0},{x:-85,y:35,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.reveal',{opacity:0,y:22},{opacity:1,y:0,duration:.54,stagger:.15,ease:'power2.out'},.35);
+  
+  tl.to('.content',{filter:'blur(7px)',opacity:0,duration:.3,ease:'power2.inOut'},3.7);
+  tl.to('.stage',{opacity:0,duration:.26,ease:'power2.inOut'},3.74);
+  tl.set('#end-marker',{opacity:1},4);
+  window.__timelines=window.__timelines||{};window.__timelines.root=tl;
+</script></body></html>

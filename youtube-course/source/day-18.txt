@@ -1,0 +1,1304 @@
+
+Regular expressions
+
+A regular expression or RegEx is a special text string that helps to find patterns in data. A RegEx can be used to check if some pattern exists in a different data type. To use RegEx in Python first we should import the RegEx module which is called re.
+
+The re Module
+
+After importing the module we can use it to detect or find patterns.
+example.py
+import re
+
+
+dir(re) lists the names on the module. The methods we use today are match, search, findall, sub, and split.
+example.py
+import re
+print([name for name in dir(re) if name in ('match', 'search', 'findall', 'sub', 'split')])
+
+
+View:
+output.txt
+['findall', 'match', 'search', 'split', 'sub']
+
+
+Methods in the re Module
+
+To find a pattern we use different re methods that search for a match in a string.
+
+
+
+
+  #
+  Method
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  re.match(pattern, string, flags=0)
+  Search only at the start of the string. Returns a match object or None.
+  re.match('I love', 'I love Python')
+  match object, span (0, 6)
+
+
+
+  2
+  re.search(pattern, string, flags=0)
+  Search anywhere in the string. Returns the first match object or None.
+  re.search('first', txt)
+  match object
+
+
+
+  3
+  re.findall(pattern, string, flags=0)
+  Return a list of every match.
+  re.findall('python', txt, re.I)
+  ['Python', 'python']
+
+
+
+  4
+  re.sub(pattern, repl, string, count=0, flags=0)
+  Replace one or many matches.
+  re.sub('%', '', noisy)
+  cleaned text
+
+
+
+  5
+  re.split(pattern, string, maxsplit=0, flags=0)
+  Split the string at each match. Returns a list.
+  re.split(r'\n', txt)
+  list of lines
+
+
+
+
+re.I (same as re.IGNORECASE) is the case-ignore flag. The original lesson writes it as the third argument: re.match(substring, string, re.I).
+
+A match object has these methods. Do not skip them.
+
+
+
+
+  Method
+  What it does
+  Example
+  View
+
+
+
+
+
+  span()
+  Start and end indexes as a tuple
+  match.span()
+  (0, 15)
+
+
+
+  start()
+  Start index only
+  match.start()
+  0
+
+
+
+  end()
+  End index only
+  match.end()
+  15
+
+
+
+  group()
+  The matched text
+  match.group()
+  'I love to teach'
+
+
+
+
+1. re.match()
+example.py
+# syntax
+re.match(substring, string, re.I)
+# substring is a string or a pattern, string is the text we look for a pattern, re.I is case ignore
+
+example.py
+import re
+
+txt = 'I love to teach python and javaScript'
+# It returns an object with span, and match
+match = re.match('I love to teach', txt, re.I)
+print(match)
+# We can get the starting and ending position of the match as tuple using span
+span = match.span()
+print(span)
+# Lets find the start and stop position from the span
+start, end = span
+print(start, end)
+substring = txt[start:end]
+print(substring)
+
+
+View:
+output.txt
+<re.Match object; span=(0, 15), match='I love to teach'>
+(0, 15)
+0 15
+I love to teach
+
+
+The pattern we are looking for is I love to teach. re.match() returns an object only if the text starts with the pattern.
+example.py
+import re
+
+txt = 'I love to teach python and javaScript'
+match = re.match('I like to teach', txt, re.I)
+print(match)
+
+
+View:
+output.txt
+None
+
+
+The string does not start with I like to teach, therefore there was no match and the match method returned None.
+
+Same method with today's names. Priya is at the start, so there is a match. Hyderabad is later, so match returns None.
+example.py
+import re
+
+txt = 'Priya lives in Hyderabad'
+print(re.match('Priya', txt))
+print(re.match('Hyderabad', txt))
+
+
+View:
+output.txt
+<re.Match object; span=(0, 5), match='Priya'>
+None
+
+
+2. re.search()
+example.py
+# syntax
+re.search(substring, string, re.I)
+# substring is a pattern, string is the text we look for a pattern, re.I is case ignore flag
+
+example.py
+import re
+
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+
+# It returns an object with span and match
+match = re.search('first', txt, re.I)
+print(match)
+# We can get the starting and ending position of the match as tuple using span
+span = match.span()
+print(span)
+# Lets find the start and stop position from the span
+start, end = span
+print(start, end)
+substring = txt[start:end]
+print(substring)
+
+
+View:
+output.txt
+<re.Match object; span=(100, 105), match='first'>
+(100, 105)
+100 105
+first
+
+
+Search is much better than match when the pattern is not at the start, because it can look for the pattern throughout the text. Search returns a match object with the first match that was found, otherwise it returns None. A much better re function is findall. This function checks for the pattern through the whole string and returns all the matches as a list.
+example.py
+import re
+
+txt = 'Priya lives in Hyderabad. Priya teaches Python.'
+print(re.search('Hyderabad', txt))
+print(re.search('Hyderabad', txt).group())
+
+
+View:
+output.txt
+<re.Match object; span=(15, 24), match='Hyderabad'>
+Hyderabad
+
+
+3. re.findall()
+
+findall() returns all the matches as a list.
+example.py
+import re
+
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+
+# It return a list
+matches = re.findall('language', txt, re.I)
+print(matches)
+
+
+View:
+output.txt
+['language', 'language']
+
+
+The word language was found two times in the string. Now we will look for both Python and python words in the string:
+example.py
+import re
+
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+
+# It returns list
+matches = re.findall('python', txt, re.I)
+print(matches)
+
+
+View:
+output.txt
+['Python', 'python']
+
+
+Since we are using re.I both lowercase and uppercase letters are included. If we do not have the re.I flag, then we will have to write our pattern differently:
+example.py
+import re
+
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+
+matches = re.findall('Python|python', txt)
+print(matches)
+
+matches = re.findall('[Pp]ython', txt)
+print(matches)
+
+
+View:
+output.txt
+['Python', 'python']
+['Python', 'python']
+
+
+Structured numbers 10, 20, 30, 40, 50:
+example.py
+import re
+
+scores = '10, 20, 30, 40, 50'
+print(re.findall(r'\d+', scores))
+
+
+View:
+output.txt
+['10', '20', '30', '40', '50']
+
+
+4. re.sub()
+example.py
+import re
+
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+
+match_replaced = re.sub('Python|python', 'JavaScript', txt, re.I)
+print(match_replaced)
+# OR
+match_replaced = re.sub('[Pp]ython', 'JavaScript', txt, re.I)
+print(match_replaced)
+
+
+View:
+output.txt
+JavaScript is the most beautiful language that a human being has ever created.
+I recommend JavaScript for a first programming language
+JavaScript is the most beautiful language that a human being has ever created.
+I recommend JavaScript for a first programming language
+
+
+The fourth positional argument of re.sub is count, not flags. re.I is the integer 2, so this call replaces at most two matches. Prefer the keyword form re.sub(pattern, repl, txt, flags=re.I) when you mean the ignore-case flag.
+
+Let us add one more example. The following string is really hard to read unless we remove the % symbol. Replacing the % with an empty string will clean the text.
+example.py
+import re
+
+txt = '''%I a%m te%%a%%che%r% a%n%d %% I l%o%ve te%ach%ing.
+T%he%re i%s n%o%th%ing as r%ewarding a%s e%duc%at%i%ng a%n%d e%m%p%ow%er%ing p%e%o%ple.
+I fo%und te%a%ching m%ore i%n%t%er%%es%ting t%h%an any other %jobs.
+D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher?'''
+
+matches = re.sub('%', '', txt)
+print(matches)
+
+
+View:
+output.txt
+I am teacher and  I love teaching.
+There is nothing as rewarding as educating and empowering people.
+I found teaching more interesting than any other jobs.
+Does this motivate you to be a teacher?
+
+
+Replace every score digit-group with X:
+example.py
+import re
+
+print(re.sub(r'\d+', 'X', '10 20 30 40 50'))
+
+
+View:
+output.txt
+X X X X X
+
+
+5. re.split()
+
+Splitting Text Using RegEx Split
+example.py
+import re
+
+txt = '''I am teacher and  I love teaching.
+There is nothing as rewarding as educating and empowering people.
+I found teaching more interesting than any other jobs.
+Does this motivate you to be a teacher?'''
+print(re.split('\n', txt))  # splitting using \n - end of line symbol
+
+
+View:
+output.txt
+['I am teacher and  I love teaching.', 'There is nothing as rewarding as educating and empowering people.', 'I found teaching more interesting than any other jobs.', 'Does this motivate you to be a teacher?']
+
+
+Split the structured scores on comma and space:
+example.py
+import re
+
+print(re.split(r',\s*', '10, 20, 30, 40, 50'))
+
+
+View:
+output.txt
+['10', '20', '30', '40', '50']
+
+
+Writing RegEx Patterns
+
+To declare a string variable we use a single or double quote. To declare a RegEx variable we use r'' (a raw string). The following pattern only identifies apple with lowercase. To make it case insensitive either we should rewrite our pattern or we should add a flag.
+example.py
+import re
+
+regex_pattern = r'apple'
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away. '
+matches = re.findall(regex_pattern, txt)
+print(matches)  # ['apple']
+
+# To make case insensitive adding flag
+matches = re.findall(regex_pattern, txt, re.I)
+print(matches)  # ['Apple', 'apple']
+# or we can use a set of characters method
+regex_pattern = r'[Aa]pple'  # this mean the first letter could be Apple or apple
+matches = re.findall(regex_pattern, txt)
+print(matches)  # ['Apple', 'apple']
+
+
+View:
+output.txt
+['apple']
+['Apple', 'apple']
+['Apple', 'apple']
+
+
+Meta characters used when writing patterns:
+
+
+[]: A set of characters
+
+[a-c] means a or b or c
+
+[a-z] means any letter from a to z
+
+[A-Z] means any character from A to Z
+
+[0-3] means 0 or 1 or 2 or 3
+
+[0-9] means any number from 0 to 9
+
+[A-Za-z0-9] any single character that is a to z, A to Z, or 0 to 9
+
+
+
+\: uses to escape special characters
+
+\d means: match where the string contains digits (numbers from 0-9)
+
+\D means: match where the string does not contain digits
+
+
+
+.: any character except new line character (\n)
+
+^: starts with
+
+r'^substring' e.g. r'^love', a sentence that starts with a word love
+
+r'[^abc]' means not a, not b, not c
+
+
+
+$: ends with
+
+r'substring$' e.g. r'love$', a sentence that ends with a word love
+
+
+
+*: zero or more times
+
+r'[a]*' means a optional or it can occur many times
+
+
+
++: one or more times
+
+r'[a]+' means at least once (or more)
+
+
+
+?: zero or one time
+
+r'[a]?' means zero times or once
+
+
+
+{3}: Exactly 3 characters
+
+{3,}: At least 3 characters
+
+{3,8}: 3 to 8 characters
+
+|: Either or
+
+r'apple|banana' means either apple or a banana
+
+
+
+(): Capture and group
+
+
+Regular expression cheat sheet
+
+The original lesson used a screenshot of this table. Every row is written below. Some rows are general regex (JavaScript-style). Python notes sit under each table.
+
+Regular Expression Basics
+
+
+
+
+  Pattern
+  Meaning
+  Example
+  View
+
+
+
+
+
+  .
+  Any character except newline
+  re.findall(r'P.i', 'Priya')
+  ['Pri']
+
+
+
+  a
+  The character a
+  re.findall(r'a', 'Priya')
+  ['a']
+
+
+
+  ab
+  The string ab
+  re.findall(r'ya', 'Priya')
+  ['ya']
+
+
+
+  a\|b
+  a or b
+  re.findall(r'10\|20', '10, 20, 30')
+  ['10', '20']
+
+
+
+  a*
+  0 or more a's
+  re.findall(r'a*', 'baa')
+  ['', 'aa', '']
+
+
+
+  \
+  Escapes a special character
+  re.findall(r'\.', '10.0')
+  ['.']
+
+
+
+
+Regular Expression Quantifiers
+
+Default is greedy. Append ? for reluctant (non-greedy).
+
+
+
+
+  Pattern
+  Meaning
+  Example
+  View
+
+
+
+
+
+  *
+  0 or more
+  re.findall(r'20*', '2 20 200')
+  ['2', '20', '200']
+
+
+
+  +
+  1 or more
+  re.findall(r'\d+', '10 20 30')
+  ['10', '20', '30']
+
+
+
+  ?
+  0 or 1
+  re.findall(r'e-?mail', 'email e-mail')
+  ['email', 'e-mail']
+
+
+
+  {2}
+  Exactly 2
+  re.findall(r'\d{2}', '10 20 30')
+  ['10', '20', '30']
+
+
+
+  {2, 5}
+  Between 2 and 5
+  re.findall(r'\d{2,5}', '1 10 100 1000')
+  ['10', '100', '1000']
+
+
+
+  {2,}
+  2 or more
+  re.findall(r'\d{2,}', '1 10 100')
+  ['10', '100']
+
+
+
+example.py
+import re
+
+print(re.findall(r'\d+', '10 20 30 40 50'))
+print(re.findall(r'\d{2}', '10 20 30 40 50'))
+print(re.findall(r'\d{2,}', '1 10 100'))
+
+
+View:
+output.txt
+['10', '20', '30', '40', '50']
+['10', '20', '30', '40', '50']
+['10', '100']
+
+
+Regular Expression Groups
+
+
+
+
+  Pattern
+  Meaning
+  Python example
+  View
+
+
+
+
+
+  (...)
+  Capturing group
+  re.search(r'(\d+)', 'score 30').group(1)
+  '30'
+
+
+
+  (?:...)
+  Non-capturing group
+  re.findall(r'(?:10\|20)', '10, 20, 30')
+  ['10', '20']
+
+
+
+  \Y
+  Match the Y'th captured group
+  re.search(r'(\d+),\s*\1', '10, 10').group()
+  '10, 10'
+
+
+
+
+Regular Expression Character Classes
+
+
+
+
+  Pattern
+  Meaning
+  Example
+  View
+
+
+
+
+
+  [ab-d]
+  One character of: a, b, c, d
+  re.findall(r'[ab-d]', 'cat')
+  ['c', 'a']
+
+
+
+  [^ab-d]
+  One character except: a, b, c, d
+  re.findall(r'[^ab-d]', 'cat')
+  ['t']
+
+
+
+  [\b]
+  Backspace character
+  rarely used in Python text
+  backspace
+
+
+
+  \d
+  One digit
+  re.findall(r'\d', 'A10')
+  ['1', '0']
+
+
+
+  \D
+  One non-digit
+  re.findall(r'\D', 'A10')
+  ['A']
+
+
+
+  \s
+  One whitespace
+  re.findall(r'\s', '10 20')
+  [' ']
+
+
+
+  \S
+  One non-whitespace
+  re.findall(r'\S+', '10 20')
+  ['10', '20']
+
+
+
+  \w
+  One word character
+  re.findall(r'\w+', 'Priya_22')
+  ['Priya_22']
+
+
+
+  \W
+  One non-word character
+  re.findall(r'\W+', 'Priya, Rao')
+  [', ']
+
+
+
+example.py
+import re
+
+print(re.findall(r'\d', 'A10'))
+print(re.findall(r'\D', 'A10'))
+print(re.findall(r'\s', '10 20'))
+print(re.findall(r'\S+', '10 20'))
+print(re.findall(r'\w+', 'Priya_22'))
+print(re.findall(r'\W+', 'Priya, Rao'))
+
+
+View:
+output.txt
+['1', '0']
+['A']
+[' ']
+['10', '20']
+['Priya_22']
+[', ']
+
+
+Regular Expression Assertions
+
+
+
+
+  Pattern
+  Meaning
+  Example
+  View
+
+
+
+
+
+  ^
+  Start of string
+  re.findall(r'^10', '10 20 30')
+  ['10']
+
+
+
+  $
+  End of string
+  re.findall(r'50$', '10 20 50')
+  ['50']
+
+
+
+  \b
+  Word boundary
+  re.findall(r'\b20\b', '120 20 201')
+  ['20']
+
+
+
+  \B
+  Non-word boundary
+  re.findall(r'\B20', '120 20')
+  ['20']
+
+
+
+  (?=...)
+  Positive lookahead
+  re.findall(r'\d+(?=%)', '10% 20 pts')
+  ['10']
+
+
+
+  (?!...)
+  Negative lookahead
+  re.findall(r'\d+(?!%)', '10% 20')
+  ['1', '20']
+
+
+
+example.py
+import re
+
+print(re.findall(r'^10', '10 20 30'))
+print(re.findall(r'50$', '10 20 50'))
+print(re.findall(r'\b20\b', '120 20 201'))
+print(re.findall(r'\d+(?=%)', '10% 20 pts'))
+
+
+View:
+output.txt
+['10']
+['50']
+['20']
+['10']
+
+
+Regular Expression Flags
+
+
+
+
+  Flag
+  Meaning
+  In Python
+
+
+
+
+
+  g
+  Global match (every match, not only the first)
+  Not a flag. Use re.findall() or re.finditer().
+
+
+
+  i
+  Ignore case
+  re.I or re.IGNORECASE
+
+
+
+  m
+  ^ and $ match start and end of line
+  re.M or re.MULTILINE
+
+
+
+example.py
+import re
+
+print(re.findall(r'priya', 'Priya PRIYA', re.I))
+print(re.findall(r'^score', 'score 10\nscore 20', re.M))
+
+
+View:
+output.txt
+['Priya', 'PRIYA']
+['score', 'score']
+
+
+Regular Expression Special Characters
+
+
+
+
+  Pattern
+  Meaning
+
+
+
+
+
+  \n
+  Newline
+
+
+
+  \r
+  Carriage return
+
+
+
+  \t
+  Tab
+
+
+
+  \0
+  Null character
+
+
+
+  \YYY
+  Octal character YYY
+
+
+
+  \xYY
+  Hexadecimal character YY
+
+
+
+  \uYYYY
+  Hexadecimal character YYYY
+
+
+
+  \cY
+  Control character Y
+
+
+
+example.py
+import re
+
+print(re.split(r'\n', '10\n20\n30'))
+print(re.split(r'\t', '10\t20\t30'))
+print(re.findall(r'\x41', 'A10'))   # \x41 is 'A'
+
+
+View:
+output.txt
+['10', '20', '30']
+['10', '20', '30']
+['A']
+
+
+Regular Expression Replacement
+
+The cheat-sheet replacement tokens are the JavaScript / editor form. Python re.sub uses a different replacement language.
+
+
+
+
+  Cheat-sheet token
+  Meaning
+  Python re.sub replacement
+
+
+
+
+
+  $$
+  Inserts $
+  '\$' or '$$' is not special; write '$'
+
+
+
+  $&
+  Insert entire match
+  \g<0>
+
+
+
+  `$``
+  Insert preceding string
+  not built-in; use a function replacement
+
+
+
+  $'
+  Insert following string
+  not built-in; use a function replacement
+
+
+
+  $Y
+  Insert Y'th captured group
+  \1, \2, or \g<1>
+
+
+
+example.py
+import re
+
+print(re.sub(r'(\d+)', r'[\g<0>]', '10 20 30'))
+print(re.sub(r'(\d+), (\d+)', r'\2, \1', '10, 20'))
+
+
+View:
+output.txt
+[10] [20] [30]
+20, 10
+
+
+Let us use examples to clarify the meta characters above.
+
+Square Bracket
+
+Let us use square bracket to include lower and upper case.
+example.py
+import re
+
+regex_pattern = r'[Aa]pple'  # this square bracket mean either A or a
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['Apple', 'apple']
+
+
+If we want to look for the banana, we write the pattern as follows:
+example.py
+import re
+
+regex_pattern = r'[Aa]pple|[Bb]anana'  # this square bracket means either A or a
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['Apple', 'banana', 'apple', 'banana']
+
+
+Using the square bracket and or operator, we manage to extract Apple, apple, Banana and banana.
+
+Escape character(\) in RegEx
+example.py
+import re
+
+regex_pattern = r'\d'  # d is a special character which means digits
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+matches = re.findall(regex_pattern, txt)
+print(matches)  # this is not what we want
+
+
+View:
+output.txt
+['6', '2', '0', '1', '9', '8', '2', '0', '2', '1']
+
+
+One or more times(+)
+example.py
+import re
+
+regex_pattern = r'\d+'  # d is a special character which means digits, + mean one or more times
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+matches = re.findall(regex_pattern, txt)
+print(matches)  # now, this is better!
+
+
+View:
+output.txt
+['6', '2019', '8', '2021']
+
+
+Period(.)
+example.py
+import re
+
+regex_pattern = r'[a].'  # this square bracket means a and . means any character except new line
+txt = '''Apple and banana are fruits'''
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+regex_pattern = r'[a].+'  # . any character, + any character one or more times
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['an', 'an', 'an', 'a ', 'ar']
+['and banana are fruits']
+
+
+Zero or more times(*)
+
+Zero or many times. The pattern could not occur or it can occur many times.
+example.py
+import re
+
+regex_pattern = r'[a].*'  # . any character, * any character zero or more times
+txt = '''Apple and banana are fruits'''
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['and banana are fruits']
+
+
+Zero or one time(?)
+
+Zero or one time. The pattern may not occur or it may occur once.
+example.py
+import re
+
+txt = '''I am not sure if there is a convention how to write the word e-mail.
+Some people write it as email others may write it as Email or E-mail.'''
+regex_pattern = r'[Ee]-?mail'  # ? means here that '-' is optional
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['e-mail', 'email', 'Email', 'E-mail']
+
+
+Quantifier in RegEx
+
+We can specify the length of the substring we are looking for in a text, using a curly bracket. Let us imagine we are interested in a substring with a length of 4 characters:
+example.py
+import re
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'\d{4}'  # exactly four times
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'\d{1,4}'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['2019', '2021']
+['6', '2019', '8', '2021']
+
+
+Cart ^
+
+
+Starts with
+
+example.py
+import re
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'^This'  # ^ means starts with
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['This']
+
+
+
+Negation
+
+example.py
+import re
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'[^A-Za-z ]+'  # ^ in set character means negation, not A to Z, not a to z, no space
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+View:
+output.txt
+['6,', '2019', '8,', '2021']
+
+
+Groups, lookaheads, and flags
+
+These rows were on the cheat sheet. Here they are as runnable Python.
+example.py
+import re
+
+text = 'Priya, 22, Hyderabad, scores 10 20 30 40 50'
+
+# capturing group
+m = re.search(r'(\w+), (\d+), (\w+)', text)
+print(m.group())      # whole match
+print(m.group(1))     # Priya
+print(m.group(2))     # 22
+print(m.group(3))     # Hyderabad
+
+# backreference: same number twice
+print(re.findall(r'(\d+) \1', '10 10 20 30 30'))
+
+# positive lookahead: digits that sit before a comma
+print(re.findall(r'\d+(?=,)', '10, 20, 30'))
+
+# negative lookahead: the word score not followed by s
+print(re.findall(r'score(?!s)', 'score scores'))
+
+# flags: ignore case + multiline
+print(re.findall(r'^priya', 'Priya\npriya', re.I | re.M))
+
+
+View:
+output.txt
+Priya, 22, Hyderabad
+Priya
+22
+Hyderabad
+['10', '30']
+['10', '20']
+['score']
+['Priya', 'priya']
+
+
+Day 18 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+What is the most frequent word in the following paragraph?
+
+example.py
+    paragraph = 'I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.
+
+terminal
+    [
+    (6, 'love'),
+    (5, 'you'),
+    (3, 'can'),
+    (2, 'what'),
+    (2, 'teaching'),
+    (2, 'not'),
+    (2, 'else'),
+    (2, 'do'),
+    (2, 'I'),
+    (1, 'which'),
+    (1, 'to'),
+    (1, 'the'),
+    (1, 'something'),
+    (1, 'if'),
+    (1, 'give'),
+    (1, 'develop'),
+    (1, 'capabilities'),
+    (1, 'application'),
+    (1, 'an'),
+    (1, 'all'),
+    (1, 'Python'),
+    (1, 'If')
+    ]
+
+
+
+The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 0 at origin, 4 and 8 in the positive direction. Extract these numbers from this whole text and find the distance between the two furthest particles.
+
+example.py
+points = ['-12', '-4', '-3', '-1', '0', '4', '8']
+sorted_points =  [-12, -4, -3, -1, -1, 0, 2, 4, 8]
+distance = 8 -(-12) # 20
+
+
+Exercises: Level 2
+
+
+
+Write a pattern which identifies if a string is a valid python variable
+terminal
+is_valid_variable('first_name') # True
+is_valid_variable('first-name') # False
+is_valid_variable('1first_name') # False
+is_valid_variable('firstname') # True
+
+
+
+
+Exercises: Level 3
+
+
+
+Clean the following text. After cleaning, count three most frequent words in the string.
+example.py
+sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?'''
+
+print(clean_text(sentence));
+I am a teacher and I love teaching There is nothing as more rewarding as educating and empowering people I found teaching more interesting than any other jobs Does this motivate you to be a teacher
+print(most_frequent_words(cleaned_text)) # [(3, 'I'), (2, 'teaching'), (2, 'teacher')]
+
+
+
+
+You finished Day 18. Next: file handling.
+

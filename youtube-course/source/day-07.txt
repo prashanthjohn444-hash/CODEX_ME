@@ -1,0 +1,952 @@
+
+Sets
+
+Set is a collection of items. The Mathematics definition of a set can be applied also in Python. Set is a collection of unordered and un-indexed distinct elements. In Python a set is used to store unique items, and it is possible to find the union, intersection, difference, symmetric difference, subset, super set and disjoint set among sets.
+
+A set is unordered. The print order of items may differ from the order you typed them.
+
+Set methods at a glance
+
+
+
+
+  #
+  Method / operator
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  set()
+  Create a set
+  set([10, 20, 20, 30])
+  {10, 20, 30}
+
+
+
+  2
+  len(st)
+  Number of unique items
+  len({10, 20, 30, 40})
+  4
+
+
+
+  3
+  x in st
+  Membership check
+  20 in {10, 20, 30}
+  True
+
+
+
+  4
+  st.add(x)
+  Add one item
+  {10, 20}.add(30)
+  {10, 20, 30}
+
+
+
+  5
+  st.update(seq)
+  Add many items
+  {10}.update([20, 30])
+  {10, 20, 30}
+
+
+
+  6
+  st.remove(x)
+  Remove x (error if missing)
+  {10, 20, 30}.remove(20)
+  {10, 30}
+
+
+
+  7
+  st.discard(x)
+  Remove x (no error if missing)
+  {10, 20}.discard(50)
+  {10, 20}
+
+
+
+  8
+  st.pop()
+  Remove and return a random item
+  {10, 20, 30}.pop()
+  one item, set shrinks
+
+
+
+  9
+  st.clear()
+  Empty the set
+  {10, 20}.clear()
+  set()
+
+
+
+  10
+  del st
+  Delete the set name
+  del cities
+  name is gone
+
+
+
+  11
+  st1.union(st2) or st1 \| st2
+  All items from both
+  {10, 20} \| {20, 30}
+  {10, 20, 30}
+
+
+
+  12
+  st1.intersection(st2) or st1 & st2
+  Items in both
+  {10, 20, 30} & {20, 30, 40}
+  {20, 30}
+
+
+
+  13
+  st1.difference(st2) or st1 - st2
+  Items in st1 not in st2
+  {10, 20, 30} - {20}
+  {10, 30}
+
+
+
+  14
+  st1.symmetric_difference(st2) or st1 ^ st2
+  Items in one set, not both
+  {10, 20} ^ {20, 30}
+  {10, 30}
+
+
+
+  15
+  st1.issubset(st2)
+  True if every item of st1 is in st2
+  {10, 20}.issubset({10, 20, 30})
+  True
+
+
+
+  16
+  st1.issuperset(st2)
+  True if st1 contains every item of st2
+  {10, 20, 30}.issuperset({10, 20})
+  True
+
+
+
+  17
+  st1.isdisjoint(st2)
+  True if the sets share no item
+  {10, 20}.isdisjoint({30, 40})
+  True
+
+
+
+
+The numbered walk-through uses structured numbers (10, 20, 30, 40, 50) and the names Priya, Rao, India, Hyderabad. Fruit and letter examples from the original lesson stay so you can match them.
+
+Creating a Set
+
+To create an empty set, we use the set() function. Empty curly brackets {} will create a dictionary, not a set.
+
+
+Creating an empty set
+
+example.py
+# syntax
+st = set()
+
+example.py
+st = set()
+print(st)
+print(type(st))
+print(len(st))
+print(type({}))
+
+
+View:
+output.txt
+set()
+<class 'set'>
+0
+<class 'dict'>
+
+
+{} is a dictionary. set() is the empty set.
+
+
+Creating a set with initial items
+
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+
+
+Example:
+example.py
+# syntax
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+cities = {'Hyderabad', 'Mumbai', 'Delhi', 'Chennai'}
+scores = {10, 20, 30, 40, 50}
+print(fruits)
+print(cities)
+print(scores)
+
+
+View (order may differ):
+output.txt
+{'banana', 'orange', 'mango', 'lemon'}
+{'Hyderabad', 'Mumbai', 'Delhi', 'Chennai'}
+{40, 10, 50, 20, 30}
+
+
+Duplicate values are stored once:
+example.py
+print(set([10, 20, 20, 30, 40, 10]))
+
+
+View (order may differ):
+output.txt
+{40, 10, 20, 30}
+
+
+Getting Set's Length
+
+We use len() to find the length of a set. It counts unique items.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+len(st)
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+print(len(fruits))
+
+scores = {10, 20, 30, 40}
+print(len(scores))
+print(len({10, 20, 20, 30}))
+
+
+View:
+output.txt
+4
+4
+3
+
+
+{10, 20, 20, 30} has length 3 because 20 is stored once.
+
+Accessing Items in a Set
+
+A set is un-indexed, so you cannot write st[0]. We use loops to access items. We will see this in the loop section (Day 10). You can still check membership with in, convert the set to a list if you need a snapshot, or walk the set with for item in st.
+example.py
+scores = {10, 20, 30, 40, 50}
+print(20 in scores)
+# print(scores[0])  # TypeError: 'set' object is not subscriptable
+
+
+View:
+output.txt
+True
+
+
+Checking an Item
+
+To check if an item exists in a set we use the in membership operator.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+print("Does set st contain item3? ", 'item3' in st) # Does set st contain item3? True
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+print('mango' in fruits) # True
+
+cities = {'Hyderabad', 'Mumbai', 'Delhi', 'Chennai'}
+print('Hyderabad' in cities)
+print('Pune' in cities)
+
+scores = {10, 20, 30, 40}
+print(10 in scores)
+print(50 in scores)
+
+
+View:
+output.txt
+True
+True
+False
+True
+False
+
+
+Adding Items to a Set
+
+Once a set is created we cannot change an existing item in place, but we can add additional items.
+
+1. add()
+
+Add one item using add().
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+st.add('item5')
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+fruits.add('lime')
+print(fruits)
+
+
+View (order may differ):
+output.txt
+{'banana', 'lime', 'mango', 'lemon', 'orange'}
+
+example.py
+scores = {10, 20, 30, 40}
+scores.add(50)
+print(scores)
+scores.add(20)   # already there — the set does not grow
+print(scores)
+
+
+View (order may differ):
+output.txt
+{40, 10, 50, 20, 30}
+{40, 10, 50, 20, 30}
+
+
+2. update()
+
+Add multiple items using update(). update() takes a list (or any iterable) argument.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+st.update(['item5', 'item6', 'item7'])
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+vegetables = ('tomato', 'potato', 'cabbage', 'onion', 'carrot')
+fruits.update(vegetables)
+print(fruits)
+
+
+View (order may differ):
+output.txt
+{'banana', 'cabbage', 'potato', 'onion', 'mango', 'carrot', 'tomato', 'lemon', 'orange'}
+
+example.py
+scores = {10, 20, 30, 40}
+scores.update([20, 50, 60])
+print(scores)
+
+
+View (order may differ):
+output.txt
+{40, 10, 50, 20, 60, 30}
+
+
+20 was already in the set. update added 50 and 60 only.
+
+Removing Items from a Set
+
+We can remove an item from a set using the remove() method. If the item is not found, remove() will raise an error, so it is good to check if the item exists. However, discard() does not raise any errors.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+st.remove('item2')
+
+
+3. remove()
+example.py
+scores = {10, 20, 30, 40}
+scores.remove(20)
+print(scores)
+# scores.remove(50)  # KeyError: 50
+
+
+View (order may differ):
+output.txt
+{40, 10, 30}
+
+
+4. discard()
+example.py
+scores = {10, 20, 30, 40}
+scores.discard(50)   # 50 is missing — no error
+print(scores)
+scores.discard(10)
+print(scores)
+
+
+View (order may differ):
+output.txt
+{40, 10, 20, 30}
+{40, 20, 30}
+
+
+Use remove() when a missing item should be treated as a bug. Use discard() when it is fine if the item is already gone.
+
+5. pop()
+
+The pop() method removes a random item from a set and returns the removed item.
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+fruits.pop()  # removes a random item from the set
+
+
+If we are interested in the removed item:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+removed_item = fruits.pop()
+print(removed_item)
+print(fruits)
+
+
+View (the removed item is random — one possible run):
+output.txt
+banana
+{'orange', 'mango', 'lemon'}
+
+example.py
+scores = {10, 20, 30, 40}
+removed_item = scores.pop()
+print(removed_item)
+print(scores)
+
+
+View (one possible run):
+output.txt
+40
+{10, 20, 30}
+
+
+Do not use pop() when you need a specific value. Use remove() or discard() for that.
+
+Clearing Items in a Set
+
+If we want to clear or empty the set we use the clear() method. The set still exists; it just has no items.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+st.clear()
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+fruits.clear()
+print(fruits) # set()
+
+
+View:
+output.txt
+set()
+
+example.py
+scores = {10, 20, 30, 40}
+scores.clear()
+print(scores)
+print(len(scores))
+
+
+View:
+output.txt
+set()
+0
+
+
+Deleting a Set
+
+If we want to delete the set itself we use the del operator.
+example.py
+# syntax
+st = {'item1', 'item2', 'item3', 'item4'}
+del st
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+del fruits
+# print(fruits)  # NameError: name 'fruits' is not defined
+
+example.py
+cities = {'Hyderabad', 'Mumbai', 'Delhi'}
+del cities
+
+
+After del, the name is gone. clear() keeps the name and leaves set().
+
+Converting List to Set
+
+We can convert list to set and set to list. Converting list to set removes duplicates and only unique items will be reserved.
+example.py
+# syntax
+lst = ['item1', 'item2', 'item3', 'item4', 'item1']
+st = set(lst)  # {'item2', 'item4', 'item1', 'item3'} - the order is random, because sets in general are unordered
+
+
+Example:
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'orange', 'banana']
+fruits = set(fruits) # {'mango', 'lemon', 'banana', 'orange'}
+print(fruits)
+
+
+View (order may differ):
+output.txt
+{'banana', 'orange', 'mango', 'lemon'}
+
+example.py
+scores_list = [10, 20, 20, 30, 40, 10]
+scores_set = set(scores_list)
+print(scores_set)
+print(len(scores_list), len(scores_set))
+print(list(scores_set))
+
+
+View (order may differ):
+output.txt
+{40, 10, 20, 30}
+6 4
+[40, 10, 20, 30]
+
+
+The list had 6 items. The set has 4 unique numbers.
+
+Joining Sets
+
+We can join two sets using the union() or update() method or the | symbol.
+
+6. union()
+
+This method returns a new set. The originals stay unchanged.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item5', 'item6', 'item7', 'item8'}
+st3 = st1.union(st2) # st3 = st1 | st2
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+vegetables = {'tomato', 'potato', 'cabbage', 'onion', 'carrot'}
+print(fruits.union(vegetables))
+# or using this: print(fruits | vegetables)
+
+
+View (order may differ):
+output.txt
+{'lemon', 'carrot', 'tomato', 'banana', 'mango', 'orange', 'cabbage', 'potato', 'onion'}
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+print(A.union(B))
+print(A | B)
+print(A)   # A is unchanged
+
+
+View (order may differ):
+output.txt
+{50, 20, 40, 10, 30}
+{50, 20, 40, 10, 30}
+{10, 20, 30}
+
+
+Update to join
+
+update() inserts a set into a given set. It changes the first set in place.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item5', 'item6', 'item7', 'item8'}
+st1.update(st2) # st2 contents are added to st1
+
+
+Example:
+example.py
+fruits = {'banana', 'orange', 'mango', 'lemon'}
+vegetables = {'tomato', 'potato', 'cabbage', 'onion', 'carrot'}
+fruits.update(vegetables)
+print(fruits)
+
+
+View (order may differ):
+output.txt
+{'lemon', 'carrot', 'tomato', 'banana', 'mango', 'orange', 'cabbage', 'potato', 'onion'}
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+A.update(B)
+print(A)
+
+
+View (order may differ):
+output.txt
+{50, 20, 40, 10, 30}
+
+
+union() / | return a new set. update() changes the set you call it on.
+
+Finding Intersection Items
+
+Intersection returns a set of items which are in both sets. You can also use the & symbol.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item3', 'item2'}
+st1.intersection(st2) # {'item3', 'item2'}
+# or using this: st1 & st2
+
+
+Example:
+example.py
+whole_numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+even_numbers = {0, 2, 4, 6, 8, 10}
+print(whole_numbers.intersection(even_numbers)) # {0, 2, 4, 6, 8, 10}
+
+python = {'p', 'y', 't', 'h', 'o', 'n'}
+dragon = {'d', 'r', 'a', 'g', 'o', 'n'}
+print(python.intersection(dragon))     # {'o', 'n'}
+# python & dragon
+
+
+View:
+output.txt
+{0, 2, 4, 6, 8, 10}
+{'n', 'o'}
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+print(A.intersection(B))
+print(A & B)
+
+
+View:
+output.txt
+{30}
+{30}
+
+
+30 is the only number in both sets.
+
+Checking Subset and Super Set
+
+A set can be a subset or super set of other sets:
+
+
+Subset: issubset()
+
+Super set: issuperset()
+
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item2', 'item3'}
+st2.issubset(st1) # True
+st1.issuperset(st2) # True
+
+
+Example:
+example.py
+whole_numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+even_numbers = {0, 2, 4, 6, 8, 10}
+print(whole_numbers.issubset(even_numbers)) # False, because it is a super set
+print(whole_numbers.issuperset(even_numbers)) # True
+
+python = {'p', 'y', 't', 'h', 'o', 'n'}
+dragon = {'d', 'r', 'a', 'g', 'o', 'n'}
+print(python.issubset(dragon))     # False
+
+
+View:
+output.txt
+False
+True
+False
+
+example.py
+small = {10, 20}
+big = {10, 20, 30, 40}
+print(small.issubset(big))
+print(big.issuperset(small))
+print(big.issubset(small))
+
+
+View:
+output.txt
+True
+True
+False
+
+
+Every item of {10, 20} is inside {10, 20, 30, 40}, so small is a subset and big is a super set.
+
+Checking the Difference Between Two Sets
+
+It returns the difference between two sets. You can also use the - symbol.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item2', 'item3'}
+st2.difference(st1) # set() : st2 - st1
+st1.difference(st2) # {'item1', 'item4'}
+
+
+Example:
+example.py
+whole_numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+even_numbers = {0, 2, 4, 6, 8, 10}
+print(whole_numbers.difference(even_numbers)) # {1, 3, 5, 7, 9}
+
+python = {'p', 'y', 't', 'o', 'n'}
+dragon = {'d', 'r', 'a', 'g', 'o', 'n'}
+print(python.difference(dragon))     # {'p', 'y', 't'}  - the result is unordered
+# python - dragon
+print(dragon.difference(python))     # {'d', 'r', 'a', 'g'}
+# dragon - python
+
+
+View (order may differ):
+output.txt
+{1, 3, 5, 7, 9}
+{'p', 'y', 't'}
+{'d', 'r', 'a', 'g'}
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+print(A.difference(B))
+print(A - B)
+print(B.difference(A))
+print(B - A)
+
+
+View:
+output.txt
+{10, 20}
+{10, 20}
+{40, 50}
+{40, 50}
+
+
+A - B is items only in A. B - A is items only in B.
+
+Finding Symmetric Difference Between Two Sets
+
+It returns the symmetric difference between two sets. That is a set that contains all items from both sets, except items that are present in both sets. Mathematically: (A\B) ∪ (B\A). You can also use ^.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item2', 'item3'}
+# it means (A\B)∪(B\A)
+st2.symmetric_difference(st1) # {'item1', 'item4'} : st2 ^ st1
+
+
+Example:
+example.py
+whole_numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+some_numbers = {1, 2, 3, 4, 5}
+print(whole_numbers.symmetric_difference(some_numbers)) # {0, 6, 7, 8, 9, 10}
+
+python = {'p', 'y', 't', 'h', 'o', 'n'}
+dragon = {'d', 'r', 'a', 'g', 'o', 'n'}
+print(python.symmetric_difference(dragon))  # {'r', 't', 'p', 'y', 'g', 'a', 'd', 'h'}
+# python ^ dragon
+
+
+View (order may differ):
+output.txt
+{0, 6, 7, 8, 9, 10}
+{'r', 't', 'p', 'y', 'g', 'a', 'd', 'h'}
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+print(A.symmetric_difference(B))
+print(A ^ B)
+
+
+View (order may differ):
+output.txt
+{40, 10, 50, 20}
+{40, 10, 50, 20}
+
+
+30 is in both, so it is left out. The result is {10, 20, 40, 50}.
+
+Checking Disjoint Sets
+
+If two sets do not have a common item we call them disjoint sets. We can check if two sets are joint or disjoint using the isdisjoint() method.
+example.py
+# syntax
+st1 = {'item1', 'item2', 'item3', 'item4'}
+st2 = {'item2', 'item3'}
+st2.isdisjoint(st1) # False
+
+
+Example:
+example.py
+even_numbers = {0, 2, 4, 6, 8}
+odd_numbers = {1, 3, 5, 7, 9}
+print(even_numbers.isdisjoint(odd_numbers)) # True, because no common item
+
+python = {'p', 'y', 't', 'h', 'o', 'n'}
+dragon = {'d', 'r', 'a', 'g', 'o', 'n'}
+print(python.isdisjoint(dragon))  # False, there are common items {'o', 'n'}
+
+
+View:
+output.txt
+True
+False
+
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+print(A.isdisjoint(B))
+print({10, 20}.isdisjoint({30, 40}))
+
+
+View:
+output.txt
+False
+True
+
+
+A and B share 30, so they are not disjoint.
+
+Other set methods you should not skip
+
+These methods are on every set. Day 7 keeps them in the table. Try each line in the shell.
+example.py
+A = {10, 20, 30}
+B = {30, 40, 50}
+
+# copy() — new set, so later changes do not touch A
+C = A.copy()
+C.add(40)
+print(A)    # {10, 20, 30}
+print(C)    # {10, 20, 30, 40}
+
+# intersection_update() — keep only items that are also in B (changes A)
+A = {10, 20, 30}
+A.intersection_update(B)
+print(A)    # {30}
+
+# difference_update() — remove items that are also in B (changes A)
+A = {10, 20, 30}
+A.difference_update(B)
+print(A)    # {10, 20}
+
+# symmetric_difference_update() — keep items in one set, not both (changes A)
+A = {10, 20, 30}
+A.symmetric_difference_update(B)
+print(A)    # {10, 20, 40, 50}
+
+# frozenset() — frozen (unchangeable) set from Day 2
+print(frozenset([10, 20, 20, 30]))
+
+
+union, intersection, difference, and symmetric_difference return a new set. The _update forms change the set you call them on.
+
+Day 7 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Use this starter data for Level 1, Level 2, and the first Level 3 items:
+example.py
+# sets
+it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
+A = {19, 22, 24, 20, 25, 26}
+B = {19, 22, 20, 25, 26, 24, 28, 27}
+age = [22, 19, 24, 25, 26, 24, 25, 24]
+
+
+Exercises: Level 1
+
+
+Find the length of the set it_companies
+
+Add 'Twitter' to it_companies
+
+Insert multiple IT companies at once to the set it_companies
+
+Remove one of the companies from the set it_companies
+
+What is the difference between remove and discard
+
+
+Exercises: Level 2
+
+
+Join A and B
+
+Find A intersection B
+
+Is A subset of B
+
+Are A and B disjoint sets
+
+Join A with B and B with A
+
+What is the symmetric difference between A and B
+
+Delete the sets completely
+
+
+Exercises: Level 3
+
+
+Convert the ages to a set and compare the length of the list and the set, which one is bigger?
+
+Explain the difference between the following data types: string, list, tuple and set
+
+I am a teacher and I love to inspire and teach people. How many unique words have been used in the sentence? Use the split methods and set to get the unique words.
+
+Store {10, 20, 30} as A_scores and {30, 40, 50} as B_scores. Print union, intersection, difference, and symmetric_difference (methods and |, &, -, ^)
+
+Check A_scores.issubset(B_scores), B_scores.issuperset(A_scores), and A_scores.isdisjoint({60})
+
+Start with cities = {'Hyderabad', 'Mumbai'}. add('Delhi'), then update(['Chennai', 'Pune']). Print the set and its length
+
+On a copy of {10, 20, 30, 40, 50}, discard(50), then remove(10), then pop() once. Print the set after each step
+
+Convert [10, 20, 20, 30, 40, 10] to a set and back to a list. Print both lengths and explain the missing duplicates in a comment
+
+Use clear() on a set of names {'Priya', 'Rao'}. Print the empty set. Then del it
+
+Copy {10, 20, 30} and run intersection_update({20, 30, 40}) on the copy only. Print the original and the copy
+
+
+You finished Day 7. Next: dictionaries. That lesson starts Module 2.
+

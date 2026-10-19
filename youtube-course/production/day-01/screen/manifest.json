@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "status": "captured_pending_visual_review",
+  "source_script": "youtube-course/day-01-spoken-script.md",
+  "reference_episode": "youtube-course/episodes/day-01.md",
+  "target": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "narration": false
+  },
+  "desktop_detected": {
+    "width": 1920,
+    "height": 1080
+  },
+  "capabilities": {
+    "python": "Recorded Python 3.13.15 on host",
+    "screen_capture": "OBS Studio, 1920x1080 at 30 fps; test frame visually inspected"
+  },
+  "gaps": [
+    "Inspect every numbered take before publishing.",
+    "Section 08 editor installation web/extension views may need supplemental footage."
+  ],
+  "assets": [
+    {
+      "path": "demo/python-30-days/hello.py",
+      "kind": "executable_demo",
+      "content": "Greeting and printed arithmetic"
+    },
+    {
+      "path": "demo/python-30-days/expression_only.py",
+      "kind": "executable_demo",
+      "content": "Expression without printed output"
+    },
+    {
+      "path": "demo/python-30-days/printed_expression.py",
+      "kind": "executable_demo",
+      "content": "Expression with printed output"
+    },
+    {
+      "path": "demo/python-30-days/types_preview.py",
+      "kind": "executable_demo",
+      "content": "Comment and four built-in types"
+    },
+    {
+      "path": "demo/python-30-days/broken_example.py",
+      "kind": "intentional_syntax_error",
+      "content": "Missing closing parenthesis for repair take"
+    },
+    {
+      "path": "shot-plan.md",
+      "kind": "capture_instructions",
+      "content": "Genuine capture plan and unresolved requirements"
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01-hook-shell-file",
+      "section": 1,
+      "content": "Shell result versus silent file then printed file",
+      "path": "captures\\section-01-obs.mkv",
+      "duration_seconds": 16.3,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S02-destination",
+      "section": 2,
+      "content": "Working hello.py greeting and calculation",
+      "path": "captures\\section-02-obs.mkv",
+      "duration_seconds": 17.2,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S03-use-cases",
+      "section": 3,
+      "content": "Working editor backdrop for use-case narration",
+      "path": "captures\\section-03-obs.mkv",
+      "duration_seconds": 34.5,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S04-version",
+      "section": 4,
+      "content": "Real terminal Python version",
+      "path": "captures\\section-04-obs.mkv",
+      "duration_seconds": 43.166,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S05-prompts",
+      "section": 5,
+      "content": "Terminal and interactive Python prompt transitions",
+      "path": "captures\\section-05-obs.mkv",
+      "duration_seconds": 36.833,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S06-expressions",
+      "section": 6,
+      "content": "Arithmetic and quoted-text expressions in shell",
+      "path": "captures\\section-06-obs.mkv",
+      "duration_seconds": 33.5,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S07-repair",
+      "section": 7,
+      "content": "Real syntax error and corrected rerun",
+      "path": "captures\\section-07-obs.mkv",
+      "duration_seconds": 37.9,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S08-hello-file",
+      "section": 8,
+      "content": "Saved file and changed greeting; VS Code installation instructions require separate resolution",
+      "path": "captures\\section-08-obs.mkv",
+      "duration_seconds": 79.7,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S09-resolve",
+      "section": 9,
+      "content": "Shell versus file comparison with print repair",
+      "path": "captures\\section-09-obs.mkv",
+      "duration_seconds": 38.2,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S10-types",
+      "section": 10,
+      "content": "Integer, float, string, boolean and comment",
+      "path": "captures\\section-10-obs.mkv",
+      "duration_seconds": 40.466,
+      "status": "captured_pending_visual_review"
+    },
+    {
+      "id": "S11-challenge",
+      "section": 11,
+      "content": "Exercise pause point without solution",
+      "path": "captures\\section-11-obs.mkv",
+      "duration_seconds": 21.366,
+      "status": "captured_pending_visual_review"
+    }
+  ],
+  "editor": "VS Code (approved by user)",
+  "recorder": "OBS Studio 32.2.2"
+}

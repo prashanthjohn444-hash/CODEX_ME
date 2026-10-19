@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Python Neon B-roll</title>
+<style>
+/*THEME*/:root{--g:#67F04B;--v:#BB58FF;--c:#39BCFF;--a:#FFBE55;--bg:#050609;--mono:ui-monospace,Menlo,Consolas,monospace;--head:'Bebas Neue','Oswald','Arial Narrow',Impact,sans-serif;--body:'Barlow','Segoe UI',system-ui,sans-serif}/*END_THEME*/
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;color:#eee}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--body);padding:env(safe-area-inset-top,0) 8px env(safe-area-inset-bottom,0)}
+.scale{width:100%;max-width:1100px;aspect-ratio:16/9;container-type:inline-size}
+.scene{position:relative;width:100%;height:100%;background:var(--bg);overflow:hidden;padding:3.2cqw 4cqw;display:flex;flex-direction:column;gap:1.5cqw}
+.scene::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:3cqw 3cqw}
+.fade{opacity:0;transform:translateY(1cqw);transition:opacity .6s ease,transform .6s ease}
+.on{opacity:1;transform:none}
+.dim{opacity:.25!important}
+h1{font-family:var(--head);font-weight:400;font-size:5.2cqw;color:var(--hd);letter-spacing:.02em;line-height:1;position:relative}
+h1 small{font-family:var(--body);font-size:1.6cqw;color:var(--mut);margin-left:1.6cqw;letter-spacing:0}
+.panel{position:relative;border:1px solid var(--k);border-radius:1.4cqw;padding:1.2cqw 2cqw;background:var(--pf);box-shadow:0 0 2cqw -0.6cqw color-mix(in srgb,var(--k) var(--sp),transparent);transition:opacity .6s,transform .6s,box-shadow .4s,background .4s}
+.panel .t{font-family:var(--head);font-size:2.2cqw;color:var(--k);letter-spacing:.06em;margin-bottom:.5cqw}
+.pin,.pbt{--k:var(--g);--kr:var(--gr)}.pmem{--k:var(--v);--kr:var(--vr)}.pout,.pbf{--k:var(--c);--kr:var(--cr)}
+.pin,.pmem{flex:none}.pout{flex:1}
+.row{display:flex;gap:1.5cqw;flex:none}.col{flex:1;display:flex;flex-direction:column;gap:1.5cqw}
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:1.5cqw}
+.code{font-family:var(--mono);font-size:2.1cqw;color:var(--ink);line-height:1.5}
+.big{font-family:var(--mono);font-size:2.8cqw;color:var(--hd)}.big .v{color:var(--v);font-weight:600}
+.ln{height:0;overflow:hidden;opacity:0;transition:opacity .4s,height .3s}.ln.on{height:3.2cqw;opacity:1}
+.lit.panel{box-shadow:0 0 3cqw rgba(var(--kr),var(--ga));background:var(--pfl)}
+.cells{display:flex;gap:1.4cqw;justify-content:center;align-items:flex-start;margin-top:.4cqw}
+.cell{width:7.2cqw;text-align:center;opacity:0;transform:scale(.6);transition:all .45s cubic-bezier(.2,.9,.3,1.2)}
+.cell.on{opacity:1;transform:none}
+.cell .b{height:6cqw;border:1.5px solid rgba(var(--vr),.6);border-radius:1cqw;background:rgba(var(--vr),.08);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:3.6cqw;color:var(--hd);transition:all .4s}
+.cell .i{font-family:var(--mono);font-size:1.7cqw;color:var(--idx);margin-top:.5cqw}
+.cell.hot .b{background:rgba(var(--vr),.38);border-color:var(--v);box-shadow:0 0 2.2cqw rgba(var(--vr),var(--ga))}
+.cell.hot .i{color:var(--hd)}
+.nodes{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:.6cqw}
+.node{border:1px solid rgba(var(--vr),.55);border-radius:1.1cqw;padding:1cqw .6cqw;text-align:center;transition:all .4s}
+.node .nl{font-family:var(--head);font-size:1.9cqw;color:var(--v);letter-spacing:.06em}
+.node .v{font-family:var(--mono);font-size:2cqw;color:var(--hd)}
+.node.lit{background:rgba(var(--vr),.35);box-shadow:0 0 2.4cqw rgba(var(--vr),var(--ga));border-color:var(--v)}
+.ar{color:var(--v);font-size:2.2cqw}
+.back{grid-column:3/8;height:2.2cqw;border:2px dotted rgba(var(--vr),.7);border-top:0;border-radius:0 0 1cqw 1cqw;margin:0 4cqw}
+.res{font-family:var(--mono);font-size:2.4cqw;color:var(--res);display:flex;gap:1.6cqw;align-items:baseline}
+.res em{font-style:normal;color:var(--mut2);font-size:1.8cqw}
+.res strong{color:var(--c);font-weight:600;text-shadow:0 0 1.4cqw rgba(var(--cr),var(--ga));font-size:3cqw}
+h1{display:flex;align-items:center}
+.logo{width:1.1em;height:1.1em;vertical-align:-.14em;flex:none}
+.badges{margin-left:auto;display:inline-flex;gap:1.2cqw;align-items:center}.badges .logo{width:4.4cqw;height:4.4cqw}
+.cell .b .logo{width:3.6cqw;height:3.6cqw}
+.has-ver{position:relative}.big .has-ver{display:inline-block}
+.ver.o{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0}.big .ver.o{justify-content:flex-start}
+#bar{width:100%;max-width:1100px;display:flex;gap:10px;align-items:center;padding:10px 2px;font-size:14px}
+#bar button,#bar select{background:#1d1f26;color:#eee;border:1px solid #3a3d48;border-radius:8px;padding:7px 12px;font-size:14px}
+#scrub{flex:1}
+body.cap #bar{display:none}
+</style></head><body>
+<div class="scale"><div class="scene" id="scene"></div></div>
+<div id="bar"><button id="pp">Pause</button><button id="rs">Restart</button><input id="scrub" type="range" min="0" max="1000" value="0"/><span id="tm">0.0s</span>
+<select id="sp"><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select><button id="hd">Hide controls (H)</button></div>
+<script>
+/*SCENE*/
+const SCENE={
+ layout:"lanes", title:"STRINGS", subtitle:"Text is a sequence of characters, counted from 0",
+ input:{label:"INPUT", lines:['name = "Python"','print(name[0])','print(name[1:4])']},
+ memory:{label:"MEMORY · name", cells:[["P",0],["y",1],["t",2],["h",3],["o",4],["n",5]]},
+ output:{label:"OUTPUT", lines:['<em>name[0]</em>→<strong>P</strong>','<em>name[1:4]</em>→<strong>yth</strong><em>(stops before index 4)</em>']},
+ steps:[[0.3,"show:h"],[0.8,"show:pin"],[1.1,"show:l0"],[2.2,"show:pmem"],
+  [2.6,"show:c0"],[2.95,"show:c1"],[3.3,"show:c2"],[3.65,"show:c3"],[4.0,"show:c4"],[4.35,"show:c5"],
+  [5.0,"show:l1"],[5.4,"hot:0"],[5.9,"show:pout,o0"],
+  [6.9,"show:l2"],[6.9,"hot:"],[7.3,"hot:1,2,3"],[7.9,"show:o1"]],
+ duration:10
+};
+/*END_SCENE*/
+/* ===== ENGINE (do not edit) ===== */
+const S=SCENE,$=id=>document.getElementById(id),T=S.duration||4.5,HOLD=S.hold??.4;
+/*LAYOUTS*/
+/* Shared layout builder: returns the scene markup for a SCENE config. Used by the HTML player and the HyperFrames export. */
+function buildHTML(S){
+ const ver=S._ver||{},strip=s=>String(s).replace(/<[^>]+>/g,'');
+ /* V: a value element; when the scene changes it with set:, every version is pre-rendered so the timeline can cross-fade (seek-safe) */
+ const V=(tag,id,cls,text,wide)=>{const vs=ver[id];if(!vs)return `<${tag} class="${cls}" id="${id}">${text}</${tag}>`;
+  const st=wide?` style="min-width:${Math.max(...vs.map(v=>strip(v).length))}ch"`:'';
+  return `<${tag} class="${cls} has-ver" id="${id}"${st}>`+vs.map((v,k)=>`<span class="ver${k?' o':''}" id="${id}_${k}">${v}</span>`).join('')+`</${tag}>`};
+ const code=(a,p)=>a.map((l,i)=>`<div class="code ln" id="${p}${i}">${l}</div>`).join('');
+ const outp=a=>a.map((l,i)=>`<div class="res ln" id="o${i}">${l}</div>`).join('');
+ const P=(cls,id,t,body,st='')=>`<div class="panel ${cls} fade" id="${id}" style="${st}"><div class="t">${t}</div>${body}</div>`;
+ const cellsH=cs=>`<div class="cells">${cs.map((c,i)=>`<div class="cell" id="c${i}">${V('div','c'+i+'v','b',c[0])}<div class="i">${c[1]}</div></div>`).join('')}</div>`;
+ const badges=(S.badges||[]).length?`<span class="badges">${S.badges.join('')}</span>`:'';
+ const H=`<h1 class="fade" id="h">${S.title}<small>${S.subtitle}</small>${badges}</h1>`;
+ const LAY={
+  lanes:()=>H+P('pin','pin',S.input.label,code(S.input.lines,'l'))+P('pmem','pmem',S.memory.label,cellsH(S.memory.cells))+P('pout','pout',S.output.label,outp(S.output.lines)),
+  decision:()=>H+`<div class="row">`+P('pin','pin',S.input.label,code(S.input.lines,'l'),'width:38%')+`<div class="col">`+
+   P('pmem','cond',S.cond.label||'CONDITION',`<div class="big">${S.cond.text} → ${V('span','cv','v',S.cond.start||'?',1)}</div>`)+
+   `<div class="branches">`+P('pbt','bt','TRUE',S.branches.t.map(l=>`<div class="code">${l}</div>`).join(''))+P('pbf','bf','FALSE',S.branches.f.map(l=>`<div class="code">${l}</div>`).join(''))+`</div></div></div>`+
+   P('pout','pout',S.output.label,outp(S.output.lines)),
+  loop:()=>H+`<div class="row">`+P('pin','pin',S.input.label,code(S.input.lines,'l'),'width:34%')+`<div class="col"><div class="fade" id="nodes"><div class="nodes">`+
+   S.nodes.map((n,i)=>(i?`<span class="ar">→</span>`:'')+`<div class="node" id="n${i}"><div class="nl">${n[0]}</div>${V('div','n'+i+'v','v',n[1])}</div>`).join('')+`<div class="back"></div></div></div>`+
+   cellsH([[S.counter.value,S.counter.name]])+`</div></div>`+P('pout','pout',S.output.label,outp(S.output.lines))
+ };
+ return LAY[S.layout||'lanes']();
+}
+if(typeof module!=='undefined')module.exports={buildHTML};
+/*END_LAYOUTS*/
+$('scene').innerHTML=buildHTML(S);
+const orig=[...document.querySelectorAll('.b,.v')].map(e=>[e,e.textContent]),cells=[...document.querySelectorAll('.cell')];
+function clearAll(){document.querySelectorAll('.on,.lit,.dim,.hot').forEach(e=>e.classList.remove('on','lit','dim','hot'));orig.forEach(([e,t])=>e.textContent=t)}
+function cmd(c){const i=c.indexOf(':'),k=c.slice(0,i),v=c.slice(i+1);
+ if(k==='show')v.split(',').forEach(x=>$(x).classList.add('on'));
+ else if(k==='hot'){cells.forEach(e=>e.classList.remove('hot'));if(v)v.split(',').forEach(n=>cells[+n].classList.add('hot'))}
+ else if(k==='lit'){document.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));if(v)v.split(',').forEach(x=>$(x).classList.add('lit'))}
+ else if(k==='dim')v.split(',').forEach(x=>$(x).classList.add('dim'));
+ else if(k==='set'){const j=v.indexOf('='),e=$(v.slice(0,j));(e.matches('.b,.v')?e:e.querySelector('.b,.v')).textContent=v.slice(j+1)}}
+/* one deterministic timeline: state at time t = all steps with time <= t, applied in order */
+const steps=[...S.steps].sort((a,b)=>a[0]-b[0]);let t=0,playing=true,speed=1,last=performance.now(),applied=-1;
+function render(){const n=steps.filter(s=>s[0]<=t).length;if(n!==applied){clearAll();steps.slice(0,n).forEach(s=>cmd(s[1]));applied=n}
+ $('scrub').value=Math.min(t,T)/T*1000;$('tm').textContent=Math.min(t,T).toFixed(1)+'s'}
+function tick(now){const dt=(now-last)/1000;last=now;if(playing){t+=dt*speed;if(t>=T+HOLD){if(S.loop===false){t=T;playing=false}else t=0}}
+ $('pp').textContent=playing?'Pause':'Play';render();requestAnimationFrame(tick)}
+$('pp').onclick=()=>{playing=!playing};$('rs').onclick=()=>{t=0;playing=true};
+$('scrub').oninput=e=>{t=e.target.value/1000*T;playing=false};$('sp').onchange=e=>speed=+e.target.value;
+const hide=()=>document.body.classList.toggle('cap');$('hd').onclick=hide;
+addEventListener('keydown',e=>{if(e.key==='h'||e.key==='H')hide();if(e.key===' '){e.preventDefault();$('pp').click()}});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){t=T;playing=false}
+requestAnimationFrame(tick);
+</script></body></html>

@@ -1,0 +1,1 @@
+﻿local f,e=io.open([[C:\Users\lms-work\Documents\Python\youtube-course\production\day-01\v2\timeline\_io_probe_out.txt]],'a') print('IOPROBE_ZZ io='..tostring(io)..' file='..tostring(f)..' err='..tostring(e)) if f then f:write('hello from console '..os.date('!%H:%M:%S')..'\n') f:close() end print('IOPROBE_END_ZZ')

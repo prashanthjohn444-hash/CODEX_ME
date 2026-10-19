@@ -1,0 +1,1031 @@
+
+Welcome
+
+This is a 30 days of Python programming challenge. In this challenge, you will learn everything you need to be a Python programmer and the whole concept of programming. At the end of the challenge you will get a 30DaysOfPython programming challenge certificate.
+
+If you would like to actively engage in the challenge, you may join the 30DaysOfPython challenge telegram group.
+
+Introduction
+
+This section is your first look at Python itself: what the language is, what people actually use it for, why it became the main language of AI, and which fields hire Python programmers the most. After that, Day 1 continues with setup, the Python shell, and your first lines of code.
+
+This 30 days of Python challenge will help you learn the latest version of Python, Python 3, step by step. The topics are broken down into 30 days. Each day contains several topics with easy-to-understand explanations, real-world examples, and many hands-on exercises and projects.
+
+This challenge is designed for beginners and professionals who want to learn the Python programming language. It may take 30 to 100 days to complete. People who actively participate in the telegram group have a high probability of completing the challenge.
+
+This challenge is easy to read, written in conversational English, engaging, motivating and at the same time very demanding. You need to allocate enough time to finish it. If you are a visual learner, you may get the video lesson on the <a href="https://www.youtube.com/channel/UC7PNRuno1rzYPb1xLa4yktw">Washera</a> YouTube channel. You may start from Python for Absolute Beginners video. Subscribe to the channel, comment and ask questions on YouTube videos and be proactive.
+
+What is Python?
+
+Python is a high-level, general-purpose programming language. High-level means you write instructions that look close to English instead of talking to the computer in ones and zeros. General-purpose means the same language can build a website, analyze a spreadsheet, automate a boring office task, or train an AI model.
+
+A few facts that help you place it:
+
+
+Created by Guido van Rossum, a Dutch programmer.
+
+First released on 20 February 1991.
+
+Named after the British comedy series Monty Python's Flying Circus, not the snake.
+
+Open source: anyone can use it, read it, and contribute to it for free.
+
+Interpreted: Python runs your code line by line. You do not compile it into a separate program first.
+
+Object-oriented: you can group data and behavior into objects (you will meet this idea later in the challenge).
+
+Dynamically typed: you do not have to declare a variable's type before you use it.
+
+
+Python's design goal is readability. Compare a simple print in Python with the same idea in a more verbose language: you write print('Hello, World!') and you are done. That short path from idea to working code is why beginners start here and why professionals stay here.
+
+The version you will learn in this challenge is Python 3.
+
+How Python is used
+
+Think of Python as a toolkit, not a single job title. People use it to:
+
+
+Write programs and scripts — from a five-line file that renames photos to a large application used by millions of people.
+
+Automate work — move files, send emails, fill reports, scrape websites, and connect one tool to another.
+
+Build web applications and APIs — with frameworks such as Django, Flask, and FastAPI.
+
+Work with data — clean tables, plot charts, run statistics, and prepare datasets.
+
+Build AI and machine learning systems — train models, run predictions, and talk to large language models.
+
+Control hardware and science experiments — from Raspberry Pi projects to lab instruments.
+
+Teach programming — many universities and bootcamps start with Python because the syntax stays out of the way.
+
+
+You will not do all of that on Day 1. You only need the picture: one language, many doors.
+
+Python for Artificial Intelligence
+
+Python is the most common language in AI and machine learning. That is not because it is the fastest language on the CPU. It is because the AI community built almost all of its shared tools in Python, and because the language is easy to experiment with.
+
+Here is what "Python for AI" actually means in practice:
+
+
+Data first. AI models learn from data. Python (with libraries such as NumPy and pandas) is how people load, clean, and explore that data.
+
+Model training. Libraries such as scikit-learn, TensorFlow, and PyTorch let you train models for prediction, classification, computer vision, and language.
+
+Deep learning and large language models. Modern AI — image generators, chatbots, speech systems — is usually trained and served with Python code.
+
+Glue code. Researchers and engineers use Python to connect data, models, APIs, and user interfaces. A short Python script can call an AI API and print the answer.
+
+Notebooks. Tools such as Jupyter let you mix explanation, code, and charts. That workflow is standard in AI work.
+
+
+If your goal is AI, this 30-day challenge is still the right start. AI libraries sit on top of the same basics you learn here: variables, lists, loops, functions, files, and packages. Without those, the AI tools will feel like magic you cannot control.
+
+Fields where Python is mostly used
+
+Python shows up in many industries. These are the fields where it is used the most:
+
+
+
+
+  Field
+  What people use Python for
+
+
+
+
+
+  Artificial intelligence and machine learning
+  Training models, computer vision, natural language processing, recommendation systems
+
+
+
+  Data science and analytics
+  Cleaning data, statistics, dashboards, business reports
+
+
+
+  Web development
+  Websites, backends, REST APIs
+
+
+
+  Automation and scripting
+  Everyday tasks, DevOps, testing, system administration
+
+
+
+  Scientific computing and research
+  Physics, biology, chemistry, astronomy, simulations
+
+
+
+  Finance and fintech
+  Trading tools, risk models, data pipelines
+
+
+
+  Cybersecurity
+  Scanning, log analysis, small security tools
+
+
+
+  Education
+  Teaching programming and computational thinking
+
+
+
+  Game tooling and desktop apps
+  Tools around games, simple desktop programs, Raspberry Pi projects
+
+
+
+  Software testing and quality
+  Test automation and quality scripts
+
+
+
+
+Companies that use Python include Google, Netflix, Instagram, Spotify, NASA, and many banks, hospitals, and startups. You do not need to pick a field today. Learn the language first. The field comes later.
+
+Why Python
+
+Python is close to human language, so it is easier to learn and use than many older languages. You can read a simple Python program even before you know every keyword.
+
+It is used by many industries and companies, including Google. People build web apps, desktop tools, system-administration scripts, data pipelines, and machine-learning libraries with it. The data science and AI community in particular has made Python its default language.
+
+I hope this is enough to convince you to start. Python is eating the world and you are killing it before it eats you.
+
+Environment Setup
+
+Installing Python
+
+To run a Python script you need to install Python. Download it from python.org.
+
+Windows
+
+
+Open https://www.python.org/.
+
+Open Downloads, then Windows. The page title is Python Releases for Windows.
+
+Click Latest Python 3 Release. The download page used to show Python 3.8.0 next to a Python 2.7.17 line. Use the current Python 3 release. Do not install Python 2.
+
+Run the installer. Tick Add python.exe to PATH, then choose Install Now.
+
+
+macOS
+
+
+Open https://www.python.org/.
+
+Open Downloads. The menu lists All releases, Source code, Windows, Mac OS X, Other Platforms, License.
+
+Under Download for Mac OS X, click the Python 3 button (the page used to show Python 3.8.0).
+
+The page also says Python can be used on many operating systems. Use View the full list of downloads if you are not on Mac.
+
+Run the .pkg installer.
+
+
+Check the version
+
+Open your terminal (macOS / Linux) or Command Prompt / PowerShell (Windows) and run one of these:
+terminal
+python --version
+
+terminal
+python3 --version
+
+
+On some machines the command is python. On others it is python3. Use the one that prints a version.
+
+View (example from an older install; yours will be a later 3.x):
+output.txt
+Python 3.7.5
+
+
+Your version of Python might be different. It should be 3.6 or above. If you see a Python 3 version, Python is installed. Continue to the next section.
+
+Python Shell
+
+Python is an interpreted scripting language, so it does not need to be compiled. It executes the code line by line. Python comes with a Python Shell (Python Interactive Shell). It is used to execute a single Python command and get the result.
+
+The Python shell waits for code from you. When you enter a line, it interprets that line and shows the result on the next line.
+
+1. Open the shell
+
+Open your terminal or command prompt and write:
+terminal
+python
+
+
+View:
+output.txt
+Python 3.7.5 (default, Nov  1 2019, 02:16:32)
+[Clang 11.0.0 (clang-1100.0.33.8)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+
+The >>> prompt means the shell is waiting. Type Python next to >>> and press Enter.
+
+2. First expression
+
+This is the first script on the Python interactive shell:
+example.py
+10 + 20
+
+
+View:
+output.txt
+>>> 10 + 20
+30
+>>>
+
+
+You wrote your first Python script on the interactive shell.
+
+3. Exit the shell
+
+To close the shell, next to >>> write exit() and press Enter.
+example.py
+exit()
+
+
+View:
+output.txt
+>>> 10 + 20
+30
+>>> exit()
+
+
+After exit() you are back in the normal terminal. You now know how to open the Python interactive shell and how to leave it.
+
+4. Syntax errors
+
+Python gives you a result if it understands the script. If not, it returns an error. Make a deliberate mistake and see what Python returns.
+example.py
+10 + 20
+10 x 20
+
+
+View:
+output.txt
+>>> 10 + 20
+30
+>>> 10 x 20
+  File "<stdin>", line 1
+    10 x 20
+       ^
+SyntaxError: invalid syntax
+
+
+Using x as multiplication is a syntax error. x is not a valid operator in Python. Use an asterisk (*) for multiplication. The error points at the character to fix.
+
+The process of identifying and removing errors from a program is called debugging.
+
+5. Debugging
+
+Debug the line by putting * in place of x.
+example.py
+10 + 20
+10 x 20
+10 * 20
+
+
+View:
+output.txt
+>>> 10 + 20
+30
+>>> 10 x 20
+  File "<stdin>", line 1
+    10 x 20
+       ^
+SyntaxError: invalid syntax
+>>> 10 * 20
+200
+
+
+The bug is fixed. The code ran and we got the result we expected. As a programmer you will see this kind of error on a daily basis. It is good to know how to debug. To be good at debugging you should understand what kind of error you are facing. Some of the Python errors you may encounter are SyntaxError, IndexError, NameError, ModuleNotFoundError, KeyError, ImportError, AttributeError, TypeError, ValueError, ZeroDivisionError. We will see more about different Python error types in later sections.
+
+6. Comments
+
+A comment is a part of the code which is not executed by Python. Leave text in the code to make it more readable. Python does not run the comment. A comment starts with a hash (#) symbol.
+example.py
+# comment starts with hash
+# this is a python comment, because it starts with a (#) symbol
+
+
+In the interactive shell a comment-only line shows ... and no result.
+example.py
+# This is my first Python comment. Do everything step by step
+
+
+View:
+output.txt
+>>> # This is my first Python comment. Do everything step by step
+...
+
+
+7. Arithmetic on the shell
+
+Practice the Python interactive shell. Open it again with python. Do basic mathematical operations (addition, subtraction, multiplication, division, modulus, exponentiation).
+
+Do the maths on paper first, then type the same expressions as Python code. The structured numbers today are 10, 20, 30, 40, 50.
+
+
+10 + 20 = 30
+
+30 - 10 = 20
+
+10 * 20 = 200
+
+30 / 10 = 3.0
+
+10 ** 2 = 10 x 10 = 100
+
+
+In Python we also have:
+
+
+30 % 20 = 10  => remainder
+
+30 // 20 = 1  => remove the remainder (floor division)
+
+
+
+
+
+  #
+  Operator
+  Name
+  Example
+  View
+
+
+
+
+
+  1
+  +
+  Addition
+  10 + 20
+  30
+
+
+
+  2
+  -
+  Subtraction
+  30 - 10
+  20
+
+
+
+  3
+  *
+  Multiplication (not x)
+  10 * 20
+  200
+
+
+
+  4
+  /
+  Division
+  30 / 10
+  3.0
+
+
+
+  5
+  %
+  Modulus (remainder)
+  30 % 20
+  10
+
+
+
+  6
+  %
+  Modulus when the left number is smaller
+  20 % 30
+  20
+
+
+
+  7
+  //
+  Floor division
+  30 // 20
+  1
+
+
+
+  8
+  **
+  Exponent
+  10 ** 2
+  100
+
+
+
+
+Same session written as code. Comments sit on the same line as the expression.
+example.py
+# This is my first Python comment. Do everything step by step
+10 + 20     # addition(+)
+30 - 10     # subtraction(-)
+10 * 20     # multiplication(*) not x
+30 / 10     # division(/)
+30 % 20     # modulus(%) - finding the remainder
+20 % 30     # modulus(%) - finding the remainder
+# Why is the value above 20?
+30 // 20    # floor division operator(//) - it removes the remainder
+10 ** 2     # exponential operator(**) - equivalent to 10^2 = 10 * 10
+# Well done. Now you know how to use the Python interactive shell
+
+
+View:
+output.txt
+>>> # This is my first Python comment. Do everything step by step
+...
+>>> 10 + 20     # addition(+)
+30
+>>> 30 - 10     # subtraction(-)
+20
+>>> 10 * 20     # multiplication(*) not x
+200
+>>> 30 / 10     # division(/)
+3.0
+>>> 30 % 20     # modulus(%) - finding the remainder
+10
+>>> 20 % 30     # modulus(%) - finding the remainder
+20
+>>> # Why is the value above 20?
+...
+>>> 30 // 20    # floor division operator(//) - it removes the remainder
+1
+>>> 10 ** 2     # exponential operator(**) - equivalent to 10^2 = 10 * 10
+100
+>>> # Well done. Now you know how to use the Python interactive shell
+...
+
+
+20 % 30 is 20 because 20 is smaller than 30. Python can take zero groups of 30 out of 20, so the remainder is the whole 20.
+
+8. Strings on the shell
+
+Close the opened shell with exit() and open it again. Practice writing text. Any text in quotes is a string. Use a single quote or a double quote. Use a triple quote if the text is more than one line.
+example.py
+# Let's practice how to write text on the Python shell.
+# We use a single or double quote to make a string.
+'Priya'          # name as a string, single quotes
+"Priya"          # same name, double quotes
+# A string can be one character or a whole page
+'I love teaching. And thank you so much for joining this course'
+# If the text is too long we use a triple quote
+'''We use triple quote if the text is more than one line'''
+# Now you know strings and how to use the Python shell
+# Next we install a text editor / code editor
+exit()
+
+
+View:
+output.txt
+>>> 'Priya'          # name as a string, single quotes
+'Priya'
+>>> "Priya"          # same name, double quotes
+'Priya'
+>>> # A string can be one character or a whole page
+...
+>>> 'I love teaching. And thank you so much for joining this course'
+'I love teaching. And thank you so much for joining this course'
+>>> # If the text is too long we use a triple quote
+...
+>>> '''We use triple quote if the text is more than one line'''
+'We use triple quote if the text is more than one line'
+>>> exit()
+
+
+Single quotes and double quotes print the same string. The shell shows strings with single quotes.
+
+Installing Visual Studio Code
+
+The Python interactive shell is good to try and test small script codes but it will not be for a big project. In a real work environment, developers use different code editors to write codes. In this 30 days of Python programming challenge, we will use Visual Studio Code. Visual Studio Code is a very popular open source text editor. Download it from https://code.visualstudio.com/. If you prefer another editor, follow along with what you have.
+
+Download steps (from the Visual Studio Code site)
+
+
+Open https://code.visualstudio.com/.
+
+The page title is Code editing. Redefined. It is free and open source.
+
+Use the big download button for your system, or the table:
+
+
+
+
+
+  System
+  Installer
+
+
+
+
+
+  macOS
+  Package (Stable or Insiders)
+
+
+
+  Windows x64
+  User Installer (Stable or Insiders)
+
+
+
+  Linux x64
+  .deb or .rpm (Stable or Insiders)
+
+
+
+
+
+Use Other downloads if your system is not in that table.
+
+Run the installer.
+
+
+If you prefer a video, you can follow this Visual Studio Code for Python video tutorial.
+
+How to use Visual Studio Code
+
+Open Visual Studio Code by double-clicking its icon. The first window is a Welcome page plus the Explorer.
+
+What you see
+
+
+Activity bar (far left). Top icon is Explorer (two documents). Below it: Search, Source Control, Run and Debug, Extensions, then Account and Settings at the bottom.
+
+Explorer panel. It shows OPEN EDITORS and NO FOLDER OPENED until you add a folder.
+
+Add Folder / Open Folder button in that panel.
+
+Welcome tab in the editor:
+
+Open folder... / Add workspace folder...
+
+Recent projects (example list: 30DaysOfPython, git-lesson, portfolio-react)
+
+Help links (keyboard cheatsheet, introductory videos, tips, docs)
+
+Tools and languages, Settings and keybindings, Color theme
+
+Learn: find commands, interface overview, interactive playground
+
+
+
+Checkbox Show welcome page on startup at the bottom of Welcome.
+
+Status bar at the very bottom (errors, warnings, account, Live Share).
+
+
+Open the project folder
+
+
+Create a folder named 30DaysOfPython on your desktop.
+
+In Explorer, click Open Folder. The empty state says You have not yet opened a folder.
+
+In the file dialog, go to Desktop and select the 30DaysOfPython folder.
+
+Click Open. (The dialog also has Cancel and New Folder.)
+
+
+Create the first file
+
+After the folder is open, Explorer shows shortcuts on the 30DAYSOF... row:
+
+
+Click the New File icon (page with a plus) to create a file.
+
+Click the New Folder icon (folder with a plus) to create a folder.
+
+Name the file helloworld.py. A Python file always uses the .py extension.
+
+Click the Explorer icon on the activity bar to show or hide the file tree.
+
+
+Close the opened project
+
+
+Right-click the 30DaysOfPython folder name in Explorer (not the file).
+
+The menu includes: New File, New Folder, Reveal in Finder, Open in Terminal, Add Folder to Workspace, Open Folder Settings, Remove Folder from Workspace, Find in Folder, Paste, Copy Path, Copy Relative Path, Generate .editorconfig, Deploy to Web App.
+
+Choose Remove Folder from Workspace.
+
+
+The development environment is ready. Next we write Python.
+
+Basic Python
+
+Python Syntax
+
+A Python script can be written in the Python interactive shell or in the code editor. A Python file has an extension .py.
+
+Python Indentation
+
+An indentation is a white space in a text. Indentation in many languages is used to increase code readability; however, Python uses indentation to create blocks of code. In other programming languages, curly brackets are used to create code blocks instead of indentation. One of the common bugs when writing Python code is incorrect indentation.
+
+A line that starts with extra space before any block is an error.
+example.py
+    "Hello, World!"    # This will cause an indentation error
+"Hello, World!"        # This will run without causing error
+
+
+View:
+output.txt
+>>>     "Hello, World!"    # This will cause an indentation error
+  File "<stdin>", line 1
+    "Hello, World!"    # This will cause an indentation error
+IndentationError: unexpected indent
+>>> "Hello, World!"        # This will run without causing error
+'Hello, World!'
+
+
+Do not put spaces in front of a top-level line. You will use indentation on purpose later, inside if and loops.
+
+Comments
+
+Comments play a crucial role in enhancing code readability and allowing developers to leave notes within their code. In Python, any text preceded by a hash (#) symbol is considered a comment and is not executed when the code runs.
+
+Example: Single Line Comment
+example.py
+# This is the first comment
+# This is the second comment
+# Python is eating the world
+
+
+Example: Multiline Comment
+
+A triple quote can be used for a multiline comment if it is not assigned to a variable.
+example.py
+"""This is multiline comment
+multiline comment takes multiple lines.
+python is eating the world
+"""
+
+
+Data types
+
+In Python there are several types of data types. Let us get started with the most common ones. Different data types will be covered in detail in other sections. For the time being, let us just go through the different data types and get familiar with them. You do not have to have a clear understanding now.
+
+Number
+
+
+Integer: Integer (negative, zero and positive) numbers
+Example:
+... -3, -2, -1, 0, 1, 2, 3 ...
+Structured set we use today: 10, 20, 30, 40, 50
+
+Float: Decimal number
+Example:
+... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...
+Structured examples: 10.0, 3.14, 9.81
+
+Complex
+Example:
+1 + 1j, 2 + 4j
+Structured example: 1 + 3j
+
+
+String
+
+A collection of one or more characters under a single or double quote. If a string is more than one sentence then we use a triple quote.
+
+Example:
+example.py
+'Priya'
+'India'
+'Python'
+'I love teaching'
+'I hope you are enjoying the first day of 30DaysOfPython Challenge'
+
+
+Booleans
+
+A boolean data type is either a True or False value. T and F should be always uppercase.
+
+Example:
+example.py
+True   # Is the light on? If it is on, then the value is True
+False  # Is the light on? If it is off, then the value is False
+
+
+List
+
+Python list is an ordered collection which allows to store different data type items. A list is similar to an array in JavaScript.
+
+Example:
+example.py
+[10, 20, 30, 40, 50]                 # all the same data types - a list of numbers
+['Banana', 'Orange', 'Mango', 'Avocado']  # all the same data types - a list of strings (fruits)
+['India', 'Finland', 'Sweden', 'Norway']  # all the same data types - a list of strings (countries)
+['Banana', 10, False, 9.81]          # different data types - string, integer, boolean and float
+
+
+Dictionary
+
+A Python dictionary object is an unordered collection of data in a key value pair format.
+
+Example:
+example.py
+{
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'country': 'India',
+    'city': 'Hyderabad',
+    'age': 22,
+    'is_married': False,
+    'skills': ['JS', 'React', 'Node', 'Python']
+}
+
+
+Tuple
+
+A tuple is an ordered collection of different data types like list but tuples can not be modified once they are created. They are immutable.
+
+Example:
+example.py
+('Priya', 'Rao', 'Brook', 'Abraham', 'Lidiya')  # Names
+
+example.py
+('Earth', 'Jupiter', 'Neptune', 'Mars', 'Venus', 'Saturn', 'Uranus', 'Mercury')  # planets
+
+
+Set
+
+A set is a collection of data types similar to list and tuple. Unlike list and tuple, set is not an ordered collection of items. Like in Mathematics, set in Python stores only unique items.
+
+In later sections, we will go in detail about each and every Python data type.
+
+Example:
+example.py
+{10, 20, 30, 40}
+{3.14, 9.81, 2.7}  # order is not important in set
+
+
+Checking Data types
+
+To check the data type of certain data/variable we use the type function.
+example.py
+type(10)
+type(3.14)
+type(1 + 3j)
+type('Priya')
+type([10, 20, 30])
+type({'name': 'Priya'})
+type((10, 20, 30, 40))
+type({9.8, 3.14, 2.7})
+exit()
+
+
+View:
+output.txt
+>>> type(10)
+<class 'int'>
+>>> type(3.14)
+<class 'float'>
+>>> type(1 + 3j)
+<class 'complex'>
+>>> type('Priya')
+<class 'str'>
+>>> type([10, 20, 30])
+<class 'list'>
+>>> type({'name': 'Priya'})
+<class 'dict'>
+>>> type((10, 20, 30, 40))
+<class 'tuple'>
+>>> type({9.8, 3.14, 2.7})
+<class 'set'>
+>>> exit()
+
+
+
+
+
+  #
+  Value
+  type() view
+
+
+
+
+
+  1
+  10
+  <class 'int'>
+
+
+
+  2
+  3.14
+  <class 'float'>
+
+
+
+  3
+  1 + 3j
+  <class 'complex'>
+
+
+
+  4
+  'Priya'
+  <class 'str'>
+
+
+
+  5
+  [10, 20, 30]
+  <class 'list'>
+
+
+
+  6
+  {'name': 'Priya'}
+  <class 'dict'>
+
+
+
+  7
+  (10, 20, 30, 40)
+  <class 'tuple'>
+
+
+
+  8
+  {9.8, 3.14, 2.7}
+  <class 'set'>
+
+
+
+
+Python File
+
+First open your project folder, 30DaysOfPython. If you don't have this folder, create a folder named 30DaysOfPython. Inside this folder, create a file called helloworld.py. Now, let's do what we did on the Python interactive shell using Visual Studio Code.
+
+The Python interactive shell was printing without using print. In a .py file you must use the built-in function print() to see a result. print() takes one or more arguments: print('argument1', 'argument2', 'argument3').
+
+Example
+
+The file name is helloworld.py.
+example.py
+# Day 1 - 30DaysOfPython Challenge
+
+print('Hello, World!')
+
+print(10 + 20)             # addition(+)
+print(30 - 10)             # subtraction(-)
+print(10 * 20)             # multiplication(*)
+print(30 / 10)             # division(/)
+print(10 ** 2)             # exponential(**)
+print(30 % 20)             # modulus(%)
+print(30 // 20)            # Floor division operator(//)
+
+# Checking data types
+print(type(10))                  # Int
+print(type(3.14))                # Float
+print(type(1 + 3j))              # Complex
+print(type('Priya'))             # String
+print(type([10, 20, 30]))        # List
+print(type({'name': 'Priya'}))   # Dictionary
+print(type({10, 20, 30}))        # Set
+print(type((10, 20, 30)))        # Tuple
+
+
+How to run it
+
+
+Open helloworld.py in the Explorer (it sits under the 30DaysOfPython folder).
+
+Click the green Run triangle at the top right of the editor, or
+
+Open the Terminal panel and type:
+
+terminal
+python helloworld.py
+
+
+View:
+output.txt
+Hello, World!
+30
+20
+200
+3.0
+100
+10
+1
+<class 'int'>
+<class 'float'>
+<class 'complex'>
+<class 'str'>
+<class 'list'>
+<class 'dict'>
+<class 'set'>
+<class 'tuple'>
+
+
+You finished the Day 1 lesson. Practice with the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Check the python version you are using
+
+Open the python interactive shell and do the following operations. The operands are 3 and 4.
+
+addition(+)
+
+subtraction(-)
+
+multiplication(*)
+
+modulus(%)
+
+division(/)
+
+exponential(**)
+
+floor division operator(//)
+
+
+
+Write strings on the python interactive shell. The strings are the following:
+
+Your name
+
+Your family name
+
+Your country
+
+I am enjoying 30 days of python
+
+
+
+Check the data types of the following data:
+
+10
+
+9.8
+
+3.14
+
+4 - 4j
+
+['Asabeneh', 'Python', 'Finland']
+
+Your name
+
+Your family name
+
+Your country
+
+
+
+
+Exercises: Level 2
+
+
+Create a folder named day_1 inside 30DaysOfPython folder. Inside day_1 folder, create a python file helloworld.py and repeat questions 1, 2, 3 and 4. Remember to use print() when you are working on a python file. Navigate to the directory where you have saved your file, and run it.
+
+
+Exercises: Level 3
+
+
+Write an example for different Python data types such as Number(Integer, Float, Complex), String, Boolean, List, Tuple, Set and Dictionary.
+
+Find an Euclidean distance between (2, 3) and (10, 8)
+
+Store the structured numbers 10, 20, 30, 40, 50 in a list named scores. Use print(scores) and print(type(scores))
+
+Use print() and type() on 10, 20.0, 10 + 20j, 'Priya', and True. Print each value and each type
+
+Print each score with a label: print('score 1:', 10) through print('score 5:', 50)
+
+Print 10 + 20, 30 - 10, 10 * 20, 30 / 10, 10 ** 2, 30 % 20, and 30 // 20. Then print type() of each result
+
+Build a dictionary for Priya Rao in Hyderabad, India, with a score of 20. Print the dictionary and type() of it
+
+Compare type([10, 20, 30]), type((10, 20, 30)), and type({10, 20, 30}). Print all three views and write one comment about the difference
+
+
+You finished Day 1. Next: variables and built-in functions.
+

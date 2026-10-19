@@ -1,0 +1,54 @@
+INFO:     Started server process [5136]
+INFO:     Waiting for application startup.
+2026-10-17 21:17:59,020 INFO [omnivoice.api] Startup watchdog armed: thread dump if startup exceeds 300s (#632).
+2026-10-17 21:17:59,044 WARNING [omnivoice.run_sentinel] Previous backend run (pid 22636, version 0.5.6) ended uncleanly — crash record written to last_run_crash.json (last activity: generate).
+2026-10-17 21:17:59,109 INFO [omnivoice.analytics] Analytics enabled by user opt-in (host=https://eu.i.posthog.com).
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:3900 (Press CTRL+C to quit)
+2026-10-17 21:18:00,456 INFO [omnivoice.api] Published 2 media-tool directories on PATH so dependencies can find ffmpeg/ffprobe (#1256)
+2026-10-17 21:18:06,061 INFO [omnivoice.hf_progress] hf_progress: installed tqdm patch on huggingface_hub.utils.tqdm
+2026-10-17 21:18:07,287 INFO [omnivoice.setup.models] Loaded 38 models from C:\Users\lms-work\AppData\Roaming\VoiceStudio\runtime\project\backend\config\models.yaml
+2026-10-17 21:18:07,820 INFO [omnivoice.model] downloads: Xet disabled → legacy LFS (hf_xet 1.6.0 installed=True), high_perf=False
+2026-10-17 21:18:08,940 INFO [omnivoice.mcp] MCP app mounted at /mcp
+2026-10-17 21:18:09,638 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.schemas
+2026-10-17 21:18:09,639 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.tables
+2026-10-17 21:18:09,639 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.types
+2026-10-17 21:18:09,639 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.constraints
+2026-10-17 21:18:09,640 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.defaults
+2026-10-17 21:18:09,640 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.comments
+2026-10-17 21:18:09,640 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.checkconstraint_byname
+2026-10-17 21:18:21,615 INFO [omnivoice.api] Startup performance selections reconciled: {'asr': {'engine': 'faster-whisper', 'model': 'Systran/faster-whisper-large-v3'}, 'dictation': {'engine': 'offline-whisper', 'model': 'sherpa-whisper-tiny'}, 'translation': {'engine': 'nllb', 'model': 'facebook/nllb-200-distilled-600M'}}
+2026-10-17 21:18:22,293 INFO [omnivoice.model] Preloading TTS model in background…
+2026-10-17 21:18:22,294 INFO [omnivoice.model] Memory tight before TTS load (3.8 GB free), releasing idle models first.
+2026-10-17 21:18:22,445 INFO [omnivoice.model] GPU pool sized to 1 worker(s) — 3.2 GB free / 5.0 GB per job (cap 4)
+2026-10-17 21:18:22,447 INFO [omnivoice.model] Importing PyTorch & VoiceStudio runtime…
+2026-10-17 21:18:22,447 INFO [mcp.server.streamable_http_manager] StreamableHTTP session manager started
+2026-10-17 21:18:22,448 INFO [omnivoice.api] MCP server mounted at /mcp
+2026-10-17 21:18:22,793 INFO [omnivoice.api] Deferred startup complete — all routes live.
+2026-10-17 21:18:36,114 INFO [omnivoice.model] Loading VoiceStudio model on device: cuda
+2026-10-17 21:18:36,114 INFO [omnivoice.model] Skipping PyTorch Whisper preload; ASR will load on demand.
+Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights:   1%|▏         | 4/313 [00:00<00:56,  5.47it/s]Loading weights:  67%|██████▋   | 210/313 [00:00<00:00, 338.53it/s]Loading weights: 100%|██████████| 313/313 [00:01<00:00, 275.37it/s]
+Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:   6%|▌         | 31/527 [00:00<00:01, 296.95it/s]Loading weights:  34%|███▎      | 177/527 [00:00<00:00, 958.20it/s]Loading weights:  52%|█████▏    | 274/527 [00:00<00:00, 415.25it/s]Loading weights:  66%|██████▋   | 350/527 [00:00<00:00, 489.55it/s]Loading weights:  80%|███████▉  | 419/527 [00:00<00:00, 445.42it/s]Loading weights:  91%|█████████ | 477/527 [00:01<00:00, 408.10it/s]Loading weights: 100%|█████████▉| 526/527 [00:01<00:00, 394.77it/s]Loading weights: 100%|██████████| 527/527 [00:01<00:00, 438.73it/s]
+2026-10-17 21:18:43,438 INFO [omnivoice.engine_env] torch.compile skipped: TORCH_COMPILE_DISABLE is set — using eager mode.
+2026-10-17 21:18:43,439 INFO [omnivoice.model] VoiceStudio model loaded successfully.
+2026-10-17 21:18:43,440 INFO [omnivoice.model] Preload complete — model ready.
+2026-10-17 21:18:52,454 INFO [omnivoice.api] Capture ASR preload skipped: <4GB free RAM; dictation ASR will load on first use.
+2026-10-17 21:18:57,738 INFO [omnivoice.watermark] Watermark prefetch skipped: AudioSeal checkpoint is not cached
+2026-10-17 21:20:16,712 WARNING [omnivoice.memory_budget] TTS load (omnivoice): Low GPU memory: 1.3 GB free. Loading another model may run out of VRAM — unload one you're not using (Unload in Model Catalogue), or switch to a smaller engine.
+C:\Users\lms-work\AppData\Roaming\VoiceStudio\runtime\project\.venv\Lib\site-packages\torch\nn\utils\weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+2026-10-17 21:20:22,949 INFO [omnivoice.watermark] AudioSeal generator loaded (16-bit message mode)
+2026-10-17 21:20:23,426 INFO [omnivoice.render] render trace {'id': '8747e41f780e4278', 'surface': 'generate', 'total_seconds': 6.75204, 'stages': {'synthesis': {'calls': 1, 'seconds': 5.373966, 'failures': 0}, 'effects': {'calls': 1, 'seconds': 0.20162, 'failures': 0}, 'watermark': {'calls': 1, 'seconds': 0.685722, 'failures': 0}, 'save': {'calls': 2, 'seconds': 0.007311, 'failures': 0}}, 'outcome': 'complete'}
+2026-10-17 21:21:00,468 WARNING [omnivoice.memory_budget] TTS load (omnivoice): Low GPU memory: 1.1 GB free. Loading another model may run out of VRAM — unload one you're not using (Unload in Model Catalogue), or switch to a smaller engine.
+2026-10-17 21:21:05,370 INFO [omnivoice.render] render trace {'id': 'b7c99b9418a84f69', 'surface': 'generate', 'total_seconds': 4.907188, 'stages': {'synthesis': {'calls': 1, 'seconds': 4.013906, 'failures': 0}, 'effects': {'calls': 1, 'seconds': 0.006526, 'failures': 0}, 'watermark': {'calls': 1, 'seconds': 0.553134, 'failures': 0}, 'save': {'calls': 2, 'seconds': 0.005155, 'failures': 0}}, 'outcome': 'complete'}
+INFO:     127.0.0.1:53010 - "WebSocket /ws/events" [accepted]
+INFO:     connection open
+2026-10-17 21:21:19,399 INFO [omnivoice.events] WS client connected (1 total)
+2026-10-17 21:26:25,581 INFO [omnivoice.render] render trace {'id': '958e9b71ad284f7e', 'surface': 'audiobook', 'total_seconds': 218.786679, 'stages': {'cache': {'calls': 22, 'seconds': 0.293479, 'failures': 0}, 'synthesis': {'calls': 21, 'seconds': 171.587993, 'failures': 0}, 'save': {'calls': 22, 'seconds': 0.32682, 'failures': 0}, 'watermark': {'calls': 11, 'seconds': 33.618147, 'failures': 0}, 'join': {'calls': 8, 'seconds': 0.008161, 'failures': 0}, 'mux': {'calls': 1, 'seconds': 6.594649, 'failures': 0}}, 'outcome': 'complete'}
+2026-10-17 21:41:21,709 INFO [omnivoice.model] Idle timeout reached. Unloading VoiceStudio model to free VRAM.
+2026-10-17 21:41:22,076 INFO [omnivoice.watermark] Idle timeout reached. Released the AudioSeal watermark models.
+2026-10-17 23:18:48,707 INFO [omnivoice.events] WS client disconnected (0 remaining)
+INFO:     127.0.0.1:61263 - "WebSocket /ws/events" [accepted]
+INFO:     connection open
+2026-10-17 23:18:49,715 INFO [omnivoice.events] WS client connected (1 total)
+2026-10-17 23:19:39,714 INFO [omnivoice.events] WS client disconnected (0 remaining)

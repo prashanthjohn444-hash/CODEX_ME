@@ -1,0 +1,578 @@
+{
+  "status": "completed",
+  "started_utc": "2026-10-08T14:10:17.739178+00:00",
+  "source": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\day-01-spoken-script.md",
+  "source_sha256": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+  "language": "English",
+  "narration_type": "synthetic draft; not human-recorded",
+  "provider": "local VoiceStudio/OmniVoice",
+  "voice_profile_id": "demo0001",
+  "voice_name": "VoiceStudio Demo Voice (bundled English demo)",
+  "sections": [
+    {
+      "id": "01",
+      "title": "Hook — show the puzzle",
+      "text": "Why does your Python file show nothing when the shell shows 30? Both contain the same calculation. By the end of this lesson, you will understand the difference and run your own saved Python program.",
+      "status": "completed",
+      "render_reported_duration_ms": 12470,
+      "file": "section-01.wav",
+      "start_seconds": 0.0,
+      "end_seconds": 12.47,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 598560,
+        "duration_seconds": 12.47
+      }
+    },
+    {
+      "id": "02",
+      "title": "Turn — one concrete destination",
+      "text": "This is what we are building: a small file that prints a greeting and an answer. We need Python, somewhere to write our code, and a way to run it. We will check each one, then deliberately break a line so you can see how to fix it.",
+      "status": "completed",
+      "render_reported_duration_ms": 13528,
+      "file": "section-02.wav",
+      "start_seconds": 12.47,
+      "end_seconds": 25.998,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 649344,
+        "duration_seconds": 13.528
+      }
+    },
+    {
+      "id": "03",
+      "title": "What Python does",
+      "text": "Python is a programming language. You write instructions, and a Python interpreter executes them. People use Python for automation, data analysis, web applications, and AI tools. Those are different destinations, but they share the same starting point: writing a small instruction and understanding its result.\n\nYou do not need to choose a career path today. Our goal is smaller and testable: can you run a file, change it, and explain what changed? That is the first step this course asks you to take.",
+      "status": "completed",
+      "render_reported_duration_ms": 30809,
+      "file": "section-03.wav",
+      "start_seconds": 25.998,
+      "end_seconds": 56.807,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1478832,
+        "duration_seconds": 30.809
+      }
+    },
+    {
+      "id": "04",
+      "title": "Verify your interpreter",
+      "text": "Open a terminal and check whether Python is already installed. On this machine, I am using the command shown here. Look for a Python 3 version in the result. On another computer, the command may be python3 or py instead. Use the command that actually works on your machine throughout the lesson.\n\nIf none of those commands starts Python, open python.org and follow the installation instructions for your operating system. After installation, open a new terminal and check the version again. Do not copy an old version number from a screenshot. The important thing is that your interpreter is installed and you know how to start it.",
+      "status": "completed",
+      "render_reported_duration_ms": 39335,
+      "file": "section-04.wav",
+      "start_seconds": 56.807,
+      "end_seconds": 96.142,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1888080,
+        "duration_seconds": 39.335
+      }
+    },
+    {
+      "id": "05",
+      "title": "Know which prompt you are using",
+      "text": "Now start Python. See these three greater-than signs? They tell you that you are inside the Python interactive shell. This is different from the terminal prompt we used a moment ago. The terminal starts programs. The Python shell accepts Python code.\n\nHere is a useful check when something seems wrong: look at the prompt before changing your code. If you see three greater-than signs, you are inside Python. To run a terminal command such as python hello.py, first leave this shell with exit(). Then run the command at the terminal prompt.",
+      "status": "completed",
+      "render_reported_duration_ms": 33203,
+      "file": "section-05.wav",
+      "start_seconds": 96.142,
+      "end_seconds": 129.345,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1593744,
+        "duration_seconds": 33.203
+      }
+    },
+    {
+      "id": "06",
+      "title": "First expressions and quoted text",
+      "text": "Type ten plus twenty and press Enter. The shell displays thirty. Try subtraction and multiplication too. Before pressing Enter, predict the answer. That habit will help you notice when your code does something different from what you intended.\n\nNow try a greeting. The words are inside quotation marks because they are text. The parentheses contain the value we give to print. Run the line, change the greeting, and run it again. You are already changing a program and checking the result.",
+      "status": "completed",
+      "render_reported_duration_ms": 29857,
+      "file": "section-06.wav",
+      "start_seconds": 129.345,
+      "end_seconds": 159.202,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1433136,
+        "duration_seconds": 29.857
+      }
+    },
+    {
+      "id": "07",
+      "title": "Break one line and recover",
+      "text": "This time I have left out the closing parenthesis. Depending on how you entered the line, the interactive shell may wait for more input, or Python may report a syntax error when the incomplete statement is submitted. In a saved file, the missing parenthesis prevents the file from running normally.\n\nA syntax error does not mean you cannot program. It means Python could not read the instruction in its current form. Compare the opening and closing punctuation, add the missing parenthesis, and run the corrected line. Change one thing, then check again.",
+      "status": "completed",
+      "render_reported_duration_ms": 34158,
+      "file": "section-07.wav",
+      "start_seconds": 159.202,
+      "end_seconds": 193.36,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1639584,
+        "duration_seconds": 34.158
+      }
+    },
+    {
+      "id": "08",
+      "title": "Save and run a file",
+      "text": "We will use Visual Studio Code as our editor. If you do not have it yet, download it from code.visualstudio.com and install the version for your operating system. Open its Extensions panel, search for Python, and install the Python extension published by Microsoft. The editor helps us write code; the Python interpreter we installed earlier is what runs it.\n\nThe shell is useful for quick experiments. A file lets us keep several instructions and run them again. Open a folder in your editor, create a file called hello.py, and save these lines. In VS Code, select the Python interpreter you verified earlier so the editor uses the same installation.\n\nOpen a terminal in the folder containing the file. Leave the Python shell first if you are still inside it. Now run python hello.py, using your working Python command. You should see the greeting and then thirty. Change the greeting, save the file, and run the same command again.\n\nIf Python says it cannot open the file, check the filename and your terminal's current folder. If you still see the old greeting, check whether you saved the change and whether you are running the same file you edited. These checks are often more useful than immediately reinstalling anything.",
+      "status": "completed",
+      "render_reported_duration_ms": 75860,
+      "file": "section-08.wav",
+      "start_seconds": 193.36,
+      "end_seconds": 269.22,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 3641280,
+        "duration_seconds": 75.86
+      }
+    },
+    {
+      "id": "09",
+      "title": "Resolve the opening puzzle",
+      "text": "Here is why our first two examples looked different. In the interactive shell, Python normally displays the result of an expression for you. In a saved script, writing an expression by itself does not ask Python to display it. The calculation still happens, but there is no printed output. Use print when your script needs to show the result.\n\nWe have now delivered the opening promise: you can run a saved Python file and explain why it prints something, or why it stays quiet. The shell helps you experiment; the file keeps the instructions you want to repeat.",
+      "status": "completed",
+      "render_reported_duration_ms": 34523,
+      "file": "section-09.wav",
+      "start_seconds": 269.22,
+      "end_seconds": 303.743,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1657104,
+        "duration_seconds": 34.523
+      }
+    },
+    {
+      "id": "10",
+      "title": "Preview types and comments",
+      "text": "Python works with different kinds of values. These examples are an integer, a floating-point number, a string, and a Boolean. The type function tells us which kind we have. You do not need every detail yet. Just notice that a number and text containing digits are not the same kind of value.\n\nThe line beginning with a hash is a comment. It explains the code to a reader without becoming an instruction to execute. The lab also previews lists, tuples, sets, and dictionaries. We will work with each of those in its own lesson. Later, indentation will matter when we group instructions into blocks.",
+      "status": "completed",
+      "render_reported_duration_ms": 36682,
+      "file": "section-10.wav",
+      "start_seconds": 303.743,
+      "end_seconds": 340.425,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1760736,
+        "duration_seconds": 36.682
+      }
+    },
+    {
+      "id": "11",
+      "title": "Challenge — one request",
+      "text": "Your challenge is to make a new file that prints your name, prints the result of ten plus twenty, and displays the types of thirty, three point five, and the word Python. Run it from the terminal and change one line successfully. Pause here and try it yourself before opening the lab solution.",
+      "status": "completed",
+      "render_reported_duration_ms": 17625,
+      "file": "section-11.wav",
+      "start_seconds": 340.425,
+      "end_seconds": 358.0586666666667,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 846416,
+        "duration_seconds": 17.633666666666667
+      }
+    }
+  ],
+  "section_gap_seconds": 0,
+  "events": [
+    {
+      "type": "started",
+      "job_id": "63f7b1384c0b443b",
+      "chapters": 11
+    },
+    {
+      "type": "chapter",
+      "index": 0,
+      "total": 11,
+      "title": "01 — Hook — show the puzzle",
+      "duration_s": 12.47,
+      "duration_ms": 12470,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 1,
+      "total": 11,
+      "title": "02 — Turn — one concrete destination",
+      "duration_s": 13.53,
+      "duration_ms": 13528,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 2,
+      "total": 11,
+      "title": "03 — What Python does",
+      "duration_s": 30.81,
+      "duration_ms": 30809,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 3,
+      "total": 11,
+      "title": "04 — Verify your interpreter",
+      "duration_s": 39.33,
+      "duration_ms": 39335,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 4,
+      "total": 11,
+      "title": "05 — Know which prompt you are using",
+      "duration_s": 33.2,
+      "duration_ms": 33203,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 5,
+      "total": 11,
+      "title": "06 — First expressions and quoted text",
+      "duration_s": 29.86,
+      "duration_ms": 29857,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 6,
+      "total": 11,
+      "title": "07 — Break one line and recover",
+      "duration_s": 34.16,
+      "duration_ms": 34158,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 7,
+      "total": 11,
+      "title": "08 — Save and run a file",
+      "duration_s": 75.86,
+      "duration_ms": 75860,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 8,
+      "total": 11,
+      "title": "09 — Resolve the opening puzzle",
+      "duration_s": 34.52,
+      "duration_ms": 34523,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 9,
+      "total": 11,
+      "title": "10 — Preview types and comments",
+      "duration_s": 36.68,
+      "duration_ms": 36682,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 10,
+      "total": 11,
+      "title": "11 — Challenge — one request",
+      "duration_s": 17.62,
+      "duration_ms": 17625,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "assembling"
+    },
+    {
+      "type": "done",
+      "output": "audiobook_63f7b1384c0b443b.m4b",
+      "chapters": 11,
+      "duration_s": 358.05,
+      "cached_chapters": 0,
+      "failed_chapters": [],
+      "title": "01 — Hook — show the puzzle",
+      "summary": {
+        "engine": "omnivoice",
+        "voices": [
+          {
+            "id": "demo0001",
+            "name": "VoiceStudio Demo Voice"
+          }
+        ],
+        "language": "English",
+        "format": "m4b",
+        "lines": 11,
+        "words": 999,
+        "speeds": [
+          1.0
+        ],
+        "options": {
+          "num_step": 32,
+          "guidance_scale": 2.0,
+          "postprocess_output": true,
+          "paragraph_gap_ms": 350,
+          "trim_edges": true
+        },
+        "chapter_titles": [
+          "01 — Hook — show the puzzle",
+          "02 — Turn — one concrete destination",
+          "03 — What Python does",
+          "04 — Verify your interpreter",
+          "05 — Know which prompt you are using",
+          "06 — First expressions and quoted text",
+          "07 — Break one line and recover",
+          "08 — Save and run a file",
+          "09 — Resolve the opening puzzle",
+          "10 — Preview types and comments",
+          "11 — Challenge — one request"
+        ]
+      }
+    }
+  ],
+  "request_settings": {
+    "default_voice": "demo0001",
+    "language": "English",
+    "format": "m4b",
+    "paragraph_gap_ms": 350,
+    "trim_edges": true
+  },
+  "plan": {
+    "chapters": [
+      {
+        "title": "01 — Hook — show the puzzle",
+        "char_count": 199,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Why does your Python file show nothing when the shell shows 30? Both contain the same calculation. By the end of this lesson, you will understand the difference and run your own saved Python program.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "02 — Turn — one concrete destination",
+        "char_count": 231,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "This is what we are building: a small file that prints a greeting and an answer. We need Python, somewhere to write our code, and a way to run it. We will check each one, then deliberately break a line so you can see how to fix it.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "03 — What Python does",
+        "char_count": 502,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Python is a programming language. You write instructions, and a Python interpreter executes them. People use Python for automation, data analysis, web applications, and AI tools. Those are different destinations, but they share the same starting point: writing a small instruction and understanding its result.\n\nYou do not need to choose a career path today. Our goal is smaller and testable: can you run a file, change it, and explain what changed? That is the first step this course asks you to take.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "04 — Verify your interpreter",
+        "char_count": 631,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Open a terminal and check whether Python is already installed. On this machine, I am using the command shown here. Look for a Python 3 version in the result. On another computer, the command may be python3 or py instead. Use the command that actually works on your machine throughout the lesson.\n\nIf none of those commands starts Python, open python.org and follow the installation instructions for your operating system. After installation, open a new terminal and check the version again. Do not copy an old version number from a screenshot. The important thing is that your interpreter is installed and you know how to start it.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "05 — Know which prompt you are using",
+        "char_count": 540,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Now start Python. See these three greater-than signs? They tell you that you are inside the Python interactive shell. This is different from the terminal prompt we used a moment ago. The terminal starts programs. The Python shell accepts Python code.\n\nHere is a useful check when something seems wrong: look at the prompt before changing your code. If you see three greater-than signs, you are inside Python. To run a terminal command such as python hello.py, first leave this shell with exit(). Then run the command at the terminal prompt.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "06 — First expressions and quoted text",
+        "char_count": 489,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Type ten plus twenty and press Enter. The shell displays thirty. Try subtraction and multiplication too. Before pressing Enter, predict the answer. That habit will help you notice when your code does something different from what you intended.\n\nNow try a greeting. The words are inside quotation marks because they are text. The parentheses contain the value we give to print. Run the line, change the greeting, and run it again. You are already changing a program and checking the result.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "07 — Break one line and recover",
+        "char_count": 554,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "This time I have left out the closing parenthesis. Depending on how you entered the line, the interactive shell may wait for more input, or Python may report a syntax error when the incomplete statement is submitted. In a saved file, the missing parenthesis prevents the file from running normally.\n\nA syntax error does not mean you cannot program. It means Python could not read the instruction in its current form. Compare the opening and closing punctuation, add the missing parenthesis, and run the corrected line. Change one thing, then check again.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "08 — Save and run a file",
+        "char_count": 1228,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "We will use Visual Studio Code as our editor. If you do not have it yet, download it from code.visualstudio.com and install the version for your operating system. Open its Extensions panel, search for Python, and install the Python extension published by Microsoft. The editor helps us write code; the Python interpreter we installed earlier is what runs it.\n\nThe shell is useful for quick experiments. A file lets us keep several instructions and run them again. Open a folder in your editor, create a file called hello.py, and save these lines. In VS Code, select the Python interpreter you verified earlier so the editor uses the same installation.\n\nOpen a terminal in the folder containing the file. Leave the Python shell first if you are still inside it. Now run python hello.py, using your working Python command. You should see the greeting and then thirty. Change the greeting, save the file, and run the same command again.\n\nIf Python says it cannot open the file, check the filename and your terminal's current folder. If you still see the old greeting, check whether you saved the change and whether you are running the same file you edited. These checks are often more useful than immediately reinstalling anything.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "09 — Resolve the opening puzzle",
+        "char_count": 562,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Here is why our first two examples looked different. In the interactive shell, Python normally displays the result of an expression for you. In a saved script, writing an expression by itself does not ask Python to display it. The calculation still happens, but there is no printed output. Use print when your script needs to show the result.\n\nWe have now delivered the opening promise: you can run a saved Python file and explain why it prints something, or why it stays quiet. The shell helps you experiment; the file keeps the instructions you want to repeat.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "10 — Preview types and comments",
+        "char_count": 597,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Python works with different kinds of values. These examples are an integer, a floating-point number, a string, and a Boolean. The type function tells us which kind we have. You do not need every detail yet. Just notice that a number and text containing digits are not the same kind of value.\n\nThe line beginning with a hash is a comment. It explains the code to a reader without becoming an instruction to execute. The lab also previews lists, tuples, sets, and dictionaries. We will work with each of those in its own lesson. Later, indentation will matter when we group instructions into blocks.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "11 — Challenge — one request",
+        "char_count": 293,
+        "spans": [
+          {
+            "voice_id": "demo0001",
+            "text": "Your challenge is to make a new file that prints your name, prints the result of ten plus twenty, and displays the types of thirty, three point five, and the word Python. Run it from the terminal and change one line successfully. Pause here and try it yourself before opening the lab solution.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      }
+    ],
+    "chapter_count": 11,
+    "char_count": 5826
+  },
+  "job_id": "63f7b1384c0b443b",
+  "result": {
+    "type": "done",
+    "output": "audiobook_63f7b1384c0b443b.m4b",
+    "chapters": 11,
+    "duration_s": 358.05,
+    "cached_chapters": 0,
+    "failed_chapters": [],
+    "title": "01 — Hook — show the puzzle",
+    "summary": {
+      "engine": "omnivoice",
+      "voices": [
+        {
+          "id": "demo0001",
+          "name": "VoiceStudio Demo Voice"
+        }
+      ],
+      "language": "English",
+      "format": "m4b",
+      "lines": 11,
+      "words": 999,
+      "speeds": [
+        1.0
+      ],
+      "options": {
+        "num_step": 32,
+        "guidance_scale": 2.0,
+        "postprocess_output": true,
+        "paragraph_gap_ms": 350,
+        "trim_edges": true
+      },
+      "chapter_titles": [
+        "01 — Hook — show the puzzle",
+        "02 — Turn — one concrete destination",
+        "03 — What Python does",
+        "04 — Verify your interpreter",
+        "05 — Know which prompt you are using",
+        "06 — First expressions and quoted text",
+        "07 — Break one line and recover",
+        "08 — Save and run a file",
+        "09 — Resolve the opening puzzle",
+        "10 — Preview types and comments",
+        "11 — Challenge — one request"
+      ]
+    }
+  },
+  "concatenated_file": "day-01-narration.wav",
+  "concatenated_audio": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "frames": 17186816,
+    "duration_seconds": 358.0586666666667
+  },
+  "chapterized_file": "day-01-narration.m4b",
+  "finished_utc": "2026-10-08T14:14:54.594137+00:00"
+}

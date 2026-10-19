@@ -1,0 +1,836 @@
+
+Modules
+
+A module is a file containing a set of codes or a set of functions which can be included to an application. A module could be a file containing a single variable, a function, or a big code base.
+
+You already used built-in functions on Day 2. A module is how Python groups extra tools: your own .py file, or a built-in library such as math or os.
+
+The four import forms you will type today:
+
+
+
+
+  #
+  Syntax
+  What you get
+
+
+
+
+
+  1
+  import mymodule
+  The whole file. Call names as mymodule.generate_full_name(...)
+
+
+
+  2
+  from mymodule import generate_full_name
+  One name. Call it directly
+
+
+
+  3
+  from mymodule import generate_full_name, sum_two_nums
+  Several names
+
+
+
+  4
+  from mymodule import generate_full_name as fullname
+  A shorter local name
+
+
+
+
+import and from are the keywords. as only renames.
+
+What is a Module
+
+A module is just a Python file. The file name (without .py) is the module name.
+
+This day folder already has two files that work together:
+
+
+mymodule.py — names you can import
+
+main.py — a script that imports those names
+
+
+Creating a Module
+
+To create a module we write our codes in a Python script and we save it as a .py file. Create a file named mymodule.py inside your project folder. Let us write some code in this file.
+example.py
+# mymodule.py file
+def generate_full_name(firstname, lastname):
+    return firstname + ' ' + lastname
+
+
+The working file in this folder also stores a number, a dictionary, and a second function, so the later from / as examples have something to import:
+example.py
+# mymodule.py file (full version used by main.py)
+def generate_full_name(firstname, lastname):
+    space = ' '
+    fullname = firstname + space + lastname
+    return fullname
+
+
+def sum_two_nums(num1, num2):
+    return num1 + num2
+
+
+gravity = 9.81
+person = {
+    "firstname": "Priya",
+    "age": 22,
+    "country": "India",
+    "city": "Hyderabad"
+}
+
+
+Create main.py in the same folder and import mymodule.
+
+Importing a Module
+
+To import the file we use the import keyword and the name of the file only (no .py).
+example.py
+# main.py file
+import mymodule
+print(mymodule.generate_full_name('Priya', 'Rao'))
+
+
+View:
+output.txt
+Priya Rao
+
+
+After import mymodule, every public name lives on mymodule. You write mymodule.generate_full_name, not generate_full_name alone.
+
+Import Functions from a Module
+
+We can have many functions in a file and we can import all the functions differently. from copies the names into this file.
+example.py
+# main.py file
+from mymodule import generate_full_name, sum_two_nums, person, gravity
+print(generate_full_name('Priya', 'Rao'))
+print(sum_two_nums(10, 20))
+mass = 10
+weight = mass * gravity
+print(weight)
+print(person['firstname'])
+
+
+View:
+output.txt
+Priya Rao
+30
+98.10000000000001
+Priya
+
+
+sum_two_nums(10, 20) is 30. 10 * 9.81 is 98.10000000000001 (float arithmetic, not a clean 98.1). The dictionary key 'firstname' is 'Priya'.
+
+Import Functions from a Module and Renaming
+
+During importing we can rename the name of the module (or of each imported name) with as.
+example.py
+# main.py file
+from mymodule import generate_full_name as fullname, sum_two_nums as total, person as p, gravity as g
+print(fullname('Priya', 'Rao'))
+print(total(10, 20))
+mass = 10
+print(mass)
+weight = mass * g
+print(weight)
+print(p)
+print(p['firstname'])
+
+
+View:
+output.txt
+Priya Rao
+30
+10
+98.10000000000001
+{'firstname': 'Priya', 'age': 22, 'country': 'India', 'city': 'Hyderabad'}
+Priya
+
+
+fullname is generate_full_name. total is sum_two_nums. p is person. g is gravity. This is the same script as main.py in this folder. Run it from this folder so Python finds mymodule.py next to it.
+
+Import Built-in Modules
+
+Like other programming languages we can also import modules by importing the file/function using the keyword import. Let's import the common module we will use most of the time. Some of the common built-in modules: math, datetime, os, sys, random, statistics, collections, json, re.
+
+Today we open os, sys, statistics, math, string, and random. datetime is Day 16. json and re come later.
+
+OS Module
+
+Using Python os module it is possible to automatically perform many operating system tasks. The OS module in Python provides functions for creating, changing current working directory, and removing a directory (folder), fetching its contents, changing and identifying the current directory.
+example.py
+import os
+
+
+
+
+
+  #
+  Call
+  What it does
+
+
+
+
+
+  1
+  os.mkdir(name)
+  Create a directory
+
+
+
+  2
+  os.chdir(path)
+  Change the current directory
+
+
+
+  3
+  os.getcwd()
+  Get the current working directory
+
+
+
+  4
+  os.rmdir(name)
+  Remove an empty directory
+
+
+
+
+Do not run mkdir / rmdir on a folder you still need. The four calls below are the same syntax as the original lesson.
+
+1. os.mkdir()
+example.py
+import os
+os.mkdir('directory_name')
+
+
+View:
+output.txt
+# a folder named directory_name is created in the current directory
+
+
+2. os.chdir()
+example.py
+os.chdir('path')
+
+
+View:
+output.txt
+# the current working directory is now path
+
+
+Use a real folder path on your computer. '.' means this folder. '..' means the parent folder.
+
+3. os.getcwd()
+example.py
+print(os.getcwd())
+
+
+View (yours will differ):
+output.txt
+D:\TEST\python-30-day-course\module-02-logic-and-reuse\12_Day_Modules
+
+
+4. os.rmdir()
+example.py
+os.rmdir('directory_name')
+
+
+View:
+output.txt
+# the empty folder directory_name is removed
+
+
+os.rmdir() only deletes an empty folder. Fetching names inside a folder is os.listdir(path).
+
+Sys Module
+
+The sys module provides functions and variables used to manipulate different parts of the Python runtime environment. Function sys.argv returns a list of command line arguments passed to a Python script. The item at index 0 in this list is always the name of the script, at index 1 is the argument passed from the command line.
+
+
+
+
+  #
+  Name
+  What it does
+
+
+
+
+
+  1
+  sys.argv
+  List of command-line arguments
+
+
+
+  2
+  sys.exit()
+  Stop the program
+
+
+
+  3
+  sys.maxsize
+  Largest integer the platform treats as a native int size limit
+
+
+
+  4
+  sys.path
+  List of folders Python searches for modules
+
+
+
+  5
+  sys.version
+  Python version string
+
+
+
+
+1. sys.argv
+
+Example of a script.py file:
+example.py
+import sys
+# print(sys.argv[0], sys.argv[1], sys.argv[2])  # filename argument1 argument2
+print('Welcome {}. Enjoy  {} challenge!'.format(sys.argv[1], sys.argv[2]))
+
+
+Now to check how this script works, write in the command line:
+terminal
+python script.py Priya 30DaysOfPython
+
+
+View:
+output.txt
+Welcome Priya. Enjoy  30DaysOfPython challenge!
+
+
+sys.argv[0] is 'script.py'. sys.argv[1] is 'Priya'. sys.argv[2] is '30DaysOfPython'.
+
+2. sys.exit()
+example.py
+import sys
+# sys.exit()
+
+
+View:
+output.txt
+# the program stops here if you uncomment sys.exit()
+
+
+3. sys.maxsize
+example.py
+import sys
+print(sys.maxsize)
+
+
+View (64-bit Python):
+output.txt
+9223372036854775807
+
+
+4. sys.path
+example.py
+import sys
+print(sys.path)
+
+
+View:
+output.txt
+# a list of folder strings — the first item is often '' (this folder)
+
+
+Python looks through sys.path when you write import mymodule.
+
+5. sys.version
+example.py
+import sys
+print(sys.version)
+
+
+View (yours will differ):
+output.txt
+3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]
+
+
+Statistics Module
+
+The statistics module provides functions for mathematical statistics of numeric data. The popular statistical functions which are defined in this module: mean, median, mode, stdev etc.
+
+Structured scores used below: 10, 20, 20, 30, 40, 50, 20. The extra 20 values give a clear mode. from statistics import * brings every public name in.
+example.py
+from statistics import *  # importing all the statistics modules
+scores = [10, 20, 20, 30, 40, 50, 20]
+print(mean(scores))
+print(median(scores))
+print(mode(scores))
+print(stdev(scores))
+
+
+View:
+output.txt
+27.142857142857142
+20
+20
+13.801311186847084
+
+
+1. mean()
+
+mean() is the average: sum divided by count. 190 / 7.
+example.py
+from statistics import mean
+print(mean([10, 20, 20, 30, 40, 50, 20]))
+
+
+View:
+output.txt
+27.142857142857142
+
+
+2. median()
+
+median() is the middle value after sorting. Sorted scores: [10, 20, 20, 20, 30, 40, 50]. The middle item is 20.
+example.py
+from statistics import median
+print(median([10, 20, 20, 30, 40, 50, 20]))
+
+
+View:
+output.txt
+20
+
+
+3. mode()
+
+mode() is the value that appears most often. 20 appears three times.
+example.py
+from statistics import mode
+print(mode([10, 20, 20, 30, 40, 50, 20]))
+
+
+View:
+output.txt
+20
+
+
+4. stdev()
+
+stdev() is the sample standard deviation — how spread out the numbers are.
+example.py
+from statistics import stdev
+print(stdev([10, 20, 20, 30, 40, 50, 20]))
+
+
+View:
+output.txt
+13.801311186847084
+
+
+You can also write import statistics and then statistics.mean(scores).
+
+Math Module
+
+Module containing many mathematical operations and constants.
+example.py
+import math
+print(math.pi)           # pi constant
+print(math.sqrt(2))      # square root
+print(math.pow(2, 3))    # 2 ** 3
+print(math.floor(9.81))  # rounding down
+print(math.ceil(9.81))   # rounding up
+print(math.log10(100))   # log base 10
+
+
+View:
+output.txt
+3.141592653589793
+1.4142135623730951
+8.0
+9
+10
+2.0
+
+
+2, 3, 9.81, and 100 stay here because they are the usual values for these functions (sqrt(2), 2 ** 3, gravity, log10(100) == 2). Structured numbers work the same way: math.pow(10, 2) is 100.0 and math.sqrt(100) is 10.0.
+
+Now, we have imported the math module which contains lots of functions which can help us to perform mathematical calculations. To check what functions the module has got, we can use help(math), or dir(math). This will display the available functions in the module.
+
+
+
+
+  #
+  Name
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  math.pi
+  The constant π
+  math.pi
+  3.141592653589793
+
+
+
+  2
+  math.sqrt(x)
+  Square root
+  math.sqrt(2)
+  1.4142135623730951
+
+
+
+  3
+  math.pow(x, y)
+  x to the power y (always a float)
+  math.pow(2, 3)
+  8.0
+
+
+
+  4
+  math.floor(x)
+  Nearest integer toward −∞
+  math.floor(9.81)
+  9
+
+
+
+  5
+  math.ceil(x)
+  Nearest integer toward +∞
+  math.ceil(9.81)
+  10
+
+
+
+  6
+  math.log10(x)
+  Logarithm base 10
+  math.log10(100)
+  2.0
+
+
+
+
+1. math.pi
+example.py
+import math
+print(math.pi)
+
+
+View:
+output.txt
+3.141592653589793
+
+
+2. math.sqrt()
+example.py
+print(math.sqrt(2))
+print(math.sqrt(100))
+
+
+View:
+output.txt
+1.4142135623730951
+10.0
+
+
+3. math.pow()
+example.py
+print(math.pow(2, 3))
+print(math.pow(10, 2))
+
+
+View:
+output.txt
+8.0
+100.0
+
+
+math.pow always returns a float. 2 ** 3 is the integer 8.
+
+4. math.floor()
+example.py
+print(math.floor(9.81))
+print(math.floor(10.6))
+
+
+View:
+output.txt
+9
+10
+
+
+5. math.ceil()
+example.py
+print(math.ceil(9.81))
+print(math.ceil(10.1))
+
+
+View:
+output.txt
+10
+11
+
+
+6. math.log10()
+example.py
+print(math.log10(100))
+print(math.log10(10))
+
+
+View:
+output.txt
+2.0
+1.0
+
+
+Importing from math
+
+If we want to import only a specific function from the module we import it as follows:
+example.py
+from math import pi
+print(pi)
+
+
+View:
+output.txt
+3.141592653589793
+
+
+It is also possible to import multiple functions at once:
+example.py
+from math import pi, sqrt, pow, floor, ceil, log10
+print(pi)
+print(sqrt(2))
+print(pow(2, 3))
+print(floor(9.81))
+print(ceil(9.81))
+print(log10(100))
+
+
+View:
+output.txt
+3.141592653589793
+1.4142135623730951
+8.0
+9
+10
+2.0
+
+
+After from math import log10, the name is log10, not math.log10. math.log10 only works if you also wrote import math.
+
+But if we want to import all the functions in the math module we can use *.
+example.py
+from math import *
+print(pi)
+print(sqrt(2))
+print(pow(2, 3))
+print(floor(9.81))
+print(ceil(9.81))
+print(log10(100))
+
+
+View:
+output.txt
+3.141592653589793
+1.4142135623730951
+8.0
+9
+10
+2.0
+
+
+from math import * fills this file with every public math name. It is handy in a short script. In a larger file prefer import math so you can see where sqrt came from.
+
+When we import we can also rename the name of the function.
+example.py
+from math import pi as PI
+print(PI)
+
+
+View:
+output.txt
+3.141592653589793
+
+
+String Module
+
+A string module is a useful module for many purposes. The example below shows some use of the string module.
+example.py
+import string
+print(string.ascii_letters)
+print(string.digits)
+print(string.punctuation)
+
+
+View:
+output.txt
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+
+
+1. string.ascii_letters
+example.py
+import string
+print(string.ascii_letters)
+
+
+View:
+output.txt
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+
+Lowercase a–z plus uppercase A–Z. Useful when you build a random id.
+
+2. string.digits
+example.py
+print(string.digits)
+
+
+View:
+output.txt
+0123456789
+
+
+3. string.punctuation
+example.py
+print(string.punctuation)
+
+
+View:
+output.txt
+!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+
+
+Random Module
+
+By now you are familiar with importing modules. Let us do one more import to get very familiar with it. Let us import random module which gives us a random number between 0 and 0.9999.... The random module has lots of functions but in this section we will only use random and randint.
+example.py
+from random import random, randint
+print(random())
+print(randint(10, 50))
+
+
+View (sample — yours will differ):
+output.txt
+0.374821905132
+30
+
+
+1. random()
+
+random() takes no arguments. It returns a float in the half-open range [0.0, 1.0).
+example.py
+from random import random
+print(random())
+
+
+View (sample):
+output.txt
+0.374821905132
+
+
+2. randint()
+
+randint(a, b) returns a random integer including both ends.
+example.py
+from random import randint
+print(randint(10, 50))
+
+
+View (sample):
+output.txt
+30
+
+
+The integer can be 10 or 50 or anything between.
+
+Day 12 import syntax is done. Practice it in the exercises below. Use random, string, and randint for the id and color tasks.
+
+Exercises
+
+Exercises: Level 1
+
+
+Write a function which generates a six digit/character random_user_id.example.py
+  print(random_user_id())
+  '1ee33d'
+
+
+
+Modify the previous task. Declare a function named user_id_gen_by_user. It doesn’t take any parameters but it takes two inputs using input(). One of the inputs is the number of characters and the second input is the number of IDs which are supposed to be generated.
+
+example.py
+print(user_id_gen_by_user()) # user input: 5 5
+#output:
+#kcsy2
+#SMFYb
+#bWmeq
+#ZXOYh
+#2Rgxf
+
+print(user_id_gen_by_user()) # 16 5
+#1GCSgPLMaBAVQZ26
+#YD7eFwNQKNs7qXaT
+#ycArC5yrRupyG00S
+#UbGxOFI7UXSWAyKN
+#dIV0SSUTgAdKwStr
+
+
+
+Write a function named rgb_color_gen. It will generate rgb colors (3 values ranging from 0 to 255 each).
+
+example.py
+print(rgb_color_gen())
+# rgb(125,244,255) - the output should be in this form
+
+
+Exercises: Level 2
+
+
+Write a function list_of_hexa_colors which returns any number of hexadecimal colors in an array (six hexadecimal numbers written after #. Hexadecimal numeral system is made out of 16 symbols, 0-9 and first 6 letters of the alphabet, a-f. Check the task 6 for output examples).
+
+Write a function list_of_rgb_colors which returns any number of RGB colors in an array.
+
+Write a function generate_colors which can generate any number of hexa or rgb colors.
+
+example.py
+generate_colors('hexa', 3) # ['#a3e12f','#03ed55','#eb3d2b']
+generate_colors('hexa', 1) # ['#b334ef']
+generate_colors('rgb', 3)  # ['rgb(5, 55, 175','rgb(50, 105, 100','rgb(15, 26, 80']
+generate_colors('rgb', 1)  # ['rgb(33,79, 176)']
+
+
+Exercises: Level 3
+
+
+Call your function shuffle_list, it takes a list as a parameter and it returns a shuffled list
+
+Write a function which returns an array of seven random numbers in a range of 0-9. All the numbers must be unique.
+
+
+You finished Day 12. Next: list comprehension.
+

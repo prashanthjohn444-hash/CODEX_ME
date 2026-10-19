@@ -1,0 +1,334 @@
+{
+  "format": "resolve-course-reedit-plan/v1",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "total_frames": 11577,
+  "duration_seconds": 385.9,
+  "clips": [
+    {
+      "kind": "video",
+      "section": 1,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-01-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 0,
+      "source_in_frame": 0,
+      "duration_frames": 398,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 1,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-01.wav",
+      "track": 1,
+      "record_frame": 0,
+      "source_in_frame": 0,
+      "duration_frames": 398,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 2,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-02-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 398,
+      "source_in_frame": 0,
+      "duration_frames": 441,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 2,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-02.wav",
+      "track": 1,
+      "record_frame": 398,
+      "source_in_frame": 0,
+      "duration_frames": 441,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 3,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-03-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 839,
+      "source_in_frame": 0,
+      "duration_frames": 1007,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 3,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-03.wav",
+      "track": 1,
+      "record_frame": 839,
+      "source_in_frame": 0,
+      "duration_frames": 1007,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 4,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-04-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 1846,
+      "source_in_frame": 0,
+      "duration_frames": 1271,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 4,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-04.wav",
+      "track": 1,
+      "record_frame": 1846,
+      "source_in_frame": 0,
+      "duration_frames": 1271,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 5,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-05-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 3117,
+      "source_in_frame": 0,
+      "duration_frames": 1032,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 5,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-05.wav",
+      "track": 1,
+      "record_frame": 3117,
+      "source_in_frame": 0,
+      "duration_frames": 1032,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 6,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-06-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 4149,
+      "source_in_frame": 0,
+      "duration_frames": 974,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 6,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-06.wav",
+      "track": 1,
+      "record_frame": 4149,
+      "source_in_frame": 0,
+      "duration_frames": 974,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 7,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-07-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 5123,
+      "source_in_frame": 0,
+      "duration_frames": 1099,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 7,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-07.wav",
+      "track": 1,
+      "record_frame": 5123,
+      "source_in_frame": 0,
+      "duration_frames": 1099,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 8,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-08-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 6222,
+      "source_in_frame": 0,
+      "duration_frames": 2472,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 8,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-08.wav",
+      "track": 1,
+      "record_frame": 6222,
+      "source_in_frame": 0,
+      "duration_frames": 2472,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 9,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-09-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 8694,
+      "source_in_frame": 0,
+      "duration_frames": 1112,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 9,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-09.wav",
+      "track": 1,
+      "record_frame": 8694,
+      "source_in_frame": 0,
+      "duration_frames": 1112,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 10,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-10-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 9806,
+      "source_in_frame": 0,
+      "duration_frames": 1187,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 10,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-10.wav",
+      "track": 1,
+      "record_frame": 9806,
+      "source_in_frame": 0,
+      "duration_frames": 1187,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 11,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-11-obs-fit.mp4",
+      "track": 1,
+      "record_frame": 10993,
+      "source_in_frame": 0,
+      "duration_frames": 584,
+      "source": "real OBS screen capture, time-fitted; see reedit-media/manifest.json"
+    },
+    {
+      "kind": "audio",
+      "section": 11,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\voice\\reedit-venkat\\section-11.wav",
+      "track": 1,
+      "record_frame": 10993,
+      "source_in_frame": 0,
+      "duration_frames": 584,
+      "source": "Voice Studio venkat-English narration"
+    },
+    {
+      "kind": "video",
+      "section": 3,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\renders\\03-python-uses.mp4",
+      "track": 2,
+      "record_frame": 1100,
+      "source_in_frame": 0,
+      "duration_frames": 105,
+      "source": "silent HyperFrames technical explanation"
+    },
+    {
+      "kind": "video",
+      "section": 5,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\renders\\04-prompt-map.mp4",
+      "track": 2,
+      "record_frame": 3925,
+      "source_in_frame": 0,
+      "duration_frames": 105,
+      "source": "silent HyperFrames technical explanation"
+    },
+    {
+      "kind": "video",
+      "section": 9,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\renders\\01-shell-vs-script.mp4",
+      "track": 2,
+      "record_frame": 9016,
+      "source_in_frame": 0,
+      "duration_frames": 120,
+      "source": "silent HyperFrames technical explanation"
+    },
+    {
+      "kind": "video",
+      "section": 10,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\renders\\06-types-map.mp4",
+      "track": 2,
+      "record_frame": 10130,
+      "source_in_frame": 0,
+      "duration_frames": 120,
+      "source": "silent HyperFrames technical explanation"
+    },
+    {
+      "kind": "video",
+      "section": 11,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\broll\\renders\\07-exercise-card.mp4",
+      "track": 2,
+      "record_frame": 11424,
+      "source_in_frame": 0,
+      "duration_frames": 135,
+      "source": "silent HyperFrames technical explanation"
+    }
+  ],
+  "chapters": [
+    {
+      "frame": 0,
+      "title": "Hook \u2014 show the puzzle"
+    },
+    {
+      "frame": 398,
+      "title": "Turn \u2014 one concrete destination"
+    },
+    {
+      "frame": 839,
+      "title": "What Python does"
+    },
+    {
+      "frame": 1846,
+      "title": "Verify your interpreter"
+    },
+    {
+      "frame": 3117,
+      "title": "Know which prompt you are using"
+    },
+    {
+      "frame": 4149,
+      "title": "First expressions and quoted text"
+    },
+    {
+      "frame": 5123,
+      "title": "Break one line and recover"
+    },
+    {
+      "frame": 6222,
+      "title": "Save and run a file"
+    },
+    {
+      "frame": 8694,
+      "title": "Resolve the opening puzzle"
+    },
+    {
+      "frame": 9806,
+      "title": "Preview types and comments"
+    },
+    {
+      "frame": 10993,
+      "title": "Challenge \u2014 one request"
+    }
+  ],
+  "notes": [
+    "Narration must be Voice Studio venkat-English; no substitution.",
+    "05 syntax-repair graphic omitted: saved-file error cannot stand in for shell input.",
+    "02 execution-flow graphic omitted: it anticipates the actual file demonstration.",
+    "OBS footage retimed to fit new voice without inventing UI actions; see reedit-media/manifest.json.",
+    "Uncaptured installation, extension, selected interpreter, and greeting-change shots remain gaps.",
+    "Review scaled graphic slots against audible words before publication."
+  ]
+}

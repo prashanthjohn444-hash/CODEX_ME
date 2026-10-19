@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fcpxml version="1.10">
+  <resources>
+    <format id="f1" name="FFVideoFormat1080p30" frameDuration="1/30s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)" />
+    <asset id="r2" name="section-01-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-01-obs-fit.mp4" start="0s" duration="398/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r3" name="section-01.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-01.wav" start="0s" duration="398/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r4" name="section-02-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-02-obs-fit.mp4" start="0s" duration="441/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r5" name="section-02.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-02.wav" start="0s" duration="441/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r6" name="section-03-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-03-obs-fit.mp4" start="0s" duration="1007/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r7" name="section-03.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-03.wav" start="0s" duration="1007/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r8" name="section-04-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-04-obs-fit.mp4" start="0s" duration="1271/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r9" name="section-04.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-04.wav" start="0s" duration="1271/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r10" name="section-05-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-05-obs-fit.mp4" start="0s" duration="1032/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r11" name="section-05.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-05.wav" start="0s" duration="1032/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r12" name="section-06-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-06-obs-fit.mp4" start="0s" duration="974/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r13" name="section-06.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-06.wav" start="0s" duration="974/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r14" name="section-07-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-07-obs-fit.mp4" start="0s" duration="1099/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r15" name="section-07.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-07.wav" start="0s" duration="1099/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r16" name="section-08-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-08-obs-fit.mp4" start="0s" duration="2472/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r17" name="section-08.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-08.wav" start="0s" duration="2472/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r18" name="section-09-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-09-obs-fit.mp4" start="0s" duration="1112/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r19" name="section-09.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-09.wav" start="0s" duration="1112/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r20" name="section-10-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-10-obs-fit.mp4" start="0s" duration="1187/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r21" name="section-10.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-10.wav" start="0s" duration="1187/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r22" name="section-11-obs-fit.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/timeline/reedit-media/section-11-obs-fit.mp4" start="0s" duration="584/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r23" name="section-11.wav" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/voice/reedit-venkat/section-11.wav" start="0s" duration="584/30s" hasVideo="0" hasAudio="1" audioSources="1" audioChannels="1" />
+    <asset id="r24" name="03-python-uses.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/broll/renders/03-python-uses.mp4" start="0s" duration="105/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r25" name="04-prompt-map.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/broll/renders/04-prompt-map.mp4" start="0s" duration="105/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r26" name="01-shell-vs-script.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/broll/renders/01-shell-vs-script.mp4" start="0s" duration="120/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r27" name="06-types-map.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/broll/renders/06-types-map.mp4" start="0s" duration="120/30s" hasVideo="1" hasAudio="0" format="f1" />
+    <asset id="r28" name="07-exercise-card.mp4" src="file:///C:/Users/lms-work/Documents/PY_AUDIO/youtube-course/production/day-01/broll/renders/07-exercise-card.mp4" start="0s" duration="135/30s" hasVideo="1" hasAudio="0" format="f1" />
+  </resources>
+  <library>
+    <event name="Python 30 Days">
+      <project name="Day 01 — re-edit">
+        <sequence format="f1" duration="11577/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+            <asset-clip ref="r2" name="Section 01 — OBS source" offset="0s" start="0s" duration="398/30s">
+              <asset-clip ref="r3" name="Section 01 — narration" lane="-1" offset="0s" start="0s" duration="398/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r4" name="Section 02 — OBS source" offset="398/30s" start="0s" duration="441/30s">
+              <asset-clip ref="r5" name="Section 02 — narration" lane="-1" offset="0s" start="0s" duration="441/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r6" name="Section 03 — OBS source" offset="839/30s" start="0s" duration="1007/30s">
+              <asset-clip ref="r7" name="Section 03 — narration" lane="-1" offset="0s" start="0s" duration="1007/30s" role="dialogue" />
+              <asset-clip ref="r24" name="03-python-uses" lane="1" offset="261/30s" start="0s" duration="105/30s" />
+            </asset-clip>
+            <asset-clip ref="r8" name="Section 04 — OBS source" offset="1846/30s" start="0s" duration="1271/30s">
+              <asset-clip ref="r9" name="Section 04 — narration" lane="-1" offset="0s" start="0s" duration="1271/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r10" name="Section 05 — OBS source" offset="3117/30s" start="0s" duration="1032/30s">
+              <asset-clip ref="r11" name="Section 05 — narration" lane="-1" offset="0s" start="0s" duration="1032/30s" role="dialogue" />
+              <asset-clip ref="r25" name="04-prompt-map" lane="1" offset="808/30s" start="0s" duration="105/30s" />
+            </asset-clip>
+            <asset-clip ref="r12" name="Section 06 — OBS source" offset="4149/30s" start="0s" duration="974/30s">
+              <asset-clip ref="r13" name="Section 06 — narration" lane="-1" offset="0s" start="0s" duration="974/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r14" name="Section 07 — OBS source" offset="5123/30s" start="0s" duration="1099/30s">
+              <asset-clip ref="r15" name="Section 07 — narration" lane="-1" offset="0s" start="0s" duration="1099/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r16" name="Section 08 — OBS source" offset="6222/30s" start="0s" duration="2472/30s">
+              <asset-clip ref="r17" name="Section 08 — narration" lane="-1" offset="0s" start="0s" duration="2472/30s" role="dialogue" />
+            </asset-clip>
+            <asset-clip ref="r18" name="Section 09 — OBS source" offset="8694/30s" start="0s" duration="1112/30s">
+              <asset-clip ref="r19" name="Section 09 — narration" lane="-1" offset="0s" start="0s" duration="1112/30s" role="dialogue" />
+              <asset-clip ref="r26" name="01-shell-vs-script" lane="1" offset="322/30s" start="0s" duration="120/30s" />
+            </asset-clip>
+            <asset-clip ref="r20" name="Section 10 — OBS source" offset="9806/30s" start="0s" duration="1187/30s">
+              <asset-clip ref="r21" name="Section 10 — narration" lane="-1" offset="0s" start="0s" duration="1187/30s" role="dialogue" />
+              <asset-clip ref="r27" name="06-types-map" lane="1" offset="324/30s" start="0s" duration="120/30s" />
+            </asset-clip>
+            <asset-clip ref="r22" name="Section 11 — OBS source" offset="10993/30s" start="0s" duration="584/30s">
+              <asset-clip ref="r23" name="Section 11 — narration" lane="-1" offset="0s" start="0s" duration="584/30s" role="dialogue" />
+              <asset-clip ref="r28" name="07-exercise-card" lane="1" offset="431/30s" start="0s" duration="135/30s" />
+            </asset-clip>
+          </spine>
+        </sequence>
+      </project>
+    </event>
+  </library>
+</fcpxml>

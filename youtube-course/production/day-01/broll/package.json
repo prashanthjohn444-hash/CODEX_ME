@@ -1,0 +1,17 @@
+{
+  "name": "day-01-technical-broll",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Day 1 Python instructional B-roll, rendered locally with HyperFrames",
+  "scripts": {
+    "doctor": "hyperframes doctor",
+    "lint": "hyperframes lint .",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0",
+    "ffprobe-static": "3.1.0",
+    "gsap": "3.14.2",
+    "hyperframes": "0.8.144"
+  }
+}

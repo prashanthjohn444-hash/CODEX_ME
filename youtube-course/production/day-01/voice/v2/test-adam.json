@@ -1,0 +1,11 @@
+{
+  "source": "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\production\\day-01\\voice\\v2\\test-adam-raw.wav",
+  "file": "test-adam.wav",
+  "duration_seconds": 4.24,
+  "sample_rate_hz": 48000,
+  "channels": 1,
+  "sample_width_bytes": 2,
+  "response_content_type": "audio/wav",
+  "response_bytes": 203564,
+  "ok": true
+}

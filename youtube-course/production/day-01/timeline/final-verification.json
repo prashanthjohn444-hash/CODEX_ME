@@ -1,0 +1,38 @@
+{
+  "file": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\python-day-01-english.mp4",
+  "bytes": 75911132,
+  "duration_seconds": 358.570667,
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1"
+    },
+    {
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "sample_rate": "48000",
+      "channels": 2,
+      "r_frame_rate": "0/0"
+    },
+    {
+      "codec_type": "data",
+      "r_frame_rate": "0/0"
+    }
+  ],
+  "review_frames": [
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\review-opening.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\review-middle.png",
+    "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\output\\review-ending.png"
+  ],
+  "automatic_checks_pass": true,
+  "failures": [],
+  "manual_review_pending": [
+    "Listen to narration and verify no clipping or truncation",
+    "Inspect review frames for black/offline content and readable code",
+    "Check screen actions and graphic timing against spoken sentences",
+    "Check final music/image rights if new assets are added"
+  ]
+}

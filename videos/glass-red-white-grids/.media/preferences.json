@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "preferences": {
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "glass-red-white-grids"
+      ],
+      "updated_at": "2026-10-10T09:45:12.320Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "glass-red-white-grids"
+      ],
+      "updated_at": "2026-10-10T09:45:12.434Z"
+    }
+  },
+  "sightings": {}
+}

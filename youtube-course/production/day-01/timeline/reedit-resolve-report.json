@@ -1,0 +1,6 @@
+{
+  "project": "Python Day 01 - Venkat Reedit",
+  "started_utc": "2026-10-10T07:15:57.725552+00:00",
+  "status": "blocked",
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\import_reedit_resolve.py\", line 30, in main\n    raise RuntimeError(\"Resolve external scripting did not connect; use reedit-resolve-import.fcpxml\")\nRuntimeError: Resolve external scripting did not connect; use reedit-resolve-import.fcpxml\n"
+}

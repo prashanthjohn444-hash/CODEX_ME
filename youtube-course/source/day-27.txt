@@ -1,0 +1,1005 @@
+
+Python with MongoDB
+
+Python is a backend language. It can talk to SQL databases and to NoSQL databases. Today we connect Python to MongoDB, which is NoSQL.
+
+MongoDB
+
+MongoDB stores data as JSON-like documents. That makes it flexible and easy to scale.
+
+SQL versus NoSQL
+
+Same idea, different words:
+
+
+
+
+  SQL
+  NoSQL
+
+
+
+
+
+  Database
+  Database
+
+
+
+  Tables
+  Collections
+
+
+
+  Rows
+  Documents
+
+
+
+  Columns
+  Fields
+
+
+
+  Index
+  Index
+
+
+
+  Join
+  Embedding and Linking
+
+
+
+  Group by
+  Aggregation
+
+
+
+  Primary Key
+  _id field
+
+
+
+
+Create an Atlas cluster
+
+The Atlas website has been redesigned since these steps were first written. The buttons below match the original signup / cluster / URI / driver screens. Follow the same order even if a label moved.
+
+1. Open mongodb.com and Sign In
+
+
+Go to https://www.mongodb.com/.
+
+The page heading is The database for modern applications.
+
+Top bar: Cloud, Software, Learn, Solutions, Docs, Contact, Search.
+
+Top right: Sign In and a green Try Free button.
+
+Click Sign In, then Register on the next page.
+
+
+2. Complete the Sign Up form
+
+The register screen is titled Sign Up. Fill every field, tick the terms box, click Continue.
+
+
+
+
+  Field
+  What to enter
+
+
+
+
+
+  Email Address
+  your email
+
+
+
+  Password
+  at least 8 characters
+
+
+
+  First Name
+  your first name
+
+
+
+  Last Name
+  your last name
+
+
+
+  Phone Number
+  optional on some plans
+
+
+
+  Company Name
+  optional
+
+
+
+  Job Function
+  dropdown, default None Selected
+
+
+
+  Country
+  dropdown, Select Country
+
+
+
+  I agree to the terms of service and privacy policy
+  required checkbox
+
+
+
+
+Footer of the form: Already have an account? Login.
+
+3. Choose the free Starter plan
+
+Choose a path. Adjust anytime. Three cards:
+
+
+
+
+  Plan
+  Price on the original screen
+  Pick this?
+
+
+
+
+
+  Starter Clusters
+  FREE
+  Yes. For learning and small apps.
+
+
+
+  Single-Region Clusters
+  from $0.08/hr (~$56.94/month)
+  No, for this course.
+
+
+
+  Multi-Region Clusters
+  from $0.13/hr (~$98.55/month)
+  No, for this course.
+
+
+
+
+Starter includes: highly available auto-healing cluster, end-to-end encryption, role-based access control. It does not include no-downtime scaling, network isolation, or realtime performance metrics.
+
+Click Create a cluster on the Starter card.
+
+4. Create the Starter cluster
+
+Screen title: Create a Starter Cluster.
+
+
+Cloud Provider & Region — pick AWS (Google Cloud and Azure are also listed).
+
+Recommended region on the original screen: N. Virginia (us-east-1), badge FREE TIER AVAILABLE.
+
+Other free-tier regions shown: Oregon (us-west-2), Ireland (eu-west-1), Frankfurt (eu-central-1), Singapore (ap-southeast-1), Mumbai (ap-south-1), Sydney (ap-southeast-2). Pick the one closest to you that still says FREE TIER AVAILABLE.
+
+Cluster Tier — M0 Sandbox (Shared RAM, 512 MB Storage), Encrypted.
+
+Additional Settings — MongoDB 4.0, No Backup (today Atlas picks a current version for you).
+
+Cluster Name — one time only. Type 30DaysOfPython. Names may use ASCII letters, numbers, and hyphens only.
+
+Footer shows FREE. Click green Create Cluster.
+
+
+5. The free sandbox is ready
+
+The Clusters dashboard shows a SANDBOX card:
+
+
+
+
+  Label
+  Value on the original screen
+
+
+
+
+
+  Cluster
+  30DaysOfPython (green dot = running)
+
+
+
+  Version
+  4.0.13
+
+
+
+  Cluster tier
+  M0 Sandbox (General)
+
+
+
+  Region
+  AWS / N. Virginia (us-east-1)
+
+
+
+  Type
+  Replica Set — 3 nodes
+
+
+
+  Linked Stitch App
+  None Linked
+
+
+
+  Operations / Connections
+  0
+
+
+
+  Logical Size
+  0.0 B of 512.0 MB
+
+
+
+
+Two buttons you need:
+
+
+CONNECT — get the MongoDB URI that Python will use.
+
+COLLECTIONS — open the databases and documents.
+
+
+A Get Started checklist (about 20% after the cluster exists):
+
+
+Build your first cluster — done
+
+Create your first database user
+
+Whitelist your IP address
+
+Load Sample Data (optional)
+
+Connect to your cluster
+
+
+6. Allow IP access (Network Access)
+
+Left sidebar: Security → Network Access. Modal title: Add Whitelist Entry.
+
+
+Click ADD CURRENT IP ADDRESS to allow only this machine, or
+
+Click ALLOW ACCESS FROM ANYWHERE (0.0.0.0/0) for a class demo. Anyone on the internet can then try your URI, so use a strong user password.
+
+Optional comment box.
+
+Click green Confirm.
+
+
+7. Add a database user
+
+Left sidebar: Security → Database Access. Modal title: Add New User.
+
+
+Choose Method — PASSWORD (SCRAM). Certificate is the other tab.
+
+Username — example placeholder on the screen: new-user_31. Use something you will remember (this lesson uses priya in the URI examples).
+
+Password — type one, or click Autogenerate Secure Password. Click SHOW to read it. Save it; you need it in the URI.
+
+User Privileges — pick Read and write to any database (the card in the middle). The others are Atlas admin, Only read any database, Select Custom Role.
+
+Leave Save as temporary user unchecked unless you want the user to expire.
+
+Click green Add User.
+
+
+8. Create the MongoDB URI
+
+On the cluster card click CONNECT. Modal title: Connect to 30DaysOfPython.
+
+Steps in the modal: Setup connection security → Choose a connection method → Connect.
+
+Three connection methods:
+
+
+Connect with the Mongo Shell — mongo / mongosh with TLS.
+
+Connect Your Application — get a connection string and driver examples. Pick this.
+
+Connect with MongoDB Compass — desktop GUI.
+
+
+9. Select the Python driver
+
+Still in Connect Your Application:
+
+
+Choose your driver version
+
+DRIVER: Python
+
+VERSION: 3.6 or later
+
+
+
+Tab Connection String Only (not Full Driver Example).
+
+Copy the string. Original screen:
+
+output.txt
+mongodb+srv://asabeneh:<password>@30daysofpython-twxkr.mongodb.net
+
+
+
+Click Copy.
+
+Replace <password> with the password of that database user. URL-encode special characters.
+
+
+Getting Connection String(MongoDB URI)
+
+After you paste your own user and password you get a URI like this:
+output.txt
+mongodb+srv://priya:<password>@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority
+
+
+Example (weak password on purpose — use a stronger one):
+output.txt
+mongodb+srv://priya:123123123@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority
+
+
+The host and replica-set name on your account will differ. The URI is only a way to reach the cluster.
+
+Python needs a driver. Install pymongo and dnspython inside the same virtualenv you used on Day 26. dnspython is required for mongodb+srv:// URIs.
+terminal
+pip install pymongo dnspython
+
+
+Connecting Flask application to MongoDB Cluster
+
+Put the URI in a variable. Do not commit a real password.
+example.py
+from flask import Flask, render_template
+import os
+import pymongo
+
+MONGODB_URI = 'mongodb+srv://priya:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+print(client.list_database_names())
+
+app = Flask(__name__)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+View — default databases on a new cluster:
+output.txt
+['admin', 'local']
+
+
+Newer Atlas clusters may also list config.
+
+Creating a database and collection
+
+MongoDB creates a database and a collection the first time you write a document. We will use database thirty_days_of_python and collection students.
+
+Two ways to get a database handle:
+example.py
+db = client.name_of_database          # attribute style
+db = client['name_of_database']       # dictionary style
+
+
+insert_one() writes one document.
+example.py
+from flask import Flask
+import os
+import pymongo
+
+MONGODB_URI = 'mongodb+srv://priya:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client.thirty_days_of_python
+db.students.insert_one({
+    'name': 'Priya',
+    'country': 'Finland',
+    'city': 'Helsinki',
+    'age': 250,
+})
+print(client.list_database_names())
+
+
+View
+output.txt
+['thirty_days_of_python', 'admin', 'local']
+
+
+Open the cluster COLLECTIONS tab. Original Atlas screen:
+
+
+Left: + Create Database. Under NAMESPACES: thirty_days_of_python → students.
+
+Header: thirty_days_of_python.students.
+
+Collection size 190B, TOTAL DOCUMENTS: 2, indexes 16KB (the original demo inserted the same person twice).
+
+Filter box: { "filter": "example" }.
+
+First document (list view):
+
+output.txt
+_id: ObjectId("5df680fb4a9d94e8def5835d")
+name: "Asabeneh"
+country: "Helsinki"
+city: "Helsinki"
+age: "250"
+
+
+The Atlas UI in that screenshot stored country as "Helsinki" (same as city). The Python insert_one above stores country: 'Finland'. Trust the code you ran.
+
+
+A second, duplicate document: _id: ObjectId("5df680fd49906849ad3a6216"), same fields.
+
+Row icons on the right: edit, copy, clone, delete. Use delete to drop the extra copy.
+
+
+Every document gets a unique _id. That field is the NoSQL primary key.
+
+Inserting many documents to collection
+
+insert_one() is one document. For several documents use insert_many() or a loop of insert_one().
+example.py
+import pymongo
+
+MONGODB_URI = 'mongodb+srv://priya:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client.thirty_days_of_python
+
+students = [
+    {'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34},
+    {'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28},
+    {'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25},
+]
+for student in students:
+    db.students.insert_one(student)
+
+
+Same result with one call:
+example.py
+db.students.insert_many(students)
+
+
+After Priya plus these three, the collection has four documents.
+
+MongoDB Find
+
+find() and find_one() read documents. They are the NoSQL version of SQL SELECT.
+
+The snippets below reuse this connection. Paste your URI once at the top of the file:
+example.py
+import pymongo
+from bson.objectid import ObjectId
+
+MONGODB_URI = 'mongodb+srv://priya:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client['thirty_days_of_python']
+
+
+Demo _id values used in the views (yours will be different):
+
+
+
+
+  _id
+  name
+
+
+
+
+
+  5df68a21f106fe2d315bbc8b
+  Priya
+
+
+
+  5df68a23f106fe2d315bbc8c
+  David
+
+
+
+  5df68a23f106fe2d315bbc8d
+  John
+
+
+
+  5df68a23f106fe2d315bbc8e
+  Sami
+
+
+
+
+1. find_one()
+
+No filter → first document in the collection.
+example.py
+student = db.students.find_one()
+print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+
+
+2. find_one by _id
+example.py
+student = db.students.find_one({'_id': ObjectId('5df68a23f106fe2d315bbc8c')})
+print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+
+
+3. find()
+
+No filter → every document. The return value is a pymongo.cursor.Cursor. Loop it.
+example.py
+students = db.students.find()
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+4. find with projection
+
+Second argument picks fields. 1 = include, 0 = exclude. Do not mix 1 and 0 except for _id.
+example.py
+students = db.students.find({}, {'_id': 0, 'name': 1, 'country': 1})
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'name': 'Priya', 'country': 'Finland'}
+{'name': 'David', 'country': 'UK'}
+{'name': 'John', 'country': 'Sweden'}
+{'name': 'Sami', 'country': 'Finland'}
+
+
+Find with Query
+
+Pass a query object to keep only matching documents.
+example.py
+query = {'country': 'Finland'}
+students = db.students.find(query)
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+Query on one city:
+example.py
+query = {'city': 'Helsinki'}
+students = db.students.find(query)
+for student in students:
+    print(student)
+
+
+View — same two people (both live in Helsinki):
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+Find query with modifier
+
+1. Two fields together (AND)
+example.py
+query = {
+    'country': 'Finland',
+    'city': 'Helsinki',
+}
+students = db.students.find(query)
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+2. Comparison operators
+
+
+
+
+  Operator
+  Meaning
+
+
+
+
+
+  $eq
+  equal
+
+
+
+  $gt
+  greater than
+
+
+
+  $gte
+  greater than or equal
+
+
+
+  $lt
+  less than
+
+
+
+  $lte
+  less than or equal
+
+
+
+  $ne
+  not equal
+
+
+
+  $in
+  value in a list
+
+
+
+  $nin
+  value not in a list
+
+
+
+
+3. $gt — greater than
+example.py
+query = {'age': {'$gt': 30}}
+students = db.students.find(query)
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+
+
+4. $lt — less than
+example.py
+query = {'age': {'$lt': 30}}
+students = db.students.find(query)
+for student in students:
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+Limiting documents
+
+limit(n) stops after n documents.
+example.py
+students = db.students.find().limit(3)
+for student in students:
+    print(student)
+
+
+View — first three:
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+
+
+Find with sort
+
+Default sort is ascending (1). Pass -1 for descending.
+example.py
+students = db.students.find().sort('name')
+for student in students:
+    print(student)
+
+students = db.students.find().sort('name', -1)
+for student in students:
+    print(student)
+
+students = db.students.find().sort('age')
+for student in students:
+    print(student)
+
+students = db.students.find().sort('age', -1)
+for student in students:
+    print(student)
+
+
+View — sort('name') ascending:
+output.txt
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+View — sort('name', -1) descending:
+output.txt
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+
+
+View — sort('age') ascending: Sami 25, John 28, David 34, Priya 250.
+
+View — sort('age', -1) descending: Priya 250, David 34, John 28, Sami 25.
+
+Update with query
+
+1. update_one()
+
+Takes a query and a new-value object. Priya's age 250 is not a real age. Set it to 38.
+example.py
+query = {'age': 250}
+new_value = {'$set': {'age': 38}}
+db.students.update_one(query, new_value)
+
+for student in db.students.find():
+    print(student)
+
+
+View
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 38}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8d'), 'name': 'John', 'country': 'Sweden', 'city': 'Stockholm', 'age': 28}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+$set changes only the fields you name. Without $set, update_one would try to replace the whole document.
+
+2. update_many()
+
+Same two arguments, but every match is updated.
+example.py
+query = {'country': 'Finland'}
+new_value = {'$set': {'city': 'Helsinki'}}
+result = db.students.update_many(query, new_value)
+print(result.modified_count)
+
+
+Delete Document
+
+1. delete_one()
+
+Takes a query. Removes the first match only. Delete John.
+example.py
+query = {'name': 'John'}
+db.students.delete_one(query)
+
+for student in db.students.find():
+    print(student)
+
+
+View — John is gone:
+output.txt
+{'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Priya', 'country': 'Finland', 'city': 'Helsinki', 'age': 38}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
+{'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
+
+
+2. delete_many()
+
+Same query object. Deletes every match. An empty query deletes the whole collection:
+example.py
+db.students.delete_many({'country': 'Sweden'})
+db.students.delete_many({})    # every document — irreversible
+
+
+Drop a collection
+
+drop() removes the collection itself, not just the documents.
+example.py
+db.students.drop()
+
+
+thirty_days_of_python no longer lists students.
+
+Method list
+
+
+
+
+  #
+  Method
+  What it does
+
+
+
+
+
+  1
+  MongoClient(uri)
+  Connect
+
+
+
+  2
+  list_database_names()
+  Names of databases
+
+
+
+  3
+  client.db / client['db']
+  Open or create a database
+
+
+
+  4
+  insert_one(doc)
+  Insert one document
+
+
+
+  5
+  insert_many(list)
+  Insert many documents
+
+
+
+  6
+  find_one(query)
+  First match
+
+
+
+  7
+  find(query, projection)
+  Cursor of matches
+
+
+
+  8
+  find(query)
+  Filter (country, city, $gt, $lt, …)
+
+
+
+  9
+  limit(n)
+  Cap the number of results
+
+
+
+  10
+  sort(field, direction)
+  1 ascending, -1 descending
+
+
+
+  11
+  update_one(query, {'$set': ...})
+  Update first match
+
+
+
+  12
+  update_many(query, {'$set': ...})
+  Update every match
+
+
+
+  13
+  delete_one(query)
+  Delete first match
+
+
+
+  14
+  delete_many(query)
+  Delete every match
+
+
+
+  15
+  drop()
+  Delete the collection
+
+
+
+
+Exercises
+
+The original Day 27 listing had an exercises heading and no prompts. Use the CRUD you just typed.
+
+Exercises: Level 1
+
+
+Create a free Atlas cluster. Add a database user. Allow your current IP (or 0.0.0.0/0 if you understand the risk).
+
+Copy the Python 3.6+ connection string. Replace <password>.
+
+In the Day 26 virtualenv run pip install pymongo dnspython.
+
+Connect with MongoClient and print client.list_database_names().
+
+
+Exercises: Level 2
+
+
+Create database thirty_days_of_python and collection students.
+
+insert_one a document for yourself (name, country, city, age).
+
+insert_many (or a loop of insert_one) for David, John, and Sami from this lesson.
+
+Print find_one() and then loop find().
+
+Print find({}, {'_id': 0, 'name': 1, 'country': 1}).
+
+
+Exercises: Level 3
+
+
+Find students with country: 'Finland'.
+
+Find students with age: {'$gt': 30} and with age: {'$lt': 30}.
+
+sort('name'), sort('name', -1), sort('age'), sort('age', -1). Print each view.
+
+limit(3) and print the three documents.
+
+update_one the implausible age 250 to 38. Confirm with find().
+
+delete_one({'name': 'John'}). Confirm John is gone.
+
+Call drop() only when you are ready to wipe students.
+
+
+You finished Day 27. Next: HTTP and APIs.
+

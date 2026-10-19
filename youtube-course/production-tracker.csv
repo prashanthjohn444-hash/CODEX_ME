@@ -1,0 +1,31 @@
+﻿day,module,title,thumbnail,outcome,recommended_title_score,top_hook_score,status
+1,Module 1 · Foundations,Run Your First Python File | Day 1,IT RUNS,"install Python, use the interactive shell, and run a saved Python file",100,70,Brief ready; voice and recording pending
+2,Module 1 · Foundations,Python Variables and input() | Day 2,TEXT OR NUMBER?,store user input and convert text into numbers,100,70,Brief ready; voice and recording pending
+3,Module 1 · Foundations,Python Operators: / vs // | Day 3,WRONG TOTAL?,"choose arithmetic, comparison, and logical operators deliberately",100,70,Brief ready; voice and recording pending
+4,Module 1 · Foundations,Python Strings: Clean Text | Day 4,MESSY TO READY,clean and format text using string methods and slicing,100,70,Brief ready; voice and recording pending
+5,Module 1 · Foundations,Python Lists: sort() vs sorted() | Day 5,WHERE IS NONE?,edit a list and distinguish in-place changes from returned values,100,70,Brief ready; voice and recording pending
+6,Module 1 · Foundations,Python Tuples: The Comma Rule | Day 6,ONE SMALL MARK,create tuples and unpack fixed collections,100,70,Brief ready; voice and recording pending
+7,Module 1 · Foundations,Python Sets: Remove Duplicates | Day 7,ONLY UNIQUE,deduplicate values and compare membership across groups,100,70,Brief ready; voice and recording pending
+8,Module 2 · Logic and Reuse,Python Dictionaries: get() | Day 8,MISSING KEY?,store a learner record and handle a missing dictionary key,100,70,Brief ready; voice and recording pending
+9,Module 2 · Logic and Reuse,"Python if, elif, else | Day 9",WHICH PATH?,write decisions with mutually exclusive branches,100,70,Brief ready; voice and recording pending
+10,Module 2 · Logic and Reuse,Python Loops: range() | Day 10,ONE STEP SHORT,repeat work with for and while and control loop flow,100,73,Brief ready; voice and recording pending
+11,Module 2 · Logic and Reuse,Python Functions: return vs print | Day 11,SAVE THE RESULT,build a reusable function that returns a result,98,70,Brief ready; voice and recording pending
+12,Module 2 · Logic and Reuse,Python Modules: Import Your Code | Day 12,TWO FILES,reuse a function from another Python file,98,70,Brief ready; voice and recording pending
+13,Module 2 · Logic and Reuse,Python List Comprehensions | Day 13,LOOP TO LIST,translate a readable loop into a filtered list comprehension,94,70,Brief ready; voice and recording pending
+14,Module 2 · Logic and Reuse,Python Decorators Explained | Day 14,WRAP A FUNCTION,understand functions as values and build a small decorator,100,70,Brief ready; voice and recording pending
+15,Module 3 · Intermediate,Read Python Tracebacks | Day 15,START AT BOTTOM,read an error message and locate the failing expression,100,70,Brief ready; voice and recording pending
+16,Module 3 · Intermediate,Python datetime: Parse Dates | Day 16,TEXT TO TIME,"parse, format, and subtract dates",100,70,Brief ready; voice and recording pending
+17,Module 3 · Intermediate,Python try and except | Day 17,RECOVER CLEANLY,handle an expected conversion error without hiding unrelated failures,100,70,Brief ready; voice and recording pending
+18,Module 3 · Intermediate,Python Regex: Find Patterns | Day 18,EXTRACT THE MATCH,extract and replace simple text patterns with re,100,70,Brief ready; voice and recording pending
+19,Module 3 · Intermediate,Python Files: Save Your Data | Day 19,STILL THERE,"save and reload learner data using text, JSON, and CSV",100,70,Brief ready; voice and recording pending
+20,Module 3 · Intermediate,Python pip: Install Packages | Day 20,WHICH PYTHON?,install and inspect a package in the intended Python environment,94,70,Brief ready; voice and recording pending
+21,Module 3 · Intermediate,Python Classes and Objects | Day 21,DATA + BEHAVIOR,model learners as objects with separate instance state,100,70,Brief ready; voice and recording pending
+22,Module 4 · Applied,Python Web Scraping | Day 22,PAGE TO TABLE,extract structured records from HTML with Beautiful Soup,100,70,Brief ready; voice and recording pending
+23,Module 4 · Applied,Python venv: Isolate Packages | Day 23,SEPARATE TOOLBOXES,"create, activate, inspect, and recreate a project environment",100,70,Brief ready; voice and recording pending
+24,Module 4 · Applied,Python Statistics and NumPy | Day 24,AVERAGE MISLEADS?,compare summary statistics and use NumPy arrays for calculations,100,70,Brief ready; voice and recording pending
+25,Module 4 · Applied,Python pandas: Read a CSV | Day 25,ROWS TO ANSWERS,"load, inspect, filter, and update a small DataFrame",100,70,Brief ready; voice and recording pending
+26,Module 4 · Applied,Python Flask: Build a Web Page | Day 26,LOCALHOST LIVE,serve a page and process a simple form with Flask,100,70,Brief ready; voice and recording pending
+27,Module 4 · Applied,Python MongoDB: Store Records | Day 27,SAVE THEN FIND,"insert, query, update, and delete sample MongoDB documents",100,70,Brief ready; voice and recording pending
+28,Module 4 · Applied,Python APIs: HTTP Explained | Day 28,REQUEST TO RESPONSE,read an HTTP request and response before building an API,100,70,Brief ready; voice and recording pending
+29,Module 4 · Applied,Build a Python REST API | Day 29,CREATE READ UPDATE,build and exercise a small Flask students API with CRUD routes,100,70,Brief ready; voice and recording pending
+30,Module 4 · Applied,After 30 Days of Python: Build This,CLOSE THE TUTORIAL,choose a small next project and define what finished means,100,70,Brief ready; voice and recording pending

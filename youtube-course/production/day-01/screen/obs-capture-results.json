@@ -1,0 +1,123 @@
+{
+  "status": "captured_pending_visual_review",
+  "started_utc": "2026-10-09T01:54:47.014883+00:00",
+  "recorder": "OBS Studio 32.2.2",
+  "editor": "VS Code",
+  "kind": "authentic desktop capture",
+  "captures": [
+    {
+      "section": 1,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-01-obs.mkv",
+      "duration_seconds": 16.3,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Hook — show the puzzle",
+      "bytes": 636181
+    },
+    {
+      "section": 2,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-02-obs.mkv",
+      "duration_seconds": 17.2,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Turn — one concrete destination",
+      "bytes": 518037
+    },
+    {
+      "section": 3,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-03-obs.mkv",
+      "duration_seconds": 34.5,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "What Python does",
+      "bytes": 759698
+    },
+    {
+      "section": 4,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-04-obs.mkv",
+      "duration_seconds": 43.166,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Verify your interpreter",
+      "bytes": 964768
+    },
+    {
+      "section": 5,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-05-obs.mkv",
+      "duration_seconds": 36.833,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Know which prompt you are using",
+      "bytes": 757526
+    },
+    {
+      "section": 6,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-06-obs.mkv",
+      "duration_seconds": 33.5,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "First expressions and quoted text",
+      "bytes": 674524
+    },
+    {
+      "section": 7,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-07-obs.mkv",
+      "duration_seconds": 37.9,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Break one line and recover",
+      "bytes": 798451
+    },
+    {
+      "section": 8,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-08-obs.mkv",
+      "duration_seconds": 79.7,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Save and run a file",
+      "bytes": 1505920
+    },
+    {
+      "section": 9,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-09-obs.mkv",
+      "duration_seconds": 38.2,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Resolve the opening puzzle",
+      "bytes": 917167
+    },
+    {
+      "section": 10,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-10-obs.mkv",
+      "duration_seconds": 40.466,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Preview types and comments",
+      "bytes": 871572
+    },
+    {
+      "section": 11,
+      "path": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-11-obs.mkv",
+      "duration_seconds": 21.366,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "action": "Challenge — one request",
+      "bytes": 523698
+    }
+  ],
+  "warnings": [
+    "Editorial trims and visual sync to narration remain necessary."
+  ],
+  "finished_utc": "2026-10-09T02:01:30.271416+00:00"
+}

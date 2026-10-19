@@ -1,0 +1,17 @@
+{
+  "source": "day-01-spoken-script.md",
+  "counted_content": "Markdown blockquoted narration only",
+  "narration_word_count": 1008,
+  "estimate_wpm": 150,
+  "estimated_narration_seconds": 403,
+  "estimated_narration_minutes": 6.72,
+  "caveat": "Narration estimate only; it excludes demonstrations, typing, and learner pauses, so it is not the expected edited runtime.",
+  "excludes": [
+    "headings",
+    "code blocks",
+    "on-screen directions",
+    "typing time",
+    "demonstration time",
+    "learner pauses"
+  ]
+}

@@ -1,0 +1,4 @@
+file 'C:/Users/lms-work/Documents/Python/youtube-course/production/day-01/screen/tutorial_generator/temp_frames/s04_step0.mp4'
+file 'C:/Users/lms-work/Documents/Python/youtube-course/production/day-01/screen/tutorial_generator/temp_frames/s04_step1.mp4'
+file 'C:/Users/lms-work/Documents/Python/youtube-course/production/day-01/screen/tutorial_generator/temp_frames/s04_step2.mp4'
+file 'C:/Users/lms-work/Documents/Python/youtube-course/production/day-01/screen/tutorial_generator/temp_frames/s04_step3.mp4'

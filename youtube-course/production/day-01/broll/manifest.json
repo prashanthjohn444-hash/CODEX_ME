@@ -1,0 +1,74 @@
+{
+  "format": "day-01-technical-broll/v1",
+  "sourceScript": "../../../day-01-spoken-script.md",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio": false,
+  "package": "hyperframes@0.8.141",
+  "clips": [
+    {
+      "id": "01-shell-vs-script",
+      "source": "01-shell-vs-script.html",
+      "output": "renders/01-shell-vs-script.mp4",
+      "durationSeconds": 4,
+      "fps": 30,
+      "frames": 120,
+      "editPlacement": "Hook or section 9: after live shell/file demonstration; do not replace the real proof shot."
+    },
+    {
+      "id": "02-execution-flow",
+      "source": "02-execution-flow.html",
+      "output": "renders/02-execution-flow.mp4",
+      "durationSeconds": 3.5,
+      "fps": 30,
+      "frames": 105,
+      "editPlacement": "Section 3 or 8: explain instructions → interpreter → output, before or after the real terminal run."
+    },
+    {
+      "id": "03-python-uses",
+      "source": "03-python-uses.html",
+      "output": "renders/03-python-uses.mp4",
+      "durationSeconds": 3.5,
+      "fps": 30,
+      "frames": 105,
+      "editPlacement": "Section 3: short bridge over the spoken applications list; return quickly to the working file."
+    },
+    {
+      "id": "04-prompt-map",
+      "source": "04-prompt-map.html",
+      "output": "renders/04-prompt-map.mp4",
+      "durationSeconds": 3.5,
+      "fps": 30,
+      "frames": 105,
+      "editPlacement": "Section 5: insert after demonstrating exit() in the actual terminal."
+    },
+    {
+      "id": "05-syntax-repair",
+      "source": "05-syntax-repair.html",
+      "output": "renders/05-syntax-repair.mp4",
+      "durationSeconds": 4,
+      "fps": 30,
+      "frames": 120,
+      "editPlacement": "Section 7: after live broken-file capture, use as an annotated replay of the one-character repair."
+    },
+    {
+      "id": "06-types-map",
+      "source": "06-types-map.html",
+      "output": "renders/06-types-map.mp4",
+      "durationSeconds": 4,
+      "fps": 30,
+      "frames": 120,
+      "editPlacement": "Section 10: preview beside the actual type() demonstration, not instead of live output."
+    },
+    {
+      "id": "07-exercise-card",
+      "source": "07-exercise-card.html",
+      "output": "renders/07-exercise-card.mp4",
+      "durationSeconds": 4.5,
+      "fps": 30,
+      "frames": 135,
+      "editPlacement": "Section 11: hold or loop while asking learner to pause; keep solution hidden."
+    }
+  ]
+}

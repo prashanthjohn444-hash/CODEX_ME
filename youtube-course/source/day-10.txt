@@ -1,0 +1,767 @@
+
+Loops
+
+Life is full of routines. In programming we also do lots of repetitive tasks. Programming languages use loops for that work. Python has two kinds of loop:
+
+
+while loop
+
+for loop
+
+
+The numbered constructs below keep every while, for, break, continue, range, nested loop, else, and pass pattern from the original lesson. Example values use 10, 20, 30, 40, 50 and Priya / Hyderabad.
+
+
+
+
+  #
+  Construct
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  while
+  Repeat while the test is true
+  while score <= 50:
+  10 20 30 40 50
+
+
+
+  2
+  while / else
+  else runs when the test becomes false
+  else: print(score)
+  last line 60
+
+
+
+  3
+  break in while
+  Leave the loop immediately
+  if score == 40: break
+  10 20 30
+
+
+
+  4
+  continue in while
+  Skip this round, start the next
+  if score == 30: continue
+  10 20 40 50
+
+
+
+  5
+  for on a list
+  One item per round
+  for number in numbers:
+  10 … 50
+
+
+
+  6
+  for on a string
+  One character per round
+  for letter in 'Hyderabad':
+  H y d …
+
+
+
+  7
+  for on a tuple
+  One item per round
+  for number in (10, 20, 30, 40, 50):
+  10 … 50
+
+
+
+  8
+  for on a dict
+  Keys, or items() for key and value
+  for key in person:
+  first_name …
+
+
+
+  9
+  for on a set
+  One item per round (order not fixed)
+  for company in it_companies:
+  company names
+
+
+
+  10
+  break in for
+  Stop the loop
+  if number == 30: break
+  10 20 30
+
+
+
+  11
+  continue in for
+  Skip the rest of this round
+  if number == 30: continue
+  skips the “next” line for 30
+
+
+
+  12
+  range(start, end, step)
+  Sequence of integers
+  list(range(10, 60, 10))
+  [10, 20, 30, 40, 50]
+
+
+
+  13
+  Nested for
+  A loop inside a loop
+  for skill in person['skills']:
+  each skill
+
+
+
+  14
+  for / else
+  else runs when the loop finishes
+  else: print(...)
+  The loop stops at 10
+
+
+
+  15
+  pass
+  Do nothing (placeholder)
+  for number in range(6): pass
+  no output
+
+
+
+
+1. While Loop
+
+We use the reserved word while to make a while loop. It runs a block again and again until the condition is no longer true. When the condition becomes false, the lines after the loop run.
+example.py
+# syntax
+while condition:
+    code goes here
+
+
+Example:
+example.py
+score = 10
+while score <= 50:
+    print(score)
+    score = score + 10
+
+
+View:
+output.txt
+10
+20
+30
+40
+50
+
+
+The condition becomes false when score is 60. That is when the loop stops. 10, 20, 30, 40, 50 are printed. If you forget score = score + 10, the condition stays true and the loop never ends.
+
+2. While else
+
+If you want to run a block once the condition is no longer true, add else.
+example.py
+# syntax
+while condition:
+    code goes here
+else:
+    code goes here
+
+
+Example:
+example.py
+score = 10
+while score <= 50:
+    print(score)
+    score = score + 10
+else:
+    print(score)
+
+
+View:
+output.txt
+10
+20
+30
+40
+50
+60
+
+
+The loop condition is false when score is 60. The loop stops, then the else block runs and prints 60.
+
+3. Break - Part 1
+
+break stops the loop. Execution continues after the loop.
+example.py
+# syntax
+while condition:
+    code goes here
+    if another_condition:
+        break
+
+
+Example:
+example.py
+score = 10
+while score <= 50:
+    print(score)
+    score = score + 10
+    if score == 40:
+        break
+
+
+View:
+output.txt
+10
+20
+30
+
+
+The loop prints 10, 20, 30. After 30 is printed, score becomes 40 and break runs. 40 and 50 are never printed.
+
+4. Continue - Part 1
+
+continue skips the rest of the current round and goes back to the test.
+example.py
+# syntax
+while condition:
+    code goes here
+    if another_condition:
+        continue
+
+
+Example:
+example.py
+score = 10
+while score <= 50:
+    if score == 30:
+        score += 10
+        continue
+    print(score)
+    score = score + 10
+
+
+View:
+output.txt
+10
+20
+40
+50
+
+
+When score is 30, the loop adds 10 and continues, so 30 is not printed. The next round starts at 40. You must still change score before continue, or the loop would stay on 30 forever.
+
+5. For Loop on a List
+
+A for loop walks through a sequence (list, tuple, dictionary, set, or string).
+example.py
+# syntax
+for iterator in lst:
+    code goes here
+
+
+Example:
+example.py
+numbers = [10, 20, 30, 40, 50]
+for number in numbers:  # number is a temporary name for each item, valid only inside this loop
+    print(number)       # the numbers print line by line
+
+
+View:
+output.txt
+10
+20
+30
+40
+50
+
+
+6. For Loop on a String
+example.py
+# syntax
+for iterator in string:
+    code goes here
+
+
+Example:
+example.py
+city = 'Hyderabad'
+for letter in city:
+    print(letter)
+
+for i in range(len(city)):
+    print(city[i])
+
+
+View (the same letters print twice — once from the string, once by index):
+output.txt
+H
+y
+d
+e
+r
+a
+b
+a
+d
+H
+y
+d
+e
+r
+a
+b
+a
+d
+
+
+The first loop walks each character. The second loop uses range(len(city)) so i is 0, 1, 2, … and city[i] is the character at that index.
+
+7. For Loop on a Tuple
+example.py
+# syntax
+for iterator in tpl:
+    code goes here
+
+
+Example:
+example.py
+numbers = (10, 20, 30, 40, 50)
+for number in numbers:
+    print(number)
+
+
+View:
+output.txt
+10
+20
+30
+40
+50
+
+
+8. For Loop on a Dictionary
+
+Looping through a dictionary gives you the keys. Use .items() when you want key and value together.
+example.py
+# syntax
+for iterator in dct:
+    code goes here
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+for key in person:
+    print(key)
+
+for key, value in person.items():
+    print(key, value)  # this way we get both keys and values printed out
+
+
+View:
+output.txt
+first_name
+last_name
+age
+country
+city
+is_married
+skills
+address
+first_name Priya
+last_name Rao
+age 22
+country India
+city Hyderabad
+is_married False
+skills ['HTML', 'CSS', 'JS', 'React', 'Python']
+address {'street': 'Banjara Hills', 'zipcode': '500034'}
+
+
+9. For Loop on a Set
+example.py
+# syntax
+for iterator in st:
+    code goes here
+
+
+Example:
+example.py
+it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
+for company in it_companies:
+    print(company)
+
+
+View (a set has no fixed order — your machine may print a different order):
+output.txt
+Google
+IBM
+Apple
+Oracle
+Microsoft
+Facebook
+Amazon
+
+
+Each company prints once. Do not depend on the order of a set.
+
+10. Break - Part 2
+
+Same break keyword, now inside a for loop. It stops the loop before every item has been visited.
+example.py
+# syntax
+for iterator in sequence:
+    code goes here
+    if condition:
+        break
+
+
+Example:
+example.py
+numbers = (10, 20, 30, 40, 50)
+for number in numbers:
+    print(number)
+    if number == 30:
+        break
+
+
+View:
+output.txt
+10
+20
+30
+
+
+The loop prints 10, 20, 30, then stops. 40 and 50 are not printed.
+
+11. Continue - Part 2
+
+continue skips the rest of this round and starts the next item.
+example.py
+# syntax
+for iterator in sequence:
+    code goes here
+    if condition:
+        continue
+
+
+Example:
+example.py
+numbers = (10, 20, 30, 40, 50)
+for number in numbers:
+    print(number)
+    if number == 30:
+        continue
+    print('Next number should be ', number + 10) if number != 50 else print("loop's end")  # short hand needs both if and else
+print('outside the loop')
+
+
+View:
+output.txt
+10
+Next number should be  20
+20
+Next number should be  30
+30
+40
+Next number should be  50
+50
+loop's end
+outside the loop
+
+
+When number is 30, print(number) still runs, then continue skips the “Next number” line. The loop goes on to 40. After the last item, outside the loop prints.
+
+12. The Range Function
+
+range() builds a sequence of integers. range(start, end, step) takes three parameters: start, end (not included), and step. By default it starts at 0 and the step is 1. You must give at least the end.
+example.py
+lst = list(range(11))
+print(lst)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+st = set(range(1, 11))    # 2 arguments: start and end; step defaults to 1
+print(st)  # {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+lst = list(range(0, 11, 2))
+print(lst)  # [0, 2, 4, 6, 8, 10]
+st = set(range(0, 11, 2))
+print(st)  # {0, 2, 4, 6, 8, 10}
+
+# backward from start toward end
+lst = list(range(11, 0, -2))
+print(lst)  # [11, 9, 7, 5, 3, 1]
+
+print(list(range(10, 60, 10)))  # structured set used today
+
+
+View:
+output.txt
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+[0, 2, 4, 6, 8, 10]
+{0, 2, 4, 6, 8, 10}
+[11, 9, 7, 5, 3, 1]
+[10, 20, 30, 40, 50]
+
+example.py
+# syntax
+for iterator in range(start, end, step):
+
+
+Example:
+example.py
+for number in range(11):
+    print(number)   # prints 0 to 10, not including 11
+
+
+View:
+output.txt
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+range(11) is 0 through 10. The end value is never included.
+
+13. Nested For Loop
+
+You can write a loop inside a loop.
+example.py
+# syntax
+for x in y:
+    for t in x:
+        print(t)
+
+
+Example:
+example.py
+person = {
+    'first_name': 'Priya',
+    'last_name': 'Rao',
+    'age': 22,
+    'country': 'India',
+    'city': 'Hyderabad',
+    'is_married': False,
+    'skills': ['HTML', 'CSS', 'JS', 'React', 'Python'],
+    'address': {
+        'street': 'Banjara Hills',
+        'zipcode': '500034'
+    }
+}
+for key in person:
+    if key == 'skills':
+        for skill in person['skills']:
+            print(skill)
+
+
+View:
+output.txt
+HTML
+CSS
+JS
+React
+Python
+
+
+The outer loop walks the dictionary keys. When the key is 'skills', the inner loop walks that list and prints each skill.
+
+14. For Else
+
+If you want to run a message when the loop ends normally, use else.
+example.py
+# syntax
+for iterator in range(start, end, step):
+    do something
+else:
+    print('The loop ended')
+
+
+Example:
+example.py
+for number in range(11):
+    print(number)   # prints 0 to 10, not including 11
+else:
+    print('The loop stops at', number)
+
+
+View:
+output.txt
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+The loop stops at 10
+
+
+After the last number, number is still 10, and the else block prints that line. If a break stops the loop, the else block does not run.
+
+15. Pass
+
+When a statement is required (after the colon) but you do not want to run any code yet, write pass. It is a placeholder for later.
+
+Example:
+example.py
+for number in range(6):
+    pass
+
+
+View:
+output.txt
+
+
+Nothing is printed. The loop still runs six times (0 through 5); pass just means “do nothing in the body.”
+
+Day 10 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+
+Iterate 0 to 10 using for loop, do the same using while loop.
+
+
+
+Iterate 10 to 0 using for loop, do the same using while loop.
+
+
+
+Write a loop that makes seven calls to print(), so we get on the output the following triangle:
+example.py
+  #
+  ##
+  ###
+  ####
+  #####
+  ######
+  #######
+
+
+
+
+Use nested loops to create the following:
+terminal
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+
+
+
+
+Print the following pattern:
+terminal
+0 x 0 = 0
+1 x 1 = 1
+2 x 2 = 4
+3 x 3 = 9
+4 x 4 = 16
+5 x 5 = 25
+6 x 6 = 36
+7 x 7 = 49
+8 x 8 = 64
+9 x 9 = 81
+10 x 10 = 100
+
+
+
+
+Iterate through the list, ['Python', 'Numpy','Pandas','Django', 'Flask'] using a for loop and print out the items.
+
+
+
+Use for loop to iterate from 0 to 100 and print only even numbers
+
+
+
+Use for loop to iterate from 0 to 100 and print only odd numbers
+
+
+
+Exercises: Level 2
+
+
+Use for loop to iterate from 0 to 100 and print the sum of all numbers.
+
+terminal
+The sum of all numbers is 5050.
+
+
+
+
+Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
+terminal
+The sum of all evens is 2550. And the sum of all odds is 2500.
+
+
+
+
+Exercises: Level 3
+
+
+Go to the data folder and use the countries.py file. Loop through the countries and extract all the countries containing the word land.
+
+This is a fruit list, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop.
+
+Go to the data folder and use the countries_data.py file.
+
+What are the total number of languages in the data
+
+Find the ten most spoken languages from the data
+
+Find the 10 most populated countries in the world
+
+
+
+
+You finished Day 10. Next: functions.
+

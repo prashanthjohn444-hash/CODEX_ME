@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1920">
+  <title>Python 30 Days — First Win</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lab Serif"; src: url("assets/fonts/timesbd.ttf") format("truetype"); font-weight: 700; }
+    @font-face { font-family: "Lab Sans"; src: url("assets/fonts/arial.ttf") format("truetype"); font-weight: 400; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #2b2b2b; }
+    #root { position: relative; width: 100%; height: 100%; overflow: hidden; color: #f4f4ef; background: #2b2b2b; font-family: "Lab Sans", sans-serif; }
+    .clip { position: absolute; inset: 0; overflow: hidden; background: #2b2b2b; }
+    .glow { position: absolute; width: 780px; height: 780px; left: 440px; top: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(240,201,77,.21), transparent 67%); pointer-events: none; }
+    .corner { position: absolute; top: 120px; left: 76px; font-size: 24px; letter-spacing: .18em; color: #f0c94d; font-weight: 700; }
+    .count { position: absolute; top: 116px; right: 78px; font-size: 23px; color: #d5d5d1; }
+    .rule { position: absolute; top: 174px; left: 76px; width: 928px; height: 2px; background: #5a5952; transform-origin: left center; }
+    .serif { font-family: "Lab Serif", Georgia, serif; font-weight: 700; letter-spacing: -.045em; }
+    .mono { font-family: Consolas, monospace; }
+    .yellow { color: #f0c94d; } .blue { color: #86b5ff; }
+    .footer { position: absolute; bottom: 122px; left: 76px; right: 76px; display: flex; justify-content: space-between; align-items: center; font-size: 25px; color: #deded6; border-top: 2px solid #5a5952; padding-top: 24px; }
+    .footer em { font-style: normal; color: #f0c94d; }
+    .codebox { border: 3px solid #62615b; border-radius: 25px; background: #1e1e1e; box-shadow: 0 28px 70px rgba(0,0,0,.38); overflow: hidden; }
+    .chrome { display: flex; align-items: center; gap: 13px; height: 74px; padding: 0 27px; color: #deded6; background: #292929; border-bottom: 2px solid #4b4b4b; font-size: 22px; }
+    .dot { width: 13px; height: 13px; border-radius: 50%; background: #86847e; }
+    .chrome strong { margin-left: 18px; font-size: 22px; font-weight: 400; }
+    .tag { display: inline-block; padding: 11px 19px; border: 2px solid #f0c94d; border-radius: 100px; color: #f0c94d; font-size: 22px; font-weight: 700; letter-spacing: .1em; }
+    /* Puzzle: the shell prints an expression, a file needs print(). */
+    #puzzle-title { position: absolute; top: 248px; left: 78px; width: 890px; font-size: 118px; line-height: .98; margin: 0; }
+    #puzzle-code { position: absolute; top: 635px; left: 76px; width: 928px; height: 405px; }
+    #puzzle-code .line { margin: 55px 45px 8px; font-size: 71px; white-space: nowrap; }
+    #puzzle-answer { margin: 8px 45px; font-size: 98px; font-weight: 700; color: #f0c94d; }
+    #puzzle-question { position: absolute; top: 1074px; left: 76px; right: 76px; font-size: 73px; line-height: 1.09; margin: 0; }
+    #puzzle-arrow { position: absolute; top: 1450px; right: 93px; font-size: 128px; color: #f0c94d; }
+    /* Real source screenshot: only the editor area, no local user path. */
+    #source-head { position: absolute; top: 242px; left: 76px; right: 70px; margin: 0; font-size: 103px; line-height: 1.02; }
+    #real-shot { position: absolute; top: 545px; left: 74px; width: 932px; padding-bottom: 45px; }
+    #real-shot img { display: block; width: 100%; height: 210px; object-fit: cover; object-position: left top; }
+    #real-shot .chrome { height: 74px; }
+    #real-shot .chrome strong { color: #f0c94d; }
+    #real-note { position: absolute; top: 962px; left: 78px; width: 900px; font-size: 46px; line-height: 1.32; color: #e4e4df; }
+    #real-note b { color: #f0c94d; }
+    #real-output { position: absolute; top: 1250px; left: 76px; width: 928px; padding: 34px 42px; font-size: 46px; line-height: 1.6; }
+    /* Code terminal run: adapted from the installed code-terminal-run registry component. */
+    #fix-head { position: absolute; top: 235px; left: 76px; right: 76px; margin: 0; font-size: 101px; line-height: 1.02; }
+    #fix-panel { position: absolute; top: 572px; left: 76px; width: 928px; height: 660px; }
+    .editor-label { padding: 34px 38px 0; color: #c9c9c2; font-size: 27px; }
+    .code-line { padding: 35px 38px; font-size: 48px; white-space: nowrap; }
+    #no-output { padding: 10px 38px; font-size: 33px; color: #c9c9c2; }
+    #fixed-line { position: absolute; top: 162px; left: 38px; font-size: 48px; white-space: nowrap; background: #1e1e1e; opacity: 0; }
+    #fix-result { position: absolute; top: 437px; left: 38px; font-size: 74px; font-weight: 700; color: #f0c94d; }
+    #fix-note { position: absolute; top: 1310px; left: 76px; right: 76px; font-size: 55px; line-height: 1.13; }
+    /* Source lab's dashboard/lesson affordances, adapted to portrait. */
+    #path-head { position: absolute; top: 230px; left: 76px; right: 76px; font-size: 111px; line-height: 1; margin: 0; }
+    #path-card { position: absolute; top: 575px; left: 76px; width: 928px; height: 820px; padding: 56px; border-radius: 28px; background: #161719; border: 2px solid #505157; }
+    .path-day { display: flex; align-items: center; gap: 28px; color: #f0c94d; font-size: 27px; letter-spacing: .16em; }
+    .path-index { width: 142px; height: 142px; display: grid; place-items: center; flex: none; border-radius: 50%; border: 7px solid #f0c94d; font-size: 68px; letter-spacing: 0; }
+    #path-card h2 { font-size: 102px; line-height: 1.05; margin: 72px 0 45px; }
+    .path-line { height: 2px; background: #505157; margin: 0 0 47px; }
+    .path-row { font-size: 38px; line-height: 1.6; color: #e5e5e0; }
+    .path-row span { color: #86b5ff; margin-right: 23px; }
+    #outro-title { position: absolute; top: 315px; left: 76px; width: 930px; margin: 0; font-size: 149px; line-height: .93; }
+    #outro-strip { position: absolute; top: 890px; left: 76px; right: 76px; background: #f0c94d; color: #242424; padding: 30px 35px; font-size: 41px; font-weight: 700; }
+    #outro-line { position: absolute; top: 1140px; left: 76px; right: 76px; font-size: 78px; line-height: 1.1; margin: 0; }
+    #outro-code { position: absolute; top: 1460px; left: 76px; color: #f0c94d; font-size: 56px; }
+    #puzzle-title, #puzzle-code, #puzzle-answer, #puzzle-question, #source-head, #real-shot, #real-note, #real-output, #fix-head, #fix-panel, #no-output, #fix-result, #fix-note, #path-head, #path-card, #outro-title, #outro-strip, #outro-line, #outro-code { opacity: 0; }
+  </style>
+</head>
+<body>
+  <div data-hf-id="hf-cz0c" id="root" data-composition-id="python-brag" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <section data-hf-id="hf-qar6" id="scene-puzzle" class="clip" data-start="0" data-duration="3" data-track-index="0">
+      <div data-hf-id="hf-78qa" class="glow" data-layout-ignore=""></div><div data-hf-id="hf-k2r5" class="corner">PYTHON 30 DAYS / 01</div><div data-hf-id="hf-0i82" class="count">01 / 05</div><div data-hf-id="hf-a46i" class="rule"></div>
+      <h1 data-hf-id="hf-lurn" id="puzzle-title" class="serif">It worked<br data-hf-id="hf-x5px">here.</h1>
+      <div data-hf-id="hf-l222" id="puzzle-code" class="codebox"><div data-hf-id="hf-6ex2" class="chrome"><i data-hf-id="hf-6bgx" class="dot"></i><i data-hf-id="hf-0j5x" class="dot"></i><i data-hf-id="hf-1q30" class="dot"></i><strong data-hf-id="hf-33h2">PYTHON SHELL</strong></div><div data-hf-id="hf-zxot" class="line mono">&gt;&gt;&gt; 10 + 20</div><div data-hf-id="hf-di5h" id="puzzle-answer" class="mono">30</div></div>
+      <p data-hf-id="hf-e9je" id="puzzle-question" class="serif">Why did my<br data-hf-id="hf-rsrt"><span data-hf-id="hf-0872" class="yellow">file say nothing?</span></p><div data-hf-id="hf-2rao" id="puzzle-arrow" data-layout-ignore="">↘</div>
+      <div data-hf-id="hf-yh7l" class="footer"><span data-hf-id="hf-iqqh">ONE QUESTION</span><em data-hf-id="hf-epvn">→ ONE FIRST WIN</em></div>
+    </section>
+    <section data-hf-id="hf-rxqt" id="scene-real" class="clip" data-start="3" data-duration="5" data-track-index="0">
+      <div data-hf-id="hf-dg3a" class="glow" data-layout-ignore=""></div><div data-hf-id="hf-gnwu" class="corner">DAY 1 / ACTUAL CODE</div><div data-hf-id="hf-q7ih" class="count">02 / 05</div><div data-hf-id="hf-ya9a" class="rule"></div>
+      <h2 data-hf-id="hf-8yub" id="source-head" class="serif">A real file.<br data-hf-id="hf-szow"><span data-hf-id="hf-hutd" class="yellow">A real result.</span></h2>
+      <div data-hf-id="hf-rjil" id="real-shot" class="codebox"><div data-hf-id="hf-ujgq" class="chrome"><i data-hf-id="hf-1brz" class="dot"></i><i data-hf-id="hf-2ip2" class="dot"></i><i data-hf-id="hf-24e1" class="dot"></i><strong data-hf-id="hf-5hg4">VS CODE · DAY 1 CAPTURE</strong></div><img data-hf-id="hf-mhih" src="assets/images/real-vscode-code.png" alt="Real Day 1 VS Code line: print Hello, Python"></div>
+      <p data-hf-id="hf-f1sr" id="real-note">The first lesson starts with code you can <b data-hf-id="hf-kv9l">run and change.</b></p>
+      <div data-hf-id="hf-nrrs" id="real-output" class="codebox mono"><span data-hf-id="hf-8n1x" class="blue">&gt;</span> python hello.py<br data-hf-id="hf-sldv"><span data-hf-id="hf-wuvg" class="yellow">Hello, Python!</span></div>
+      <div data-hf-id="hf-ll85" class="footer"><span data-hf-id="hf-48zn">REAL DAY 1 SCREEN TAKE</span><em data-hf-id="hf-famk">↓</em></div>
+    </section>
+    <section data-hf-id="hf-lnct" id="scene-fix" class="clip" data-start="8" data-duration="5" data-track-index="0">
+      <div data-hf-id="hf-dueb" class="glow" data-layout-ignore=""></div><div data-hf-id="hf-oq56" class="corner">THE AHA MOMENT</div><div data-hf-id="hf-tiqc" class="count">03 / 05</div><div data-hf-id="hf-yokb" class="rule"></div>
+      <h2 data-hf-id="hf-cmtj" id="fix-head" class="serif">The missing<br data-hf-id="hf-qluq"><span data-hf-id="hf-0l4f" class="yellow">instruction.</span></h2>
+      <div data-hf-id="hf-hmfo" id="fix-panel" class="codebox"><div data-hf-id="hf-uxrr" class="chrome"><i data-hf-id="hf-3bb4" class="dot"></i><i data-hf-id="hf-2x03" class="dot"></i><i data-hf-id="hf-xr0q" class="dot"></i><strong data-hf-id="hf-e7z3">hello.py</strong></div><div data-hf-id="hf-exkt" class="editor-label">SAVED PYTHON FILE</div><div data-hf-id="hf-t9dz" id="original-line" class="code-line mono">10 + 20</div><div data-hf-id="hf-xzrb" id="fixed-line" class="mono"><span data-hf-id="hf-vtic" class="blue">print</span>(10 + 20)</div><div data-hf-id="hf-txro" id="no-output">Run as a file → no printed output</div><div data-hf-id="hf-jkyr" id="fix-result" class="mono">→ 30</div></div>
+      <p data-hf-id="hf-1l11" id="fix-note" class="serif">Add <span data-hf-id="hf-c753" class="yellow">print()</span>.<br data-hf-id="hf-q7jp">See the answer.</p>
+      <div data-hf-id="hf-ms58" class="footer"><span data-hf-id="hf-a21j">LESSON 01 / FOUNDATIONS</span><em data-hf-id="hf-bhfw">✓</em></div>
+    </section>
+    <section data-hf-id="hf-4yed" id="scene-path" class="clip" data-start="13" data-duration="3" data-track-index="0">
+      <div data-hf-id="hf-e8pc" class="glow" data-layout-ignore=""></div><div data-hf-id="hf-8439" class="corner">FROM THE PYTHON LAB</div><div data-hf-id="hf-yg9n" class="count">04 / 05</div><div data-hf-id="hf-z2vc" class="rule"></div>
+      <h2 data-hf-id="hf-3exo" id="path-head" class="serif">Start here.<br data-hf-id="hf-regs"><span data-hf-id="hf-g8at" class="yellow">Build from here.</span></h2>
+      <div data-hf-id="hf-i20j" id="path-card"><div data-hf-id="hf-ubck" class="path-day"><div data-hf-id="hf-87ue" class="path-index serif">01</div><span data-hf-id="hf-akit">MODULE 1 · FOUNDATIONS</span></div><h2 data-hf-id="hf-8dr4" class="serif">Run Your First<br data-hf-id="hf-r05r">Python File</h2><div data-hf-id="hf-jjh0" class="path-line"></div><div data-hf-id="hf-kw3m" class="path-row"><span data-hf-id="hf-p81i">01</span> Python shell</div><div data-hf-id="hf-6zqm" class="path-row"><span data-hf-id="hf-pmcj">02</span> Save a file</div><div data-hf-id="hf-91is" class="path-row"><span data-hf-id="hf-q0nk">03</span> Run it again</div></div>
+      <div data-hf-id="hf-mdu7" class="footer"><span data-hf-id="hf-j9ho">LESSONS · MIND MAPS</span><em data-hf-id="hf-ewbj">→</em></div>
+    </section>
+    <section data-hf-id="hf-qexv" id="scene-outro" class="clip" data-start="16" data-duration="4" data-track-index="0">
+      <div data-hf-id="hf-bgk5" class="glow" data-layout-ignore=""></div><div data-hf-id="hf-csgu" class="corner">YOUR FIRST PYTHON WIN</div><div data-hf-id="hf-90um" class="count">05 / 05</div><div data-hf-id="hf-waq5" class="rule"></div>
+      <h2 data-hf-id="hf-j4tm" id="outro-title" class="serif">PYTHON<br data-hf-id="hf-p0mm"><span data-hf-id="hf-c995" class="yellow">30 DAYS.</span></h2>
+      <div data-hf-id="hf-w0d5" id="outro-strip">DAY 1 · RUN YOUR FIRST PYTHON FILE</div>
+      <p data-hf-id="hf-aw40" id="outro-line" class="serif">Your first file.<br data-hf-id="hf-ombl">Your first win.</p>
+      <div data-hf-id="hf-d4yv" id="outro-code" class="mono">print("Hello, Python!")</div>
+      <div data-hf-id="hf-nkra" class="footer"><span data-hf-id="hf-wgrc">START WITH DAY 1</span><em data-hf-id="hf-gvuo">↗</em></div>
+    </section>
+    <audio data-hf-id="hf-icx4" id="music" src="assets/music/happy-beats-business-moves-vol-10-by-ende-dot-app.mp3" data-start="0" data-duration="20" data-track-index="10" data-volume="0.28" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0.28},{&quot;t&quot;:18.6,&quot;v&quot;:0.28},{&quot;t&quot;:20,&quot;v&quot;:0}]}]}"></audio>
+    <audio data-hf-id="hf-h2pl" id="sfx-click" src="assets/sfx/click_003.ogg" data-start="3.15" data-duration="0.06" data-track-index="11" data-volume="0.55"></audio>
+    <audio data-hf-id="hf-wcsr" id="sfx-turn" src="assets/sfx/impactSoft_medium_001.ogg" data-start="8.18" data-duration="0.18" data-track-index="12" data-volume="0.5"></audio>
+    <audio data-hf-id="hf-44qh" id="sfx-success" src="assets/sfx/impactBell_heavy_000.ogg" data-start="11.15" data-duration="1.1" data-track-index="13" data-volume="0.42"></audio>
+    <audio data-hf-id="hf-mub4" id="sfx-outro" src="assets/sfx/impactSoft_medium_001.ogg" data-start="15.82" data-duration="0.18" data-track-index="14" data-volume="0.5"></audio>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const enter = (selector, at, x, y, duration = 0.46) => tl.fromTo(selector, { x, y, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration, ease: "power3.out", immediateRender: false }, at);
+    document.querySelectorAll(".rule").forEach((el, index) => tl.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: .58, ease: "power2.out", immediateRender: false }, [0, 3, 8, 13, 16][index] + .15));
+    // Contrast and reader-first timing: fast arrival, long settled holds.
+    enter("#puzzle-title", .12, -72, 0); enter("#puzzle-code", .5, 0, 115); enter("#puzzle-answer", 1.0, 0, 42, .28); enter("#puzzle-question", 1.47, -42, 0, .38);
+    enter("#source-head", 3.16, -60, 0); enter("#real-shot", 3.67, 0, 80); enter("#real-note", 4.35, -25, 0); enter("#real-output", 5.2, 0, 75);
+    enter("#fix-head", 8.2, -55, 0); enter("#fix-panel", 8.72, 0, 88); enter("#no-output", 9.46, 0, 32, .25);
+    tl.to("#original-line", { opacity: 0, duration: .16 }, 10.2);
+    tl.fromTo("#fixed-line", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: .33, ease: "power2.out", immediateRender: false }, 10.42);
+    tl.to("#no-output", { opacity: 0, duration: .2 }, 10.42);
+    // beat-locked: the code/result resolves near the 10.93/11.47 beat window; reader timing wins over perfect beat snap.
+    enter("#fix-result", 11.08, 0, 43, .34); enter("#fix-note", 11.52, -35, 0);
+    enter("#path-head", 13.18, -55, 0); enter("#path-card", 13.63, 0, 110, .52);
+    // beat-locked: 15.82s strong cue ushers in the final card, held after 16.25s.
+    enter("#outro-title", 16.05, 0, 115, .55); enter("#outro-strip", 16.63, -65, 0); enter("#outro-line", 17.22, 0, 60); enter("#outro-code", 18.14, -30, 0);
+    document.querySelectorAll(".glow").forEach((el, index) => tl.fromTo(el, { opacity: .45, scale: .95 }, { opacity: .9, scale: 1.06, duration: 1.25, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, [0,3,8,13,16][index]));
+    window.__timelines["python-brag"] = tl;
+  </script>
+</body>
+</html>

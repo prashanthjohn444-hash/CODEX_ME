@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Glass Red-White Grids — Storyboard v1</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; background:#1c0a0a; color:#fff5f4; padding:32px; }
+  header { max-width:1200px; margin:0 auto 24px; }
+  header h1 { font-size:32px; letter-spacing:-0.02em; }
+  header p { margin-top:8px; font-size:16px; opacity:0.85; }
+  .tag { display:inline-block; margin-top:12px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; background:#dc2626; color:#fff; padding:6px 12px; border-radius:999px; }
+  .grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+  .cell { background:#fff; color:#7f1d1d; border-radius:16px; overflow:hidden; }
+  .frame { aspect-ratio:16/9; container-type:inline-size; position:relative; overflow:hidden; background:#fff5f4; }
+  .label { display:flex; justify-content:space-between; padding:10px 14px; font-size:13px; font-weight:700; background:#7f1d1d; color:#fff5f4; }
+  .note { padding:12px 14px; font-size:14px; line-height:1.45; background:#fff; color:#431407; }
+  .note strong { color:#b91c1c; }
+  .chip { display:inline-block; margin:0 14px 14px; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; border:2px solid #dc2626; color:#dc2626; border-radius:999px; padding:4px 10px; }
+  .tokens { padding:16px; font-size:14px; line-height:1.6; background:#fff7ed; color:#431407; }
+  .sw { display:inline-block; width:14px; height:14px; border-radius:4px; vertical-align:-2px; margin-right:6px; border:1px solid rgba(0,0,0,0.2); }
+  /* Sketch scene */
+  .gridlines { position:absolute; inset:0;
+    background-image:linear-gradient(rgba(220,38,38,0.28) 2px, transparent 2px),linear-gradient(90deg, rgba(220,38,38,0.28) 2px, transparent 2px);
+    background-size:72px 72px; }
+  .gridlines.fine { background-size:24px 24px; opacity:0.5;
+    background-image:linear-gradient(rgba(220,38,38,0.16) 1px, transparent 1px),linear-gradient(90deg, rgba(220,38,38,0.16) 1px, transparent 1px); }
+  .orb { position:absolute; border-radius:50%; filter:blur(2px); }
+  .orb1 { width:34cqw; height:34cqw; left:-6cqw; top:-10cqw; background:radial-gradient(circle, rgba(220,38,38,0.55), rgba(220,38,38,0) 70%); }
+  .orb2 { width:28cqw; height:28cqw; right:-4cqw; bottom:-8cqw; background:radial-gradient(circle, rgba(239,68,68,0.5), rgba(239,68,68,0) 70%); }
+  .glass { position:absolute; border-radius:3cqw; background:rgba(255,255,255,0.42); border:1px solid rgba(255,255,255,0.9); box-shadow:0 2cqw 6cqw rgba(127,29,29,0.25); backdrop-filter:blur(2px); }
+  .g1 { left:10cqw; top:18cqw; width:34cqw; height:52cqw; }
+  .g2 { left:47cqw; top:30cqw; width:26cqw; height:40cqw; }
+  .g3 { left:70cqw; top:14cqw; width:20cqw; height:30cqw; }
+  .bar { position:absolute; border-radius:999px; background:rgba(220,38,38,0.85); }
+  .bar1 { left:14cqw; top:26cqw; width:18cqw; height:2.2cqw; }
+  .bar2 { left:14cqw; top:32cqw; width:12cqw; height:1.4cqw; opacity:0.55; }
+  .bar3 { left:51cqw; top:38cqw; width:12cqw; height:1.8cqw; }
+  .dot { position:absolute; border-radius:50%; background:#dc2626; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Glass Red-White Grids — Storyboard v1</h1>
+  <p>Seamless 8s loopable background: red grids drift under frosted glass. No text, no audio.</p>
+  <span class="tag">1920×1080 · 8s · 1 beat</span>
+</header>
+<div class="grid">
+  <div class="cell">
+    <div class="frame" id="frame-01">
+      <div class="gridlines"></div>
+      <div class="gridlines fine"></div>
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="glass g1"><div class="bar bar1"></div><div class="bar bar2"></div></div>
+      <div class="glass g2"><div class="bar bar3"></div></div>
+      <div class="glass g3"></div>
+      <div class="dot" style="left:66cqw;top:60cqw;width:2cqw;height:2cqw;"></div>
+      <div class="dot" style="left:30cqw;top:70cqw;width:1.4cqw;height:1.4cqw;opacity:0.6;"></div>
+    </div>
+    <div class="label"><span>01 · GLASS GRIDS LOOP</span><span>index · 0–8s</span></div>
+    <p class="note"><strong>Moves first:</strong> bold red grid drifts diagonally while fine grid slides opposite; glass panels breathe on sine drift. <strong>Seam:</strong> cut (loop wraps by one tile).</p>
+    <span class="chip">seam: cut / loop</span>
+  </div>
+  <div class="cell">
+    <div class="frame" id="seam-map" style="display:flex;align-items:center;justify-content:center;background:#7f1d1d;color:#fff5f4;font-weight:800;font-size:5cqw;">01 → 01 · CUT LOOP</div>
+    <div class="label"><span>SEAM MAP</span><span>1 seam</span></div>
+    <p class="note"><strong>Loop point:</strong> t=8s wraps to t=0; grid offset equals exactly one tile so the wrap is invisible.</p>
+    <span class="chip">8.0s total</span>
+  </div>
+  <div class="cell">
+    <div class="tokens">
+      <div><span class="sw" style="background:#FFF5F4;"></span>bg #FFF5F4 (white tinted red)</div>
+      <div><span class="sw" style="background:#7F1D1D;"></span>fg #7F1D1D (deep red)</div>
+      <div><span class="sw" style="background:#DC2626;"></span>accent #DC2626 (vivid red)</div>
+      <div style="margin-top:8px;">Type: system stack (no webfont in sketch). Bans: no text, no neon, no dark mode, no WebGPU shader.</div>
+    </div>
+    <div class="label"><span>TOKENS</span><span>palette · bans</span></div>
+    <p class="note"><strong>Build rule:</strong> dress this layout exactly — same panel positions, same grid density — then add motion.</p>
+    <span class="chip">motion: sine + bloom</span>
+  </div>
+</div>
+</body>
+</html>

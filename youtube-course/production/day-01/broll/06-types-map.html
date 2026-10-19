@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1920"><title>What kind of value is this?</title><link rel="stylesheet" href="./style.css"><script src="./node_modules/gsap/dist/gsap.min.js"></script></head>
+<body><main id="root" data-composition-id="root" data-start="0" data-width="1920" data-height="1080" data-fps="30">
+<div class="stage"><div class="grid"></div><div class="orb"></div><div class="content"><header class="header"><div class="eyebrow"><span>PY / 30</span> DAY 01 · THE FIRST PROGRAM</div><h1>What kind of value is this?</h1><div class="rule"></div></header><div class="types"><div class="type reveal"><span class="sample">30</span><span class="type-name">int</span><span class="type-desc">whole number</span></div><div class="type reveal"><span class="sample">3.5</span><span class="type-name">float</span><span class="type-desc">decimal</span></div><div class="type reveal"><span class="sample">"Python"</span><span class="type-name">str</span><span class="type-desc">text</span></div><div class="type reveal"><span class="sample">True</span><span class="type-name">bool</span><span class="type-desc">Boolean</span></div></div><div class="ribbon reveal"><code>type(30)</code> → <code>&lt;class 'int'&gt;</code> · <code>"30"</code> is text, not a number.</div></div><footer class="footer"><span>PYTHON FOUNDATIONS</span><span>01 / TECHNICAL NOTES</span></footer></div><div id="end-marker" hidden></div>
+</main><script>
+  const tl=gsap.timeline({paused:true});
+  tl.fromTo('.stage',{opacity:0},{opacity:1,duration:.38,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{filter:'blur(10px)',opacity:.3},{filter:'blur(0px)',opacity:1,duration:.55,ease:'power2.inOut'},0);
+  tl.fromTo('.content',{x:14,scale:1.012},{x:-8,scale:1,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.orb',{x:0,y:0},{x:-85,y:35,duration:4,ease:'sine.inOut'},0);
+  tl.fromTo('.reveal',{opacity:0,y:22},{opacity:1,y:0,duration:.54,stagger:.15,ease:'power2.out'},.35);
+  
+  tl.to('.content',{filter:'blur(7px)',opacity:0,duration:.3,ease:'power2.inOut'},3.7);
+  tl.to('.stage',{opacity:0,duration:.26,ease:'power2.inOut'},3.74);
+  tl.set('#end-marker',{opacity:1},4);
+  window.__timelines=window.__timelines||{};window.__timelines.root=tl;
+</script></body></html>

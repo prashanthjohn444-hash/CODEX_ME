@@ -1,0 +1,695 @@
+
+Python Web Scraping
+
+What is Web Scraping
+
+The internet is full of a huge amount of data which can be used for different purposes. To collect this data we need to know how to scrape data from a website.
+
+Web scraping is the process of extracting and collecting data from websites and storing it on a local machine or in a database.
+
+In this section, we will use the beautifulsoup and requests packages to scrape data. The package version we are using is Beautiful Soup 4.
+
+To start scraping websites you need requests, beautifulsoup4, and a website.
+
+To scrape data from websites, a basic understanding of HTML tags and CSS selectors is needed. We target content from a website using HTML tags, classes, and/or ids.
+
+Install the packages
+terminal
+pip install requests
+pip install beautifulsoup4
+
+
+View (shortened — version numbers change):
+output.txt
+Successfully installed requests-...
+Successfully installed beautifulsoup4-...
+
+
+Import the modules
+example.py
+import requests
+from bs4 import BeautifulSoup
+
+
+requests fetches the page. BeautifulSoup turns the HTML into a tree you can search.
+
+Fetch a page with requests
+
+Let us declare a url variable for the website which we are going to scrape.
+
+The original lesson uses the UCI Machine Learning Repository list. The same requests calls work on any public URL.
+example.py
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://archive.ics.uci.edu/ml/datasets.php'
+
+# Lets use the requests get method to fetch the data from url
+response = requests.get(url)
+
+# lets check the status
+status = response.status_code
+print(status)  # 200 means the fetching was successful
+
+
+View (when the server answers OK):
+output.txt
+200
+
+
+200 means the fetching was successful. Other common codes: 404 (page not found), 403 (forbidden), 500 (server error).
+
+The numbered methods below use a small local HTML page so every view is stable. The same methods work on a live URL.
+example.py
+html = '''
+<html>
+  <head><title>Score Board</title></head>
+  <body>
+    <h1 id="title">Scores</h1>
+    <table cellpadding="3">
+      <tr><td>Name</td><td>Score</td></tr>
+      <tr class="row"><td>Priya</td><td>10</td></tr>
+      <tr class="row"><td>Arjun</td><td>20</td></tr>
+      <tr class="row"><td>Maya</td><td>30</td></tr>
+      <tr class="row"><td>Leila</td><td>40</td></tr>
+      <tr class="row"><td>Omar</td><td>50</td></tr>
+    </table>
+    <a href="/next" class="link">Next</a>
+  </body>
+</html>
+'''
+
+
+Structured scores used today: 10, 20, 30, 40, 50.
+
+1. requests.get()
+
+requests.get(url) sends an HTTP GET request and returns a Response object.
+example.py
+response = requests.get(url)
+print(type(response))
+
+
+View:
+output.txt
+<class 'requests.models.Response'>
+
+
+For the local demo you already have the HTML string, so you do not need get(). On a live site, always start with requests.get(url).
+
+2. response.status_code
+
+status_code is the HTTP status number.
+example.py
+status = response.status_code
+print(status)
+
+
+View:
+output.txt
+200
+
+
+3. response.content
+
+content is the raw page body as bytes. Pass this to Beautiful Soup.
+example.py
+content = response.content
+print(type(content))
+
+
+View:
+output.txt
+<class 'bytes'>
+
+
+4. response.text
+
+text is the same page decoded as a string. Useful when you want to print or search the HTML as text.
+example.py
+print(type(response.text))
+print(response.text[:40])
+
+
+View (first characters change by site):
+output.txt
+<class 'str'>
+<!DOCTYPE html>
+...
+
+
+Parse HTML with Beautiful Soup
+
+Using Beautiful Soup to parse content from the page:
+example.py
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://archive.ics.uci.edu/ml/datasets.php'
+
+response = requests.get(url)
+content = response.content  # we get all the content from the website
+soup = BeautifulSoup(content, 'html.parser')  # beautiful soup will give a chance to parse
+print(soup.title)            # <title>UCI Machine Learning Repository: Data Sets</title>
+print(soup.title.get_text()) # UCI Machine Learning Repository: Data Sets
+print(soup.body)             # gives the whole page on the website
+print(response.status_code)
+
+
+View (live UCI page — title text can change):
+output.txt
+<title>UCI Machine Learning Repository: Data Sets</title>
+UCI Machine Learning Repository: Data Sets
+<body>...</body>
+200
+
+
+The same parser on the local score board:
+example.py
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(html, 'html.parser')
+print(soup.title)
+print(soup.title.get_text())
+print(response.status_code if 'response' in dir() else 200)
+
+
+View:
+output.txt
+<title>Score Board</title>
+Score Board
+200
+
+
+5. BeautifulSoup()
+
+BeautifulSoup(markup, parser) builds the parse tree.
+example.py
+soup = BeautifulSoup(html, 'html.parser')
+print(type(soup))
+
+
+View:
+output.txt
+<class 'bs4.BeautifulSoup'>
+
+
+'html.parser' is built into Python. Other parsers: 'lxml' (faster, extra install), 'html5lib' (very patient with broken HTML).
+
+6. soup.title
+
+soup.title is the first <title> tag, not only the text.
+example.py
+print(soup.title)
+print(type(soup.title))
+
+
+View:
+output.txt
+<title>Score Board</title>
+<class 'bs4.element.Tag'>
+
+
+soup.body and soup.head work the same way: they return the tag, or None if it is missing.
+
+7. get_text()
+
+get_text() (also getText()) pulls the visible text out of a tag. .text is a shortcut for the same thing.
+example.py
+print(soup.title.get_text())
+print(soup.title.text)
+print(soup.find('h1').get_text())
+
+
+View:
+output.txt
+Score Board
+Score Board
+Scores
+
+
+8. soup.body
+
+soup.body gives the whole <body> of the page.
+example.py
+print(soup.body.name)
+print('h1' in str(soup.body))
+
+
+View:
+output.txt
+body
+True
+
+
+Printing soup.body on a large site dumps the entire page. Use find() / find_all() instead of reading that dump by eye.
+
+9. find()
+
+find(name, attrs, ...) returns the first matching tag, or None.
+example.py
+print(soup.find('h1'))
+print(soup.find('h1', {'id': 'title'}))
+print(soup.find('table', {'cellpadding': '3'}))
+print(soup.find('footer'))
+
+
+View:
+output.txt
+<h1 id="title">Scores</h1>
+<h1 id="title">Scores</h1>
+<table cellpadding="3">...</table>
+None
+
+
+You can select using id, class, or HTML tag. For more information check the Beautiful Soup documentation.
+
+10. find_all()
+
+find_all(name, attrs, ...) returns a list of every match. findAll() is the old name of the same method.
+example.py
+tables = soup.find_all('table', {'cellpadding': '3'})
+print(type(tables))
+print(len(tables))
+
+tds = soup.find_all('td')
+print([td.get_text() for td in tds])
+
+
+View:
+output.txt
+<class 'bs4.element.ResultSet'>
+1
+['Name', 'Score', 'Priya', '10', 'Arjun', '20', 'Maya', '30', 'Leila', '40', 'Omar', '50']
+
+
+The result is a list. Take one item with tables[0].
+
+11. select() and select_one()
+
+select(css) returns every tag that matches a CSS selector. select_one(css) returns the first match only.
+example.py
+print(soup.select('tr.row'))
+print(soup.select_one('a.link'))
+print(soup.select('#title'))
+
+
+View:
+output.txt
+[<tr class="row"><td>Priya</td><td>10</td></tr>, <tr class="row"><td>Arjun</td><td>20</td></tr>, ...]
+<a class="link" href="/next">Next</a>
+[<h1 id="title">Scores</h1>]
+
+
+find / find_all use tag name and attributes. select / select_one use CSS: .class, #id, table td, a.link.
+
+12. get() and attrs
+
+tag.get('href') reads one attribute. tag.attrs is the whole attribute dictionary. tag.name is the tag name ('a', 'td', ...).
+example.py
+link = soup.select_one('a')
+print(link.get('href'))
+print(link.attrs)
+print(link.name)
+print(link.has_attr('href'))
+
+
+View:
+output.txt
+/next
+{'href': '/next', 'class': ['link']}
+a
+True
+
+
+13. prettify()
+
+prettify() reprints the tree with indentation. Useful when the downloaded HTML is one long line.
+example.py
+print(soup.title.prettify())
+
+
+View:
+output.txt
+<title>
+ Score Board
+</title>
+
+
+14. Other Beautiful Soup methods you should not skip
+
+These methods are on every tag and on the soup itself. Day 22 keeps them. Try each line.
+example.py
+table = soup.find('table')
+
+print(table.parent.name)                         # body
+print([child.name for child in table.children if child.name])
+# ['tr', 'tr', 'tr', 'tr', 'tr', 'tr']
+
+print(soup.find('td').find_parent('table').name) # table
+print(soup.find('h1').find_next_sibling('table').name)  # table
+
+rows = soup.find_all('tr', class_='row')
+print(len(rows))                                 # 5
+
+print(list(soup.stripped_strings))
+# ['Score Board', 'Scores', 'Name', 'Score', 'Priya', '10', ...]
+
+# walk / replace (do this on a copy if you still need the original tree)
+first_td = soup.find('td')
+print(first_td.string)                           # Name
+
+
+
+
+
+  #
+  Method
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  BeautifulSoup(html, 'html.parser')
+  Parse markup into a tree
+  BeautifulSoup(html, 'html.parser')
+  soup object
+
+
+
+  2
+  soup.title
+  First <title> tag
+  soup.title
+  <title>Score Board</title>
+
+
+
+  3
+  soup.body
+  The <body> tag
+  soup.body
+  the page body
+
+
+
+  4
+  soup.head
+  The <head> tag
+  soup.head
+  the page head
+
+
+
+  5
+  tag.get_text()
+  Visible text inside a tag
+  soup.title.get_text()
+  Score Board
+
+
+
+  6
+  tag.text
+  Same as get_text()
+  td.text
+  Priya
+
+
+
+  7
+  soup.find(...)
+  First matching tag
+  soup.find('h1')
+  <h1 id="title">Scores</h1>
+
+
+
+  8
+  soup.find_all(...)
+  List of matching tags
+  soup.find_all('td')
+  list of 12 td tags
+
+
+
+  9
+  soup.select(css)
+  CSS selector, all matches
+  soup.select('tr.row')
+  5 row tags
+
+
+
+  10
+  soup.select_one(css)
+  CSS selector, first match
+  soup.select_one('a.link')
+  the Next link
+
+
+
+  11
+  tag.get(attr)
+  One attribute
+  a.get('href')
+  '/next'
+
+
+
+  12
+  tag.attrs
+  All attributes
+  a.attrs
+  {'href': '/next', 'class': ['link']}
+
+
+
+  13
+  tag.name
+  Tag name
+  a.name
+  'a'
+
+
+
+  14
+  tag.has_attr(name)
+  True if the attribute exists
+  a.has_attr('href')
+  True
+
+
+
+  15
+  tag.parent
+  Parent tag
+  table.parent.name
+  'body'
+
+
+
+  16
+  tag.children
+  Direct child nodes
+  list(table.children)
+  tr nodes
+
+
+
+  17
+  tag.descendants
+  All nested nodes
+  list(table.descendants)
+  tags and strings
+
+
+
+  18
+  tag.find_parent(...)
+  First matching ancestor
+  td.find_parent('table')
+  the table
+
+
+
+  19
+  tag.find_next_sibling(...)
+  Next sibling tag
+  h1.find_next_sibling('table')
+  the table
+
+
+
+  20
+  tag.prettify()
+  Indented HTML
+  soup.title.prettify()
+  pretty <title>
+
+
+
+  21
+  soup.stripped_strings
+  All visible strings, trimmed
+  list(soup.stripped_strings)
+  ['Score Board', 'Scores', ...]
+
+
+
+  22
+  tag.string
+  Direct string child (or None)
+  soup.title.string
+  'Score Board'
+
+
+
+
+findAll, findAllNext, getText are the older camelCase names. Prefer find_all, find_all_next, get_text.
+
+Scrape a table
+
+We are targeting the table with a cellpadding attribute of 3. The result of find_all is a list; we take the first table, then walk its first row.
+example.py
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://archive.ics.uci.edu/ml/datasets.php'
+response = requests.get(url)
+content = response.content
+soup = BeautifulSoup(content, 'html.parser')
+
+tables = soup.find_all('table', {'cellpadding': '3'})
+# We are targeting the table with cellpadding attribute with the value of 3
+# We can select using id, class or HTML tag
+table = tables[0]  # the result is a list, we are taking out data from it
+for td in table.find('tr').find_all('td'):
+    print(td.text)
+
+
+If you run this code on the live UCI page, you can see that the extraction is half done. You can continue doing it because it is part of exercise 1 (Level 2).
+
+Same walk on the local score table (this view is stable):
+example.py
+tables = soup.find_all('table', {'cellpadding': '3'})
+table = tables[0]
+for td in table.find('tr').find_all('td'):
+    print(td.text)
+
+
+View:
+output.txt
+Name
+Score
+
+
+Walk every data row and collect name / score pairs:
+example.py
+rows = []
+for tr in table.find_all('tr')[1:]:
+    cells = [td.get_text(strip=True) for td in tr.find_all('td')]
+    rows.append({'name': cells[0], 'score': int(cells[1])})
+print(rows)
+print([row['score'] for row in rows])
+
+
+View:
+output.txt
+[{'name': 'Priya', 'score': 10}, {'name': 'Arjun', 'score': 20}, {'name': 'Maya', 'score': 30}, {'name': 'Leila', 'score': 40}, {'name': 'Omar', 'score': 50}]
+[10, 20, 30, 40, 50]
+
+
+table.find('tr') is only the first row (the header). table.find_all('tr') is every row.
+
+Save scraped data as JSON
+
+Store the list of dictionaries with the json module from Day 19.
+example.py
+import json
+
+with open('scrapped_data.json', 'w', encoding='utf-8') as file:
+    json.dump(rows, file, indent=4)
+
+print(len(rows))
+print(rows[0])
+
+
+View:
+output.txt
+5
+{'name': 'Priya', 'score': 10}
+
+
+A copy of scraped sample data lives next to this lesson as scrapped_data.json.
+
+Respect a site's terms and robots.txt. Do not hammer a server in a tight loop. Prefer a public API when the site offers one.
+
+Day 22 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+Install requests and beautifulsoup4
+
+Import requests and BeautifulSoup
+
+Use requests.get() on https://archive.ics.uci.edu/ml/datasets.php (or any public page you choose)
+
+Print response.status_code. Confirm you understand what 200 means
+
+Build a BeautifulSoup object from response.content with 'html.parser'
+
+Print soup.title and soup.title.get_text()
+
+Use find('h1') and find_all('a'). Print the first heading text and the number of links
+
+
+Exercises: Level 2
+
+
+Scrape the following website and store the data as json file (url = 'http://www.bu.edu/president/boston-university-facts-stats/').
+
+Extract the table in this url (https://archive.ics.uci.edu/ml/datasets.php) and change it to a json file
+
+Scrape the presidents table and store the data as json (https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States). The table is not very structured and the scraping may take a very long time.
+
+
+Exercises: Level 3
+
+Use this HTML string (or save it as scores.html and read the file):
+index.html
+<table cellpadding="3">
+  <tr><th>Name</th><th>Score</th></tr>
+  <tr><td>Priya</td><td>10</td></tr>
+  <tr><td>Arjun</td><td>20</td></tr>
+  <tr><td>Maya</td><td>30</td></tr>
+  <tr><td>Leila</td><td>40</td></tr>
+  <tr><td>Omar</td><td>50</td></tr>
+</table>
+
+
+
+Parse it with BeautifulSoup(html, 'html.parser')
+
+Use find_all('td') and print every cell's get_text()
+
+Build a list of dictionaries {'name': ..., 'score': ...} from the five data rows
+
+Print min, max, and sum of the scores. The views should be 10, 50, and 150
+
+Use select('tr') and select_one('th'). Print how many tr tags you got
+
+Save the list as scores.json with json.dump
+
+Re-open scores.json and print the student whose score is 30
+
+
+You finished Day 22. Next: virtual environments.
+

@@ -1,0 +1,701 @@
+
+Building API
+
+Today we cover a RESTful API that uses HTTP methods to GET, PUT, POST, and DELETE data.
+
+A RESTful API is an application program interface that uses those four HTTP requests. Days 26–27 gave you Flask and MongoDB. We use both here. Every CRUD app (Create, Read, Update, Delete) has endpoints that write to and read from a database.
+
+A browser can send GET (and a form can send POST). To send PUT and DELETE you need a client. Postman is the usual choice. Insomnia is an alternative. Download one of them before you run this lesson.
+
+Example public APIs:
+
+
+Countries: https://restcountries.com/v3.1/all (the old restcountries.eu host is gone)
+
+Cat breeds: https://api.thecatapi.com/v1/breeds
+
+
+Open Postman
+
+After install, create a workspace (the original screen is named 30DaysOfPython). Click New → HTTP request.
+
+What the empty request window shows:
+
+
+Left: History, Collections, APIs. No collections yet. + Create a collection groups requests.
+
+Center top: request name Untitled Request.
+
+Method dropdown (default GET). Every method on that menu:
+
+
+
+
+
+  #
+  Method
+  Used in this lesson?
+
+
+
+
+
+  1
+  GET
+  Yes — read students
+
+
+
+  2
+  POST
+  Yes — create a student
+
+
+
+  3
+  PUT
+  Yes — replace a student
+
+
+
+  4
+  PATCH
+  No
+
+
+
+  5
+  DELETE
+  Yes — remove a student
+
+
+
+  6
+  COPY
+  No
+
+
+
+  7
+  HEAD
+  No
+
+
+
+  8
+  OPTIONS
+  No
+
+
+
+  9
+  LINK
+  No
+
+
+
+  10
+  UNLINK
+  No
+
+
+
+  11
+  PURGE
+  No
+
+
+
+  12
+  LOCK
+  No
+
+
+
+  13
+  UNLOCK
+  No
+
+
+
+  14
+  PROPFIND
+  No
+
+
+
+  15
+  VIEW
+  No
+
+
+
+
+
+URL box: Enter request URL.
+
+Blue Send. Save next to it.
+
+Tabs: Params, Authorization, Headers, Body, Pre-request Script, Tests, Settings.
+
+Empty body: Hit Send to get a response.
+
+
+You will fill the URL with http://localhost:5000/api/v1.0/students after Flask is running.
+
+Structure of an API
+
+An API endpoint is a URL that retrieves, creates, updates, or deletes a resource.
+
+Example:
+output.txt
+https://api.twitter.com/1.1/lists/members.json
+
+
+That URL returns the members of a list. Private members appear only if the authenticated user owns the list.
+
+Typical shape: company host / version / purpose.
+
+HTTP methods for object manipulation:
+output.txt
+GET        Used for object retrieval
+POST       Used for object creation and object actions
+PUT        Used for object update
+DELETE     Used for object deletion
+
+
+We will build an API that stores 30 Days of Python students: name, country, city, date of birth (birth year), skills, and bio.
+
+Stack:
+
+
+Postman
+
+Python
+
+Flask
+
+MongoDB
+
+
+Base URL: http://localhost:5000/api/v1.0/students
+
+Retrieving data using get
+
+json.dumps plus Flask Response returns JSON with the right MIME type.
+
+1. Return dummy JSON
+example.py
+from flask import Flask, Response
+import json
+import os
+
+app = Flask(__name__)
+
+
+@app.route('/api/v1.0/students', methods=['GET'])
+def students():
+    student_list = [
+        {
+            'name': 'Priya',
+            'country': 'Finland',
+            'city': 'Helsinki',
+            'skills': ['HTML', 'CSS', 'JavaScript', 'Python'],
+        },
+        {
+            'name': 'David',
+            'country': 'UK',
+            'city': 'London',
+            'skills': ['Python', 'MongoDB'],
+        },
+        {
+            'name': 'John',
+            'country': 'Sweden',
+            'city': 'Stockholm',
+            'skills': ['Java', 'C#'],
+        },
+    ]
+    return Response(json.dumps(student_list), mimetype='application/json')
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+Run python app.py. Then send GET two ways.
+
+2. GET in the browser
+
+
+Start the Flask app.
+
+Open http://localhost:5000/api/v1.0/students.
+
+Chrome shows a Raw / Parsed toggle. Parsed view is a tree.
+
+
+Request
+output.txt
+GET /api/v1.0/students HTTP/1.1
+Host: localhost:5000
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+
+Response (parsed JSON, same body as the original screen)
+output.txt
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "name": "Priya",
+    "country": "Finland",
+    "city": "Helsinki",
+    "skills": ["HTML", "CSS", "JavaScript", "Python"]
+  },
+  {
+    "name": "David",
+    "country": "UK",
+    "city": "London",
+    "skills": ["Python", "MongoDB"]
+  },
+  {
+    "name": "John",
+    "country": "Sweden",
+    "city": "Stockholm",
+    "skills": ["Java", "C#"]
+  }
+]
+
+
+3. GET in Postman
+
+
+Method: GET.
+
+URL: http://localhost:5000/api/v1.0/students.
+
+Leave Params empty.
+
+Click Send.
+
+Status on the original capture: 200 OK, Time 8 ms, Size 435 B.
+
+Body tab → Pretty → language JSON. Request Headers (7), response Headers (4).
+
+
+Request
+output.txt
+GET /api/v1.0/students HTTP/1.1
+Host: localhost:5000
+Accept: */*
+
+
+Response — same three objects as the browser. Pretty-printed in the Body panel, lines 1–31 on the original screen.
+
+4. GET from MongoDB
+
+Swap the dummy list for db.students.find(). ObjectId is not JSON-serializable, so use bson.json_util.dumps (not json.dumps).
+example.py
+from flask import Flask, Response
+from bson.json_util import dumps
+import pymongo
+import os
+
+app = Flask(__name__)
+
+MONGODB_URI = 'mongodb+srv://priya:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client['thirty_days_of_python']
+
+
+@app.route('/api/v1.0/students', methods=['GET'])
+def students():
+    student_list = list(db.students.find())
+    return Response(dumps(student_list), mimetype='application/json')
+
+
+View after Day 27 data (John already deleted in that lesson — three documents remain):
+output.txt
+[
+    {
+        "_id": { "$oid": "5df68a21f106fe2d315bbc8b" },
+        "name": "Priya",
+        "country": "Finland",
+        "city": "Helsinki",
+        "age": 38
+    },
+    {
+        "_id": { "$oid": "5df68a23f106fe2d315bbc8c" },
+        "name": "David",
+        "country": "UK",
+        "city": "London",
+        "age": 34
+    },
+    {
+        "_id": { "$oid": "5df68a23f106fe2d315bbc8e" },
+        "name": "Sami",
+        "country": "Finland",
+        "city": "Helsinki",
+        "age": 25
+    }
+]
+
+
+Getting a document by id
+
+One student: http://localhost:5000/api/v1.0/students/5df68a21f106fe2d315bbc8b
+
+<id> in the route is a path parameter.
+example.py
+from bson.objectid import ObjectId
+from bson.json_util import dumps
+
+
+@app.route('/api/v1.0/students/<id>', methods=['GET'])
+def single_student(id):
+    student = db.students.find({'_id': ObjectId(id)})
+    return Response(dumps(student), mimetype='application/json')
+
+
+Request
+output.txt
+GET /api/v1.0/students/5df68a21f106fe2d315bbc8b HTTP/1.1
+Host: localhost:5000
+
+
+View
+output.txt
+[
+    {
+        "_id": { "$oid": "5df68a21f106fe2d315bbc8b" },
+        "name": "Priya",
+        "country": "Finland",
+        "city": "Helsinki",
+        "age": 38
+    }
+]
+
+
+find() always returns a cursor, so the JSON is a one-item list. find_one() would return a single object (or null).
+
+Creating data using POST
+
+POST creates a document. In Postman:
+
+
+Method POST.
+
+URL http://localhost:5000/api/v1.0/students.
+
+Body → x-www-form-urlencoded (matches request.form).
+
+Keys: name, country, city, skills, bio, birthyear.
+
+Example values: Priya, Finland, Helsinki, HTML, CSS, Python, Likes teaching Python, 1990.
+
+Send.
+
+example.py
+from flask import Flask, Response, request
+from datetime import datetime
+from bson.json_util import dumps
+
+
+@app.route('/api/v1.0/students', methods=['POST'])
+def create_student():
+    name = request.form['name']
+    country = request.form['country']
+    city = request.form['city']
+    skills = request.form['skills'].split(', ')
+    bio = request.form['bio']
+    birthyear = request.form['birthyear']
+    created_at = datetime.now()
+    student = {
+        'name': name,
+        'country': country,
+        'city': city,
+        'birthyear': birthyear,
+        'skills': skills,
+        'bio': bio,
+        'created_at': created_at,
+    }
+    db.students.insert_one(student)
+    return Response(
+        dumps({'result': 'a new student has been created'}),
+        mimetype='application/json',
+    )
+
+
+skills arrives as one string. .split(', ') turns "HTML, CSS, Python" into ['HTML', 'CSS', 'Python'].
+
+Request
+output.txt
+POST /api/v1.0/students HTTP/1.1
+Host: localhost:5000
+Content-Type: application/x-www-form-urlencoded
+
+name=Priya&country=Finland&city=Helsinki&skills=HTML%2C+CSS%2C+Python&bio=Likes+teaching+Python&birthyear=1990
+
+
+View
+output.txt
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"result": "a new student has been created"}
+
+
+Then GET /api/v1.0/students again. The new document is in the list with a fresh _id and created_at.
+
+You can put GET and POST on the same path because the method differs. Flask matches both the URL and methods=.
+
+Updating using PUT
+
+PUT replaces the student at /api/v1.0/students/<id>.
+
+In Postman:
+
+
+Method PUT.
+
+URL http://localhost:5000/api/v1.0/students/5df68a21f106fe2d315bbc8b.
+
+Same form fields as POST.
+
+Send.
+
+example.py
+@app.route('/api/v1.0/students/<id>', methods=['PUT'])
+def update_student(id):
+    query = {'_id': ObjectId(id)}
+    name = request.form['name']
+    country = request.form['country']
+    city = request.form['city']
+    skills = request.form['skills'].split(', ')
+    bio = request.form['bio']
+    birthyear = request.form['birthyear']
+    created_at = datetime.now()
+    student = {
+        'name': name,
+        'country': country,
+        'city': city,
+        'birthyear': birthyear,
+        'skills': skills,
+        'bio': bio,
+        'created_at': created_at,
+    }
+    db.students.update_one(query, {'$set': student})
+    return Response(
+        dumps({'result': 'student has been updated'}),
+        mimetype='application/json',
+    )
+
+
+The original listing called update_one(query, student) without $set. PyMongo needs an update operator. Use {'$set': student} so only those fields change.
+
+Request
+output.txt
+PUT /api/v1.0/students/5df68a21f106fe2d315bbc8b HTTP/1.1
+Host: localhost:5000
+Content-Type: application/x-www-form-urlencoded
+
+name=Priya&country=Finland&city=Helsinki&skills=Python%2C+MongoDB&bio=Updated+bio&birthyear=1990
+
+
+View
+output.txt
+{"result": "student has been updated"}
+
+
+GET that id again. skills should now be ["Python", "MongoDB"].
+
+Deleting a document using Delete
+example.py
+@app.route('/api/v1.0/students/<id>', methods=['DELETE'])
+def delete_student(id):
+    db.students.delete_one({'_id': ObjectId(id)})
+    return Response(
+        dumps({'result': 'student has been deleted'}),
+        mimetype='application/json',
+    )
+
+
+Request
+output.txt
+DELETE /api/v1.0/students/5df68a21f106fe2d315bbc8b HTTP/1.1
+Host: localhost:5000
+
+
+View
+output.txt
+{"result": "student has been deleted"}
+
+
+GET the same id after that. The list is empty ([]). GET /api/v1.0/students no longer includes Priya.
+
+Full app.py
+
+All four methods in one file. Import request. Use dumps for every MongoDB value.
+example.py
+from flask import Flask, Response, request
+from bson.objectid import ObjectId
+from bson.json_util import dumps
+from datetime import datetime
+import pymongo
+import os
+
+app = Flask(__name__)
+
+MONGODB_URI = 'mongodb+srv://priya:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
+client = pymongo.MongoClient(MONGODB_URI)
+db = client['thirty_days_of_python']
+
+
+@app.route('/api/v1.0/students', methods=['GET'])
+def students():
+    student_list = list(db.students.find())
+    return Response(dumps(student_list), mimetype='application/json')
+
+
+@app.route('/api/v1.0/students/<id>', methods=['GET'])
+def single_student(id):
+    student = db.students.find({'_id': ObjectId(id)})
+    return Response(dumps(student), mimetype='application/json')
+
+
+@app.route('/api/v1.0/students', methods=['POST'])
+def create_student():
+    student = {
+        'name': request.form['name'],
+        'country': request.form['country'],
+        'city': request.form['city'],
+        'birthyear': request.form['birthyear'],
+        'skills': request.form['skills'].split(', '),
+        'bio': request.form['bio'],
+        'created_at': datetime.now(),
+    }
+    db.students.insert_one(student)
+    return Response(
+        dumps({'result': 'a new student has been created'}),
+        mimetype='application/json',
+    )
+
+
+@app.route('/api/v1.0/students/<id>', methods=['PUT'])
+def update_student(id):
+    student = {
+        'name': request.form['name'],
+        'country': request.form['country'],
+        'city': request.form['city'],
+        'birthyear': request.form['birthyear'],
+        'skills': request.form['skills'].split(', '),
+        'bio': request.form['bio'],
+        'created_at': datetime.now(),
+    }
+    db.students.update_one({'_id': ObjectId(id)}, {'$set': student})
+    return Response(
+        dumps({'result': 'student has been updated'}),
+        mimetype='application/json',
+    )
+
+
+@app.route('/api/v1.0/students/<id>', methods=['DELETE'])
+def delete_student(id):
+    db.students.delete_one({'_id': ObjectId(id)})
+    return Response(
+        dumps({'result': 'student has been deleted'}),
+        mimetype='application/json',
+    )
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
+
+
+
+
+  Method
+  URL
+  Body
+  Result
+
+
+
+
+
+  GET
+  /api/v1.0/students
+  none
+  every student
+
+
+
+  GET
+  /api/v1.0/students/<id>
+  none
+  one student (list of one)
+
+
+
+  POST
+  /api/v1.0/students
+  form fields
+  insert + message
+
+
+
+  PUT
+  /api/v1.0/students/<id>
+  form fields
+  $set update + message
+
+
+
+  DELETE
+  /api/v1.0/students/<id>
+  none
+  delete + message
+
+
+
+
+Exercises
+
+Exercises: Level 1
+
+
+Implement the above example and develop this.
+
+
+Exercises: Level 2
+
+
+In Postman, send GET /api/v1.0/students. Confirm status 200 and a JSON array.
+
+POST a student with name Priya and skills HTML, CSS, Python. Copy the new _id from a follow-up GET.
+
+GET /api/v1.0/students/<that id>. Confirm one document.
+
+PUT new skills Python, MongoDB on that id. GET again and check skills.
+
+DELETE that id. GET the list and confirm the name is gone.
+
+
+Exercises: Level 3
+
+
+Return status 201 from POST and 404 when GET/PUT/DELETE cannot find the id.
+
+Reject POST when name is missing. Return 400 and a short JSON error.
+
+Add a GET /api/v1.0/students?country=Finland filter using request.args.
+
+Keep the dummy three-student GET working on a second path (/api/v1.0/demo/students) so you can still show the browser / Postman views without MongoDB.
+
+
+You finished Day 29. Next: conclusions.
+

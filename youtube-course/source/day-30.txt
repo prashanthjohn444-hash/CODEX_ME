@@ -1,0 +1,99 @@
+
+Conclusions
+
+You finished 30 days of Python. If you ran the examples and the exercises, you have enough syntax to pick a path: data analysis, data science, machine learning, or web development.
+
+The first weeks were types, control flow, functions, and files. The last week was applied: scrape a page, isolate packages in a virtualenv, describe a table of numbers, serve HTML with Flask, store documents in MongoDB, and expose them over HTTP.
+
+Keep the code you wrote. The next project is the real test — not another 30-day list.
+
+What you can do next
+
+Pick one lane and build something small you can finish in a week.
+
+
+
+
+  Path
+  Start from
+  First project idea
+
+
+
+
+
+  Web
+  Days 26 and 29
+  Finish the text analyzer, or deploy the students API
+
+
+
+  Data
+  Days 24 and 25
+  Load one CSV, clean it, print min / max / mean
+
+
+
+  Automation
+  Days 18 and 19
+  Parse a log file with regex and write a summary
+
+
+
+  Next language feature
+  Day 21
+  One class that wraps the students collection
+
+
+
+
+Official references stay useful after the course:
+
+
+Python 3 library
+
+Flask
+
+PyMongo
+
+pandas
+
+
+Exercises
+
+Day 30 has no original drills. This is a short recap, not a new syllabus.
+
+Exercises: Level 1
+
+Tick what you can still do without opening the lesson.
+
+
+Start a virtualenv, install Flask, run python app.py, open http://localhost:5000/.
+
+Name the four HTTP methods used for CRUD (GET, POST, PUT, DELETE).
+
+Name the MongoDB words for table, row, column, and primary key (collection, document, field, _id).
+
+Open one Day 2–25 script you wrote and run it again.
+
+
+Exercises: Level 2
+
+
+In the Flask app, list every route and its method (/, /about, /post, /result, /api/v1.0/students, /api/v1.0/students/<id>).
+
+Write one insert_one and one find from memory. Check them against Day 27.
+
+In Postman or the browser, GET a JSON URL and write down the status code and Content-Type.
+
+
+Exercises: Level 3
+
+
+Choose one unfinished exercise from Days 26–29 (text analyzer counts, or a 404 on a missing student id) and finish it.
+
+Write a 10-line note: what you will build next, which days it uses, and what “done” looks like.
+
+
+You finished the course.
+

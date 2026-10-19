@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Motion style kit: dark olive explainer B-roll</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#161911; --bg-edge:#0f0f0c; --card:rgba(255,255,255,.055); --line:rgba(255,255,255,.12);
+  --text:#f1efe6; --dim:rgba(241,239,230,.38); --accent:#789858; --accent-soft:rgba(120,152,88,.18);
+  --serif:"Instrument Serif","Newsreader",Georgia,serif; --sans:"Manrope","Inter",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  box-sizing:border-box; padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-edge);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 48px}
+h1{font:400 clamp(26px,5vw,38px)/1.1 var(--serif);margin:8px 0 6px}
+p.lede{margin:0 0 18px;color:var(--dim);font-size:14px;line-height:1.5;max-width:60ch}
+.stage{position:relative;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;border-radius:14px;border:1px solid var(--line);
+  background:radial-gradient(ellipse at 50% 45%,var(--bg) 0%,var(--bg-edge) 85%)}
+.scene{position:absolute;inset:0;display:none}
+.scene.on{display:block}
+.fx{opacity:0;transform:translateY(1.6cqw) scale(.98);filter:blur(.6cqw);
+  transition:opacity .6s var(--ease),transform .6s var(--ease),filter .6s var(--ease)}
+.fx.in{opacity:1;transform:none;filter:none}
+.abs{position:absolute}
+.center{left:0;right:0;text-align:center}
+.big{font:400 7.2cqw/1.05 var(--serif)}
+.big em{color:var(--accent)}
+.pill{display:inline-flex;align-items:center;gap:.8cqw;padding:.7cqw 1.4cqw;border-radius:1cqw;background:#0c0d09;
+  border:1px solid var(--line);font-size:1.7cqw;font-weight:500;white-space:nowrap;box-shadow:0 .6cqw 2cqw rgba(0,0,0,.35)}
+.pill i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:var(--accent);display:inline-block}
+.card{border-radius:1.4cqw;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  border:1px solid var(--line);box-shadow:0 1.6cqw 5cqw rgba(0,0,0,.4)}
+.card.hot{border-color:var(--accent);box-shadow:0 0 3cqw var(--accent-soft)}
+.src{font-size:1.2cqw;color:var(--dim);letter-spacing:.02em}
+.quote{font:400 3.2cqw/1.3 var(--serif);padding:3cqw 3.6cqw}
+.mark{background:linear-gradient(var(--accent),var(--accent)) 0 100%/0% 2px no-repeat;transition:background-size .9s var(--ease)}
+.mark.in{background-size:100% 2px}
+svg.dia{position:absolute;inset:0;width:100%;height:100%}
+.ln{fill:none;stroke:var(--text);stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s var(--ease)}
+.ln.in{stroke-dashoffset:0}
+.nd{fill:#0c0d09;stroke:var(--text);stroke-width:1.4;opacity:0;transition:opacity .5s}
+.nd.in{opacity:1}
+.sum{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2;opacity:0;transition:opacity .5s}
+.sum.in{opacity:1;filter:drop-shadow(0 0 10px var(--accent))}
+.lbl{font:500 15px var(--sans);fill:var(--text);opacity:0;transition:opacity .5s,fill .5s}
+.lbl.in{opacity:1}.lbl.hl{fill:var(--accent);font-weight:600}
+.cmp{width:34cqw;padding:2.4cqw;font:500 1.9cqw/1.6 ui-monospace,Menlo,monospace}
+.cmp h3{font:400 3.2cqw var(--serif);margin:0 0 1.2cqw;display:flex;justify-content:space-between;align-items:center}
+.ok,.no{width:2.6cqw;height:2.6cqw;border-radius:50%;display:inline-grid;place-items:center;font:600 1.5cqw var(--sans);color:#10130b}
+.ok{background:var(--accent)}.no{background:#b24a3f;color:#fff}
+.orb{left:50%;top:50%;width:6cqw;height:6cqw;margin:-3cqw;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);display:grid;place-items:center;color:var(--accent);font-size:2.6cqw}
+.tl{position:absolute;left:6%;right:6%;bottom:6%;height:4cqw}
+.tl .rail{position:absolute;left:0;right:0;top:.5cqw;height:2px;background:var(--line)}
+.tl .fill{position:absolute;left:0;top:.5cqw;height:2px;background:var(--accent);width:0;transition:width 1s var(--ease)}
+.tl ul{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;position:relative}
+.tl li{font-size:1.15cqw;color:var(--dim);text-align:center;width:12cqw;transition:color .5s}
+.tl li::before{content:"";display:block;width:1.1cqw;height:1.1cqw;border-radius:50%;background:#2a2e22;margin:0 auto 1cqw;transition:all .5s}
+.tl li.done::before{background:var(--accent)}
+.tl li.cur{color:var(--text);font-weight:600}
+.tl li.cur::before{background:var(--accent);box-shadow:0 0 1.6cqw var(--accent);transform:scale(1.5)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 26px}
+.bar button{font:500 13px var(--sans);color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 14px;cursor:pointer}
+.bar button:hover{border-color:var(--accent)}
+.bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar button[aria-current=true]{background:var(--accent-soft);border-color:var(--accent)}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.spec div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.55;color:var(--dim)}
+.spec b{display:block;color:var(--text);font:400 19px var(--serif);margin-bottom:6px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid var(--line)}
+code{font-family:ui-monospace,Menlo,monospace;color:var(--text);font-size:12px}
+@media (prefers-reduced-motion:reduce){.fx,.ln,.mark{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Dark olive explainer B-roll</h1>
+<p class="lede">Five scenes rebuilt from the reference video’s system: one accent color, an italic serif key word, glass cards, pills that land on the beat, and a timeline that never leaves.</p>
+
+<div class="stage" id="stage">
+  <!-- 1: statement -->
+  <section class="scene">
+    <div class="abs center fx" data-t="200" style="top:12%"><span class="src">WHERE WE START</span></div>
+    <div class="abs center big" style="top:28%">
+      <span class="fx" data-t="500">Understand the</span> <em class="fx" data-t="1100" style="display:inline-block">history</em>
+    </div>
+    <div class="abs fx" data-t="1900" style="left:22%;top:58%"><span class="pill"><i></i>Neural networks</span></div>
+    <div class="abs fx" data-t="2400" style="left:58%;top:58%"><span class="pill"><i></i>Machine learning</span></div>
+  </section>
+  <!-- 2: quote -->
+  <section class="scene">
+    <div class="abs card quote fx" data-t="200" style="left:14%;right:14%;top:20%">
+      The press reported the machine as <span class="mark" data-t="1400">the embryo of an electronic computer</span> that would one day <span class="mark" data-t="2400">be conscious of its existence</span>.
+    </div>
+    <div class="abs center fx" data-t="900" style="top:64%"><span class="src">● SOURCE · Newspaper archive, 1958 (placeholder)</span></div>
+    <div class="abs fx" data-t="3000" style="left:50%;top:76%;transform:translateX(-50%)"><span class="pill"><i></i>a tremendous amount of excitement</span></div>
+  </section>
+  <!-- 3: diagram -->
+  <section class="scene">
+    <div class="abs center fx" data-t="100" style="top:7%"><span class="src">FRANK ROSENBLATT · 1950S</span></div>
+    <svg class="dia" viewBox="0 0 800 450" aria-label="Perceptron diagram">
+      <path class="ln" pathLength="1" data-t="400" d="M200 140L430 225"/>
+      <path class="ln" pathLength="1" data-t="600" d="M200 225L430 225"/>
+      <path class="ln" pathLength="1" data-t="800" d="M200 310L430 225"/>
+      <path class="ln" pathLength="1" data-t="1700" d="M458 225L600 225"/>
+      <circle class="nd" data-t="200" cx="200" cy="140" r="22"/><circle class="nd" data-t="300" cx="200" cy="225" r="22"/><circle class="nd" data-t="400" cx="200" cy="310" r="22"/>
+      <circle class="sum" data-t="1400" cx="430" cy="225" r="28"/><circle class="nd" data-t="1700" cx="600" cy="225" r="20"/>
+      <g text-anchor="middle" dominant-baseline="central">
+        <text class="lbl in" x="200" y="140">x₁</text><text class="lbl in" x="200" y="225">x₂</text><text class="lbl in" x="200" y="310">x₃</text>
+        <text class="lbl in" x="430" y="225" style="font-size:22px;fill:var(--accent)">Σ</text><text class="lbl in" x="600" y="225">y</text>
+        <text class="lbl w" data-t="1100" x="305" y="170">w₁</text><text class="lbl w" data-t="1200" x="305" y="214">w₂</text><text class="lbl w" data-t="1300" x="305" y="274">w₃</text>
+      </g>
+    </svg>
+    <div class="abs fx" data-t="2400" style="left:50%;top:80%;transform:translateX(-50%)"><span class="pill"><i></i>what was he trying to solve?</span></div>
+  </section>
+  <!-- 4: orbit -->
+  <section class="scene">
+    <div class="abs orb fx" data-t="100">◉</div>
+    <div class="abs fx" data-t="400" style="left:16%;top:18%"><span class="pill">attention heads</span></div>
+    <div class="abs fx" data-t="600" style="left:42%;top:12%"><span class="pill">embeddings</span></div>
+    <div class="abs fx" data-t="800" style="left:66%;top:20%"><span class="pill">backpropagation</span></div>
+    <div class="abs fx" data-t="1000" style="left:78%;top:46%"><span class="pill">logits</span></div>
+    <div class="abs fx" data-t="1200" style="left:68%;top:68%"><span class="pill">transformers</span></div>
+    <div class="abs fx" data-t="1400" style="left:36%;top:70%"><span class="pill">KV cache</span></div>
+    <div class="abs fx" data-t="1600" style="left:12%;top:62%"><span class="pill">tokenizers</span></div>
+    <div class="abs fx" data-t="1800" style="left:8%;top:40%"><span class="pill">RLHF</span></div>
+    <div class="abs center big fx" data-t="2400" style="bottom:9%;font-size:5.4cqw">Really <em>complicated</em></div>
+  </section>
+  <!-- 5: compare -->
+  <section class="scene">
+    <div class="abs card cmp fx hot" data-t="200" style="left:10%;top:18%"><h3>Expert system <span class="ok">✓</span></h3>IF fever AND rash<br>&nbsp;&nbsp;THEN measles<br>ELSE IF cough<br>&nbsp;&nbsp;THEN cold</div>
+    <div class="abs card cmp fx" data-t="900" style="right:10%;top:18%"><h3>Neural network <span class="no">✕</span></h3><span style="color:var(--dim)">learned weights,<br>no hand-written rules</span></div>
+    <div class="abs center fx" data-t="1800" style="top:72%"><span class="pill">worked for some problems</span> &nbsp; <span class="pill">not based on neural networks</span></div>
+  </section>
+  <!-- persistent timeline -->
+  <div class="tl" aria-hidden="true"><div class="rail"></div><div class="fill" id="fill"></div>
+    <ul id="tl"><li>1950s<br>Perceptron</li><li>1960s–70s<br>AI winter</li><li>1980s<br>Expert systems</li><li>2012<br>AlexNet</li><li>2017<br>Transformer</li><li>2018–22<br>GPT</li><li>2024<br>Reasoning</li></ul></div>
+</div>
+
+<div class="bar" id="bar" role="group" aria-label="Scenes">
+  <button>1 Statement</button><button>2 Quote card</button><button>3 Diagram</button><button>4 Jargon orbit</button><button>5 Compare</button><button id="replay">Replay</button>
+</div>
+
+<div class="spec">
+  <div><b>Palette</b><span class="sw" style="background:#161911"></span><code>#161911</code> base<br><span class="sw" style="background:#0f0f0c"></span><code>#0f0f0c</code> edge vignette<br><span class="sw" style="background:#789858"></span><code>#789858</code> the only accent<br><span class="sw" style="background:#f1efe6"></span><code>#f1efe6</code> text</div>
+  <div><b>Type</b>Instrument Serif for statements, italic in accent for the one key word. Manrope for pills and labels. Monospace only for code or terminal beats.</div>
+  <div><b>Motion</b>Fade, rise 1.6% of width, blur to sharp, 600ms, <code>cubic-bezier(.22,1,.36,1)</code>. Stagger 100–200ms, one element per spoken beat. Lines draw on with stroke-dashoffset.</div>
+  <div><b>Rules</b>One idea per scene, a new visual every 4–8s, dim what is inactive, cite sources on screen, keep the timeline visible.</div>
+</div>
+</main>
+<script>
+(function(){
+  var scenes=[].slice.call(document.querySelectorAll('.scene')),btns=[].slice.call(document.querySelectorAll('#bar button')).slice(0,5);
+  var lis=[].slice.call(document.querySelectorAll('#tl li')),fill=document.getElementById('fill');
+  var tlPos=[0,0,0,2,2],dur=5600,timers=[],cur=0,auto=true,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function setTl(i){lis.forEach(function(l,k){l.className=k<i?'done':k===i?'cur':''});fill.style.width=(i/(lis.length-1)*100)+'%'}
+  function play(n){
+    clear();cur=n;
+    scenes.forEach(function(s,k){s.classList.toggle('on',k===n);s.querySelectorAll('.in').forEach(function(e){if(!e.classList.contains('lbl')||e.classList.contains('w'))e.classList.remove('in')});s.querySelectorAll('.lbl.hl').forEach(function(e){e.classList.remove('hl')})});
+    btns.forEach(function(b,k){b.setAttribute('aria-current',k===n)});
+    setTl(tlPos[n]);
+    scenes[n].querySelectorAll('[data-t]').forEach(function(e){
+      var t=reduce?0:+e.dataset.t;timers.push(setTimeout(function(){e.classList.add('in');if(e.classList.contains('w'))e.classList.add('hl')},t));
+    });
+    if(auto)timers.push(setTimeout(function(){play((n+1)%scenes.length)},dur));
+  }
+  btns.forEach(function(b,k){b.addEventListener('click',function(){auto=false;play(k)})});
+  document.getElementById('replay').addEventListener('click',function(){auto=true;play(0)});
+  play(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1202 @@
+
+Lists
+
+There are four collection data types in Python:
+
+
+List: is a collection which is ordered and changeable (modifiable). Allows duplicate members.
+
+Tuple: is a collection which is ordered and unchangeable or unmodifiable (immutable). Allows duplicate members.
+
+Set: is a collection which is unordered, un-indexed and unmodifiable, but we can add new items to the set. Duplicate members are not allowed.
+
+Dictionary: is a collection which is unordered, changeable (modifiable) and indexed. No duplicate members.
+
+
+A list is a collection of different data types which is ordered and modifiable (mutable). A list can be empty or it may have different data type items.
+
+How to Create a List
+
+In Python we can create lists in two ways:
+
+
+Using the list built-in function
+
+example.py
+# syntax
+lst = list()
+
+example.py
+empty_list = list()
+print(len(empty_list))
+
+
+View:
+output.txt
+0
+
+
+
+Using square brackets, []
+
+example.py
+# syntax
+lst = []
+
+example.py
+empty_list = []
+print(len(empty_list))
+
+
+View:
+output.txt
+0
+
+
+Lists with initial values. We use len() to find the length of a list.
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+animal_products = ['milk', 'meat', 'butter', 'yoghurt']
+web_techs = ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'MongDB']
+countries = ['India', 'Estonia', 'Denmark', 'Sweden', 'Norway']
+scores = [10, 20, 30, 40, 50]
+
+print('Fruits:', fruits)
+print('Number of fruits:', len(fruits))
+print('Vegetables:', vegetables)
+print('Number of vegetables:', len(vegetables))
+print('Animal products:', animal_products)
+print('Number of animal products:', len(animal_products))
+print('Web technologies:', web_techs)
+print('Number of web technologies:', len(web_techs))
+print('Countries:', countries)
+print('Number of countries:', len(countries))
+print('Scores:', scores)
+print('Number of scores:', len(scores))
+
+
+View:
+output.txt
+Fruits: ['banana', 'orange', 'mango', 'lemon']
+Number of fruits: 4
+Vegetables: ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+Number of vegetables: 5
+Animal products: ['milk', 'meat', 'butter', 'yoghurt']
+Number of animal products: 4
+Web technologies: ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'MongDB']
+Number of web technologies: 7
+Countries: ['India', 'Estonia', 'Denmark', 'Sweden', 'Norway']
+Number of countries: 5
+Scores: [10, 20, 30, 40, 50]
+Number of scores: 5
+
+
+
+Lists can have items of different data types
+
+example.py
+lst = ['Priya', 22, True, {'country': 'India', 'city': 'Hyderabad'}]
+print(lst)
+
+
+View:
+output.txt
+['Priya', 22, True, {'country': 'India', 'city': 'Hyderabad'}]
+
+
+Accessing List Items Using Positive Indexing
+
+We access each item in a list using their index. A list index starts from 0. Index positions:
+
+
+
+
+  Item
+  banana
+  orange
+  mango
+  lemon
+
+
+
+
+
+  Index
+  0
+  1
+  2
+  3
+
+
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+first_fruit = fruits[0]
+print(first_fruit)
+second_fruit = fruits[1]
+print(second_fruit)
+last_fruit = fruits[3]
+print(last_fruit)
+last_index = len(fruits) - 1
+last_fruit = fruits[last_index]
+print(last_fruit)
+
+
+View:
+output.txt
+banana
+orange
+lemon
+lemon
+
+
+The same idea with structured numbers:
+example.py
+scores = [10, 20, 30, 40, 50]
+print(scores[0])
+print(scores[2])
+print(scores[len(scores) - 1])
+
+
+View:
+output.txt
+10
+30
+50
+
+
+
+
+
+  Item
+  10
+  20
+  30
+  40
+  50
+
+
+
+
+
+  Index
+  0
+  1
+  2
+  3
+  4
+
+
+
+
+Accessing List Items Using Negative Indexing
+
+Negative indexing means beginning from the end. -1 refers to the last item, -2 refers to the second last item.
+
+Negative index positions:
+
+
+
+
+  Item
+  banana
+  orange
+  mango
+  lemon
+
+
+
+
+
+  Index
+  -4
+  -3
+  -2
+  -1
+
+
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+first_fruit = fruits[-4]
+last_fruit = fruits[-1]
+second_last = fruits[-2]
+print(first_fruit)
+print(last_fruit)
+print(second_last)
+
+
+View:
+output.txt
+banana
+lemon
+mango
+
+example.py
+scores = [10, 20, 30, 40, 50]
+print(scores[-5])
+print(scores[-1])
+print(scores[-2])
+
+
+View:
+output.txt
+10
+50
+40
+
+
+
+
+
+  Item
+  10
+  20
+  30
+  40
+  50
+
+
+
+
+
+  Negative index
+  -5
+  -4
+  -3
+  -2
+  -1
+
+
+
+
+Unpacking List Items
+example.py
+lst = ['item1', 'item2', 'item3', 'item4', 'item5']
+first_item, second_item, third_item, *rest = lst
+print(first_item)
+print(second_item)
+print(third_item)
+print(rest)
+
+
+View:
+output.txt
+item1
+item2
+item3
+['item4', 'item5']
+
+
+*rest collects whatever is left into a new list.
+example.py
+# First Example
+fruits = ['banana', 'orange', 'mango', 'lemon', 'lime', 'apple']
+first_fruit, second_fruit, third_fruit, *rest = fruits
+print(first_fruit)
+print(second_fruit)
+print(third_fruit)
+print(rest)
+
+# Second Example about unpacking list
+first, second, third, *rest, last = [10, 20, 30, 40, 50]
+print(first)
+print(second)
+print(third)
+print(rest)
+print(last)
+
+# Third Example about unpacking list
+countries = ['Germany', 'France', 'Belgium', 'Sweden', 'Denmark', 'India', 'Norway', 'Iceland', 'Estonia']
+gr, fr, bg, sw, *middle, es = countries
+print(gr)
+print(fr)
+print(bg)
+print(sw)
+print(middle)
+print(es)
+
+
+View:
+output.txt
+banana
+orange
+mango
+['lemon', 'lime', 'apple']
+10
+20
+30
+[40]
+50
+Germany
+France
+Belgium
+Sweden
+['Denmark', 'India', 'Norway', 'Iceland']
+Estonia
+
+
+Slicing Items from a List
+
+
+Positive Indexing: We can specify a range of positive indexes by specifying the start, end and step. The return value will be a new list. (default values for start = 0, end = last item + 1, step = 1)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+all_fruits = fruits[0:4]
+all_fruits = fruits[0:]
+orange_and_mango = fruits[1:3]
+orange_mango_lemon = fruits[1:]
+every_second = fruits[::2]
+print(all_fruits)
+print(orange_and_mango)
+print(orange_mango_lemon)
+print(every_second)
+
+scores = [10, 20, 30, 40, 50]
+print(scores[0:5])
+print(scores[1:4])
+print(scores[::2])
+
+
+View:
+output.txt
+['banana', 'orange', 'mango', 'lemon']
+['orange', 'mango']
+['orange', 'mango', 'lemon']
+['banana', 'mango']
+[10, 20, 30, 40, 50]
+[20, 30, 40]
+[10, 30, 50]
+
+
+The end index is not included. fruits[1:3] is indexes 1 and 2. fruits[::2] takes every second item starting at 0.
+
+
+Negative Indexing: We can specify a range of negative indexes by specifying the start, end and step. The return value will be a new list.
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+all_fruits = fruits[-4:]
+orange_and_mango = fruits[-3:-1]
+orange_mango_lemon = fruits[-3:]
+reverse_fruits = fruits[::-1]
+print(all_fruits)
+print(orange_and_mango)
+print(orange_mango_lemon)
+print(reverse_fruits)
+
+scores = [10, 20, 30, 40, 50]
+print(scores[-5:])
+print(scores[-4:-1])
+print(scores[::-1])
+
+
+View:
+output.txt
+['banana', 'orange', 'mango', 'lemon']
+['orange', 'mango']
+['orange', 'mango', 'lemon']
+['lemon', 'mango', 'orange', 'banana']
+[10, 20, 30, 40, 50]
+[20, 30, 40]
+[50, 40, 30, 20, 10]
+
+
+A negative step walks the list backwards.
+
+Modifying Lists
+
+A list is a mutable or modifiable ordered collection of items. Let us modify the fruit list.
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits[0] = 'avocado'
+print(fruits)
+fruits[1] = 'apple'
+print(fruits)
+last_index = len(fruits) - 1
+fruits[last_index] = 'lime'
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+scores[0] = 15
+scores[-1] = 55
+print(scores)
+
+
+View:
+output.txt
+['avocado', 'orange', 'mango', 'lemon']
+['avocado', 'apple', 'mango', 'lemon']
+['avocado', 'apple', 'mango', 'lime']
+[15, 20, 30, 40, 55]
+
+
+last_index must be len(fruits) - 1. fruits[len(fruits)] is out of range.
+
+Checking Items in a List
+
+Checking an item if it is a member of a list using the in operator.
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+does_exist = 'banana' in fruits
+print(does_exist)
+does_exist = 'lime' in fruits
+print(does_exist)
+
+scores = [10, 20, 30, 40, 50]
+print(10 in scores)
+print(60 in scores)
+print(60 not in scores)
+
+
+View:
+output.txt
+True
+False
+True
+False
+True
+
+
+List Methods
+
+There are not many list methods. Day 5 writes every one of them.
+
+Full list of list methods
+
+These are the public methods on list (dir(list), skipping names that start with __). del is a statement, not a method. sorted() is a built-in function. Both appeared in the original lesson, so they are in the table.
+
+
+
+
+  #
+  Method
+  What it does
+  Example
+  View
+
+
+
+
+
+  1
+  append(x)
+  Add x at the end
+  [10, 20].append(30)
+  [10, 20, 30]
+
+
+
+  2
+  insert(i, x)
+  Put x at index i
+  [10, 30].insert(1, 20)
+  [10, 20, 30]
+
+
+
+  3
+  remove(x)
+  Remove the first matching item
+  [10, 20, 10].remove(10)
+  [20, 10]
+
+
+
+  4
+  pop(i)
+  Remove and return the item at i (last if omitted)
+  [10, 20, 30].pop()
+  30 and list is [10, 20]
+
+
+
+  5
+  del lst[i]
+  Delete an item or a slice (statement)
+  del [10, 20, 30][0]
+  [20, 30]
+
+
+
+  6
+  clear()
+  Remove every item
+  [10, 20].clear()
+  []
+
+
+
+  7
+  copy()
+  Return a shallow copy
+  [10, 20].copy()
+  [10, 20]
+
+
+
+  8
+  list1 + list2
+  Join two lists into a new list
+  [10, 20] + [30]
+  [10, 20, 30]
+
+
+
+  9
+  extend(seq)
+  Append every item from seq
+  [10].extend([20, 30])
+  [10, 20, 30]
+
+
+
+  10
+  count(x)
+  How many times x appears
+  [10, 20, 10].count(10)
+  2
+
+
+
+  11
+  index(x)
+  First index of x
+  [10, 20, 30].index(20)
+  1
+
+
+
+  12
+  reverse()
+  Reverse the list in place
+  [10, 20, 30].reverse()
+  [30, 20, 10]
+
+
+
+  13
+  sort()
+  Sort the list in place
+  [30, 10, 20].sort()
+  [10, 20, 30]
+
+
+
+  14
+  sorted(seq)
+  Return a new sorted list
+  sorted([30, 10, 20])
+  [10, 20, 30]
+
+
+
+
+append, insert, remove, pop, clear, extend, reverse, and sort change the original list. copy, count, index, +, and sorted do not (the + result is a new list).
+
+1. append()
+
+To add an item to the end of an existing list we use the method append().
+example.py
+# syntax
+lst = list()
+lst.append(item)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.append('apple')
+print(fruits)
+fruits.append('lime')
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+scores.append(60)
+print(scores)
+
+
+View:
+output.txt
+['banana', 'orange', 'mango', 'lemon', 'apple']
+['banana', 'orange', 'mango', 'lemon', 'apple', 'lime']
+[10, 20, 30, 40, 50, 60]
+
+
+2. insert()
+
+We can use the insert() method to insert a single item at a specified index in a list. Note that other items are shifted to the right. insert() takes two arguments: index and an item to insert.
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.insert(index, item)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.insert(2, 'apple')
+print(fruits)
+fruits.insert(3, 'lime')
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+scores.insert(0, 5)
+print(scores)
+
+
+View:
+output.txt
+['banana', 'orange', 'apple', 'mango', 'lemon']
+['banana', 'orange', 'apple', 'lime', 'mango', 'lemon']
+[5, 10, 20, 30, 40, 50]
+
+
+3. remove()
+
+The remove method removes a specified item from a list. It removes the first occurrence.
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.remove(item)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'banana']
+fruits.remove('banana')
+print(fruits)
+fruits.remove('lemon')
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+scores.remove(30)
+print(scores)
+
+
+View:
+output.txt
+['orange', 'mango', 'lemon', 'banana']
+['orange', 'mango', 'banana']
+[10, 20, 40, 50]
+
+
+The first 'banana' is gone. The second 'banana' stays.
+
+4. pop()
+
+The pop() method removes the specified index (or the last item if index is not specified) and returns that item.
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.pop()       # last item
+lst.pop(index)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(fruits.pop())
+print(fruits)
+print(fruits.pop(0))
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+last = scores.pop()
+first = scores.pop(0)
+print(last)
+print(first)
+print(scores)
+
+
+View:
+output.txt
+lemon
+['banana', 'orange', 'mango']
+banana
+['orange', 'mango']
+50
+10
+[20, 30, 40]
+
+
+5. del
+
+The del keyword removes the specified index and it can also be used to delete items within an index range. It can also delete the list completely.
+example.py
+# syntax
+lst = ['item1', 'item2']
+del lst[index]  # only a single item
+del lst         # to delete the list completely
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'kiwi', 'lime']
+del fruits[0]
+print(fruits)
+del fruits[1]
+print(fruits)
+del fruits[1:3]
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+del scores[1:4]
+print(scores)
+
+
+View:
+output.txt
+['orange', 'mango', 'lemon', 'kiwi', 'lime']
+['orange', 'lemon', 'kiwi', 'lime']
+['orange', 'lime']
+[10, 50]
+
+
+del fruits[1:3] does not delete the item that used to be at index 3 of the original list. It deletes the current slice after the earlier deletes.
+
+del fruits then print(fruits) raises NameError: name 'fruits' is not defined. That is expected. The companion script does not print after deleting the name, so it can finish.
+
+6. clear()
+
+The clear() method empties the list:
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.clear()
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.clear()
+print(fruits)
+
+scores = [10, 20, 30, 40, 50]
+scores.clear()
+print(scores)
+
+
+View:
+output.txt
+[]
+[]
+
+
+The variable still exists. It now holds an empty list.
+
+7. copy()
+
+It is possible to copy a list by reassigning it to a new variable in the following way: list2 = list1. Now list2 is a reference of list1. Any changes we make in list2 will also modify the original, list1. One way of avoiding that is using copy().
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst_copy = lst.copy()
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits_copy = fruits.copy()
+print(fruits_copy)
+
+scores = [10, 20, 30, 40, 50]
+scores_copy = scores.copy()
+scores_copy.append(60)
+print(scores)
+print(scores_copy)
+
+
+View:
+output.txt
+['banana', 'orange', 'mango', 'lemon']
+[10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50, 60]
+
+
+Changing the copy does not change the original.
+
+8. Joining with +
+
+There are several ways to join, or concatenate, two or more lists in Python.
+
+
+Plus Operator (+)
+
+example.py
+# syntax
+list3 = list1 + list2
+
+example.py
+positive_numbers = [10, 20, 30, 40, 50]
+zero = [0]
+negative_numbers = [-50, -40, -30, -20, -10]
+integers = negative_numbers + zero + positive_numbers
+print(integers)
+fruits = ['banana', 'orange', 'mango', 'lemon']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+fruits_and_vegetables = fruits + vegetables
+print(fruits_and_vegetables)
+
+
+View:
+output.txt
+[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]
+['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+
+
++ builds a new list. The original lists stay the same.
+
+9. extend()
+
+The extend() method appends every item from another list (or any sequence). See the example below.
+example.py
+# syntax
+list1 = ['item1', 'item2']
+list2 = ['item3', 'item4', 'item5']
+list1.extend(list2)
+
+example.py
+num1 = [0, 10, 20, 30]
+num2 = [40, 50, 60]
+num1.extend(num2)
+print('Numbers:', num1)
+
+negative_numbers = [-50, -40, -30, -20, -10]
+positive_numbers = [10, 20, 30, 40, 50]
+zero = [0]
+negative_numbers.extend(zero)
+negative_numbers.extend(positive_numbers)
+print('Integers:', negative_numbers)
+
+fruits = ['banana', 'orange', 'mango', 'lemon']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+fruits.extend(vegetables)
+print('Fruits and vegetables:', fruits)
+
+
+View:
+output.txt
+Numbers: [0, 10, 20, 30, 40, 50, 60]
+Integers: [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]
+Fruits and vegetables: ['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+
+
+extend changes list1. append([20, 30]) would put the whole list in as one item.
+
+10. count()
+
+The count() method returns the number of times an item appears in a list:
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.count(item)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(fruits.count('orange'))
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+print(ages.count(24))
+
+scores = [10, 20, 30, 20, 50]
+print(scores.count(20))
+
+
+View:
+output.txt
+1
+3
+2
+
+
+11. index()
+
+The index() method returns the index of an item in the list (the first occurrence):
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.index(item)
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(fruits.index('orange'))
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+print(ages.index(24))
+
+scores = [10, 20, 30, 40, 50]
+print(scores.index(40))
+
+
+View:
+output.txt
+1
+2
+3
+
+
+ages.index(24) is 2, the first 24. Later copies are ignored.
+
+12. reverse()
+
+The reverse() method reverses the order of a list in place. It returns None.
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.reverse()
+
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.reverse()
+print(fruits)
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+ages.reverse()
+print(ages)
+
+scores = [10, 20, 30, 40, 50]
+scores.reverse()
+print(scores)
+
+
+View:
+output.txt
+['lemon', 'mango', 'orange', 'banana']
+[24, 25, 24, 26, 25, 24, 19, 22]
+[50, 40, 30, 20, 10]
+
+
+Do not write print(fruits.reverse()). That prints None because reverse() has no useful return value.
+
+13. sort()
+
+To sort lists we can use the sort() method or the sorted() built-in function. The sort() method reorders the list items in ascending order and modifies the original list. If reverse is True, it will arrange the list in descending order.
+example.py
+# syntax
+lst = ['item1', 'item2']
+lst.sort()                # ascending
+lst.sort(reverse=True)    # descending
+
+
+Example:
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.sort()
+print(fruits)
+fruits.sort(reverse=True)
+print(fruits)
+
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+ages.sort()
+print(ages)
+ages.sort(reverse=True)
+print(ages)
+
+scores = [40, 10, 50, 20, 30]
+scores.sort()
+print(scores)
+scores.sort(reverse=True)
+print(scores)
+
+
+View:
+output.txt
+['banana', 'lemon', 'mango', 'orange']
+['orange', 'mango', 'lemon', 'banana']
+[19, 22, 24, 24, 24, 25, 25, 26]
+[26, 25, 25, 24, 24, 24, 22, 19]
+[10, 20, 30, 40, 50]
+[50, 40, 30, 20, 10]
+
+
+14. sorted()
+
+sorted() returns the ordered list without modifying the original list.
+example.py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(sorted(fruits))
+print(fruits)
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(sorted(fruits, reverse=True))
+
+scores = [40, 10, 50, 20, 30]
+print(sorted(scores))
+print(scores)
+
+
+View:
+output.txt
+['banana', 'lemon', 'mango', 'orange']
+['banana', 'orange', 'mango', 'lemon']
+['orange', 'mango', 'lemon', 'banana']
+[10, 20, 30, 40, 50]
+[40, 10, 50, 20, 30]
+
+
+After sorted(fruits), fruits is still in the original order.
+
+Day 5 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Keep every original Day 5 Level 1 and Level 2 prompt. Level 3 combines today's list methods on the structured numbers 10, 20, 30, 40, 50.
+
+Exercises: Level 1
+
+
+
+Declare an empty list
+
+
+
+Declare a list with more than 5 items
+
+
+
+Find the length of your list
+
+
+
+Get the first item, the middle item and the last item of the list
+
+
+
+Declare a list called mixed_data_types, put your(name, age, height, marital status, address)
+
+
+
+Declare a list variable named it_companies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon.
+
+
+
+Print the list using print()
+
+
+
+Print the number of companies in the list
+
+
+
+Print the first, middle and last company
+
+
+
+Print the list after modifying one of the companies
+
+
+
+Add an IT company to it_companies
+
+
+
+Insert an IT company in the middle of the companies list
+
+
+
+Change one of the it_companies names to uppercase (IBM excluded!)
+
+
+
+Join the it_companies with a string '#;  '
+
+
+
+Check if a certain company exists in the it_companies list.
+
+
+
+Sort the list using sort() method
+
+
+
+Reverse the list in descending order using reverse() method
+
+
+
+Slice out the first 3 companies from the list
+
+
+
+Slice out the last 3 companies from the list
+
+
+
+Slice out the middle IT company or companies from the list
+
+
+
+Remove the first IT company from the list
+
+
+
+Remove the middle IT company or companies from the list
+
+
+
+Remove the last IT company from the list
+
+
+
+Remove all IT companies from the list
+
+
+
+Destroy the IT companies list
+
+
+
+Join the following lists:
+example.py
+front_end = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+back_end = ['Node','Express', 'MongoDB']
+
+
+
+
+After joining the lists in question 26. Copy the joined list and assign it to a variable full_stack, then insert Python and SQL after Redux.
+
+
+
+Exercises: Level 2
+
+
+The following is a list of 10 students ages:
+
+terminal
+ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+
+
+Sort the list and find the min and max age
+
+Add the min age and the max age again to the list
+
+Find the median age (one middle item or two middle items divided by two)
+
+Find the average age (sum of all items divided by their number )
+
+Find the range of the ages (max minus min)
+
+Compare the value of (min - average) and (max - average), use abs() method
+
+
+
+Find the middle country(ies) in the countries list
+
+Divide the countries list into two equal lists if it is even if not one more country for the first half.
+
+['China', 'Russia', 'USA', 'Finland', 'Sweden', 'Norway', 'Denmark']. Unpack the first three countries and the rest as scandic countries.
+
+
+Exercises: Level 3
+
+
+Store these structured numbers in a list called scores: 10, 20, 30, 40, 50
+
+Print the first item, the middle item, and the last item
+
+append(60), then insert(0, 0). Print the list
+
+remove(0), then pop() the last item. Print the list. It should be [10, 20, 30, 40, 50] again
+
+Make copy_scores = scores.copy(). Reverse the copy. Print both lists
+
+Print scores.count(20), scores.index(40), sorted(scores, reverse=True)
+
+extend scores with [60, 70]. Then slice scores[0:3], scores[-3:], and scores[::2]
+
+Unpack first, *middle, last = [10, 20, 30, 40, 50]. Print first, middle, and last
+
+Use min(scores), max(scores), sum(scores), and check that sum(scores) / len(scores) is the average
+
+clear() a copy of scores and print the empty list. Do not clear the original
+
+
+You finished Day 5. Next: tuples.
+

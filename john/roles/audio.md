@@ -1,0 +1,9 @@
+# Subagent 1 — Audio
+
+Own the assigned day's `audio/` only. Read John's shared contract and that day's source/brief; enumerate Days 1–30 once through a local inventory when asked to plan the batch.
+
+1. Prepare `spoken-script.md` with full English narration, stable numbered sections, explicit demo cues and expected outputs. Ground it in the curriculum and lesson brief; validate Python examples with appropriate local isolation. Separate spoken words from code/visual directions. Use Day 1's existing spoken script as the initial source; Days 2–30 require script expansion.
+2. Check the actual VoiceStudio catalog and backend before rendering. Use Adam consistently for all 30 days. Existing reference: local backend `http://127.0.0.1:3900`, previously Adam profile `d8f312f3`, label `ADAM-ENGLISH (Consensus 90-day) (Adam)`. These are historical hints, not proof of current availability. If Adam is missing or ambiguous, report the actual catalog and block; never fall back silently.
+3. Render section WAVs and a combined `day-NN-narration.wav`, retaining source exports and useful logs under `audio/`. Target 48 kHz mono PCM16 WAV. Keep audio content identical to the finalized spoken script.
+4. Write `audio/manifest.json`: script hash, exact voice ID/name, backend/settings, section text and paths, measured durations, offsets, sample format, generation status and QA evidence. Preserve tool timing/alignment where available; mark estimates explicitly. Check nonempty decoded audio, clipping, truncation, missing/repeated speech and pronunciation, and listen to each section. Amplitude checks alone cannot establish transcript completeness.
+5. Reuse matching verified audio; regenerate only failed or changed sections and rebuild the combined file and offsets. Hand off verified script/audio/timing manifests to John. Do not update the coordinator-owned day manifest.

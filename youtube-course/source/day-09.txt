@@ -1,0 +1,461 @@
+
+Conditionals
+
+By default, statements in a Python script run from top to bottom. You can change that flow in two ways:
+
+
+Conditional execution: a block runs only if an expression is true (if, elif, else — this day)
+
+Repetitive execution: a block repeats while an expression is true (loops — Day 10)
+
+
+Comparison and logical operators from Day 3 are the conditions you put after if. Remember the indentation after the colon. The indented block is the code that belongs to that condition.
+
+The numbered constructs below use structured numbers (10, 20, 30, 40, 50) and the same person (Priya, Hyderabad) as earlier days.
+
+
+
+
+  #
+  Construct
+  When it runs
+  Example
+  View
+
+
+
+
+
+  1
+  if
+  The block runs only if the test is true
+  if score > 0:
+  prints when score is 30
+
+
+
+  2
+  if / else
+  First block if true, else block if false
+  if a < 0: … else:
+  A is a positive number
+
+
+
+  3
+  if / elif / else
+  First matching test; else is the leftover case
+  if a > 0: / elif a < 0: / else:
+  A is zero when a is 0
+
+
+
+  4
+  Short hand
+  One-line value_if_true if test else value_if_false
+  'positive' if a > 0 else 'negative'
+  A is positive
+
+
+
+  5
+  Nested if
+  An if inside another if
+  if a > 0: then if a % 2 == 0:
+  even / odd / zero / negative
+
+
+
+  6
+  if and and
+  Both tests must be true
+  if a > 0 and a % 2 == 0:
+  even and positive
+
+
+
+  7
+  if and or
+  At least one test must be true
+  if user == 'admin' or access_level >= 4:
+  granted or denied
+
+
+
+
+1. if
+
+In Python the keyword if checks whether a condition is true and then runs the indented block. The colon at the end of the if line is required.
+example.py
+# syntax
+if condition:
+    this part of code runs for truthy conditions
+
+
+Example:
+example.py
+a = 30
+if a > 0:
+    print('A is a positive number')
+
+
+View:
+output.txt
+A is a positive number
+
+
+30 is greater than 0, so the condition is true and the block runs. If the condition is false, you see nothing. To handle the false case you need else.
+
+2. if else
+
+If the condition is true the first block runs. If it is not true, the else block runs.
+example.py
+# syntax
+if condition:
+    this part of code runs for truthy conditions
+else:
+    this part of code runs for false conditions
+
+
+Example:
+example.py
+a = 30
+if a < 0:
+    print('A is a negative number')
+else:
+    print('A is a positive number')
+
+
+View:
+output.txt
+A is a positive number
+
+
+30 < 0 is false, so the else block runs. How about more than two cases? Use elif.
+
+3. if elif else
+
+In daily life we check more than one or two conditions. Programming is the same. Use elif (else if) when you have several tests. Python checks them from top to bottom and runs the first block whose condition is true.
+example.py
+# syntax
+if condition:
+    code
+elif condition:
+    code
+else:
+    code
+
+
+Example:
+example.py
+a = 0
+if a > 0:
+    print('A is a positive number')
+elif a < 0:
+    print('A is a negative number')
+else:
+    print('A is zero')
+
+
+View:
+output.txt
+A is zero
+
+
+Same tests with other values:
+example.py
+a = 30
+if a > 0:
+    print('A is a positive number')
+elif a < 0:
+    print('A is a negative number')
+else:
+    print('A is zero')
+
+a = -20
+if a > 0:
+    print('A is a positive number')
+elif a < 0:
+    print('A is a negative number')
+else:
+    print('A is zero')
+
+
+View:
+output.txt
+A is a positive number
+A is a negative number
+
+
+30 takes the first branch. -20 fails a > 0, matches a < 0, and prints that it is negative. 0 matches neither, so else runs.
+
+4. Short Hand
+
+A one-line conditional. You still need both the if part and the else part.
+example.py
+# syntax
+code if condition else code
+
+
+Example:
+example.py
+a = 30
+print('A is positive') if a > 0 else print('A is negative')
+
+
+View:
+output.txt
+A is positive
+
+
+The first condition is met, so A is positive is printed. This is the same idea as if / else, written on one line.
+
+5. Nested Conditions
+
+Conditions can sit inside other conditions.
+example.py
+# syntax
+if condition:
+    code
+    if condition:
+        code
+
+
+Example:
+example.py
+a = 0
+if a > 0:
+    if a % 2 == 0:
+        print('A is a positive and even integer')
+    else:
+        print('A is a positive number')
+elif a == 0:
+    print('A is zero')
+else:
+    print('A is a negative number')
+
+
+View:
+output.txt
+A is zero
+
+
+a is 0, so the outer if a > 0 is false. The elif a == 0 branch runs.
+
+When a is a positive even number from the structured set, the inner if runs:
+example.py
+a = 20
+if a > 0:
+    if a % 2 == 0:
+        print('A is a positive and even integer')
+    else:
+        print('A is a positive number')
+elif a == 0:
+    print('A is zero')
+else:
+    print('A is a negative number')
+
+
+View:
+output.txt
+A is a positive and even integer
+
+
+20 > 0 is true, then 20 % 2 == 0 is true, so Python prints that it is positive and even. You can avoid a nested if by using the logical operator and.
+
+6. If Condition and Logical Operators
+
+and means both tests must be true.
+example.py
+# syntax
+if condition and condition:
+    code
+
+
+Example:
+example.py
+a = 0
+if a > 0 and a % 2 == 0:
+    print('A is an even and positive integer')
+elif a > 0 and a % 2 != 0:
+    print('A is a positive integer')
+elif a == 0:
+    print('A is zero')
+else:
+    print('A is negative')
+
+
+View:
+output.txt
+A is zero
+
+
+Same tests with 20:
+example.py
+a = 20
+if a > 0 and a % 2 == 0:
+    print('A is an even and positive integer')
+elif a > 0 and a % 2 != 0:
+    print('A is a positive integer')
+elif a == 0:
+    print('A is zero')
+else:
+    print('A is negative')
+
+
+View:
+output.txt
+A is an even and positive integer
+
+
+20 > 0 is true and 20 % 2 == 0 is true, so the first branch runs. This is the nested example flattened into one if with and.
+
+7. If and Or Logical Operators
+
+or means at least one of the tests must be true.
+example.py
+# syntax
+if condition or condition:
+    code
+
+
+Example:
+example.py
+user = 'Priya'
+access_level = 3
+if user == 'admin' or access_level >= 4:
+    print('Access granted!')
+else:
+    print('Access denied!')
+
+
+View:
+output.txt
+Access denied!
+
+
+user is not 'admin' and 3 >= 4 is false, so both sides of or fail and the else block runs.
+
+Same test when one side is enough:
+example.py
+user = 'Priya'
+access_level = 10
+if user == 'admin' or access_level >= 4:
+    print('Access granted!')
+else:
+    print('Access denied!')
+
+user = 'admin'
+access_level = 3
+if user == 'admin' or access_level >= 4:
+    print('Access granted!')
+else:
+    print('Access denied!')
+
+
+View:
+output.txt
+Access granted!
+Access granted!
+
+
+access_level of 10 is >= 4, so the first call is granted even though the user is not 'admin'. The second call is granted because user == 'admin', even though the level is only 3.
+
+Day 9 concepts are done. Practice them in the exercises below.
+
+Exercises
+
+Exercises: Level 1
+
+
+
+Get user input using input(“Enter your age: ”). If user is 18 or older, give feedback: You are old enough to drive. If below 18 give feedback to wait for the missing amount of years. Output:
+terminal
+Enter your age: 30
+You are old enough to learn to drive.
+Output:
+Enter your age: 15
+You need 3 more years to learn to drive.
+
+
+
+
+Compare the values of my_age and your_age using if … else. Who is older (me or you)? Use input(“Enter your age: ”) to get the age as input. You can use a nested condition to print 'year' for 1 year difference in age, 'years' for bigger differences, and a custom text if my_age = your_age. Output:
+terminal
+Enter your age: 30
+You are 5 years older than me.
+
+
+
+
+Get two numbers from the user using input prompt. If a is greater than b return a is greater than b, if a is less b return a is smaller than b, else a is equal to b. Output:
+
+
+terminal
+Enter number one: 4
+Enter number two: 3
+4 is greater than 3
+
+
+Exercises: Level 2
+
+
+
+Write a code which gives grade to students according to theirs scores:
+terminal
+90-100, A
+80-89, B
+70-79, C
+60-69, D
+0-59, F
+
+
+
+
+Get the month from user input then check if the season is Autumn, Winter, Spring or Summer. If the user input is:
+September, October or November, the season is Autumn.
+December, January or February, the season is Winter.
+March, April or May, the season is Spring
+June, July or August, the season is Summer
+
+
+
+The following list contains some fruits:
+terminal
+fruits = ['banana', 'orange', 'mango', 'lemon']
+
+
+If a fruit doesn't exist in the list add the fruit to the list and print the modified list. If the fruit exists print('That fruit already exist in the list')
+
+
+
+Exercises: Level 3
+
+
+Here we have a person dictionary. Feel free to modify it!
+
+example.py
+        person={
+    'first_name': 'Asabeneh',
+    'last_name': 'Yetayeh',
+    'age': 250,
+    'country': 'Finland',
+    'is_married': True,
+    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+    'address': {
+        'street': 'Space street',
+        'zipcode': '02210'
+    }
+    }
+
+snippet
+ * Check if the person dictionary has skills key, if so print out the middle skill in the skills list.
+ * Check if the person dictionary has skills key, if so check if the person has 'Python' skill and print out the result.
+ * If a person skills has only JavaScript and React, print('He is a front end developer'), if the person skills has Node, Python, MongoDB, print('He is a backend developer'), if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'), else print('unknown title') - for more accurate results more conditions can be nested!
+ * If the person is married and if he lives in Finland, print the information in the following format:
+example.py
+    Asabeneh Yetayeh lives in Finland. He is married.
+
+
+You finished Day 9. Next: loops.
+

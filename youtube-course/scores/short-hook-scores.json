@@ -1,0 +1,97 @@
+[
+  {
+    "rank": 1,
+    "source_section": "9: Resolve the opening puzzle",
+    "hook": "Why does your Python file show nothing when the shell shows 30?",
+    "moment_status": "planned from the written draft",
+    "clip_boundaries": null,
+    "boundary_status": "pending an actual timestamped recording transcript",
+    "properties": {
+      "SPECIFICITY": 62,
+      "ADDRESS": 76,
+      "STAKES": 36,
+      "CURIOSITY": 59,
+      "BREVITY": 100
+    },
+    "verdict": 54,
+    "band": "WEAK",
+    "formula": "The Question",
+    "matched_patterns": 2
+  },
+  {
+    "rank": 2,
+    "source_section": "5: Know which prompt",
+    "hook": "Before you run your Python file, check these 3 symbols: are you inside the wrong prompt?",
+    "moment_status": "planned from the written draft",
+    "clip_boundaries": null,
+    "boundary_status": "pending an actual timestamped recording transcript",
+    "properties": {
+      "SPECIFICITY": 62,
+      "ADDRESS": 100,
+      "STAKES": 62,
+      "CURIOSITY": 59,
+      "BREVITY": 100
+    },
+    "verdict": 70,
+    "band": "WORKABLE",
+    "formula": "The Question",
+    "matched_patterns": 1
+  },
+  {
+    "rank": 3,
+    "source_section": "8: Save and run",
+    "hook": "Your Python code changed, but the output did not. Which file did you run?",
+    "moment_status": "planned from the written draft",
+    "clip_boundaries": null,
+    "boundary_status": "pending an actual timestamped recording transcript",
+    "properties": {
+      "SPECIFICITY": 46,
+      "ADDRESS": 96,
+      "STAKES": 22,
+      "CURIOSITY": 76,
+      "BREVITY": 100
+    },
+    "verdict": 50,
+    "band": "WEAK",
+    "formula": "The Question",
+    "matched_patterns": 1
+  },
+  {
+    "rank": 4,
+    "source_section": "7: Break one line",
+    "hook": "Your first Python syntax error can start with 1 missing parenthesis. Can you spot it?",
+    "moment_status": "planned from the written draft",
+    "clip_boundaries": null,
+    "boundary_status": "pending an actual timestamped recording transcript",
+    "properties": {
+      "SPECIFICITY": 68,
+      "ADDRESS": 96,
+      "STAKES": 36,
+      "CURIOSITY": 42,
+      "BREVITY": 100
+    },
+    "verdict": 55,
+    "band": "WORKABLE",
+    "formula": "The Question",
+    "matched_patterns": 1
+  },
+  {
+    "rank": 5,
+    "source_section": "10: Preview types",
+    "hook": "Why does Python treat 30 and the text '30' as different values?",
+    "moment_status": "planned from the written draft",
+    "clip_boundaries": null,
+    "boundary_status": "pending an actual timestamped recording transcript",
+    "properties": {
+      "SPECIFICITY": 84,
+      "ADDRESS": 26,
+      "STAKES": 36,
+      "CURIOSITY": 59,
+      "BREVITY": 100
+    },
+    "verdict": 47,
+    "band": "WEAK",
+    "formula": "The Question",
+    "matched_patterns": 2
+  }
+]

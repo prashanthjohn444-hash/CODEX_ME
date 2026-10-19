@@ -1,0 +1,161 @@
+{
+  "agent": "John",
+  "scope": "Python 30 Days course production",
+  "status": "skill_installed_awaiting_production_start",
+  "motion_skill_path": ".agents/skills/dark-olive-broll/SKILL.md",
+  "production_started": false,
+  "active_day": null,
+  "days": [
+    {
+      "day": 1,
+      "manifest": "youtube-course/production/day-01/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 2,
+      "manifest": "youtube-course/production/day-02/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 3,
+      "manifest": "youtube-course/production/day-03/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 4,
+      "manifest": "youtube-course/production/day-04/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 5,
+      "manifest": "youtube-course/production/day-05/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 6,
+      "manifest": "youtube-course/production/day-06/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 7,
+      "manifest": "youtube-course/production/day-07/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 8,
+      "manifest": "youtube-course/production/day-08/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 9,
+      "manifest": "youtube-course/production/day-09/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 10,
+      "manifest": "youtube-course/production/day-10/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 11,
+      "manifest": "youtube-course/production/day-11/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 12,
+      "manifest": "youtube-course/production/day-12/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 13,
+      "manifest": "youtube-course/production/day-13/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 14,
+      "manifest": "youtube-course/production/day-14/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 15,
+      "manifest": "youtube-course/production/day-15/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 16,
+      "manifest": "youtube-course/production/day-16/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 17,
+      "manifest": "youtube-course/production/day-17/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 18,
+      "manifest": "youtube-course/production/day-18/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 19,
+      "manifest": "youtube-course/production/day-19/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 20,
+      "manifest": "youtube-course/production/day-20/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 21,
+      "manifest": "youtube-course/production/day-21/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 22,
+      "manifest": "youtube-course/production/day-22/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 23,
+      "manifest": "youtube-course/production/day-23/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 24,
+      "manifest": "youtube-course/production/day-24/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 25,
+      "manifest": "youtube-course/production/day-25/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 26,
+      "manifest": "youtube-course/production/day-26/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 27,
+      "manifest": "youtube-course/production/day-27/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 28,
+      "manifest": "youtube-course/production/day-28/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 29,
+      "manifest": "youtube-course/production/day-29/john-manifest.json",
+      "status": "pending"
+    },
+    {
+      "day": 30,
+      "manifest": "youtube-course/production/day-30/john-manifest.json",
+      "status": "pending"
+    }
+  ],
+  "motion_skill_installation_report": "john/skill-installation.json"
+}

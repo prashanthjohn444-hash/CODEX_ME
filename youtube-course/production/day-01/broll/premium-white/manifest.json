@@ -1,0 +1,97 @@
+{
+  "format": "day-01-premium-white-broll/v1",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio": false,
+  "background": "warm white with fine technical grid",
+  "source": "HyperFrames, diagrams not screen recordings",
+  "clips": [
+    {
+      "id": "03-uses",
+      "file": "renders/03-uses.mp4",
+      "source": "source/03-uses.html",
+      "frames": 1008,
+      "duration_seconds": 33.6,
+      "beats": [
+        2.2,
+        8.7,
+        15.1,
+        25.1
+      ]
+    },
+    {
+      "id": "04-install-reference",
+      "file": "renders/04-install-reference.mp4",
+      "source": "source/04-install-reference.html",
+      "frames": 672,
+      "duration_seconds": 22.4,
+      "beats": [
+        1.6,
+        7.6,
+        16.1
+      ]
+    },
+    {
+      "id": "05-prompt-map",
+      "file": "renders/05-prompt-map.mp4",
+      "source": "source/05-prompt-map.html",
+      "frames": 120,
+      "duration_seconds": 4,
+      "beats": [
+        0.45,
+        0.78
+      ]
+    },
+    {
+      "id": "08-file-checks",
+      "file": "renders/08-file-checks.mp4",
+      "source": "source/08-file-checks.html",
+      "frames": 792,
+      "duration_seconds": 26.4,
+      "beats": [
+        1.8,
+        9.8,
+        18.5
+      ]
+    },
+    {
+      "id": "09-shell-vs-file",
+      "file": "renders/09-shell-vs-file.mp4",
+      "source": "source/09-shell-vs-file.html",
+      "frames": 126,
+      "duration_seconds": 4.2,
+      "beats": [
+        0.5,
+        0.85,
+        1.9
+      ]
+    },
+    {
+      "id": "10-types",
+      "file": "renders/10-types.mp4",
+      "source": "source/10-types.html",
+      "frames": 150,
+      "duration_seconds": 5,
+      "beats": [
+        0.55,
+        0.88,
+        1.21,
+        1.54
+      ]
+    },
+    {
+      "id": "11-challenge",
+      "file": "renders/11-challenge.mp4",
+      "source": "source/11-challenge.html",
+      "frames": 585,
+      "duration_seconds": 19.5,
+      "beats": [
+        2,
+        6.3,
+        10.8,
+        15.6
+      ]
+    }
+  ]
+}

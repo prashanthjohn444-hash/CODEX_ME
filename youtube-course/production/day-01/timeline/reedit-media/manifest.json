@@ -1,0 +1,128 @@
+{
+  "format": "day-01-obs-video-fit/v1",
+  "source": "authentic OBS captures, silent retime only",
+  "fps": 30,
+  "sections": [
+    {
+      "section": 1,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-01-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 12.8,
+      "visual_duration_seconds": 13.266666666666667,
+      "speed_factor": 1.0364583333333333,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-01-obs-fit.mp4",
+      "frames": 398,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 2,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-02-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 13.7,
+      "visual_duration_seconds": 14.7,
+      "speed_factor": 1.072992700729927,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-02-obs-fit.mp4",
+      "frames": 441,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 3,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-03-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 31.0,
+      "visual_duration_seconds": 33.56666666666667,
+      "speed_factor": 1.0827956989247314,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-03-obs-fit.mp4",
+      "frames": 1007,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 4,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-04-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 39.666,
+      "visual_duration_seconds": 42.36666666666667,
+      "speed_factor": 1.0680851779021496,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-04-obs-fit.mp4",
+      "frames": 1271,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 5,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-05-obs.mkv",
+      "source_in_seconds": 0.0,
+      "source_span_seconds": 36.833,
+      "visual_duration_seconds": 34.4,
+      "speed_factor": 0.933945103575598,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-05-obs-fit.mp4",
+      "frames": 1032,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 6,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-06-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 30.0,
+      "visual_duration_seconds": 32.46666666666667,
+      "speed_factor": 1.0822222222222222,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-06-obs-fit.mp4",
+      "frames": 974,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 7,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-07-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 34.4,
+      "visual_duration_seconds": 36.63333333333333,
+      "speed_factor": 1.0649224806201552,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-07-obs-fit.mp4",
+      "frames": 1099,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 8,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-08-obs.mkv",
+      "source_in_seconds": 0.0,
+      "source_span_seconds": 79.7,
+      "visual_duration_seconds": 82.4,
+      "speed_factor": 1.0338770388958596,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-08-obs-fit.mp4",
+      "frames": 2472,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 9,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-09-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 34.7,
+      "visual_duration_seconds": 37.06666666666667,
+      "speed_factor": 1.0682036503362151,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-09-obs-fit.mp4",
+      "frames": 1112,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 10,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-10-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 36.966,
+      "visual_duration_seconds": 39.56666666666667,
+      "speed_factor": 1.0703529369330376,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-10-obs-fit.mp4",
+      "frames": 1187,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    },
+    {
+      "section": 11,
+      "original_obs": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\screen\\captures\\section-11-obs.mkv",
+      "source_in_seconds": 3.5,
+      "source_span_seconds": 17.866,
+      "visual_duration_seconds": 19.466666666666665,
+      "speed_factor": 1.0895928952572858,
+      "output": "C:\\Users\\lms-work\\Documents\\PY_AUDIO\\youtube-course\\production\\day-01\\timeline\\reedit-media\\section-11-obs-fit.mp4",
+      "frames": 584,
+      "note": "Retime of real footage; missing actions were not manufactured"
+    }
+  ]
+}

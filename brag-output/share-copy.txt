@@ -1,0 +1,1 @@
+Why does `10 + 20` show 30 in Python's shell, but nothing in a saved file? Day 1 of Python 30 Days starts with the answer you can actually run.
