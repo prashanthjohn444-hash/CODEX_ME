@@ -79,12 +79,18 @@ def main():
         STATE.write_text(json.dumps(state, indent=2))
         print(f"Confirmed batch {i+1}/{len(state['commits'])}", flush=True)
     last = state['commits'][-1]['sha']
-    git('update-ref', 'refs/heads/main', last, state['source'])
+    current = git('rev-parse', 'main')
+    if current == state['source']:
+        git('update-ref', 'refs/heads/main', last, state['source'])
+    elif current != last:
+        print('This initial upload is already complete; newer local commits are preserved.', flush=True)
+        return
     git('fetch', 'origin', 'main')
     git('branch', '--set-upstream-to=origin/main', 'main')
     assert git('ls-remote', 'origin', 'refs/heads/main').startswith(last)
-    assert not git('status', '--porcelain')
-    print('SUCCESS: remote main matches local main; working tree clean. '+last, flush=True)
+    print('SUCCESS: uploaded snapshot verified on remote main. '+last, flush=True)
+    if git('status', '--porcelain'):
+        print('New working-tree changes appeared during upload and were preserved.', flush=True)
 
 
 if __name__ == '__main__':

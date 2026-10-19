@@ -1,19 +1,19 @@
 {
   "day": 1,
-  "status": "pending",
+  "status": "in_progress",
   "brief": "youtube-course/episodes/day-01.md",
   "source": "youtube-course/source/day-01.txt",
   "stages": {
     "audio": {
-      "status": "pending",
+      "status": "in_progress",
       "manifest": null
     },
     "screen": {
-      "status": "pending",
+      "status": "in_progress",
       "manifest": null
     },
     "motion": {
-      "status": "pending",
+      "status": "in_progress",
       "manifest": null
     },
     "assembly": {
@@ -23,5 +23,5 @@
   },
   "blockers": [],
   "existing_media_reviewed": false,
-  "notes": "Legacy Day 1 artifacts remain in their original directories."
+  "notes": "Production authorized 2026-10-19. Audio verification underway; screen and motion preflight dispatched. Existing artifacts preserved. Assembly awaits verified assets."
 }

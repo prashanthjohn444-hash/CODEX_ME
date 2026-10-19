@@ -1,0 +1,1229 @@
+{
+  "status": "qa_in_progress",
+  "started_utc": "2026-10-17T15:52:46.762071+00:00",
+  "source": "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\day-01-spoken-script.md",
+  "source_sha256": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+  "language": "English",
+  "narration_type": "synthetic; VoiceStudio/OmniVoice TTS, not human-recorded",
+  "provider": "local VoiceStudio/OmniVoice backend (http://127.0.0.1:3900)",
+  "voice_profile_id": "d8f312f3",
+  "voice_name": "ADAM-ENGLISH (Consensus 90-day) (Adam)",
+  "voice_requested_name": "Adam",
+  "voice_profile_kind": "clone",
+  "voice_profile_origin": "pre-existing profile in the VoiceStudio catalog (GET /profiles -> 'ADAM-ENGLISH (Consensus 90-day)', id d8f312f3, kind=clone, ref audio d8f312f3.wav); NOT the bundled demo voice",
+  "provided_reference_asset": "assets/adam-reference.mp3",
+  "provided_reference_used": false,
+  "provided_reference_note": "user-supplied ElevenLabs 'Adam - Dominant, Firm' sample copied into voice/v2/assets/ for the record; the catalog already contained an Adam profile, which is the one rendered here.",
+  "test_render": "test-adam.wav (4.24 s, 48 kHz mono PCM16, profile d8f312f3)",
+  "sections": [
+    {
+      "id": "01",
+      "title": "Hook — show the puzzle",
+      "text": "Why does your Python file show nothing when the shell shows 30? Both contain the same calculation. By the end of this lesson, you will understand the difference and run your own saved Python program.",
+      "status": "completed",
+      "render_reported_duration_ms": 12488,
+      "file": "section-01.wav",
+      "start_seconds": 0.0,
+      "end_seconds": 12.488,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 599424,
+        "duration_seconds": 12.488
+      },
+      "verification": {
+        "section": "01",
+        "chapter_event_ms": 12488,
+        "wav_duration_seconds": 12.488,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3638.0,
+        "last_0.5s_rms": 948.0,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "932a54a5b9a7037548b12d8d25c0be0c558c4f2663cca3accad9fee203f8c85a",
+      "qa": {
+        "signal": {
+          "file": "section-01.wav",
+          "sha256": "932a54a5b9a7037548b12d8d25c0be0c558c4f2663cca3accad9fee203f8c85a",
+          "frames": 599424,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 12.488,
+          "peak_abs": 30378,
+          "clipped_samples": 0,
+          "rms": 3638.023676149707
+        },
+        "transcript_status": "review_required",
+        "listening_status": "pending",
+        "transcript_file": "transcript-01.json",
+        "transcript_similarity": 1.0,
+        "differences": []
+      }
+    },
+    {
+      "id": "02",
+      "title": "Turn — one concrete destination",
+      "text": "This is what we are building: a small file that prints a greeting and an answer. We need Python, somewhere to write our code, and a way to run it. We will check each one, then deliberately break a line so you can see how to fix it.",
+      "status": "completed",
+      "render_reported_duration_ms": 13558,
+      "file": "section-02.wav",
+      "start_seconds": 12.488,
+      "end_seconds": 26.046,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 650784,
+        "duration_seconds": 13.558
+      },
+      "verification": {
+        "section": "02",
+        "chapter_event_ms": 13558,
+        "wav_duration_seconds": 13.558,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 4170.1,
+        "last_0.5s_rms": 2348.2,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "2cb6370c578ec525772dfa90d971af0d8f31561cb3c06e5030f5b9d7f2ae82e6",
+      "qa": {
+        "signal": {
+          "file": "section-02.wav",
+          "sha256": "2cb6370c578ec525772dfa90d971af0d8f31561cb3c06e5030f5b9d7f2ae82e6",
+          "frames": 650784,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 13.558,
+          "peak_abs": 31356,
+          "clipped_samples": 0,
+          "rms": 4170.116609090079
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "03",
+      "title": "What Python does",
+      "text": "Python is a programming language. You write instructions, and a Python interpreter executes them. People use Python for automation, data analysis, web applications, and AI tools. Those are different destinations, but they share the same starting point: writing a small instruction and understanding its result.\n\nYou do not need to choose a career path today. Our goal is smaller and testable: can you run a file, change it, and explain what changed? That is the first step this course asks you to take.",
+      "status": "completed",
+      "render_reported_duration_ms": 31084,
+      "file": "section-03.wav",
+      "start_seconds": 26.046,
+      "end_seconds": 57.13,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1492032,
+        "duration_seconds": 31.084
+      },
+      "verification": {
+        "section": "03",
+        "chapter_event_ms": 31084,
+        "wav_duration_seconds": 31.084,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3504.2,
+        "last_0.5s_rms": 1073.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "5848a2f037e12f252264897ee9dfc5bfaea2e266bfe8792ab3e8b08008ac1c7f",
+      "qa": {
+        "signal": {
+          "file": "section-03.wav",
+          "sha256": "5848a2f037e12f252264897ee9dfc5bfaea2e266bfe8792ab3e8b08008ac1c7f",
+          "frames": 1492032,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 31.084,
+          "peak_abs": 31637,
+          "clipped_samples": 0,
+          "rms": 3504.160629177238
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "04",
+      "title": "Verify your interpreter",
+      "text": "Open a terminal and check whether Python is already installed. On this machine, I am using the command shown here. Look for a Python 3 version in the result. On another computer, the command may be python3 or py instead. Use the command that actually works on your machine throughout the lesson.\n\nIf none of those commands starts Python, open python.org and follow the installation instructions for your operating system. After installation, open a new terminal and check the version again. Do not copy an old version number from a screenshot. The important thing is that your interpreter is installed and you know how to start it.",
+      "status": "completed",
+      "render_reported_duration_ms": 39586,
+      "file": "section-04.wav",
+      "start_seconds": 57.13,
+      "end_seconds": 96.716,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1900128,
+        "duration_seconds": 39.586
+      },
+      "verification": {
+        "section": "04",
+        "chapter_event_ms": 39586,
+        "wav_duration_seconds": 39.586,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3843.1,
+        "last_0.5s_rms": 2613.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "7670dab601c05af5a46ec544be845221192cffbf5091fdcafe0d2c035449727f",
+      "qa": {
+        "signal": {
+          "file": "section-04.wav",
+          "sha256": "7670dab601c05af5a46ec544be845221192cffbf5091fdcafe0d2c035449727f",
+          "frames": 1900128,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 39.586,
+          "peak_abs": 31303,
+          "clipped_samples": 0,
+          "rms": 3843.0700081680707
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "05",
+      "title": "Know which prompt you are using",
+      "text": "Now start Python. See these three greater-than signs? They tell you that you are inside the Python interactive shell. This is different from the terminal prompt we used a moment ago. The terminal starts programs. The Python shell accepts Python code.\n\nHere is a useful check when something seems wrong: look at the prompt before changing your code. If you see three greater-than signs, you are inside Python. To run a terminal command such as python hello.py, first leave this shell with exit(). Then run the command at the terminal prompt.",
+      "status": "completed",
+      "render_reported_duration_ms": 33238,
+      "file": "section-05.wav",
+      "start_seconds": 96.716,
+      "end_seconds": 129.954,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1595424,
+        "duration_seconds": 33.238
+      },
+      "verification": {
+        "section": "05",
+        "chapter_event_ms": 33238,
+        "wav_duration_seconds": 33.238,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3755.7,
+        "last_0.5s_rms": 3212.9,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "a785c7fd5de1d7fc9f51719099f928437905a403d08c26de6c6bcf70c4cb7deb",
+      "qa": {
+        "signal": {
+          "file": "section-05.wav",
+          "sha256": "a785c7fd5de1d7fc9f51719099f928437905a403d08c26de6c6bcf70c4cb7deb",
+          "frames": 1595424,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 33.238,
+          "peak_abs": 31806,
+          "clipped_samples": 0,
+          "rms": 3755.743767047785
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "06",
+      "title": "First expressions and quoted text",
+      "text": "Type ten plus twenty and press Enter. The shell displays thirty. Try subtraction and multiplication too. Before pressing Enter, predict the answer. That habit will help you notice when your code does something different from what you intended.\n\nNow try a greeting. The words are inside quotation marks because they are text. The parentheses contain the value we give to print. Run the line, change the greeting, and run it again. You are already changing a program and checking the result.",
+      "status": "completed",
+      "render_reported_duration_ms": 30404,
+      "file": "section-06.wav",
+      "start_seconds": 129.954,
+      "end_seconds": 160.358,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1459392,
+        "duration_seconds": 30.404
+      },
+      "verification": {
+        "section": "06",
+        "chapter_event_ms": 30404,
+        "wav_duration_seconds": 30.404,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3943.5,
+        "last_0.5s_rms": 3423.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "525fca0c45540ba3f47cc60bc936ca23b532bd1a0674bd0113595a4018516700",
+      "qa": {
+        "signal": {
+          "file": "section-06.wav",
+          "sha256": "525fca0c45540ba3f47cc60bc936ca23b532bd1a0674bd0113595a4018516700",
+          "frames": 1459392,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 30.404,
+          "peak_abs": 31364,
+          "clipped_samples": 0,
+          "rms": 3943.5346831465704
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "07",
+      "title": "Break one line and recover",
+      "text": "This time I have left out the closing parenthesis. Depending on how you entered the line, the interactive shell may wait for more input, or Python may report a syntax error when the incomplete statement is submitted. In a saved file, the missing parenthesis prevents the file from running normally.\n\nA syntax error does not mean you cannot program. It means Python could not read the instruction in its current form. Compare the opening and closing punctuation, add the missing parenthesis, and run the corrected line. Change one thing, then check again.",
+      "status": "completed",
+      "render_reported_duration_ms": 34194,
+      "file": "section-07.wav",
+      "start_seconds": 160.358,
+      "end_seconds": 194.552,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1641312,
+        "duration_seconds": 34.194
+      },
+      "verification": {
+        "section": "07",
+        "chapter_event_ms": 34194,
+        "wav_duration_seconds": 34.194,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3869.7,
+        "last_0.5s_rms": 2453.5,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "7ee37fc07f29ddb78dfd5692003ebfd9a4cc4210c9e83cb8d43daa5de786136e",
+      "qa": {
+        "signal": {
+          "file": "section-07.wav",
+          "sha256": "7ee37fc07f29ddb78dfd5692003ebfd9a4cc4210c9e83cb8d43daa5de786136e",
+          "frames": 1641312,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 34.194,
+          "peak_abs": 30148,
+          "clipped_samples": 0,
+          "rms": 3869.698591397451
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "08",
+      "title": "Save and run a file",
+      "text": "We will use Visual Studio Code as our editor. If you do not have it yet, download it from code.visualstudio.com and install the version for your operating system. Open its Extensions panel, search for Python, and install the Python extension published by Microsoft. The editor helps us write code; the Python interpreter we installed earlier is what runs it.\n\nThe shell is useful for quick experiments. A file lets us keep several instructions and run them again. Open a folder in your editor, create a file called hello.py, and save these lines. In VS Code, select the Python interpreter you verified earlier so the editor uses the same installation.\n\nOpen a terminal in the folder containing the file. Leave the Python shell first if you are still inside it. Now run python hello.py, using your working Python command. You should see the greeting and then thirty. Change the greeting, save the file, and run the same command again.\n\nIf Python says it cannot open the file, check the filename and your terminal's current folder. If you still see the old greeting, check whether you saved the change and whether you are running the same file you edited. These checks are often more useful than immediately reinstalling anything.",
+      "status": "completed",
+      "render_reported_duration_ms": 76055,
+      "file": "section-08.wav",
+      "start_seconds": 194.552,
+      "end_seconds": 270.607,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 3650640,
+        "duration_seconds": 76.055
+      },
+      "verification": {
+        "section": "08",
+        "chapter_event_ms": 76055,
+        "wav_duration_seconds": 76.055,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3918.2,
+        "last_0.5s_rms": 2708.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "fc5a3ccbba072aa0ba1947534b04e41cec881707e8b1d789479468afa2ab54ca",
+      "qa": {
+        "signal": {
+          "file": "section-08.wav",
+          "sha256": "fc5a3ccbba072aa0ba1947534b04e41cec881707e8b1d789479468afa2ab54ca",
+          "frames": 3650640,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 76.055,
+          "peak_abs": 31341,
+          "clipped_samples": 0,
+          "rms": 3918.193949040973
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "09",
+      "title": "Resolve the opening puzzle",
+      "text": "Here is why our first two examples looked different. In the interactive shell, Python normally displays the result of an expression for you. In a saved script, writing an expression by itself does not ask Python to display it. The calculation still happens, but there is no printed output. Use print when your script needs to show the result.\n\nWe have now delivered the opening promise: you can run a saved Python file and explain why it prints something, or why it stays quiet. The shell helps you experiment; the file keeps the instructions you want to repeat.",
+      "status": "completed",
+      "render_reported_duration_ms": 34586,
+      "file": "section-09.wav",
+      "start_seconds": 270.607,
+      "end_seconds": 305.193,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1660128,
+        "duration_seconds": 34.586
+      },
+      "verification": {
+        "section": "09",
+        "chapter_event_ms": 34586,
+        "wav_duration_seconds": 34.586,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3758.6,
+        "last_0.5s_rms": 1928.2,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "597b50c013b2e796430b7877784309ce09d95f61c7ea47455bd9812a1fa783ab",
+      "qa": {
+        "signal": {
+          "file": "section-09.wav",
+          "sha256": "597b50c013b2e796430b7877784309ce09d95f61c7ea47455bd9812a1fa783ab",
+          "frames": 1660128,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 34.586,
+          "peak_abs": 30803,
+          "clipped_samples": 0,
+          "rms": 3758.6376313929845
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "10",
+      "title": "Preview types and comments",
+      "text": "Python works with different kinds of values. These examples are an integer, a floating-point number, a string, and a Boolean. The type function tells us which kind we have. You do not need every detail yet. Just notice that a number and text containing digits are not the same kind of value.\n\nThe line beginning with a hash is a comment. It explains the code to a reader without becoming an instruction to execute. The lab also previews lists, tuples, sets, and dictionaries. We will work with each of those in its own lesson. Later, indentation will matter when we group instructions into blocks.",
+      "status": "completed",
+      "render_reported_duration_ms": 36625,
+      "file": "section-10.wav",
+      "start_seconds": 305.193,
+      "end_seconds": 341.818,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 1758000,
+        "duration_seconds": 36.625
+      },
+      "verification": {
+        "section": "10",
+        "chapter_event_ms": 36625,
+        "wav_duration_seconds": 36.625,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3580.2,
+        "last_0.5s_rms": 2651.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      "sha256": "72fe4dda46e2c05e6d0c1179467e8376c26e47c0a25248d0a44babf2bd394fbc",
+      "qa": {
+        "signal": {
+          "file": "section-10.wav",
+          "sha256": "72fe4dda46e2c05e6d0c1179467e8376c26e47c0a25248d0a44babf2bd394fbc",
+          "frames": 1758000,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 36.625,
+          "peak_abs": 31844,
+          "clipped_samples": 0,
+          "rms": 3580.209333194603
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    },
+    {
+      "id": "11",
+      "title": "Challenge — one request",
+      "text": "Your challenge is to make a new file that prints your name, prints the result of ten plus twenty, and displays the types of thirty, three point five, and the word Python. Run it from the terminal and change one line successfully. Pause here and try it yourself before opening the lab solution.",
+      "status": "completed",
+      "render_reported_duration_ms": 17853,
+      "file": "section-11.wav",
+      "start_seconds": 341.818,
+      "end_seconds": 359.68,
+      "audio": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 857376,
+        "duration_seconds": 17.862
+      },
+      "verification": {
+        "section": "11",
+        "chapter_event_ms": 17853,
+        "wav_duration_seconds": 17.862,
+        "delta_vs_event_seconds": 0.009,
+        "rms": 4251.9,
+        "last_0.5s_rms": 1828.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false,
+        "end_seconds": 359.68,
+        "reaches_combined_end": true
+      },
+      "sha256": "f6536cb2c11bcd6ef2dabd130b02c3e90ada2ca014f3a88b2993d42de34bf08d",
+      "qa": {
+        "signal": {
+          "file": "section-11.wav",
+          "sha256": "f6536cb2c11bcd6ef2dabd130b02c3e90ada2ca014f3a88b2993d42de34bf08d",
+          "frames": 857376,
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "sample_width_bytes": 2,
+          "duration_seconds": 17.862,
+          "peak_abs": 31389,
+          "clipped_samples": 0,
+          "rms": 4251.933280657655
+        },
+        "transcript_status": "pending",
+        "listening_status": "pending"
+      }
+    }
+  ],
+  "section_gap_seconds": 0,
+  "events": [
+    {
+      "type": "started",
+      "job_id": "963f32c5e34d4674",
+      "chapters": 11
+    },
+    {
+      "type": "chapter",
+      "index": 0,
+      "total": 11,
+      "title": "01 — Hook — show the puzzle",
+      "duration_s": 12.49,
+      "duration_ms": 12488,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 1,
+      "total": 11,
+      "title": "02 — Turn — one concrete destination",
+      "duration_s": 13.56,
+      "duration_ms": 13558,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 2,
+      "total": 11,
+      "title": "03 — What Python does",
+      "duration_s": 31.08,
+      "duration_ms": 31084,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 3,
+      "total": 11,
+      "title": "04 — Verify your interpreter",
+      "duration_s": 39.59,
+      "duration_ms": 39586,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 4,
+      "total": 11,
+      "title": "05 — Know which prompt you are using",
+      "duration_s": 33.24,
+      "duration_ms": 33238,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 5,
+      "total": 11,
+      "title": "06 — First expressions and quoted text",
+      "duration_s": 30.4,
+      "duration_ms": 30404,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 6,
+      "total": 11,
+      "title": "07 — Break one line and recover",
+      "duration_s": 34.19,
+      "duration_ms": 34194,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 7,
+      "total": 11,
+      "title": "08 — Save and run a file",
+      "duration_s": 76.06,
+      "duration_ms": 76055,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 8,
+      "total": 11,
+      "title": "09 — Resolve the opening puzzle",
+      "duration_s": 34.59,
+      "duration_ms": 34586,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 9,
+      "total": 11,
+      "title": "10 — Preview types and comments",
+      "duration_s": 36.62,
+      "duration_ms": 36625,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "chapter",
+      "index": 10,
+      "total": 11,
+      "title": "11 — Challenge — one request",
+      "duration_s": 17.85,
+      "duration_ms": 17853,
+      "cached": false,
+      "segments": 1,
+      "cached_segments": 0
+    },
+    {
+      "type": "assembling"
+    },
+    {
+      "type": "done",
+      "output": "audiobook_963f32c5e34d4674.m4b",
+      "chapters": 11,
+      "duration_s": 359.67,
+      "cached_chapters": 0,
+      "failed_chapters": [],
+      "title": "01 — Hook — show the puzzle",
+      "summary": {
+        "engine": "omnivoice",
+        "voices": [
+          {
+            "id": "d8f312f3",
+            "name": "ADAM-ENGLISH (Consensus 90-day)"
+          }
+        ],
+        "language": "English",
+        "format": "m4b",
+        "lines": 11,
+        "words": 999,
+        "speeds": [
+          1.0
+        ],
+        "options": {
+          "num_step": 32,
+          "guidance_scale": 2.0,
+          "postprocess_output": true,
+          "paragraph_gap_ms": 350,
+          "trim_edges": true
+        },
+        "chapter_titles": [
+          "01 — Hook — show the puzzle",
+          "02 — Turn — one concrete destination",
+          "03 — What Python does",
+          "04 — Verify your interpreter",
+          "05 — Know which prompt you are using",
+          "06 — First expressions and quoted text",
+          "07 — Break one line and recover",
+          "08 — Save and run a file",
+          "09 — Resolve the opening puzzle",
+          "10 — Preview types and comments",
+          "11 — Challenge — one request"
+        ]
+      }
+    }
+  ],
+  "regenerated_sections": [],
+  "request_settings": {
+    "default_voice": "d8f312f3",
+    "language": "English",
+    "format": "m4b",
+    "paragraph_gap_ms": 350,
+    "trim_edges": true
+  },
+  "plan": {
+    "chapters": [
+      {
+        "title": "01 — Hook — show the puzzle",
+        "char_count": 199,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Why does your Python file show nothing when the shell shows 30? Both contain the same calculation. By the end of this lesson, you will understand the difference and run your own saved Python program.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "02 — Turn — one concrete destination",
+        "char_count": 231,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "This is what we are building: a small file that prints a greeting and an answer. We need Python, somewhere to write our code, and a way to run it. We will check each one, then deliberately break a line so you can see how to fix it.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "03 — What Python does",
+        "char_count": 502,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Python is a programming language. You write instructions, and a Python interpreter executes them. People use Python for automation, data analysis, web applications, and AI tools. Those are different destinations, but they share the same starting point: writing a small instruction and understanding its result.\n\nYou do not need to choose a career path today. Our goal is smaller and testable: can you run a file, change it, and explain what changed? That is the first step this course asks you to take.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "04 — Verify your interpreter",
+        "char_count": 631,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Open a terminal and check whether Python is already installed. On this machine, I am using the command shown here. Look for a Python 3 version in the result. On another computer, the command may be python3 or py instead. Use the command that actually works on your machine throughout the lesson.\n\nIf none of those commands starts Python, open python.org and follow the installation instructions for your operating system. After installation, open a new terminal and check the version again. Do not copy an old version number from a screenshot. The important thing is that your interpreter is installed and you know how to start it.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "05 — Know which prompt you are using",
+        "char_count": 540,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Now start Python. See these three greater-than signs? They tell you that you are inside the Python interactive shell. This is different from the terminal prompt we used a moment ago. The terminal starts programs. The Python shell accepts Python code.\n\nHere is a useful check when something seems wrong: look at the prompt before changing your code. If you see three greater-than signs, you are inside Python. To run a terminal command such as python hello.py, first leave this shell with exit(). Then run the command at the terminal prompt.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "06 — First expressions and quoted text",
+        "char_count": 489,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Type ten plus twenty and press Enter. The shell displays thirty. Try subtraction and multiplication too. Before pressing Enter, predict the answer. That habit will help you notice when your code does something different from what you intended.\n\nNow try a greeting. The words are inside quotation marks because they are text. The parentheses contain the value we give to print. Run the line, change the greeting, and run it again. You are already changing a program and checking the result.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "07 — Break one line and recover",
+        "char_count": 554,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "This time I have left out the closing parenthesis. Depending on how you entered the line, the interactive shell may wait for more input, or Python may report a syntax error when the incomplete statement is submitted. In a saved file, the missing parenthesis prevents the file from running normally.\n\nA syntax error does not mean you cannot program. It means Python could not read the instruction in its current form. Compare the opening and closing punctuation, add the missing parenthesis, and run the corrected line. Change one thing, then check again.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "08 — Save and run a file",
+        "char_count": 1228,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "We will use Visual Studio Code as our editor. If you do not have it yet, download it from code.visualstudio.com and install the version for your operating system. Open its Extensions panel, search for Python, and install the Python extension published by Microsoft. The editor helps us write code; the Python interpreter we installed earlier is what runs it.\n\nThe shell is useful for quick experiments. A file lets us keep several instructions and run them again. Open a folder in your editor, create a file called hello.py, and save these lines. In VS Code, select the Python interpreter you verified earlier so the editor uses the same installation.\n\nOpen a terminal in the folder containing the file. Leave the Python shell first if you are still inside it. Now run python hello.py, using your working Python command. You should see the greeting and then thirty. Change the greeting, save the file, and run the same command again.\n\nIf Python says it cannot open the file, check the filename and your terminal's current folder. If you still see the old greeting, check whether you saved the change and whether you are running the same file you edited. These checks are often more useful than immediately reinstalling anything.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "09 — Resolve the opening puzzle",
+        "char_count": 562,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Here is why our first two examples looked different. In the interactive shell, Python normally displays the result of an expression for you. In a saved script, writing an expression by itself does not ask Python to display it. The calculation still happens, but there is no printed output. Use print when your script needs to show the result.\n\nWe have now delivered the opening promise: you can run a saved Python file and explain why it prints something, or why it stays quiet. The shell helps you experiment; the file keeps the instructions you want to repeat.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "10 — Preview types and comments",
+        "char_count": 597,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Python works with different kinds of values. These examples are an integer, a floating-point number, a string, and a Boolean. The type function tells us which kind we have. You do not need every detail yet. Just notice that a number and text containing digits are not the same kind of value.\n\nThe line beginning with a hash is a comment. It explains the code to a reader without becoming an instruction to execute. The lab also previews lists, tuples, sets, and dictionaries. We will work with each of those in its own lesson. Later, indentation will matter when we group instructions into blocks.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      },
+      {
+        "title": "11 — Challenge — one request",
+        "char_count": 293,
+        "spans": [
+          {
+            "voice_id": "d8f312f3",
+            "text": "Your challenge is to make a new file that prints your name, prints the result of ten plus twenty, and displays the types of thirty, three point five, and the word Python. Run it from the terminal and change one line successfully. Pause here and try it yourself before opening the lab solution.",
+            "pause_ms_after": 0,
+            "speed": null
+          }
+        ]
+      }
+    ],
+    "chapter_count": 11,
+    "char_count": 5826
+  },
+  "job_id": "963f32c5e34d4674",
+  "result": {
+    "type": "done",
+    "output": "audiobook_963f32c5e34d4674.m4b",
+    "chapters": 11,
+    "duration_s": 359.67,
+    "cached_chapters": 0,
+    "failed_chapters": [],
+    "title": "01 — Hook — show the puzzle",
+    "summary": {
+      "engine": "omnivoice",
+      "voices": [
+        {
+          "id": "d8f312f3",
+          "name": "ADAM-ENGLISH (Consensus 90-day)"
+        }
+      ],
+      "language": "English",
+      "format": "m4b",
+      "lines": 11,
+      "words": 999,
+      "speeds": [
+        1.0
+      ],
+      "options": {
+        "num_step": 32,
+        "guidance_scale": 2.0,
+        "postprocess_output": true,
+        "paragraph_gap_ms": 350,
+        "trim_edges": true
+      },
+      "chapter_titles": [
+        "01 — Hook — show the puzzle",
+        "02 — Turn — one concrete destination",
+        "03 — What Python does",
+        "04 — Verify your interpreter",
+        "05 — Know which prompt you are using",
+        "06 — First expressions and quoted text",
+        "07 — Break one line and recover",
+        "08 — Save and run a file",
+        "09 — Resolve the opening puzzle",
+        "10 — Preview types and comments",
+        "11 — Challenge — one request"
+      ]
+    }
+  },
+  "verification": {
+    "combined": {
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "frames": 17264640,
+      "duration_seconds": 359.68
+    },
+    "sections": [
+      {
+        "section": "01",
+        "chapter_event_ms": 12488,
+        "wav_duration_seconds": 12.488,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3638.0,
+        "last_0.5s_rms": 948.0,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "02",
+        "chapter_event_ms": 13558,
+        "wav_duration_seconds": 13.558,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 4170.1,
+        "last_0.5s_rms": 2348.2,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "03",
+        "chapter_event_ms": 31084,
+        "wav_duration_seconds": 31.084,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3504.2,
+        "last_0.5s_rms": 1073.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "04",
+        "chapter_event_ms": 39586,
+        "wav_duration_seconds": 39.586,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3843.1,
+        "last_0.5s_rms": 2613.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "05",
+        "chapter_event_ms": 33238,
+        "wav_duration_seconds": 33.238,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3755.7,
+        "last_0.5s_rms": 3212.9,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "06",
+        "chapter_event_ms": 30404,
+        "wav_duration_seconds": 30.404,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3943.5,
+        "last_0.5s_rms": 3423.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "07",
+        "chapter_event_ms": 34194,
+        "wav_duration_seconds": 34.194,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3869.7,
+        "last_0.5s_rms": 2453.5,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "08",
+        "chapter_event_ms": 76055,
+        "wav_duration_seconds": 76.055,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3918.2,
+        "last_0.5s_rms": 2708.1,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "09",
+        "chapter_event_ms": 34586,
+        "wav_duration_seconds": 34.586,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3758.6,
+        "last_0.5s_rms": 1928.2,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "10",
+        "chapter_event_ms": 36625,
+        "wav_duration_seconds": 36.625,
+        "delta_vs_event_seconds": 0.0,
+        "rms": 3580.2,
+        "last_0.5s_rms": 2651.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false
+      },
+      {
+        "section": "11",
+        "chapter_event_ms": 17853,
+        "wav_duration_seconds": 17.862,
+        "delta_vs_event_seconds": 0.009,
+        "rms": 4251.9,
+        "last_0.5s_rms": 1828.3,
+        "has_audio": true,
+        "tail_has_audio": true,
+        "truncated": false,
+        "regenerated": false,
+        "end_seconds": 359.68,
+        "reaches_combined_end": true
+      }
+    ],
+    "reported_total_seconds": 359.671,
+    "actual_total_seconds": 359.68,
+    "total_delta_seconds": 0.009,
+    "all_sections_present": true,
+    "all_non_empty": true,
+    "truncated_sections": []
+  },
+  "concatenated_file": "day-01-narration.wav",
+  "concatenated_audio": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "frames": 17264640,
+    "duration_seconds": 359.68
+  },
+  "chapterized_file": "day-01-narration.m4b",
+  "finished_utc": "2026-10-17T15:56:28.079795+00:00",
+  "script": "spoken-script.md",
+  "script_sha256": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+  "legacy_provenance": "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\production\\day-01\\voice\\v2",
+  "reuse_status": "matching_script_and_generation_settings_signal_audited_pending_speech_qa",
+  "qa": {
+    "signal_checks": [
+      {
+        "file": "section-01.wav",
+        "sha256": "932a54a5b9a7037548b12d8d25c0be0c558c4f2663cca3accad9fee203f8c85a",
+        "frames": 599424,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 12.488,
+        "peak_abs": 30378,
+        "clipped_samples": 0,
+        "rms": 3638.023676149707
+      },
+      {
+        "file": "section-02.wav",
+        "sha256": "2cb6370c578ec525772dfa90d971af0d8f31561cb3c06e5030f5b9d7f2ae82e6",
+        "frames": 650784,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 13.558,
+        "peak_abs": 31356,
+        "clipped_samples": 0,
+        "rms": 4170.116609090079
+      },
+      {
+        "file": "section-03.wav",
+        "sha256": "5848a2f037e12f252264897ee9dfc5bfaea2e266bfe8792ab3e8b08008ac1c7f",
+        "frames": 1492032,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 31.084,
+        "peak_abs": 31637,
+        "clipped_samples": 0,
+        "rms": 3504.160629177238
+      },
+      {
+        "file": "section-04.wav",
+        "sha256": "7670dab601c05af5a46ec544be845221192cffbf5091fdcafe0d2c035449727f",
+        "frames": 1900128,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 39.586,
+        "peak_abs": 31303,
+        "clipped_samples": 0,
+        "rms": 3843.0700081680707
+      },
+      {
+        "file": "section-05.wav",
+        "sha256": "a785c7fd5de1d7fc9f51719099f928437905a403d08c26de6c6bcf70c4cb7deb",
+        "frames": 1595424,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 33.238,
+        "peak_abs": 31806,
+        "clipped_samples": 0,
+        "rms": 3755.743767047785
+      },
+      {
+        "file": "section-06.wav",
+        "sha256": "525fca0c45540ba3f47cc60bc936ca23b532bd1a0674bd0113595a4018516700",
+        "frames": 1459392,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 30.404,
+        "peak_abs": 31364,
+        "clipped_samples": 0,
+        "rms": 3943.5346831465704
+      },
+      {
+        "file": "section-07.wav",
+        "sha256": "7ee37fc07f29ddb78dfd5692003ebfd9a4cc4210c9e83cb8d43daa5de786136e",
+        "frames": 1641312,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 34.194,
+        "peak_abs": 30148,
+        "clipped_samples": 0,
+        "rms": 3869.698591397451
+      },
+      {
+        "file": "section-08.wav",
+        "sha256": "fc5a3ccbba072aa0ba1947534b04e41cec881707e8b1d789479468afa2ab54ca",
+        "frames": 3650640,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 76.055,
+        "peak_abs": 31341,
+        "clipped_samples": 0,
+        "rms": 3918.193949040973
+      },
+      {
+        "file": "section-09.wav",
+        "sha256": "597b50c013b2e796430b7877784309ce09d95f61c7ea47455bd9812a1fa783ab",
+        "frames": 1660128,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 34.586,
+        "peak_abs": 30803,
+        "clipped_samples": 0,
+        "rms": 3758.6376313929845
+      },
+      {
+        "file": "section-10.wav",
+        "sha256": "72fe4dda46e2c05e6d0c1179467e8376c26e47c0a25248d0a44babf2bd394fbc",
+        "frames": 1758000,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 36.625,
+        "peak_abs": 31844,
+        "clipped_samples": 0,
+        "rms": 3580.209333194603
+      },
+      {
+        "file": "section-11.wav",
+        "sha256": "f6536cb2c11bcd6ef2dabd130b02c3e90ada2ca014f3a88b2993d42de34bf08d",
+        "frames": 857376,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "duration_seconds": 17.862,
+        "peak_abs": 31389,
+        "clipped_samples": 0,
+        "rms": 4251.933280657655
+      }
+    ],
+    "python_examples": [
+      {
+        "block": 1,
+        "code": "10 + 20\n10 - 3\n4 * 5\nprint(\"Hello, Python!\")\n",
+        "stdout": "Hello, Python!\n",
+        "status": "passed"
+      },
+      {
+        "block": 2,
+        "code": "print(\"Hello, Python!\")\nprint(10 + 20)\n",
+        "stdout": "Hello, Python!\n30\n",
+        "status": "passed"
+      },
+      {
+        "block": 3,
+        "code": "# Inspect the kinds of values Python is working with.\nprint(type(30))\nprint(type(3.5))\nprint(type(\"Python\"))\nprint(type(True))\n",
+        "stdout": "<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>\n",
+        "status": "passed"
+      }
+    ],
+    "listening_status": "pending",
+    "transcript_status": "pending"
+  },
+  "source_hashes": {
+    "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\day-01-spoken-script.md": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+    "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\episodes\\day-01.md": "63665ab7a2ea433600adae60101b34888d1a35a94bb26a4a4de4f67da5cc8aa5",
+    "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\source\\day-01.txt": "27f3056f39bfe2a0c8e7e79ab2974854903e9266182330f88ebdbc677938b660",
+    "C:\\Users\\lms-work\\Documents\\Python\\youtube-course\\production\\day-01\\audio\\structured-lesson-day-01.json": "2d77e52a38d5c750e4b56fb903df15dfc06cd4a4843641580fad0962a9fecb92"
+  }
+}

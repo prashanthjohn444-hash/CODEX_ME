@@ -1,0 +1,44 @@
+INFO:     Started server process [8796]
+INFO:     Waiting for application startup.
+2026-10-19 13:51:05,187 INFO [omnivoice.api] Startup watchdog armed: thread dump if startup exceeds 300s (#632).
+2026-10-19 13:51:05,231 WARNING [omnivoice.run_sentinel] Previous backend run (pid 5136, version 0.5.6) ended uncleanly — crash record written to last_run_crash.json (last activity: generate).
+2026-10-19 13:51:05,331 INFO [omnivoice.analytics] Analytics enabled by user opt-in (host=https://eu.i.posthog.com).
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:3900 (Press CTRL+C to quit)
+2026-10-19 13:51:06,848 INFO [omnivoice.api] Published 2 media-tool directories on PATH so dependencies can find ffmpeg/ffprobe (#1256)
+2026-10-19 13:51:19,684 INFO [omnivoice.hf_progress] hf_progress: installed tqdm patch on huggingface_hub.utils.tqdm
+2026-10-19 13:51:21,840 INFO [omnivoice.setup.models] Loaded 38 models from C:\Users\lms-work\AppData\Roaming\VoiceStudio\runtime\project\backend\config\models.yaml
+2026-10-19 13:51:22,611 INFO [omnivoice.model] downloads: Xet disabled → legacy LFS (hf_xet 1.6.0 installed=True), high_perf=False
+2026-10-19 13:51:24,068 INFO [omnivoice.mcp] MCP app mounted at /mcp
+2026-10-19 13:51:24,918 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.schemas
+2026-10-19 13:51:24,919 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.tables
+2026-10-19 13:51:24,920 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.types
+2026-10-19 13:51:24,921 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.constraints
+2026-10-19 13:51:24,921 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.defaults
+2026-10-19 13:51:24,923 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.comments
+2026-10-19 13:51:24,924 INFO [alembic.runtime.plugins] setup plugin alembic.autogenerate.checkconstraint_byname
+2026-10-19 13:52:01,518 INFO [omnivoice.api] Startup performance selections reconciled: {'asr': {'engine': 'faster-whisper', 'model': 'Systran/faster-whisper-large-v3'}, 'dictation': {'engine': 'offline-whisper', 'model': 'sherpa-whisper-tiny'}, 'translation': {'engine': 'nllb', 'model': 'facebook/nllb-200-distilled-600M'}}
+2026-10-19 13:52:02,875 INFO [omnivoice.model] Preloading TTS model in background…
+2026-10-19 13:52:02,878 INFO [omnivoice.model] Memory tight before TTS load (2.0 GB free), releasing idle models first.
+2026-10-19 13:52:03,008 INFO [omnivoice.model] GPU pool sized to 1 worker(s) — 3.2 GB free / 5.0 GB per job (cap 4)
+2026-10-19 13:52:03,010 INFO [omnivoice.model] Importing PyTorch & VoiceStudio runtime…
+2026-10-19 13:52:03,010 INFO [mcp.server.streamable_http_manager] StreamableHTTP session manager started
+2026-10-19 13:52:03,012 INFO [omnivoice.api] MCP server mounted at /mcp
+2026-10-19 13:52:03,454 INFO [omnivoice.api] Deferred startup complete — all routes live.
+2026-10-19 13:52:18,390 INFO [omnivoice.model] Loading VoiceStudio model on device: cuda
+2026-10-19 13:52:18,392 INFO [omnivoice.model] Skipping PyTorch Whisper preload; ASR will load on demand.
+2026-10-19 13:52:33,029 INFO [omnivoice.api] Capture ASR preload skipped: <4GB free RAM; dictation ASR will load on first use.
+Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]2026-10-19 13:52:39,290 INFO [omnivoice.watermark] Watermark prefetch skipped: AudioSeal checkpoint is not cached
+Loading weights:   1%|▏         | 4/313 [00:00<00:55,  5.61it/s]Loading weights:  44%|████▍     | 138/313 [00:00<00:00, 221.83it/s]Loading weights:  66%|██████▌   | 206/313 [00:01<00:00, 225.55it/s]Loading weights:  81%|████████  | 254/313 [00:01<00:00, 240.96it/s]Loading weights:  94%|█████████▍| 294/313 [00:01<00:00, 234.59it/s]Loading weights: 100%|██████████| 313/313 [00:01<00:00, 204.77it/s]
+Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:   6%|▌         | 31/527 [00:00<00:01, 303.51it/s]Loading weights:  33%|███▎      | 175/527 [00:00<00:00, 930.28it/s]Loading weights:  51%|█████     | 267/527 [00:00<00:00, 301.17it/s]Loading weights:  63%|██████▎   | 331/527 [00:00<00:00, 358.92it/s]Loading weights:  74%|███████▍  | 391/527 [00:01<00:00, 334.22it/s]Loading weights:  83%|████████▎ | 440/527 [00:01<00:00, 325.10it/s]Loading weights:  92%|█████████▏| 483/527 [00:01<00:00, 315.67it/s]Loading weights:  99%|█████████▉| 521/527 [00:01<00:00, 306.56it/s]Loading weights: 100%|██████████| 527/527 [00:01<00:00, 341.18it/s]
+2026-10-19 13:53:15,231 INFO [omnivoice.engine_env] torch.compile skipped: TORCH_COMPILE_DISABLE is set — using eager mode.
+2026-10-19 13:53:15,232 INFO [omnivoice.model] VoiceStudio model loaded successfully.
+2026-10-19 13:53:15,233 INFO [omnivoice.model] Preload complete — model ready.
+2026-10-19 13:53:15,394 INFO [omnivoice.asr] faster-whisper loading Systran/faster-whisper-large-v3 on cuda (float16)
+2026-10-19 13:53:23,579 WARNING [omnivoice.asr] faster-whisper CUDA OOM loading Systran/faster-whisper-large-v3 — retrying on CPU (slower). Free VRAM (Flush the TTS model) for GPU-speed ASR. Detail: CUDA failed with error out of memory
+2026-10-19 13:53:41,447 INFO [omnivoice.asr] faster-whisper transcribing C:\Users\lms-work\AppData\Local\Temp\tmpdo3uvgd6.wav (word_timestamps=False)
+2026-10-19 13:53:41,781 INFO [faster_whisper] Processing audio with duration 00:12.488
+2026-10-19 13:53:42,134 INFO [faster_whisper] VAD filter removed 00:00.000 of audio
+2026-10-19 13:53:54,476 INFO [faster_whisper] Detected language 'en' with probability 1.00
+2026-10-19 13:54:15,133 INFO [omnivoice.capture] Capture transcription done: engine=faster-whisper, elapsed=131.46s, duration=12.4s, mode=reference, refined=False
+2026-10-19 13:54:15,412 INFO [omnivoice.asr] faster-whisper loading Systran/faster-whisper-large-v3 on cuda (float16)

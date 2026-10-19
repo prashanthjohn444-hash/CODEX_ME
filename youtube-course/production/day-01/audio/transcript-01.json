@@ -1,0 +1,29 @@
+{
+  "text": "Why does your Python file show nothing when the shell shows 30? Both contain the same calculation. By the end of this lesson, you will understand the difference and run your own saved Python program.",
+  "segments": [
+    {
+      "start": 0.66,
+      "end": 3.96,
+      "text": "Why does your Python file show nothing when the shell shows 30?"
+    },
+    {
+      "start": 4.78,
+      "end": 6.54,
+      "text": "Both contain the same calculation."
+    },
+    {
+      "start": 7.36,
+      "end": 9.96,
+      "text": "By the end of this lesson, you will understand the difference"
+    },
+    {
+      "start": 9.96,
+      "end": 12.36,
+      "text": "and run your own saved Python program."
+    }
+  ],
+  "language": "en",
+  "duration_s": 12.36,
+  "transcription_time_s": 131.46,
+  "engine": "faster-whisper"
+}

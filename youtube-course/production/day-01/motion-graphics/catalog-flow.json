@@ -1,0 +1,290 @@
+{
+  "query": "process flow diagram",
+  "tier": "words",
+  "tier_detail": "local word match",
+  "dropped": 0,
+  "unindexed": 0,
+  "shown": 15,
+  "total": 446,
+  "report_gap": "npx hyperframes feedback --search-miss \"process flow diagram\" --wanted \"<the move you needed>\" --tier words",
+  "results": [
+    {
+      "name": "settings-toggle-flow",
+      "type": "component",
+      "title": "Settings Toggle Flow",
+      "description": "A composed settings flow with preference rows, toggle switches, and active-state feedback",
+      "tags": [
+        "ui-flow",
+        "settings",
+        "toggle"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/settings-toggle-flow.png"
+      }
+    },
+    {
+      "name": "signup-flow",
+      "type": "component",
+      "title": "Signup Flow",
+      "description": "A composed signup flow with social action, email field, password field, and submit button",
+      "tags": [
+        "ui-flow",
+        "signup",
+        "form"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/signup-flow.png"
+      }
+    },
+    {
+      "name": "onboarding-stepper-flow",
+      "type": "component",
+      "title": "Onboarding Stepper Flow",
+      "description": "A composed onboarding flow with milestone rail, active step card, and next-action button",
+      "tags": [
+        "ui-flow",
+        "onboarding",
+        "stepper"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/onboarding-stepper-flow.png"
+      }
+    },
+    {
+      "name": "us-map-flow",
+      "type": "block",
+      "title": "US Flow Map",
+      "description": "Animated connection arcs between US cities over a base map — composable origin-destination flow visualization",
+      "tags": [
+        "data",
+        "map",
+        "geography",
+        "usa",
+        "flow",
+        "connections",
+        "arcs"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 12,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/us-map-flow.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/us-map-flow.png"
+      }
+    },
+    {
+      "name": "screen-flow-carousel",
+      "type": "component",
+      "title": "Screen Flow Carousel",
+      "description": "Two to five app screens ride a horizontal rail: one primary at center, neighbors receded, advancing on cues with a velocity-matched throw and a smooth long-tail catch while a mono caption swaps with each advance. Screens are slots with token skeleton defaults.",
+      "tags": [
+        "product-demo",
+        "feature-tour",
+        "carousel",
+        "rail",
+        "slot",
+        "screens"
+      ]
+    },
+    {
+      "name": "flowchart",
+      "type": "block",
+      "title": "Flowchart",
+      "description": "Animated decision tree with SVG connectors, sticky-note nodes, cursor interaction, and typing correction",
+      "tags": [
+        "diagram",
+        "flowchart",
+        "interactive"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 12,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/flowchart.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/flowchart.png"
+      }
+    },
+    {
+      "name": "flowchart-vertical",
+      "type": "block",
+      "title": "Flowchart Vertical",
+      "description": "Portrait animated decision tree with SVG connectors, sticky-note nodes, cursor interaction, and typing correction",
+      "tags": [
+        "diagram",
+        "flowchart",
+        "interactive",
+        "portrait"
+      ],
+      "dimensions": {
+        "width": 1440,
+        "height": 2560
+      },
+      "duration": 12,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/flowchart-vertical.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/flowchart-vertical.png"
+      }
+    },
+    {
+      "name": "hw-pipeline",
+      "type": "block",
+      "title": "Hand-Drawn Flowchart",
+      "description": "Wobbled boxes with handwritten labels joined by curved connectors, drawing on in sequence from a node list",
+      "tags": [
+        "handwritten",
+        "diagram",
+        "data-viz",
+        "overlay"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 7
+    },
+    {
+      "name": "exploded-stack",
+      "type": "block",
+      "title": "Exploded Stack",
+      "description": "Isometric layer plates explode apart with a label beside each layer, hold, then collapse back into one stack. Built for architecture and system diagrams.",
+      "tags": [
+        "3d-object",
+        "three-js",
+        "webgl",
+        "isometric",
+        "exploded-view",
+        "layers",
+        "diagram",
+        "architecture"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "liquid-metal",
+      "type": "block",
+      "title": "Liquid Metal",
+      "description": "A chrome sphere ripples and flows like molten metal on black. A WebGPU shader from the Shaders library (shaders.com, MIT).",
+      "tags": [
+        "webgpu",
+        "webgpu-shader",
+        "object",
+        "metal",
+        "chrome",
+        "liquid",
+        "sphere"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 2,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/liquid-metal.mp4"
+      }
+    },
+    {
+      "name": "flowing-gradient",
+      "type": "block",
+      "title": "Flowing Gradient",
+      "description": "Bands of orange and violet flow across the frame in a smooth gradient. A WebGPU shader from the Shaders library (shaders.com, MIT).",
+      "tags": [
+        "webgpu",
+        "webgpu-shader",
+        "background",
+        "gradient",
+        "color",
+        "flow"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 2,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/flowing-gradient.mp4"
+      }
+    },
+    {
+      "name": "swirl",
+      "type": "block",
+      "title": "Swirl",
+      "description": "Orange and blue color fields swirl and flow into each other across the whole frame. A WebGPU shader from the Shaders library (shaders.com, MIT).",
+      "tags": [
+        "webgpu",
+        "webgpu-shader",
+        "background",
+        "gradient",
+        "flow",
+        "abstract"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 2,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/swirl.mp4"
+      }
+    },
+    {
+      "name": "heatmap",
+      "type": "block",
+      "title": "Heatmap",
+      "description": "Thermal colours flow through a glowing orb, on black. A WebGPU shader from the Shaders library (shaders.com, MIT).",
+      "tags": [
+        "webgpu",
+        "webgpu-shader",
+        "object",
+        "heat",
+        "thermal",
+        "glow"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 2,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/heatmap.mp4"
+      }
+    },
+    {
+      "name": "whiteboard-ink",
+      "type": "component",
+      "title": "Whiteboard Ink",
+      "description": "A whiteboard sketch draws one measured stroke at a time while a pen nib follows the active tip. Preset sketches (bulb, flow, rocket) or your own multi-stroke SVG paths via the strokes slot; a path marked data-ink=accent rides the accent token.",
+      "tags": [
+        "motion-primitive",
+        "intro",
+        "reveal",
+        "svg",
+        "whiteboard",
+        "line-draw",
+        "slot"
+      ]
+    },
+    {
+      "name": "modal-morph",
+      "type": "component",
+      "title": "Modal Morph",
+      "description": "A small card expands into a full panel, shared-element style: both layouts measured once at mount, the container morphs by transform only (never width/height tweens) while keyed children counter-scale and re-flow onto their own measured targets as pure functions of time.",
+      "tags": [
+        "motion-primitive",
+        "structure",
+        "flip",
+        "shared-element",
+        "modal",
+        "deterministic",
+        "experiment"
+      ]
+    }
+  ]
+}

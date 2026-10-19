@@ -1,0 +1,28 @@
+{
+  "day": 1,
+  "status": "in_progress",
+  "phase": "editorial_preflight",
+  "cue_plan": "cue-plan.json",
+  "source_hashes": {
+    "youtube-course/day-01-spoken-script.md": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+    "youtube-course/episodes/day-01.md": "63665ab7a2ea433600adae60101b34888d1a35a94bb26a4a4de4f67da5cc8aa5",
+    "youtube-course/source/day-01.txt": "27f3056f39bfe2a0c8e7e79ab2974854903e9266182330f88ebdbc677938b660",
+    "youtube-course/source/lessons.json": "f9e25e15330ec6a36740eec7df2ed5f45dc750a0ba9f576dc679df5207bd33c2"
+  },
+  "verified_outputs": [],
+  "reused_assets": [],
+  "usage": {
+    "status": "unknown",
+    "reason": "usage_request_failed"
+  },
+  "workflow_freshness": "Installed general-video present; GitHub unreachable, freshness unknown",
+  "qa": {
+    "renders_created": false,
+    "visual_verification": false,
+    "audio_timing_verification": false
+  },
+  "blockers": [
+    "Verified audio and spoken cue timings pending"
+  ],
+  "resume": "Receive audio/manifest.json from audio specialist; align cues, create editable HyperFrames scenes, check, preview and render under motion-graphics only. Preserve genuine code demonstrations."
+}

@@ -1,0 +1,141 @@
+{
+  "day": 1,
+  "status": "awaiting_verified_audio",
+  "source_hashes": {
+    "youtube-course/day-01-spoken-script.md": "4f926bb322bdf66c3f9371422a84cf20a6ad691b1457856bdc61181c61a695a4",
+    "youtube-course/episodes/day-01.md": "63665ab7a2ea433600adae60101b34888d1a35a94bb26a4a4de4f67da5cc8aa5",
+    "youtube-course/source/day-01.txt": "27f3056f39bfe2a0c8e7e79ab2974854903e9266182330f88ebdbc677938b660",
+    "youtube-course/source/lessons.json": "f9e25e15330ec6a36740eec7df2ed5f45dc750a0ba9f576dc679df5207bd33c2"
+  },
+  "timing_policy": "Section IDs are stable. No absolute or section-local cue offsets are asserted until verified audio and spoken-word timing are available. Durations below are editorial targets only.",
+  "design": {
+    "skill": ".agents/skills/dark-olive-broll/SKILL.md",
+    "background": "#161911",
+    "edge": "#0f0f0c",
+    "accent": "#789858",
+    "text": "#f1efe6",
+    "safe_margin_percent": 6,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "fps": 30,
+    "color_space": "Rec.709",
+    "renderer": "HyperFrames",
+    "audio": "silent graphics; verified narration remains in assembly"
+  },
+  "scenes": [
+    {
+      "id": "03-interpreter",
+      "section_id": "03",
+      "spoken_cue": "You write instructions, and a Python interpreter executes them.",
+      "scene_type": "Live diagram",
+      "on_screen_text": [
+        "Your instructions",
+        "Python interpreter",
+        "Result"
+      ],
+      "accent_target": "interpreter",
+      "target_duration_seconds": 6,
+      "learner_purpose": "Make the relationship between code, interpreter and result visible.",
+      "section_local_start_seconds": null,
+      "day_start_seconds": null,
+      "reveals": "Align labels to their exact spoken terms after audio verification",
+      "final_hold_seconds": 1.5,
+      "replaces_code_demo": false,
+      "source_caption": "SOURCE \u00b7 Python 30 Days \u00b7 Day 1 lesson"
+    },
+    {
+      "id": "03-uses",
+      "section_id": "03",
+      "spoken_cue": "People use Python for automation, data analysis, web applications, and AI tools.",
+      "scene_type": "Fan-out cascade",
+      "on_screen_text": [
+        "One language, many uses",
+        "Automation",
+        "Data",
+        "Web",
+        "AI tools"
+      ],
+      "accent_target": "named destination",
+      "target_duration_seconds": 7,
+      "learner_purpose": "Orient beginners without adding a career or popularity claim.",
+      "section_local_start_seconds": null,
+      "day_start_seconds": null,
+      "reveals": "Align labels to their exact spoken terms after audio verification",
+      "final_hold_seconds": 1.5,
+      "replaces_code_demo": false,
+      "source_caption": "SOURCE \u00b7 Python 30 Days \u00b7 Day 1 lesson"
+    },
+    {
+      "id": "05-prompts",
+      "section_id": "05",
+      "spoken_cue": "The terminal starts programs. The Python shell accepts Python code.",
+      "scene_type": "Compare cards",
+      "on_screen_text": [
+        "Terminal",
+        "Starts programs",
+        "Python shell",
+        "Accepts Python code",
+        ">>>"
+      ],
+      "accent_target": "Python shell",
+      "target_duration_seconds": 7,
+      "learner_purpose": "Reinforce the prompt distinction after genuine shell footage.",
+      "section_local_start_seconds": null,
+      "day_start_seconds": null,
+      "reveals": "Align labels to their exact spoken terms after audio verification",
+      "final_hold_seconds": 1.5,
+      "replaces_code_demo": false,
+      "source_caption": "SOURCE \u00b7 Python 30 Days \u00b7 Day 1 lesson"
+    },
+    {
+      "id": "09-display",
+      "section_id": "09",
+      "spoken_cue": "Use print when your script needs to show the result.",
+      "scene_type": "Compare cards",
+      "on_screen_text": [
+        "Shell",
+        "Displays expression results",
+        "Saved script",
+        "Use print to display"
+      ],
+      "accent_target": "print",
+      "target_duration_seconds": 6,
+      "learner_purpose": "Summarize the demonstrated shell/file difference without replacing execution footage.",
+      "section_local_start_seconds": null,
+      "day_start_seconds": null,
+      "reveals": "Align labels to their exact spoken terms after audio verification",
+      "final_hold_seconds": 1.5,
+      "replaces_code_demo": false,
+      "source_caption": "SOURCE \u00b7 Python 30 Days \u00b7 Day 1 lesson"
+    },
+    {
+      "id": "11-practice",
+      "section_id": "11",
+      "spoken_cue": "Pause here and try it yourself before opening the lab solution.",
+      "scene_type": "Resource list",
+      "on_screen_text": [
+        "Your first Python file",
+        "Print your name",
+        "Print 10 + 20",
+        "Inspect three types",
+        "Change, save, run"
+      ],
+      "accent_target": "Pause",
+      "target_duration_seconds": 8,
+      "learner_purpose": "Keep the practice request visible while the learner pauses; no solution shown.",
+      "section_local_start_seconds": null,
+      "day_start_seconds": null,
+      "reveals": "Align labels to their exact spoken terms after audio verification",
+      "final_hold_seconds": 1.5,
+      "replaces_code_demo": false,
+      "source_caption": "SOURCE \u00b7 Python 30 Days \u00b7 Day 1 lesson"
+    }
+  ],
+  "not_graphics": [
+    "Opening proof and repair remain genuine screen footage",
+    "Installation and version checks remain genuine screen footage",
+    "Arithmetic, syntax error, saved-file runs and type outputs remain genuine screen footage"
+  ]
+}

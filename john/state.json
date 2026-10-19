@@ -1,15 +1,15 @@
 {
   "agent": "John",
   "scope": "Python 30 Days course production",
-  "status": "skill_installed_awaiting_production_start",
+  "status": "production_in_progress",
   "motion_skill_path": ".agents/skills/dark-olive-broll/SKILL.md",
-  "production_started": false,
-  "active_day": null,
+  "production_started": true,
+  "active_day": 1,
   "days": [
     {
       "day": 1,
       "manifest": "youtube-course/production/day-01/john-manifest.json",
-      "status": "pending"
+      "status": "in_progress"
     },
     {
       "day": 2,

@@ -1,0 +1,2 @@
+INFO:     127.0.0.1:50459 - "GET /profiles HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65506 - "POST /transcribe HTTP/1.1" 200 OK

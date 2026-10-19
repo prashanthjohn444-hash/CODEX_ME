@@ -1,0 +1,1906 @@
+{
+  "query": "glass cards comparison",
+  "tier": "words",
+  "tier_detail": "local word match",
+  "dropped": 0,
+  "unindexed": 0,
+  "shown": 109,
+  "total": 446,
+  "report_gap": "npx hyperframes feedback --search-miss \"glass cards comparison\" --wanted \"<the move you needed>\" --tier words",
+  "results": [
+    {
+      "name": "vfx-liquid-glass",
+      "type": "block",
+      "title": "Liquid Glass",
+      "description": "VFX composition block",
+      "tags": [
+        "html-in-canvas",
+        "webgl"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 20,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/vfx-liquid-glass.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/vfx-liquid-glass.png"
+      }
+    },
+    {
+      "name": "liquid-glass-notification",
+      "type": "block",
+      "title": "Liquid Glass Notification",
+      "description": "Frosted glass notification cards floating over an aurora shader background",
+      "tags": [
+        "html-in-canvas",
+        "liquid-glass-html-in-canvas",
+        "webgpu"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 8,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/liquid-glass-notification.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/liquid-glass-notification.png"
+      }
+    },
+    {
+      "name": "glass-shard-title",
+      "type": "block",
+      "title": "Glass Shard Title",
+      "description": "Glass shards fly in through fog and tile themselves into the headline.",
+      "tags": [
+        "3d-motion",
+        "title-card",
+        "glass",
+        "voronoi",
+        "shards",
+        "fog",
+        "hdr"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 12.16,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/glass-shard-title.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/glass-shard-title.png"
+      }
+    },
+    {
+      "name": "liquid-glass-widgets",
+      "type": "block",
+      "title": "Liquid Glass Widgets",
+      "description": "Frosted glass stat cards, showcase panel and pill chips over an aurora shader background",
+      "tags": [
+        "html-in-canvas",
+        "liquid-glass-html-in-canvas",
+        "webgpu"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 8,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/liquid-glass-widgets.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/liquid-glass-widgets.png"
+      }
+    },
+    {
+      "name": "comparison-split",
+      "type": "component",
+      "title": "Comparison Split",
+      "description": "Two full-bleed panels compare before and after states as a persistent divider wipes the vivid after layer over the muted before layer and rests at a configurable split.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "compare",
+        "holdable",
+        "before-after",
+        "wipe"
+      ]
+    },
+    {
+      "name": "glass-hero",
+      "type": "block",
+      "title": "Glass Hero",
+      "description": "A solid glass object rises in front of a giant headline and keeps turning, so the type bends and splits into colour through it.",
+      "tags": [
+        "3d-object",
+        "three-js",
+        "webgl",
+        "glass",
+        "refraction",
+        "hero",
+        "title-card"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "macos-tahoe-liquid-glass",
+      "type": "block",
+      "title": "macOS Tahoe Liquid Glass Desktop",
+      "description": "3D MacBook with a macOS Tahoe-style desktop, glass menu bar, Finder window, dock, and cinematic device camera move.",
+      "tags": [
+        "html-in-canvas",
+        "3d",
+        "macos",
+        "tahoe",
+        "gltf"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 15,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/macos-tahoe-liquid-glass.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/macos-tahoe-liquid-glass.png"
+      }
+    },
+    {
+      "name": "spotlight-card",
+      "type": "component",
+      "title": "Spotlight Card",
+      "description": "A card with a scripted cursor spotlight and lit border.",
+      "tags": [
+        "effect"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/spotlight-card.png"
+      }
+    },
+    {
+      "name": "ios26-liquid-glass",
+      "type": "block",
+      "title": "iOS 26 Liquid Glass Home Screen",
+      "description": "3D iPhone with a normal iOS 26 home screen, liquid glass app icons, shader wallpaper, dock, and fluid glass notifications that drop from the status area onto a GLTF device model.",
+      "tags": [
+        "liquid-glass-html-in-canvas",
+        "webgpu",
+        "3d",
+        "iphone",
+        "ios26",
+        "notifications",
+        "gltf",
+        "html-in-canvas"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 15,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ios26-liquid-glass.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ios26-liquid-glass.png"
+      }
+    },
+    {
+      "name": "x-post",
+      "type": "block",
+      "title": "X Post Card",
+      "description": "Animated X/Twitter post card overlay with engagement metrics",
+      "tags": [
+        "social",
+        "overlay",
+        "twitter"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/x-post.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/x-post.png"
+      }
+    },
+    {
+      "name": "x-follow-card",
+      "type": "component",
+      "title": "X Follow Card",
+      "description": "A social follow card with avatar, handle, and follower motion.",
+      "tags": [
+        "social-overlay"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/x-follow-card.png"
+      }
+    },
+    {
+      "name": "reddit-post",
+      "type": "block",
+      "title": "Reddit Post Card",
+      "description": "Animated Reddit post card overlay with upvotes and comments",
+      "tags": [
+        "social",
+        "overlay",
+        "reddit"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/reddit-post.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/reddit-post.png"
+      }
+    },
+    {
+      "name": "spotify-card",
+      "type": "block",
+      "title": "Spotify Now Playing",
+      "description": "Animated Spotify now-playing card with album art and progress bar",
+      "tags": [
+        "social",
+        "overlay",
+        "spotify"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/spotify-card.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/spotify-card.png"
+      }
+    },
+    {
+      "name": "orbit-card",
+      "type": "block",
+      "title": "Orbit Card",
+      "description": "A single feature card orbits a dot sphere on approved Blender camera motion.",
+      "tags": [
+        "3d-motion",
+        "cards",
+        "feature-reveal",
+        "dots",
+        "orbit",
+        "blender-motion",
+        "sphere"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 10,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/orbit-card.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/orbit-card.png"
+      }
+    },
+    {
+      "name": "tilt-card",
+      "type": "component",
+      "title": "Tilt Card",
+      "description": "A transitions.dev-inspired tilt card primitive with depth layers and hover-style parallax",
+      "tags": [
+        "video-primitive",
+        "transition-primitive",
+        "transitions-dev-port",
+        "card",
+        "tilt"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/tilt-card.png"
+      }
+    },
+    {
+      "name": "card-resize",
+      "type": "component",
+      "title": "Card Resize",
+      "description": "A transitions.dev-inspired card resize primitive that expands a compact card into a detail panel",
+      "tags": [
+        "video-primitive",
+        "transition-primitive",
+        "transitions-dev-port",
+        "card",
+        "layout"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/card-resize.png"
+      }
+    },
+    {
+      "name": "three-orbiting-cards",
+      "type": "component",
+      "title": "Three Orbiting Cards",
+      "description": "A Three.js-powered orbit scene driven by a paused GSAP timeline for deterministic renders.",
+      "tags": [
+        "video-primitive",
+        "three-js",
+        "webgl",
+        "hyperframes-native"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/three-orbiting-cards.png"
+      }
+    },
+    {
+      "name": "lt-dark-card",
+      "type": "block",
+      "title": "Lower Third — Dark Card",
+      "description": "Charcoal card lower third for bright footage: name, drawn accent underline, role; slide-up entrance",
+      "tags": [
+        "lower-third",
+        "overlay",
+        "podcast",
+        "interview",
+        "dark"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 4.8
+    },
+    {
+      "name": "heygen-avatar-promo-card",
+      "type": "block",
+      "title": "HeyGen Avatar Promo Card",
+      "description": "A portrait HeyGen offer card pairs a moving avatar mosaic with bold promotional typography and a branded callout",
+      "tags": [
+        "showcase",
+        "avatar",
+        "promotion",
+        "vertical"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 10,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/heygen-avatar-promo-card.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/heygen-avatar-promo-card.png"
+      }
+    },
+    {
+      "name": "yt-comment-card",
+      "type": "block",
+      "title": "Comment Cards",
+      "description": "Social comments typing on over footage: avatar pop, username and time, per-character typewriter, likes row; image avatars or initials chips",
+      "tags": [
+        "social",
+        "comments",
+        "creator",
+        "overlay"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 8
+    },
+    {
+      "name": "testimonial-card",
+      "type": "component",
+      "title": "Testimonial Card",
+      "description": "Reveals a customer quote at reading pace, then settles its avatar, author name, and handle beneath as a clean proof beat.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "testimonial",
+        "social-proof",
+        "quote",
+        "prove"
+      ]
+    },
+    {
+      "name": "mk-progress-stat",
+      "type": "block",
+      "title": "Count-Up Stat Card",
+      "description": "Big-numeral statistic with count-up, label, thin progress track filling to value/max, and caption; light and dark schemes",
+      "tags": [
+        "data-viz",
+        "stat",
+        "minimal"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 7
+    },
+    {
+      "name": "mk-background",
+      "type": "block",
+      "title": "Minimal Gradient Background",
+      "description": "Procedural soft-blob gradient backdrop in a minimalist presentation style: two radial blobs drifting over a base color, with an animatable rounded-card bar mask and optional frosted-glass mode",
+      "tags": [
+        "background",
+        "gradient",
+        "minimal",
+        "professional",
+        "presentation"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 10
+    },
+    {
+      "name": "marker-checklist-card",
+      "type": "component",
+      "title": "Marker Checklist Card",
+      "description": "A hand-lettered paper card: marker headline with an underline and a drawn ellipse around one word, then three checklist rows whose checks draw themselves on - typewriter labels, marker values. The paper-and-marker sibling of mk-specs-list's clean professional rows",
+      "tags": [
+        "motion-primitive",
+        "handwritten",
+        "checklist",
+        "paper",
+        "marker"
+      ]
+    },
+    {
+      "name": "grid-card-assemble",
+      "type": "component",
+      "title": "Grid Card Assemble",
+      "description": "N capability cards (thin-line icon that draws on, mono label, optional muted body) stagger-assemble into a grid or vertical list with a fade plus short slide into slot, then hold perfectly still.",
+      "tags": [
+        "motion-primitive",
+        "layout",
+        "grid",
+        "list",
+        "stagger",
+        "assemble",
+        "feature-tour"
+      ]
+    },
+    {
+      "name": "testimonial-proof-card",
+      "type": "component",
+      "title": "Testimonial Proof Card",
+      "description": "A quote card whose testimonial reveals per-line through a soft mask, with an avatar disc (initials default, image slot), mono name and role, an optional company text mark, and one emphasis substring underlined in accent ink after the quote lands.",
+      "tags": [
+        "motion-primitive",
+        "proof",
+        "testimonial",
+        "quote",
+        "social-proof",
+        "deterministic"
+      ]
+    },
+    {
+      "name": "chatgpt-exchange",
+      "type": "block",
+      "title": "ChatGPT Exchange",
+      "description": "A portrait ChatGPT-style exchange types and sends a prompt, streams an answer, assembles a comparison table, and scrolls back through the result",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "ai",
+        "chat",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 14.9,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/chatgpt-exchange/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/chatgpt-exchange/poster.jpg"
+      }
+    },
+    {
+      "name": "social-proof-card",
+      "type": "component",
+      "title": "Social Proof Card",
+      "description": "The app-store close as one mountable scene: wordmark, five stars, a proof line, three feature icons and a CTA capsule build in a quiet stagger and hold - measured from reference ad footage. For an animated star sweep use star-rating-fill; for a quote card use testimonial-proof-card; for a bare lockup use cta-lockup",
+      "tags": [
+        "motion-primitive",
+        "social-proof",
+        "end-card",
+        "cta",
+        "vertical"
+      ]
+    },
+    {
+      "name": "split-tilt-cards",
+      "type": "component",
+      "title": "Split Tilt Cards",
+      "description": "Two equal-weight cards arrive from opposite wings with mirrored rotateY book-open tilts under one shared perspective, pill badges spring-pop at each inner edge, and the pair holds with a barely-there phase-opposed idle float. Card bodies are content slots with token skeleton defaults.",
+      "tags": [
+        "motion-primitive",
+        "layout",
+        "compare",
+        "holdable",
+        "book-open",
+        "tilt",
+        "slots"
+      ]
+    },
+    {
+      "name": "obsidian",
+      "type": "block",
+      "title": "Obsidian",
+      "description": "A dark glass orb catches pink and cyan iridescent light on black. A WebGPU shader from the Shaders library (shaders.com, MIT).",
+      "tags": [
+        "webgpu",
+        "webgpu-shader",
+        "object",
+        "glass",
+        "iridescent",
+        "dark"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 2,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/obsidian.mp4"
+      }
+    },
+    {
+      "name": "before-after-wipe",
+      "type": "component",
+      "title": "Before After Wipe",
+      "description": "Two full-bleed content slots compare before and after states as a persistent divider wipes the after layer over the before layer and rests at a configurable split. Callers fill the named before/after slot panels; token-styled defaults render when a slot is left empty.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "compare",
+        "comparison",
+        "split-screen",
+        "holdable",
+        "before-after",
+        "wipe",
+        "slots"
+      ]
+    },
+    {
+      "name": "vfx-iphone-device",
+      "type": "block",
+      "title": "iPhone & MacBook 3D Showcase",
+      "description": "Real GLTF iPhone 15 Pro Max and MacBook Pro models with live HTML-in-Canvas screen content, morphing glass lens, product review camera choreography, and 360° turntable.",
+      "tags": [
+        "html-in-canvas",
+        "3d",
+        "device",
+        "iphone",
+        "macbook",
+        "gltf"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 15,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/vfx-iphone-device.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/vfx-iphone-device.png"
+      }
+    },
+    {
+      "name": "touch-indicator",
+      "type": "component",
+      "title": "Touch Indicator",
+      "description": "A translucent contact-circle gesture actor for mobile UI scenes: it touches the glass on the frame the host target responds, then lifts. Tap or swipe, picked by variable.",
+      "tags": [
+        "cursor",
+        "motion-primitive",
+        "mobile",
+        "gesture",
+        "touch",
+        "pointer"
+      ]
+    },
+    {
+      "name": "cosmic-orb",
+      "type": "block",
+      "title": "Cosmic Orb",
+      "description": "An iridescent soap-bubble planet: a slowly spinning sphere of nebula bands, dust lanes and twinkling stars wrapped in a refracting glass limb with chromatic aberration at the edge.",
+      "tags": [
+        "webgl",
+        "shader",
+        "background",
+        "showcase",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 10
+    },
+    {
+      "name": "zoom-through-transition",
+      "type": "component",
+      "title": "Zoom Through Transition",
+      "description": "A transition that zooms through a focal card into the next scene.",
+      "tags": [
+        "transition-primitive"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/zoom-through-transition.png"
+      }
+    },
+    {
+      "name": "tiktok-follow",
+      "type": "block",
+      "title": "TikTok Follow",
+      "description": "Animated TikTok follow overlay with profile card and follow button",
+      "tags": [
+        "social",
+        "overlay",
+        "tiktok"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 4.5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.png"
+      }
+    },
+    {
+      "name": "instagram-follow",
+      "type": "block",
+      "title": "Instagram Follow",
+      "description": "Animated Instagram follow overlay with profile card and follow button",
+      "tags": [
+        "social",
+        "overlay",
+        "instagram"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 4.5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/instagram-follow.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/instagram-follow.png"
+      }
+    },
+    {
+      "name": "animated-bar-chart",
+      "type": "component",
+      "title": "Animated Bar Chart",
+      "description": "A compact data card with deterministic bar growth and value callouts.",
+      "tags": [
+        "data"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/animated-bar-chart.png"
+      }
+    },
+    {
+      "name": "onboarding-stepper-flow",
+      "type": "component",
+      "title": "Onboarding Stepper Flow",
+      "description": "A composed onboarding flow with milestone rail, active step card, and next-action button",
+      "tags": [
+        "ui-flow",
+        "onboarding",
+        "stepper"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/onboarding-stepper-flow.png"
+      }
+    },
+    {
+      "name": "blue-sweater-intro-video",
+      "type": "block",
+      "title": "Blue Sweater Intro Video",
+      "description": "Warm AI creator intro sequence that resolves into an X follow card for @_blue_sweater_.",
+      "tags": [
+        "showcase",
+        "ai",
+        "creator",
+        "sfx"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 12,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/blue-sweater-intro-video.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/blue-sweater-intro-video.png"
+      }
+    },
+    {
+      "name": "camera-rig-depth-stack",
+      "type": "component",
+      "title": "Camera Rig Depth Stack",
+      "description": "A 3D camera-rig-style card stack with depth, parallax, and focus shift.",
+      "tags": [
+        "advanced-motion",
+        "hyperframes-native"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/camera-rig-depth-stack.png"
+      }
+    },
+    {
+      "name": "cuboid-carousel",
+      "type": "block",
+      "title": "Cuboid Carousel",
+      "description": "A chain of bevelled cuboids rides a travelling wave as a content carousel.",
+      "tags": [
+        "3d-motion",
+        "carousel",
+        "cards",
+        "travelling-wave",
+        "pbr",
+        "shadows",
+        "room-environment"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6.67,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/cuboid-carousel.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/cuboid-carousel.png"
+      }
+    },
+    {
+      "name": "canopy-part-title",
+      "type": "block",
+      "title": "Canopy Part Title",
+      "description": "Leaves sweep through the frame and part to reveal the headline.",
+      "tags": [
+        "3d-motion",
+        "title-card",
+        "leaves",
+        "organic",
+        "depth-of-field",
+        "two-headlines",
+        "sweep"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 12,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/canopy-part-title.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/canopy-part-title.png"
+      }
+    },
+    {
+      "name": "pull-back-reveal",
+      "type": "component",
+      "title": "Pull Back Reveal",
+      "description": "A tight stat detail holds, then one decelerating camera pull-back reveals the headline and supporting cards that recontextualize it.",
+      "tags": [
+        "motion-primitive",
+        "camera",
+        "pull-back",
+        "reveal",
+        "recontextualize"
+      ]
+    },
+    {
+      "name": "parallax-zoom",
+      "type": "component",
+      "title": "Parallax Zoom",
+      "description": "Center card scales up to fill the frame while siblings parallax outward — inspired by the eBay Playbook hero transition",
+      "tags": [
+        "transition",
+        "zoom",
+        "parallax",
+        "grid",
+        "hero"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/parallax-zoom.png"
+      }
+    },
+    {
+      "name": "keyframe-scrub-stack",
+      "type": "component",
+      "title": "Keyframe Scrub Stack",
+      "description": "A keyframe-sequenced stack of cards with offset timing and easing presets.",
+      "tags": [
+        "advanced-motion",
+        "anime-inspired",
+        "hyperframes-native"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/keyframe-scrub-stack.png"
+      }
+    },
+    {
+      "name": "carousel-orbit-5",
+      "type": "block",
+      "title": "Orbit Carousel 5",
+      "description": "Image cards on a spinning 3D Fibonacci sphere, billboarded to the camera, sized by camera distance (Orbit style 5); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "orbit",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-orbit-4",
+      "type": "block",
+      "title": "Orbit Carousel 4",
+      "description": "Image cards on a spinning 3D Fibonacci sphere, billboarded to the camera, sized by camera distance (Orbit style 4); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "orbit",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-orbit-3",
+      "type": "block",
+      "title": "Orbit Carousel 3",
+      "description": "Image cards on a spinning 3D Fibonacci sphere, billboarded to the camera, sized by camera distance (Orbit style 3); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "orbit",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-orbit-2",
+      "type": "block",
+      "title": "Orbit Carousel 2",
+      "description": "Image cards on a spinning 3D Fibonacci sphere, billboarded to the camera, sized by camera distance (Orbit style 2); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "orbit",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-orbit-1",
+      "type": "block",
+      "title": "Orbit Carousel 1",
+      "description": "Image cards on a spinning 3D Fibonacci sphere, billboarded to the camera, sized by camera distance (Orbit style 1); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "orbit",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "wireframe-portal-title",
+      "type": "block",
+      "title": "Wireframe Portal Title",
+      "description": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase.",
+      "tags": [
+        "3d-motion",
+        "title-card",
+        "wireframe",
+        "portal",
+        "burst",
+        "typography",
+        "post-processing",
+        "phrase-swap"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 8,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/wireframe-portal-title.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/wireframe-portal-title.png"
+      }
+    },
+    {
+      "name": "parallax-unzoom",
+      "type": "component",
+      "title": "Parallax Unzoom",
+      "description": "Reveal transition — focus card scales down from full frame as siblings parallax in to form a grid (reverse of parallax-zoom)",
+      "tags": [
+        "transition",
+        "reveal",
+        "unzoom",
+        "parallax",
+        "grid",
+        "hero"
+      ],
+      "preview": {
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/parallax-unzoom.png"
+      }
+    },
+    {
+      "name": "focus-swap",
+      "type": "component",
+      "title": "Focus Swap",
+      "description": "Moves attention between two side-by-side cards as one recedes with scale, blur, and dimming while the other advances to full focus.",
+      "tags": [
+        "effect",
+        "ui-props",
+        "focus",
+        "blur",
+        "attention",
+        "demonstrate"
+      ]
+    },
+    {
+      "name": "carousel-vision-5",
+      "type": "block",
+      "title": "Vision Carousel 5",
+      "description": "A ring of large image cards tilted into a row under a 3D camera, each card turning toward the centre (Vision style 5); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "vision",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-vision-4",
+      "type": "block",
+      "title": "Vision Carousel 4",
+      "description": "A ring of large image cards tilted into a row under a 3D camera, each card turning toward the centre (Vision style 4); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "vision",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-vision-3",
+      "type": "block",
+      "title": "Vision Carousel 3",
+      "description": "A ring of large image cards tilted into a row under a 3D camera, each card turning toward the centre (Vision style 3); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "vision",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-vision-2",
+      "type": "block",
+      "title": "Vision Carousel 2",
+      "description": "A ring of large image cards tilted into a row under a 3D camera, each card turning toward the centre (Vision style 2); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "vision",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-vision-1",
+      "type": "block",
+      "title": "Vision Carousel 1",
+      "description": "A ring of large image cards tilted into a row under a 3D camera, each card turning toward the centre (Vision style 1); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "vision",
+        "3d"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "lt-clean-bar",
+      "type": "block",
+      "title": "Lower Third — Clean Bar",
+      "description": "Minimal white-card lower third for podcasts/interviews: accent tab, name + role, clip-wipe entrance",
+      "tags": [
+        "lower-third",
+        "overlay",
+        "podcast",
+        "interview"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 4.8
+    },
+    {
+      "name": "hw-title",
+      "type": "block",
+      "title": "Handwritten Title",
+      "description": "Handwritten display text with a scalar-driven word-by-word highlight sweep and a seeded squiggle underline sized to the text; boils",
+      "tags": [
+        "handwritten",
+        "typography",
+        "title-card",
+        "overlay"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "gloss-sweep",
+      "type": "component",
+      "title": "Gloss Sweep",
+      "description": "A card lands with a restrained slam, catches one diagonal specular gloss, and holds perfectly still.",
+      "tags": [
+        "motion-primitive",
+        "celebration",
+        "gloss",
+        "card",
+        "badge",
+        "payoff"
+      ]
+    },
+    {
+      "name": "carousel-circle-5",
+      "type": "block",
+      "title": "Circle Carousel 5",
+      "description": "Image cards ride a circle with a size gradient by depth angle, sweeping in fast-slow-fast swings (Circle style 5); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-circle-4",
+      "type": "block",
+      "title": "Circle Carousel 4",
+      "description": "Image cards ride a circle with a size gradient by depth angle, sweeping in fast-slow-fast swings (Circle style 4); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-circle-3",
+      "type": "block",
+      "title": "Circle Carousel 3",
+      "description": "Image cards ride a circle with a size gradient by depth angle, sweeping in fast-slow-fast swings (Circle style 3); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-circle-2",
+      "type": "block",
+      "title": "Circle Carousel 2",
+      "description": "Image cards ride a circle with a size gradient by depth angle, sweeping in fast-slow-fast swings (Circle style 2); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-circle-1",
+      "type": "block",
+      "title": "Circle Carousel 1",
+      "description": "Image cards ride a circle with a size gradient by depth angle, sweeping in fast-slow-fast swings (Circle style 1); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "scroll-feed",
+      "type": "component",
+      "title": "Scroll Feed",
+      "description": "A loop-friendly column of varied skeleton post cards scrolls upward with subtle motion trails and an agitated pace.",
+      "tags": [
+        "motion-primitive",
+        "effects",
+        "scroll",
+        "feed",
+        "loop",
+        "agitation"
+      ]
+    },
+    {
+      "name": "swipe-rail",
+      "type": "component",
+      "title": "Swipe Rail",
+      "description": "A contact circle leads a horizontal card rail through a fast drag, momentum carry, and settled snap to the next card.",
+      "tags": [
+        "motion-primitive",
+        "interaction",
+        "gesture",
+        "swipe",
+        "cards",
+        "rail"
+      ]
+    },
+    {
+      "name": "physical-exit",
+      "type": "component",
+      "title": "Physical Exit",
+      "description": "A card exits with physical momentum in toss, drop, or slide mode, carrying acceleration and rotation through the final offscreen pose without fading.",
+      "tags": [
+        "motion-primitive",
+        "exit",
+        "momentum",
+        "toss",
+        "drop",
+        "slide"
+      ]
+    },
+    {
+      "name": "notification-pileup",
+      "type": "component",
+      "title": "Notification Pileup",
+      "description": "Mobile notification cards arrive faster and faster, each new alert pushing the existing stack downward into a dense, anxious tower.",
+      "tags": [
+        "notification",
+        "mobile",
+        "ui-props",
+        "overload",
+        "pileup",
+        "loop",
+        "agitate"
+      ]
+    },
+    {
+      "name": "focus-rack",
+      "type": "component",
+      "title": "Focus Rack",
+      "description": "Focus shifts once between two cards at different apparent depths through synchronized blur, dimming, scale, and parallax.",
+      "tags": [
+        "motion-primitive",
+        "camera",
+        "focus",
+        "focus-rack",
+        "depth",
+        "parallax",
+        "emphasize"
+      ]
+    },
+    {
+      "name": "carousel-path-5",
+      "type": "block",
+      "title": "Path Carousel 5",
+      "description": "Image cards ride an open bezier path (arc, V, diagonal, wave, S-curve) with depth scaling and tangent rotation (Path style 5); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "path"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-path-4",
+      "type": "block",
+      "title": "Path Carousel 4",
+      "description": "Image cards ride an open bezier path (arc, V, diagonal, wave, S-curve) with depth scaling and tangent rotation (Path style 4); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "path"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-path-3",
+      "type": "block",
+      "title": "Path Carousel 3",
+      "description": "Image cards ride an open bezier path (arc, V, diagonal, wave, S-curve) with depth scaling and tangent rotation (Path style 3); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "path"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-path-2",
+      "type": "block",
+      "title": "Path Carousel 2",
+      "description": "Image cards ride an open bezier path (arc, V, diagonal, wave, S-curve) with depth scaling and tangent rotation (Path style 2); 12 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "path"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "carousel-path-1",
+      "type": "block",
+      "title": "Path Carousel 1",
+      "description": "Image cards ride an open bezier path (arc, V, diagonal, wave, S-curve) with depth scaling and tangent rotation (Path style 1); 24 image slots.",
+      "tags": [
+        "carousel",
+        "gallery",
+        "images",
+        "showcase",
+        "path"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "titlecard-calm",
+      "type": "component",
+      "title": "Titlecard Calm",
+      "description": "A restrained title card where a mono kicker and generous grotesque headline fade upward, drift almost imperceptibly, and exit cleanly.",
+      "tags": [
+        "motion-primitive",
+        "typography",
+        "title-card",
+        "calm",
+        "orient"
+      ]
+    },
+    {
+      "name": "stagger-cascade",
+      "type": "component",
+      "title": "Stagger Cascade",
+      "description": "A responsive grid of tile cards that fades and travels into place with an evenly spaced per-item GSAP stagger. The ordered cascade is the only visual mechanic.",
+      "tags": [
+        "effects",
+        "grid",
+        "stagger",
+        "entrance",
+        "exhibit"
+      ]
+    },
+    {
+      "name": "cta-lockup",
+      "type": "component",
+      "title": "CTA Lockup",
+      "description": "A canonical closing lockup that reveals an action line, pops in an accent CTA capsule, settles supporting microcopy, and holds with confidence.",
+      "tags": [
+        "motion-primitive",
+        "ui-props",
+        "cta",
+        "end-card",
+        "lockup",
+        "ask"
+      ]
+    },
+    {
+      "name": "yt-prism-title",
+      "type": "block",
+      "title": "Chromatic Fringe Title",
+      "description": "Display title on a transparent root: blur-focus entrance, red/blue fringe that settles then breathes, perspective bow, slow scale drift",
+      "tags": [
+        "typography",
+        "title-card",
+        "creator"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "yt-camera-move",
+      "type": "component",
+      "title": "Camera Punch-In",
+      "description": "Dynamic zoom, slide, and 3D tilt-pan helpers for any wrapper (video, include, card) with cubic-easing defaults and an edge-defocus pulse overlay",
+      "tags": [
+        "camera",
+        "zoom",
+        "effect",
+        "creator"
+      ]
+    },
+    {
+      "name": "store-badge-lockup",
+      "type": "component",
+      "title": "Store Badge Lockup",
+      "description": "Settles a short headline above equal-size App Store and Google Play badges as a token-driven mobile end-card call to action.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "mobile",
+        "store-badges",
+        "cta",
+        "ask"
+      ]
+    },
+    {
+      "name": "notification-stack",
+      "type": "component",
+      "title": "Notification Stack",
+      "description": "1 to 5 token notification cards slide-settle into a vertical stack on cues, newest on top; one card grows slightly and brightens as the focus while the rest dim by position.",
+      "tags": [
+        "motion-primitive",
+        "product-demo",
+        "notification",
+        "stack",
+        "stagger"
+      ]
+    },
+    {
+      "name": "notification-cascade",
+      "type": "block",
+      "title": "Notification Cascade",
+      "description": "Phone notifications land one after another and stack up the screen, each banner pushing the pile down as it arrives, before the whole stack lifts away into a closing card",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "notification",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 14,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/notification-cascade/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/notification-cascade/poster.jpg"
+      }
+    },
+    {
+      "name": "lottie-character-walk",
+      "type": "block",
+      "title": "Lottie Character Walk",
+      "description": "A jointed flat character walks in on planted feet, stops and points at a card; the body acting is a Lottie file and the stage is GSAP.",
+      "tags": [
+        "character",
+        "character-animation",
+        "mascot",
+        "walk-cycle",
+        "gesture",
+        "pointing",
+        "puppet",
+        "lottie",
+        "explainer"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 7.5
+    },
+    {
+      "name": "extruded-logo",
+      "type": "block",
+      "title": "Extruded Logo",
+      "description": "Beveled 3D letters flip up one by one, the word swings so light runs across the bevels, then settles for a readable hold. Chrome, gold or matte.",
+      "tags": [
+        "3d-object",
+        "three-js",
+        "webgl",
+        "logo",
+        "text",
+        "extruded",
+        "title-card"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "drift-hold",
+      "type": "component",
+      "title": "Drift Hold",
+      "description": "A centered content card stays subtly alive through loop-exact rotation, scale breathing, and a slow light sweep.",
+      "tags": [
+        "motion-primitive",
+        "camera",
+        "ambient",
+        "drift",
+        "hold",
+        "loopable"
+      ]
+    },
+    {
+      "name": "cursor-drag-drop",
+      "type": "component",
+      "title": "Drag and Drop Cursor",
+      "description": "A cursor grabs a task card, lifts and tilts it into its motion, carries it in lockstep to an empty column, drops it with a small settle, and the list closes the gap behind it.",
+      "tags": [
+        "cursor",
+        "motion-primitive",
+        "drag",
+        "drop",
+        "kanban",
+        "product-demo"
+      ]
+    },
+    {
+      "name": "share-sheet-carousel",
+      "type": "block",
+      "title": "Share-Sheet Carousel",
+      "description": "A share sheet springs up from the bottom of the phone and cycles previews inside its card on a fast cut rhythm while the blurred ground swaps behind it, ending on an accept tap",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "share-sheet",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 7.2333,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/share-sheet-carousel/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/share-sheet-carousel/poster.jpg"
+      }
+    },
+    {
+      "name": "carousel-text-circle-5",
+      "type": "block",
+      "title": "Text + Circle Carousel 5",
+      "description": "A headline mask-reveals word by word while a circle carousel converges from off-frame and threads the line, collapses to centre, hard-cuts to a second line that arrives at 1.4× (Circle style 5).",
+      "tags": [
+        "carousel",
+        "title-card",
+        "kinetic-text",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "carousel-text-circle-4",
+      "type": "block",
+      "title": "Text + Circle Carousel 4",
+      "description": "A headline mask-reveals word by word while a circle carousel converges from off-frame and threads the line, collapses to centre, hard-cuts to a second line that arrives at 1.4× (Circle style 4).",
+      "tags": [
+        "carousel",
+        "title-card",
+        "kinetic-text",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "carousel-text-circle-3",
+      "type": "block",
+      "title": "Text + Circle Carousel 3",
+      "description": "A headline mask-reveals word by word while a circle carousel converges from off-frame and threads the line, collapses to centre, hard-cuts to a second line that arrives at 1.4× (Circle style 3).",
+      "tags": [
+        "carousel",
+        "title-card",
+        "kinetic-text",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "carousel-text-circle-2",
+      "type": "block",
+      "title": "Text + Circle Carousel 2",
+      "description": "A headline mask-reveals word by word while a circle carousel converges from off-frame and threads the line, collapses to centre, hard-cuts to a second line that arrives at 1.4× (Circle style 2).",
+      "tags": [
+        "carousel",
+        "title-card",
+        "kinetic-text",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "carousel-text-circle-1",
+      "type": "block",
+      "title": "Text + Circle Carousel 1",
+      "description": "A headline mask-reveals word by word while a circle carousel converges from off-frame and threads the line, collapses to centre, hard-cuts to a second line that arrives at 1.4× (Circle style 1).",
+      "tags": [
+        "carousel",
+        "title-card",
+        "kinetic-text",
+        "images",
+        "showcase",
+        "circle"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5
+    },
+    {
+      "name": "cta-close",
+      "type": "component",
+      "title": "CTA Close",
+      "description": "A display-scale action line lands per word and fills the frame with air, one generous CTA capsule pops beneath it with a single overshoot, and the finished close holds completely still.",
+      "tags": [
+        "motion-primitive",
+        "ui-props",
+        "cta",
+        "end-card",
+        "close",
+        "ask"
+      ]
+    },
+    {
+      "name": "spring-stack-shuffle",
+      "type": "component",
+      "title": "Spring Stack Shuffle",
+      "description": "A stack of 3 to 5 slotted cards reshuffles on cues: the back card throws over the top and lands at the front with real mass, the rest compress and resettle; cues that land mid-flight redirect the moving cards with velocity preserved.",
+      "tags": [
+        "motion-primitive",
+        "product-demo",
+        "physics",
+        "stack",
+        "interruptible-spring"
+      ]
+    },
+    {
+      "name": "titlecard-lockup",
+      "type": "component",
+      "title": "Titlecard Lockup",
+      "description": "The calm breather titlecard: an optional mono kicker fades up, the wordmark settles dead-center with one restrained move, a hairline rule draws left to right, a mono label fades beneath, and the lockup holds truly still.",
+      "tags": [
+        "motion-primitive",
+        "typography",
+        "title-card",
+        "lockup",
+        "breather",
+        "orient"
+      ]
+    },
+    {
+      "name": "notes-reveal",
+      "type": "block",
+      "title": "Notes Reveal",
+      "description": "A personal note is typed character by character in a notes app - caret riding every letter, the page scrolling up on measured settle curves as each line lands - then cuts to a hand-lettered paper card with a marker headline and a ticked checklist",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "notes",
+        "typing",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 24.85,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/notes-reveal/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/notes-reveal/poster.jpg"
+      }
+    },
+    {
+      "name": "ai-chat-reveal",
+      "type": "block",
+      "title": "AI Chat Reveal",
+      "description": "A question is typed on a rising keyboard, sent, and answered by an AI that streams its reply word by word on a measured token rhythm - thinking dot, uneven bursts, bulleted list - before the app cuts to a branded closing card",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "ai",
+        "chat",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 19.3333,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/ai-chat-reveal/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/ai-chat-reveal/poster.jpg"
+      }
+    },
+    {
+      "name": "ai-answer-rank",
+      "type": "block",
+      "title": "AI Answer Rank",
+      "description": "Is your brand in the AI answer? A question types into a chat card, the assistant answers with a ranked list of three picks, then re-ranks: the promoted brand slides into its slot, the picks below step down, and the brand row lands with the one accent highlight and a check. For answer-engine and AI-visibility marketing",
+      "tags": [
+        "mock-ui",
+        "ai",
+        "chat",
+        "ranking",
+        "list",
+        "marketing",
+        "ad-template",
+        "square"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "duration": 9
+    },
+    {
+      "name": "morph-swap",
+      "type": "component",
+      "title": "Morph Swap",
+      "description": "Two slotted siblings stacked at one shared center: A holds, then condenses or reshapes into B on a shared 50% 50% transform origin. Condense shrink-fades A exactly as B scales up; reshape morphs the silhouette on scaleX/scaleY, never width or height tweens. Token card defaults render when a slot is left empty.",
+      "tags": [
+        "transition",
+        "morph",
+        "swap",
+        "condense",
+        "reshape",
+        "holdable",
+        "slots"
+      ]
+    },
+    {
+      "name": "message-thread-reveal",
+      "type": "block",
+      "title": "Message Thread Reveal",
+      "description": "A full text conversation plays out on a phone - bubbles popping in, typing indicators, a shared link card, emoji, delivered receipts - with the whole thread scrolling up beat by beat until a closing card lands. The complete chat ad-template, measured message by message",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "chat",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 25.7667,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/message-thread-reveal/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/message-thread-reveal/poster.jpg"
+      }
+    },
+    {
+      "name": "logo-brand-close",
+      "type": "component",
+      "title": "Logo Brand Close",
+      "description": "A display-scale wordmark cascades letter by letter into a centered lockup, the accent brand period lands last, an optional tagline and wide-tracked mono URL settle beneath, and the finished identity holds dead still to the end of the film.",
+      "tags": [
+        "motion-primitive",
+        "typography",
+        "brand",
+        "logo",
+        "end-card",
+        "close"
+      ]
+    },
+    {
+      "name": "hw-write-title",
+      "type": "block",
+      "title": "Handwritten Write-On Title",
+      "description": "True glyph write-on: filled Caveat letterforms revealed by baked per-glyph centerline strokes traced in real stroke order with a curvature-adaptive pen-velocity ease (fast on straights, slow into curves, inter-stroke pen lifts); optional squiggle underline; boils",
+      "tags": [
+        "handwritten",
+        "typography",
+        "title-card",
+        "write-on",
+        "overlay"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 6
+    },
+    {
+      "name": "chat-message",
+      "type": "component",
+      "title": "Chat Message",
+      "description": "One message arrives on the measured entry - scale 0.75, 0.12s, growing from its sender's corner. The type is an enum switched like marker-highlight's style: a received or sent bubble with a real tail, a large emoji row, an image, or a link card with title and domain. The atom that chat-thread builds conversations from",
+      "tags": [
+        "video-primitive",
+        "chat",
+        "mock-ui",
+        "message"
+      ]
+    },
+    {
+      "name": "modal-morph",
+      "type": "component",
+      "title": "Modal Morph",
+      "description": "A small card expands into a full panel, shared-element style: both layouts measured once at mount, the container morphs by transform only (never width/height tweens) while keyed children counter-scale and re-flow onto their own measured targets as pure functions of time.",
+      "tags": [
+        "motion-primitive",
+        "structure",
+        "flip",
+        "shared-element",
+        "modal",
+        "deterministic",
+        "experiment"
+      ]
+    },
+    {
+      "name": "light-sweep-pass",
+      "type": "component",
+      "title": "Light Sweep Pass",
+      "description": "A traveling key light re-shades a slotted scene: a soft diagonal gradient band crosses the frame once while every per-element highlight and shadow shifts in lockstep (all driven by one --light-x property), then the light settles into a resting key. Quiet, expensive-feeling; the scene itself never moves. Callers fill the named scene slot; a token hero-and-cards default renders when it is left empty.",
+      "tags": [
+        "motion-primitive",
+        "overlay",
+        "light",
+        "sweep",
+        "slots",
+        "deterministic"
+      ]
+    },
+    {
+      "name": "chat-thread",
+      "type": "component",
+      "title": "Chat Thread",
+      "description": "The measured conversation as one mountable scene at full fidelity: status bar, back badge, avatar and name pill, bubbles with real iMessage tails, a Delivered receipt, large emoji rows, a media placeholder, a link card, and typing dots holding the beat. Every message picks its type by prefix - recv:/sent: text, emoji: a large row, img media, card:Title~domain a link card - and heights are measured at mount so any thread fits",
+      "tags": [
+        "motion-primitive",
+        "chat",
+        "mock-ui",
+        "conversation",
+        "vertical"
+      ]
+    }
+  ]
+}
